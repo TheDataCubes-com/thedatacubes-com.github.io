@@ -3,6 +3,11 @@
   <main class="pageLayout">
     <NuxtPage />
   </main>
+  <DynamicButton
+    :isLink="true"
+    text="Set up a Free Consultation"
+    class="consultButton"
+  />
   <Background />
 </template>
 
@@ -19,5 +24,11 @@
     flex-grow: 10;
     display: flex;
     flex-direction: column;
+}
+.consultButton {
+    position: absolute;
+    bottom: 20%;
+    right: 80px;
+    z-index: 10;
 }
 </style>

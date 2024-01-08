@@ -1,9 +1,7 @@
 <template>
   <header @mouseleave="handleHeaderLeave" class="header">
     <div class="header__inner">
-      <NuxtLink to="/">
-        <img src="/datacubes-logo.svg" alt="dataCubes-logo" class="header__logo"/>
-      </NuxtLink>
+      <Logo @mouseover="handleHeaderLeave" class="header__logo"/>
       <ul class="header__nav">
         <li
           v-for="{name, children} in links"
@@ -11,9 +9,11 @@
           class="header__item header__link"
         >{{name}}</li>
       </ul>
-      <div class="header__nav">
-        <NuxtLink to="/" class="header__item header__link">Login</NuxtLink>
-      </div>
+      <NuxtLink
+        to="/login"
+        @mouseover="handleHeaderLeave"
+        class="header__item header__link"
+      >Login</NuxtLink>
     </div>
     <div :class="[
       'header__dropDown',
@@ -33,6 +33,7 @@
         </ul>
       </nav>
     </div>
+    <div class="header__backgroundBlend"/>
   </header>
 </template>
 
@@ -60,14 +61,29 @@ const handleHeaderLeave = () => {
     padding: 20px 0;
     z-index: 11;
     position: relative;
-    box-shadow: rgba(97, 0, 155, 0.35) 0px -60px 100px -28px inset;
     transition: background-color 0.3s ease;
+}
+.header__backgroundBlend {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    opacity: 0.05;
+    z-index: -1;
 }
 .header:hover {
     background-color: white;
 }
 .header:hover .header__item {
     color: black;
+}
+.header:hover .logo__path2 {
+    fill: black;
+}
+.header:hover stop {
+    stop-color: black;
 }
 .header__inner {
     display: flex;
@@ -81,6 +97,15 @@ const handleHeaderLeave = () => {
     max-width: 155px;
     width: 100%;
 }
+.header__log:hover .header__item {
+    color: var(--mainPurple);
+}
+.header__logo:hover .logo__path2 {
+    fill: var(--mainPurple);
+}
+.header__logo:hover stop {
+    stop-color: var(--mainPurple);
+}
 .header__nav {
     display: flex;
     gap: 12px
@@ -91,16 +116,29 @@ const handleHeaderLeave = () => {
     display: inline-block;
 }
 .header__item {
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
     cursor: pointer;
+    position: relative;
 }
 .header__item:hover {
-    color: var(--main1) !important;
-    text-shadow: 0px 0px 1px #9005e5;
+    color: var(--mainPurple) !important;
+}
+.header__item:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--mainPurple), transparent);
+    transition: width 0.3s ease;
+}
+.header__item:hover:before {
+    width: 100%;
 }
 .header__dropDown {
     position: absolute;
-    bottom: 0;
+    bottom: 1px;
     left: 0;
     width: 100%;
     max-height: 0px;
@@ -108,7 +146,6 @@ const handleHeaderLeave = () => {
     transform: translateY(100%);
     overflow: hidden;
     background-color: white;
-    box-shadow: rgba(97, 0, 155, 0.35) 0px 100px 100px -28px inset;
     transition: max-height 0.3s ease;
 }
 .dropDown--active {

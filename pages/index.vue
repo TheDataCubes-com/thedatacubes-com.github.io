@@ -1,13 +1,18 @@
 <template>
   <div class="main">
-    <h1 v-html="currentSlide.title" class="main__title"/>
-    <h2 v-html="currentSlide.subTitle" class="main__subTitle" />
-    <p v-html="currentSlide.text" class="main__text" />
-    <DynamicButton
-      :isLink="true"
-      :text="pageData.buttonText"
-      class="main__button"
-    />
+    <h1>
+      <img
+        :src="currentSlide.title.image"
+        :alt="currentSlide.title.text"
+        class="main__title">
+    </h1>
+    <h2>
+      <img
+      :src="currentSlide.subTitle.image"
+      :alt="currentSlide.subTitle.text"
+      class="main__subTitle">
+    </h2>
+    <p v-html="currentSlide.description" class="main__text" />
   </div>
 </template>
 
@@ -15,7 +20,7 @@
 import pageData from "data/main";
 
 const slides = ref(pageData?.slides || []);
-const slideIndex = ref(0);
+const slideIndex = ref(1);
 
 const currentSlide = computed(() => slides.value[slideIndex.value]);
 </script>
@@ -25,28 +30,20 @@ const currentSlide = computed(() => slides.value[slideIndex.value]);
 .main {
     width: 100%;
     height: 700px;
-    padding: 120px 0;
+    padding: 86px 60px;
     position: relative;
 }
 .main__title {
-    font-size: 160px;
+    width: 60vw;
     transform: translateX(100px);
-    line-height: 0.5;
-    opacity: 0.3;
 }
 .main__subTitle {
-    font-size: 92px;
-    width: fit-content;
+    width: 34vw;
 }
 .main__text {
     width: fit-content;
     font-size: 28px;
     font-weight: 300;
-    margin: 120px 0;
-}
-.main__button {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+    margin: 80px 0;
 }
 </style>
