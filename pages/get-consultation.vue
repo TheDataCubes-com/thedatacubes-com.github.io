@@ -65,20 +65,20 @@ const handleLogin = (form) => {
 }
 .consult__form {
     place-self: center;
-    max-width: 860px;
+    max-width: 70%;
 }
 .consult__form input {
-    border: 1px solid;
     font-size: 24px;
 }
 .consult__form > .form__fieldset {
     display: grid;
     row-gap: 12px;
     column-gap: 20px;
+    grid-template-columns: 2fr 3fr;
     grid-template-areas:
        "input text"
        "input text"
-       "input text"
+       "input text";
 }
 consult__form > .form__fieldset > label {
     grid-area: input;

@@ -1,30 +1,30 @@
 <template>
-<form @submit="handleSubmit" class="form__form">
-  <p v-if="props.error" class="form__errors">{{props.error}}</p>
-  <fieldset class="form__fieldset">
-    <label
-      v-for="{id, text, required, inputType, type } in props.fields"
-      :key="id"
-      class="form__label"
-    >
-      <span :class="['form__labelText', {'input--required': required}]">{{text}}</span>
-      <component
-        :is="inputType"
-        :id="id"
-        :placeholder="text"
-        :type="type"
-        :required="required"
-        class="form__input"
-      />
-    </label>
-  </fieldset>
-  <DynamicButton
-    id="button"
-    type="submit"
-    :text="props.submitText"
-    class="form__button"
-  />
-</form>
+  <form @submit="handleSubmit" class="form__form">
+    <p v-if="props.error" class="form__errors">{{props.error}}</p>
+    <fieldset class="form__fieldset">
+      <label
+        v-for="{id, text, required, inputType, type } in props.fields"
+        :key="id"
+        class="form__label"
+      >
+        <span :class="['form__labelText', {'input--required': required}]">{{text}}</span>
+        <component
+          :is="inputType"
+          :id="id"
+          :placeholder="text"
+          :type="type"
+          :required="required"
+          class="form__input"
+        />
+      </label>
+    </fieldset>
+    <DynamicButton
+      id="button"
+      type="submit"
+      :text="props.submitText"
+      class="form__button"
+    />
+  </form>
 </template>
 
 <script setup>
@@ -68,15 +68,18 @@ const handleSubmit = event => {
     border: none;
     padding: 12px 20px;
     width: 100%;
+    border-radius: 20px;
     outline-color: var(--mainPurple);
 }
 .form__labelText {
+    display: inline-block;
+    margin-bottom: 4px;
+    padding-left: 20px;
     font-size: 20px;
     transition: opacity 0.1s ease;
 }
 .form__button {
     background-color: white;
-    margin-top: 20px;
     width: 200px;
     font-size: 24px;
     place-self: center;
