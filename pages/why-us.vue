@@ -1,7 +1,7 @@
 <template>
-  <article>
+  <article class="main whyPage">
     <h1>{{pageData.title}}</h1>
-    <p v-html="pageData.text"/>
+    <p v-html="pageData.text" />
   </article>
 </template>
 
@@ -13,4 +13,7 @@ const pageData = computed(() => pages[route.name]);
 </script>
 
 <style>
+.whyPage > p {
+    max-width: 100%;
+}
 </style>

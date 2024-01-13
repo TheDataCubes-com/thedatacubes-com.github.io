@@ -1,34 +1,24 @@
 export default [
   {
     name: "Why Us",
-    children: [
-      { name: "why1" , link: "" },
-      { name: "why2" , link: "" },
-      { name: "why3" , link: "" },
-    ]
+    link: "/why-us"
   },
   {
     name: "Our Services",
+    link: "/services",
+    disabled: true,
     children: [
-      { name: "service1" , link: "" },
-      { name: "service2" , link: "" },
-      { name: "service3" , link: "" },
-    ]
+      { name: "Advisory" , link: "/advisory" },
+      { name: "Business Analysis & Data Modeling" , link: "/analysis-modeling" },
+      { name: "Enterprise Data Management & Analytics Strategy" , link: "/data-management" },
+      { name: "Master Data Management & Entity Resolution" , link: "/mdm" },
+      { name: "AI and Data Observability" , link: "/ai" },
+      { name: "Executive Services - Education & Literacy" , link: "/executive-services" },
+      { name: "Screening & Assessment of Data Professionals" , link: "/staffing" },
+    ],
   },
   {
     name: "How Do I Start",
-    children: [
-      { name: "start1" , link: "" },
-      { name: "start2" , link: "" },
-      { name: "start3" , link: "" },
-    ]
-  },
-  {
-    name: "Partners",
-    children: [
-      { name: "partner1" , link: "" },
-      { name: "partner2" , link: "" },
-      { name: "partner3" , link: "" },
-    ]
+    link: "/get-consultation"
   },
 ];

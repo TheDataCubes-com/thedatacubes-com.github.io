@@ -4,35 +4,48 @@
       <Logo @mouseover="handleHeaderLeave" class="header__logo"/>
       <ul class="header__nav">
         <li
-          v-for="{name, children} in links"
-          @mouseover="handleMouseOver($event, children)"
-          class="header__item header__link"
-        >{{name}}</li>
+          v-for="{name, link, children, disabled} in links"
+          @mouseover="handleMouseOver($event, children, link)"
+        >
+          <span
+            v-if="disabled"
+            style="cursor: default"
+            class="header__item header__link link--disabled"
+          >{{name}}</span>
+          <NuxtLink
+            v-else
+            :to="link"
+            class="header__item header__link"
+          >{{name}}</NuxtLink>
+        </li>
       </ul>
-      <NuxtLink
-        to="/login"
-        @mouseover="handleHeaderLeave"
-        class="header__item header__link"
-      >Login</NuxtLink>
+      <div class="header__nav">
+        <NuxtLink
+          to="/login"
+          @mouseover="handleHeaderLeave"
+          class="header__item header__link"
+        >Login</NuxtLink>
+        <DynamicButton
+          text="Get a Free Consult"
+          link="/get-consultation"
+          :isInline="true"
+          class="header__button"
+        />
+      </div>
     </div>
-    <div :class="[
-      'header__dropDown',
-      {'dropDown--active': subMenu}
-    ]">
-      <nav
-        :style="`left: ${subMenuPos}px`"
-        :class="[
-          'header__dropDown__nav',
-          {'dropDown__nav--active': subMenu}
-        ]"
-      >
-        <ul>
-          <li v-for="{name, link} in subMenu">
-            <NuxtLink :to="link" class="header__item">{{name}}</NuxtLink>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav
+      :style="`left: ${subMenuPos}px`"
+      :class="[
+        'header__dropDown__nav',
+        {'dropDown__nav--active': subMenu}
+      ]"
+    >
+      <ul>
+        <li v-for="{name, link} in subMenu">
+          <NuxtLink :to="subMenuParentLink + link" class="header__item">{{name}}</NuxtLink>
+        </li>
+      </ul>
+    </nav>
     <div class="header__backgroundBlend"/>
   </header>
 </template>
@@ -42,15 +55,22 @@ import links from "data/header";
 
 const subMenu = ref(null);
 const subMenuPos = ref(0);
+const subMenuParentLink = ref("");
 
-const handleMouseOver = (event, menu) => {
+const handleMouseOver = (event, menu, parentLink) => {
+  if (!menu) {
+    handleHeaderLeave();
+    return;
+  }
   subMenu.value = menu;
   subMenuPos.value = event.target.offsetLeft;
+  subMenuParentLink.value = parentLink;
 };
 
 const handleHeaderLeave = () => {
   subMenu.value = null;
   subMenuPos.value = 0;
+  subMenuParentLink.value = "";
 };
 </script>
 
@@ -73,18 +93,6 @@ const handleHeaderLeave = () => {
     opacity: 0.05;
     z-index: -1;
 }
-.header:hover {
-    background-color: white;
-}
-.header:hover .header__item {
-    color: black;
-}
-.header:hover .logo__path2 {
-    fill: black;
-}
-.header:hover stop {
-    stop-color: black;
-}
 .header__inner {
     display: flex;
     justify-content: space-between;
@@ -96,15 +104,6 @@ const handleHeaderLeave = () => {
 .header__logo {
     max-width: 155px;
     width: 100%;
-}
-.header__log:hover .header__item {
-    color: var(--mainPurple);
-}
-.header__logo:hover .logo__path2 {
-    fill: var(--mainPurple);
-}
-.header__logo:hover stop {
-    stop-color: var(--mainPurple);
 }
 .header__nav {
     display: flex;
@@ -120,9 +119,6 @@ const handleHeaderLeave = () => {
     cursor: pointer;
     position: relative;
 }
-.header__item:hover {
-    color: var(--mainPurple) !important;
-}
 .header__item:before {
     content: "";
     position: absolute;
@@ -130,36 +126,44 @@ const handleHeaderLeave = () => {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(to right, var(--mainPurple), transparent);
+    background: linear-gradient(to right, #ffc107, transparent);
     transition: width 0.3s ease;
-}
-.header__item:hover:before {
-    width: 100%;
-}
-.header__dropDown {
-    position: absolute;
-    bottom: 1px;
-    left: 0;
-    width: 100%;
-    max-height: 0px;
-    height: 100vh;
-    transform: translateY(100%);
-    overflow: hidden;
-    background-color: white;
-    transition: max-height 0.3s ease;
-}
-.dropDown--active {
-    max-height: 120px;
 }
 .header__dropDown__nav {
     position: absolute;
-    opacity: 0;
+    bottom: 20px;
+    left: 0;
+    width: fit-content;
+    max-height: 0px;
+    height: fit-content;
+    transform: translateY(100%);
+    overflow: hidden;
+    background-color: var(--darkPurple);
+    border-radius: 20px;
+    border-top-left-radius: 0px;
 }
 .dropDown__nav--active {
     opacity: 1;
     transition: opacity 1s ease;
+    max-height: 100vh;
+    transition: max-height 0.3s ease;
 }
 .header__dropDown__nav>ul {
-    padding: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.link--disabled {
+    cursor: default;
+    user-select: none;
+}
+@media (hover:hover) {
+    .header__item:hover:before {
+        width: 100%;
+    }
+    .header__item:hover {
+        color: #ffc107 !important;
+    }
 }
 </style>

@@ -5,14 +5,24 @@
     <bgCircleBot class="background__circle circle--bot"/>
     <bgDotsBot class="background__dotsBot"/>
     <bgDotsSide class="backgorund__dotsSide" />
-    <bgCurveLineToLeft class="background__curveLineLeft" />
+    <bgCurveLineToLeft v-if="!isSimplified" class="background__curveLineLeft" />
     <bgCurveLineToRight class="backgound__curveLineRight"/>
     <bgDotsLine class="dotsLine--1"/>
     <bgDotsLine class="dotsLine--2"/>
-    <bgAngles class="background__angles"/>
+    <bgAngles
+      :class="[
+        'background__angles',
+        {'angles--darker': isSimplified}
+      ]"
+    />
   </div>
 </template>
 
+<script setup>
+const props = defineProps({
+  isSimplified: { type: Boolean, default: false }
+});
+</script>
 <style>
 .background__item {
     position: absolute;
@@ -94,5 +104,8 @@
     top: 45%;
     left: 50%;
     opacity: 0.4;
+}
+.angles--darker {
+    opacity: 0.1;
 }
 </style>

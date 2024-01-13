@@ -4,14 +4,27 @@
     <NuxtPage />
   </main>
   <DynamicButton
-    :isLink="true"
+    v-if="isButton"
+    link="/get-consultation"
     text="Set up a Free Consultation"
+    :isIcon="true"
     class="consultButton"
   />
-  <Background />
+  <Background :isSimplified="backgroundSimplified" />
 </template>
 
 <script setup>
+const route = useRoute();
+
+const isButton = computed(() => {
+  var { name } = route;
+  return name !== "login" && name !== "get-consultation";
+});
+
+const backgroundSimplified = computed(() => {
+  var { name } = route;
+  return name !== "index" && name !== "login";
+});
 </script>
 
 <style>
