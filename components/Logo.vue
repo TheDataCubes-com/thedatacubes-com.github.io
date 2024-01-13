@@ -29,22 +29,22 @@
 </template>
 
 <style>
-  .logo__group1 {
-      opacity:.57
-  }
-  .logo__path2 {
-      fill:#fff;
-      stroke-width:0;
-      transition: 0.3s ease;
-  }
-  .logo__path1 {
-      fill:none;
-      opacity:.8;
-      stroke: url(#logoGradient);
-      stroke-miterlimit:10;
-      stroke-width:10px;
-  }
-  #logoGradient stop {
-      transition: 0.3s ease;
-  }
+.logo__group1 {
+    opacity:.57
+}
+.logo__path2 {
+    fill:#fff;
+    stroke-width:0;
+    transition: 0.3s ease;
+}
+.logo__path1 {
+    fill:none;
+    opacity:.8;
+    stroke: url(#logoGradient);
+    stroke-miterlimit:10;
+    stroke-width:10px;
+}
+#logoGradient stop {
+    transition: 0.3s ease;
+}
 </style>

@@ -72,6 +72,10 @@ const handleHeaderLeave = () => {
   subMenuPos.value = 0;
   subMenuParentLink.value = "";
 };
+
+const appWidth = inject("appWidth");
+
+const isMobile = computed(() => appWidth.value < 860);
 </script>
 
 <style>
@@ -115,9 +119,9 @@ const handleHeaderLeave = () => {
     display: inline-block;
 }
 .header__item {
-    transition: color 0.3s ease, text-decoration 0.3s ease;
     cursor: pointer;
     position: relative;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 .header__item:before {
     content: "";
@@ -165,5 +169,27 @@ const handleHeaderLeave = () => {
     .header__item:hover {
         color: #ffc107 !important;
     }
+}
+@media (max-width: 1279.99px) {
+    .header__link {
+        font-size: 20px;
+    }
+    .header__logo {
+        max-width: 125px;
+    }
+}
+@media (max-width: 1023.99px) {
+    .header__link {
+        font-size: 18px;
+    }
+    .header__logo {
+        max-width: 110px;
+    }
+    .header__nav  {
+        gap: 0;
+    }
+}
+@media (max-width: 859.99px) {
+
 }
 </style>
