@@ -1,8 +1,11 @@
 <template>
-  <header @mouseleave="handleHeaderLeave" class="header">
-    <div class="header__inner">
+  <header
+    @mouseleave="handleHeaderLeave"
+    :class="['header', {'header--blur': isBlur}]"
+  >
+    <nav class="header__inner">
       <Logo @mouseover="handleHeaderLeave" class="header__logo"/>
-      <ul class="header__nav">
+      <ul v-if="!isMobile" class="header__nav">
         <li
           v-for="{name, link, children, disabled} in links"
           @mouseover="handleMouseOver($event, children, link)"
@@ -21,6 +24,7 @@
       </ul>
       <div class="header__nav">
         <NuxtLink
+          v-if="!isMobile"
           to="/login"
           @mouseover="handleHeaderLeave"
           class="header__item header__link"
@@ -31,9 +35,22 @@
           :isInline="true"
           class="header__button"
         />
+        <div
+          v-if="isMobile"
+          @click="toggleBurger"
+          :class="[
+            'header__burger',
+            {'burger--active': burgerActive}
+          ]"
+        >
+          <div class="header__burger__item"/>
+          <div class="header__burger__item"/>
+          <div class="header__burger__item"/>
+        </div>
       </div>
-    </div>
+    </nav>
     <nav
+      v-if="!isMobile"
       :style="`left: ${subMenuPos}px`"
       :class="[
         'header__dropDown__nav',
@@ -46,6 +63,13 @@
         </li>
       </ul>
     </nav>
+    <MobileMenu
+      v-else
+      :class="[
+        'header__mobileMenu',
+        {'mobileMenu--open': burgerActive}
+      ]"
+    />
     <div class="header__backgroundBlend"/>
   </header>
 </template>
@@ -56,6 +80,10 @@ import links from "data/header";
 const subMenu = ref(null);
 const subMenuPos = ref(0);
 const subMenuParentLink = ref("");
+const burgerActive = ref(false);
+
+const appWidth = inject("appWidth");
+const scroll = inject("scroll");
 
 const handleMouseOver = (event, menu, parentLink) => {
   if (!menu) {
@@ -66,16 +94,22 @@ const handleMouseOver = (event, menu, parentLink) => {
   subMenuPos.value = event.target.offsetLeft;
   subMenuParentLink.value = parentLink;
 };
-
 const handleHeaderLeave = () => {
   subMenu.value = null;
   subMenuPos.value = 0;
   subMenuParentLink.value = "";
 };
-
-const appWidth = inject("appWidth");
+const toggleBurger = () => burgerActive.value = !burgerActive.value;
 
 const isMobile = computed(() => appWidth.value < 860);
+const isBlur = computed(() => scroll.value > 80);
+
+const route = useRoute();
+
+watch(route, _ => burgerActive.value = false);
+watch(isMobile, (value) => {
+  value ? handleHeaderLeave() : burgerActive.value = false;
+});
 </script>
 
 <style>
@@ -84,8 +118,12 @@ const isMobile = computed(() => appWidth.value < 860);
     place-content: center;
     padding: 20px 0;
     z-index: 11;
-    position: relative;
-    transition: background-color 0.3s ease;
+    top: 0px;
+    position: sticky;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+.header--blur {
+    backdrop-filter: blur(10px);
 }
 .header__backgroundBlend {
     position: absolute;
@@ -130,7 +168,7 @@ const isMobile = computed(() => appWidth.value < 860);
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(to right, #ffc107, transparent);
+    background: linear-gradient(to right, var(--mainYellow), transparent);
     transition: width 0.3s ease;
 }
 .header__dropDown__nav {
@@ -162,12 +200,51 @@ const isMobile = computed(() => appWidth.value < 860);
     cursor: default;
     user-select: none;
 }
+.header__burger {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    place-content: center;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    transition: gap 0.3s ease;
+}
+.header__burger__item {
+  flex-shrink: 0;
+  border-radius: 4px;
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  transition: transform 0.3s ease, opacity 0.2s ease, background-color 0.3s ease;
+}
+.burger--active .header__burger__item:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+.burger--active .header__burger__item:nth-child(2) {
+    opacity: 0;
+}
+.burger--active .header__burger__item:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+.header__mobileMenu {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(100%, 100%);
+}
+.mobileMenu--open {
+    transform: translate(0%, 100%);
+}
 @media (hover:hover) {
     .header__item:hover:before {
         width: 100%;
     }
     .header__item:hover {
-        color: #ffc107 !important;
+        color: var(--mainYellow) !important;
+    }
+    .header__burger:hover > .header__burger__item {
+        background-color: var(--mainYellow);
     }
 }
 @media (max-width: 1279.99px) {
@@ -190,6 +267,8 @@ const isMobile = computed(() => appWidth.value < 860);
     }
 }
 @media (max-width: 859.99px) {
-
+    .header__nav {
+        gap: 20px;
+    }
 }
 </style>

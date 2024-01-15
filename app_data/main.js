@@ -1,3 +1,5 @@
+const description = "We transform data chaos into profitable insights, organizing and refining messy, siloed data into actionable intelligence that your Business team can easily work with. Our goal is to make you successful by helping you monetize every aspect of your data.<br/>Our comprehensive range of services includes Master Data Management (specializing in the financial sector), Entity Resolution, Customer 360, Enterprise Data Management and Analytics, Data Modeling, and more, each tailored to meet your unique business needs.";
+
 export default {
   slides: [
     {
@@ -9,7 +11,7 @@ export default {
         image: "text/through-services.svg",
         text: "through our Data Services"
       },
-      description: "Our Goal is to help you Monetize all your data insights.<br/>Master Data Management, Customer 360, Data Strategy,<br/>Data Quality, Data Modeling, and DevOps."
+      description
     },
     {
       title: {
@@ -20,7 +22,7 @@ export default {
         image: "text/to-simplify.svg",
         text: "to simplify your Data"
       },
-      description: "Our Goal is to help you Monetize all your data insights.<br/>Master Data Management, Customer 360, Data Strategy,<br/>Data Quality, Data Modeling, and DevOps."
+      description
     },
   ],
 };

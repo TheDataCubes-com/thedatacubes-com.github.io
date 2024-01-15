@@ -1,6 +1,6 @@
 <template>
   <div class="main consult">
-    <h1>Set up a Free Consultation</h1>
+    <!-- <h1>Set up a Free Consultation</h1> -->
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <Form
       :error="error && error.message"
@@ -15,15 +15,8 @@
 const error = ref(null);
 const formFields = ref([
   {
-    id: "firtName",
-    text: "First name",
-    inputType: "input",
-    type: "text",
-    required: true,
-  },
-  {
-    id: "lastName",
-    text: "Last name",
+    id: "name",
+    text: "Name",
     inputType: "input",
     type: "text",
     required: true,
@@ -32,15 +25,29 @@ const formFields = ref([
     id: "mail",
     text: "Email",
     inputType: "input",
-    type: "mail",
+    type: "email",
     required: true,
   },
+  {
+    id: "company",
+    text: "Company",
+    inputType: "input",
+    type: "text",
+    required: false,
+  },
+  // {
+  //   id: "phone",
+  //   text: "Phone",
+  //   inputType: "input",
+  //   type: "number",
+  //   required: false,
+  // },
   {
     id: "message",
     text: "Message",
     inputType: "textarea",
     type: "text",
-    required: false,
+    required: true,
   },
 ]);
 
@@ -68,28 +75,11 @@ const handleLogin = (form) => {
     max-width: 70%;
 }
 .consult__form input {
-    font-size: 24px;
-}
-.consult__form > .form__fieldset {
-    display: grid;
-    row-gap: 12px;
-    column-gap: 20px;
-    grid-template-columns: 2fr 3fr;
-    grid-template-areas:
-       "input text"
-       "input text"
-       "input text";
-}
-consult__form > .form__fieldset > label {
-    grid-area: input;
-}
-.consult__form > .form__fieldset > label:last-of-type {
-    grid-area: text;
-    display: flex;
-    flex-direction: column;
+    font-size: 22px;
 }
 .consult__form > .form__fieldset > label:last-of-type > textarea {
-    flex-grow: 1;
+    min-height: 200px;
+    font-size: 22px;
     resize: none;
 }
 </style>

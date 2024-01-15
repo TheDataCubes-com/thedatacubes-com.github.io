@@ -5,24 +5,31 @@
     <bgCircleBot class="background__circle circle--bot"/>
     <bgDotsBot class="background__dotsBot"/>
     <bgDotsSide class="backgorund__dotsSide" />
-    <bgCurveLineToLeft v-if="!isSimplified" class="background__curveLineLeft" />
+    <bgCurveLineToLeft v-if="!noTopElements" class="background__curveLineLeft" />
     <bgCurveLineToRight class="backgound__curveLineRight"/>
     <bgDotsLine class="dotsLine--1"/>
-    <bgDotsLine class="dotsLine--2"/>
+    <bgDotsLine v-if="!noTopElements" class="dotsLine--2"/>
     <bgAngles
       :class="[
         'background__angles',
-        {'angles--darker': isSimplified}
+        {'angles--darker': darkAgnles}
       ]"
     />
   </div>
 </template>
 
 <script setup>
-const props = defineProps({
-  isSimplified: { type: Boolean, default: false }
+const route = useRoute();
+const appWidth = inject("appWidth");
+
+const isMain = computed(() => {
+  var { name } = route;
+  return name !== "index";
 });
+const darkAgnles = computed(() => isMain.value || appWidth.value < 1660);
+const noTopElements = computed(() => isMain.value);
 </script>
+
 <style>
 .background__item {
     position: absolute;
@@ -107,5 +114,24 @@ const props = defineProps({
 }
 .angles--darker {
     opacity: 0.1;
+}
+@media (max-width: 1279.99px) {
+    .background__dotsBot {
+        width: 50%;
+        left: 25%;
+        bottom: -203px;
+    }
+    .backgorund__dotsSide {
+        height: 50%;
+        top: 25%;
+    }
+    .background__angles {
+        width: 70%;
+    }
+}
+@media (max-width: 1023.99px) {
+    .dotsLine--2, .background__curveLineLeft {
+        display: none;
+    }
 }
 </style>

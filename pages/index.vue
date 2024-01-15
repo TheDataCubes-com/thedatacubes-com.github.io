@@ -33,4 +33,13 @@ const currentSlide = computed(() => slides.value[slideIndex.value]);
 .main__subTitle {
     width: 34vw;
 }
+@media (max-width: 1023.99px) {
+    .main__title {
+        width: calc(100% - 40px);
+        transform: translateX(40px);
+    }
+    .main__subTitle {
+        width: 70%;
+    }
+}
 </style>

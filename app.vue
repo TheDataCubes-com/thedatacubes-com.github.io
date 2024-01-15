@@ -10,7 +10,7 @@
     :isIcon="true"
     class="consultButton"
   />
-  <Background :isSimplified="backgroundSimplified" />
+  <Background />
 </template>
 
 <script setup>
@@ -23,22 +23,25 @@ const isButton = computed(() => {
   var { name } = route;
   return name !== "login" && name !== "get-consultation";
 });
-const backgroundSimplified = computed(() => {
-  var { name } = route;
-  return name !== "index" && name !== "login";
-});
 
 const appWidth = ref(1440);
+const scroll = ref(0);
+
 const setAppWidth = throttle(({ target }) => appWidth.value = target.innerWidth, 200);
+const handleScroll = throttle(() => scroll.value = window.scrollY, 200);
 
 provide('appWidth', appWidth);
+provide("scroll", scroll);
 
 onMounted(() => {
   appWidth.value = window.innerWidth;
+  scroll.value = window.scrollY;
   window.addEventListener('resize', setAppWidth);
+  window.addEventListener("scroll", handleScroll);
 });
 onBeforeUnmount(() => {
   window.removeEventListener('resize', setAppWidth);
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 

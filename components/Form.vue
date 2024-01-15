@@ -53,9 +53,8 @@ const handleSubmit = event => {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 600px;
+    padding: 20px 60px;
     width: 100%;
-    padding: 40px 60px;
     background-color: rgb(255, 255, 255, 0.6);
     border-radius: 20px;
 }
@@ -81,7 +80,7 @@ const handleSubmit = event => {
 .form__button {
     background-color: white;
     width: 200px;
-    font-size: 24px;
+    font-size: 20px;
     place-self: center;
 }
 .form__errors {

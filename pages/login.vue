@@ -6,6 +6,7 @@
       :fields="formFields"
       @submit="handleLogin"
       submitText="Sign in"
+      class="login__form"
     />
   </div>
 </template>
@@ -43,6 +44,11 @@ const handleLogin = (form) => {
 
 <style>
 .login {
+    gap: 40px;
+}
+.login__form {
+    max-width: 800px;
+    place-self: center;
     gap: 40px;
 }
 </style>
