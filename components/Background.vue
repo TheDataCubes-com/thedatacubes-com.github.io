@@ -8,7 +8,7 @@
     <bgCurveLineToLeft v-if="!noTopElements" class="background__curveLineLeft" />
     <bgCurveLineToRight class="backgound__curveLineRight"/>
     <bgDotsLine class="dotsLine--1"/>
-    <bgDotsLine v-if="!noTopElements" class="dotsLine--2"/>
+    <bgDotsLine class="dotsLine--2"/>
     <bgAngles
       :class="[
         'background__angles',

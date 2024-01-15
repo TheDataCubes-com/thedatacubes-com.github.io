@@ -53,7 +53,7 @@ const handleSubmit = event => {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px 60px;
+    padding: 40px 60px;
     width: 100%;
     background-color: rgb(255, 255, 255, 0.6);
     border-radius: 20px;

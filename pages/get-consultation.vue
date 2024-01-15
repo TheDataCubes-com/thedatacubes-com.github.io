@@ -1,6 +1,6 @@
 <template>
   <div class="main consult">
-    <!-- <h1>Set up a Free Consultation</h1> -->
+    <h1>Set up a Free Consultation</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <Form
       :error="error && error.message"
@@ -35,13 +35,13 @@ const formFields = ref([
     type: "text",
     required: false,
   },
-  // {
-  //   id: "phone",
-  //   text: "Phone",
-  //   inputType: "input",
-  //   type: "number",
-  //   required: false,
-  // },
+  {
+    id: "phone",
+    text: "Phone",
+    inputType: "input",
+    type: "number",
+    required: false,
+  },
   {
     id: "message",
     text: "Message",
@@ -72,7 +72,9 @@ const handleLogin = (form) => {
 }
 .consult__form {
     place-self: center;
-    max-width: 70%;
+    width: 800px;
+    max-height: 540px;
+    overflow-y: scroll;
 }
 .consult__form input {
     font-size: 22px;
