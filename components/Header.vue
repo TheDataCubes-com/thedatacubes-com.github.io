@@ -102,7 +102,7 @@ const handleHeaderLeave = () => {
 const toggleBurger = () => burgerActive.value = !burgerActive.value;
 
 const isMobile = computed(() => appWidth.value < 860);
-const isBlur = computed(() => scroll.value > 80);
+const isBlur = computed(() => scroll.value > 30);
 
 const route = useRoute();
 
@@ -269,6 +269,19 @@ watch(isMobile, (value) => {
 @media (max-width: 859.99px) {
     .header__nav {
         gap: 20px;
+    }
+}
+@media (max-width: 574.99px) {
+   .header__inner {
+       padding: 0 20px;
+   }
+   .header__logo {
+       max-width: 90px;
+   }
+}
+@media (max-width: 374.99px) {
+    .header__button {
+        display: none;
     }
 }
 </style>

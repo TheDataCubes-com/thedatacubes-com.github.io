@@ -24,6 +24,12 @@
       </li>
     </ul>
     <NuxtLink to="/login" class="mobileNav__item">Login</NuxtLink>
+    <DynamicButton
+      text="Get a Free Consult"
+      link="/get-consultation"
+      :isInline="true"
+      class="mobileNav__button"
+    />
   </nav>
 </template>
 
@@ -93,12 +99,23 @@ const toggleSubMenu = (menu, parentLink, menuIndex) => {
     gap: 8px;
     padding: 12px 0 20px 16px;
 }
+.mobileNav__button {
+    display: none;
+}
 @media (hover:hover) {
     .mobileNav__item:hover:before {
         width: 100%;
     }
     .mobileNav__item:hover {
         color: var(--mainYellow) !important;
+    }
+}
+@media (max-width: 374.99px) {
+    .mobileNav__button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
     }
 }
 </style>

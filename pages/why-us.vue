@@ -1,7 +1,7 @@
 <template>
   <article class="main whyPage">
     <h1>{{pageData.title}}</h1>
-    <p v-html="pageData.text" />
+    <div v-html="pageData.text" class="whyPage__content"/>
   </article>
 </template>
 
@@ -13,7 +13,15 @@ const pageData = computed(() => pages[route.name]);
 </script>
 
 <style>
-.whyPage > p {
+.whyPage__content {
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 300;
+    margin: 50px 0;
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 </style>
