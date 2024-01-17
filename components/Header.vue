@@ -102,11 +102,11 @@ const handleHeaderLeave = () => {
 const toggleBurger = () => burgerActive.value = !burgerActive.value;
 
 const isMobile = computed(() => appWidth.value < 860);
-const isBlur = computed(() => scroll.value > 30);
+const isBlur = computed(() => scroll.value > 10);
 
 const route = useRoute();
 
-watch(route, _ => burgerActive.value = false);
+watch(() => route.fullPath, () => burgerActive.value = false);
 watch(isMobile, (value) => {
   value ? handleHeaderLeave() : burgerActive.value = false;
 });
@@ -120,7 +120,7 @@ watch(isMobile, (value) => {
     z-index: 11;
     top: 0px;
     position: sticky;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    transition: backgrop-filter 0.3s ease;
 }
 .header--blur {
     backdrop-filter: blur(10px);

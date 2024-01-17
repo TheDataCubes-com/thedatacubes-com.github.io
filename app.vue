@@ -3,6 +3,8 @@
   <main class="pageLayout">
     <NuxtPage />
   </main>
+  <Footer />
+  <Background />
   <DynamicButton
     v-if="isButton"
     link="/get-consultation"
@@ -10,7 +12,6 @@
     :isIcon="true"
     class="consultButton"
   />
-  <Background />
 </template>
 
 <script setup>
@@ -19,13 +20,13 @@ const { throttle } = pkg;
 
 const route = useRoute();
 
+const appWidth = ref(1440);
+const scroll = ref(0);
+
 const isButton = computed(() => {
   var { name } = route;
   return name !== "login" && name !== "get-consultation";
 });
-
-const appWidth = ref(1440);
-const scroll = ref(0);
 
 const setAppWidth = throttle(({ target }) => appWidth.value = target.innerWidth, 200);
 const handleScroll = throttle(() => scroll.value = window.scrollY, 200);
@@ -48,18 +49,14 @@ onBeforeUnmount(() => {
 <style>
 .pageLayout {
     z-index: 10;
-    max-width: var(--maxWidth);
     width: 100%;
-    padding: 0 40px;
-    place-self: center;
-    flex-grow: 10;
     display: flex;
     flex-direction: column;
 }
 .consultButton {
     position: absolute;
-    bottom: 20%;
+    top: calc(100vh - 13%);
     right: 80px;
-    z-index: 10;
+    z-index: 20;
 }
 </style>

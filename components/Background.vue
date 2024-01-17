@@ -15,6 +15,7 @@
         {'angles--darker': darkAgnles}
       ]"
     />
+
   </div>
 </template>
 
@@ -39,9 +40,9 @@ const noTopElements = computed(() => isMain.value);
 }
 .background {
     overflow: hidden;
-    position: fixed;
-    width: 100vw;
+    position: absolute;
     height: 100vh;
+    width: 100vw;
     background-image: url("assets/svg/background.svg");
     background-size: cover;
     z-index: 0;
@@ -58,8 +59,8 @@ const noTopElements = computed(() => isMain.value);
 }
 .background__circle {
     position: absolute;
-    width: 56%;
-    height: 100%;
+    width: 55%;
+    height: 100vh;
 }
 .circle--top {
     left: 0;
@@ -72,7 +73,7 @@ const noTopElements = computed(() => isMain.value);
     width: 673px;
     height: 406px;
     left: calc(50% - (673px / 2));
-    bottom: calc(0px - 100px);
+    top: calc(100vh - 16%);
 }
 .backgorund__dotsSide {
     position: absolute;
@@ -84,20 +85,20 @@ const noTopElements = computed(() => isMain.value);
 .background__curveLineLeft {
     position: absolute;
     right: -24px;
-    top: 35%;
+    top: calc(100vh - 65%);
     width: 54%;
 }
 .backgound__curveLineRight {
     position: absolute;
     left: 0;
-    top: 87%;
+    top: calc(100vh - 13%);
     width: 49%;
 }
 .dotsLine--1 {
     position: absolute;
     width: 130px;
     left: 78px;
-    bottom: 60px;
+    top: calc(100vh - 5%);
 }
 .dotsLine--2 {
     position: absolute;

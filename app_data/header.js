@@ -1,7 +1,7 @@
 export default [
   {
     name: "Why Us",
-    link: "/why-us"
+    link: "/#why-us"
   },
   {
     name: "Our Services",

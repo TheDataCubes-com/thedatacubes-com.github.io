@@ -24,4 +24,10 @@ const pageData = computed(() => pages[route.name]);
     flex-direction: column;
     gap: 20px;
 }
+.whyPage__content h2 {
+    font-size: 42px;
+}
+.whyPage__content p {
+    font-size: 24px;
+}
 </style>

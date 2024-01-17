@@ -1,6 +1,6 @@
 <template>
   <div class="main login">
-    <h1>Login</h1>
+    <h1>Sign In</h1>
     <Form
       :error="error && error.message"
       :fields="formFields"
@@ -44,10 +44,16 @@ const handleLogin = (form) => {
 
 <style>
 .login {
-    gap: 40px;
+    gap: 20px;
+    width: fit-content;
+}
+.login > h1 {
+    font-size: 32px;
+    width: fit-content;
 }
 .login__form {
     max-width: 800px;
+    width: 100vw;
     place-self: center;
     gap: 40px;
 }

@@ -1,7 +1,5 @@
 <template>
   <div class="main consult">
-    <h1>Set up a Free Consultation</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <Form
       :error="error && error.message"
       :fields="formFields"
@@ -36,13 +34,6 @@ const formFields = ref([
     required: false,
   },
   {
-    id: "phone",
-    text: "Phone",
-    inputType: "input",
-    type: "number",
-    required: false,
-  },
-  {
     id: "message",
     text: "Message",
     inputType: "textarea",
@@ -73,14 +64,12 @@ const handleLogin = (form) => {
 .consult__form {
     place-self: center;
     width: 800px;
-    max-height: 540px;
-    overflow-y: scroll;
 }
 .consult__form input {
     font-size: 22px;
 }
 .consult__form > .form__fieldset > label:last-of-type > textarea {
-    min-height: 200px;
+    min-height: 160px;
     font-size: 22px;
     resize: none;
 }
