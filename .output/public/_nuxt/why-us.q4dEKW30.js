@@ -1,0 +1,1 @@
+import{B as n,q as o,c,a as t,t as r,u as a,o as _}from"./entry.SWCs2iiT.js";import{p as i}from"./pages.UHQY32cA.js";const l={class:"main whyPage"},u=["innerHTML"],g={__name:"why-us",setup(p){const s=n(),e=o(()=>i[s.name]);return(m,h)=>(_(),c("article",l,[t("h1",null,r(a(e).title),1),t("div",{innerHTML:a(e).text,class:"whyPage__content"},null,8,u)]))}};export{g as default};
