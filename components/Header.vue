@@ -75,7 +75,7 @@
 </template>
 
 <script setup>
-import links from "data/header";
+import links from "../app_data/header.js";
 
 const subMenu = ref(null);
 const subMenuPos = ref(0);

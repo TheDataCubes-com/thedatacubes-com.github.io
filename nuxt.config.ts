@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
+	target: "static",
   devtools: { enabled: false },
-  ssr: false,
+  ssr: true,
   modules: [],
   alias: {
     data: "/app_data",

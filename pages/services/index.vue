@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import pages from "data/pages";
+import pages from "../../app_data/pages.js";
 import links from "data/header";
 
 const route = useRoute();

@@ -1,1 +1,0 @@
-import{B as o,q as r,c,a as s,t as n,u as t,o as i}from"./entry.SWCs2iiT.js";import{p}from"./pages.UHQY32cA.js";const u={class:"main services"},l=["innerHTML"],B={__name:"[subService]",setup(_){const a=o(),e=r(()=>p[a.params.subService]);return(m,d)=>(i(),c("article",u,[s("h1",null,n(t(e).title),1),s("p",{innerHTML:t(e).text},null,8,l)]))}};export{B as default};

@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { slides, bannerText, whyUs } from "data/main";
+import { slides, bannerText, whyUs } from "../app_data/main.js";
 
 const slideIndex = ref(0);
 

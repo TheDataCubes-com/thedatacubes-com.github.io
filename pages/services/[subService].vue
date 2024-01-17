@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import pages from "data/pages";
+import pages from "../../app_data/pages.js";
 const route = useRoute();
 
 const pageData = computed(() => pages[route.params.subService]);
