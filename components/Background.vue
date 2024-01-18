@@ -105,6 +105,11 @@ const noTopElements = computed(() => {
     left: 50%;
     opacity: 0.2;
 }
+@media (max-width: 1439.99px) {
+    .background__curveLineLeft {
+        opacity: 0.2;
+    }
+}
 @media (max-width: 1279.99px) {
     .background__dotsBot {
         width: 50%;
@@ -114,9 +119,6 @@ const noTopElements = computed(() => {
     .backgorund__dotsSide {
         height: 50%;
         top: 25%;
-    }
-    .background__angles {
-        width: 70%;
     }
 }
 @media (max-width: 1023.99px) {

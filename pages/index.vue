@@ -110,18 +110,19 @@ const headerSwitchPosition = ref(1080);
 
 const changeHeader = inject("changeHeader");
 const scroll = inject("scroll");
+const appWidth = inject("appWidth");
 
 const slideIndex = ref(0);
 
 const currentSlide = computed(() => slides[slideIndex.value]);
 
 onMounted(() => {
-  // var anchor = document.getElementById("why-us");
-  // var { y } = anchor.getBoundingClientRect();
-  // headerSwitchPosition.value = y;
+  var anchor = document.getElementById("why-us");
+  var { y } = anchor.getBoundingClientRect();
+  headerSwitchPosition.value = y;
 });
-watch(scroll, value => {
-  changeHeader(value + 148 >= headerSwitchPosition.value);
+watch([scroll, appWidth], value => {
+  changeHeader(value[0] + 148 >= headerSwitchPosition.value);
 });
 </script>
 
@@ -159,6 +160,7 @@ watch(scroll, value => {
 }
 .whyUs__inner {
     max-width: var(--maxWidth);
+    width: 100%;
     place-self: center;
     display: flex;
     flex-direction: column;
@@ -174,17 +176,11 @@ watch(scroll, value => {
     display:flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 990px;
+    max-width: 66%;
     width: 100%;
 }
-.whyUs__points > h3 {
-    font-size: 32px;
-}
-.whyUs__points > p {
-    font-size: 24px;
-}
 .points--even {
-    transform: translateX(50%);
+    place-self: flex-end;
 }
 .backgorund--section {
     z-index: -1;
@@ -250,10 +246,10 @@ watch(scroll, value => {
 }
 @media (max-width: 1659.99px) {
     .main__title {
-        width: 942px;
+        width: 820px;
     }
     .main__subTitle {
-        width: 520px;
+        width: 410px;
     }
     .banner__text {
         max-width: 860px;
@@ -263,25 +259,31 @@ watch(scroll, value => {
     .banner__text >p {
         font-size: 18px;
     }
+    .whyUs__points {
+        max-width: 75%;
+    }
+}
+@media (max-width: 1439.99px) {
+    .main__title {
+        width: 680px;
+    }
+    .main__subTitle {
+        width: 320px;
+    }
+    .banner__text {
+        max-width: 740px;
+        margin: 20px 0;
+    }
+    .whyUs__inner {
+        gap: 20px;
+    }
 }
 @media (max-width: 1279.99px) {
     .main__title {
-        width: 722px;
+        width: 560px;
     }
     .main__subTitle {
-        width: 390px;
-    }
-    .banner__text {
-        max-width: 700px;
-    }
-}
-@media (max-width: 1023.99px) {
-    .main__title {
-        width: calc(100% - 40px);
-        transform: translateX(40px);
-    }
-    .main__subTitle {
-        width: 70%;
+        width: 320px;
     }
 }
 </style>

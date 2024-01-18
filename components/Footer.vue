@@ -1,9 +1,17 @@
 <template>
-  <footer class="footer">
+  <footer :class="['footer', {'footer--solid': isSolid}]">
     <span class="footer__info__item">© 2024 TheDataCubes.</span>
     <NuxtLink to="/" class="footer__info__item">Privacy Policy</NuxtLink>
   </footer>
 </template>
+
+<script setup>
+const route = useRoute();
+const isSolid = computed(() => {
+  var { name } = route;
+  return name === "index";
+});
+</script>
 
 <style>
 .footer {
@@ -13,5 +21,13 @@
     left: 64px;
     display: flex;
     gap: 60px;
+}
+.footer--solid {
+    position: static;
+    background-color: var(--darkPurple);
+}
+.footer--solid * {
+    color: white;
+    padding: 20px;
 }
 </style>

@@ -49,7 +49,7 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 
-watch(() => route.fullPath, () => isWhite.value = false);
+watch(() => route.fullPath, () => headerWhite.value = false);
 </script>
 
 <style>
@@ -79,12 +79,15 @@ ul {
 }
 h2 {
     font-weight: 500;
+    font-size: 60px;
 }
 h3 {
     font-weight: 400;
+    font-size: 32px;
 }
 p, a, span {
     font-weight: 300;
+    font-size: 24px;
 }
 p {
     line-height: 1.5;
@@ -120,13 +123,45 @@ p {
     z-index: 20;
 }
 @media (max-width: 1659.99px) {
+    h2 {
+        font-size: 42px;
+    }
+    h3 {
+        font-size: 28px;
+    }
+    p, a, span {
+        font-size: 22px;
+    }
     .main {
-        padding: 46px 100px;
+        padding: 66px 90px;
     }
 }
-@media (max-width: 1023.99px) {
+@media (max-width: 1439.99px) {
     .main {
-        padding: 60px 0;
+        padding: 56px 80px;
+    }
+    h2 {
+        font-size: 38px;
+    }
+    h3 {
+        font-size: 26px;
+    }
+    p, a, span {
+        font-size: 20px;
+    }
+}
+@media (max-width: 1279.99px) {
+    .main {
+        padding: 46px 60px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    h3 {
+        font-size: 24px;
+    }
+    p, a, span {
+        font-size: 18px;
     }
 }
 </style>

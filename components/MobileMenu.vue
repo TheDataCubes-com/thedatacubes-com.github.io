@@ -1,5 +1,5 @@
 <template>
-  <nav class="mobileNav">
+  <nav :class="['mobileNav', {'mobileNav--white': isWhite}]">
     <ul class="mobileNav__list">
       <li v-for="({name, link, children, disabled}, index) in props.links" :key="index">
         <div
@@ -35,7 +35,8 @@
 
 <script setup>
 const props = defineProps({
-  links: { type: Array, default: [] }
+  links: { type: Array, default: [] },
+  isWhite: { type: Boolean, default: false},
 })
 
 const subMenu = ref(null);
@@ -103,6 +104,9 @@ const toggleSubMenu = (menu, parentLink, menuIndex) => {
 }
 .mobileNav__button {
     display: none;
+}
+.mobileNav--white {
+    background-color: white;
 }
 @media (hover:hover) {
     .mobileNav__item:hover:before {

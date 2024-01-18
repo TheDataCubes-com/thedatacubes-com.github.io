@@ -69,6 +69,7 @@
     </nav>
     <MobileMenu
       v-else
+      :isWhite="isWhite"
       :class="[
         'header__mobileMenu',
         {'mobileMenu--open': burgerActive}
@@ -155,7 +156,7 @@ watch(isMobile, (value) => {
     transition: backgrop-filter 0.3s ease, background-color 0.3s ease;
 }
 .header--blur {
-    background-color: var(--maxWidth);
+    background-color: var(--darkPurple);
 }
 .header__backgroundBlend {
     position: absolute;
@@ -185,7 +186,6 @@ watch(isMobile, (value) => {
 }
 .header__link {
     padding: 12px;
-    font-size: 24px;
     display: inline-block;
 }
 .header__item {
@@ -217,6 +217,7 @@ watch(isMobile, (value) => {
     background-color: var(--darkPurple);
     border-radius: 20px;
     border-top-left-radius: 0px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .dropDown__nav--active {
     opacity: 1;
@@ -270,17 +271,6 @@ watch(isMobile, (value) => {
 .mobileMenu--open {
     transform: translate(0%, 100%);
 }
-@media (hover:hover) {
-    .header__item:hover:before {
-        width: 100%;
-    }
-    .header__item:hover {
-        color: var(--mainYellow) !important;
-    }
-    .header__burger:hover > .header__burger__item {
-        background-color: var(--mainYellow);
-    }
-}
 .header--white {
     box-shadow: 0px 0px 10px 1px var(--darkPurple);
     background-color: white;
@@ -295,25 +285,34 @@ watch(isMobile, (value) => {
     border-color: var(--darkPurple);
     color: var(--darkPurple);
 }
-@media (max-width: 1659.99px) {
-    .main {
-        padding: 46px 100px;
+.header--white .header__dropDown__nav {
+    background-color: white;
+    box-shadow: 0px 3px 10px 0px var(--darkPurple);
+}
+@media (hover:hover) {
+    .header__item:hover:before {
+        width: 100%;
+    }
+    .header__item:hover {
+        color: var(--mainYellow) !important;
+    }
+    .header__burger:hover > .header__burger__item {
+        background-color: var(--mainYellow);
     }
 }
-@media (max-width: 1279.99px) {
-    .header__link {
-        font-size: 20px;
-    }
+@media (max-width: 1659.99px) {
     .header__logo {
         max-width: 125px;
     }
 }
-@media (max-width: 1023.99px) {
-    .header__link {
-        font-size: 18px;
-    }
+@media (max-width: 1439.99px) {
     .header__logo {
         max-width: 110px;
+    }
+}
+@media (max-width: 1279.99px) {
+    .header__logo {
+        max-width: 90px;;
     }
     .header__nav  {
         gap: 0;
@@ -327,9 +326,6 @@ watch(isMobile, (value) => {
 @media (max-width: 574.99px) {
    .header__inner {
        padding: 0 20px;
-   }
-   .header__logo {
-       max-width: 90px;
    }
 }
 @media (max-width: 374.99px) {
