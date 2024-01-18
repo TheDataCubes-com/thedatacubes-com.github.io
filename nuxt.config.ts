@@ -1,5 +1,4 @@
 export default defineNuxtConfig({
-	target: "static",
   devtools: { enabled: false },
   ssr: true,
   modules: [],
@@ -9,9 +8,7 @@ export default defineNuxtConfig({
   components: {
     dirs: ["~/components", "~/components/bg"],
   },
-  css: ["~/assets/variables.css", "~/assets/common.css"],
   app: {
-    rootId: "app",
     head: {
       meta: [
         {

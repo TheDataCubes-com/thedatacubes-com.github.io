@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
-    <span class="footer__info__item">© the Data Cubes 2024</span>
-    <NuxtLink to="/" class="footer__info__item">privacy policy</NuxtLink>
+    <span class="footer__info__item">© 2024 TheDataCubes.</span>
+    <NuxtLink to="/" class="footer__info__item">Privacy Policy</NuxtLink>
   </footer>
 </template>
 

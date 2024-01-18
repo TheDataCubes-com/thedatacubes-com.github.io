@@ -1,7 +1,7 @@
 <template>
   <nav class="mobileNav">
     <ul class="mobileNav__list">
-      <li v-for="({name, link, children, disabled}, index) in links" :key="index">
+      <li v-for="({name, link, children, disabled}, index) in props.links" :key="index">
         <div
           v-if="disabled"
           :class="[
@@ -34,7 +34,9 @@
 </template>
 
 <script setup>
-import links from "../app_data/header.js";
+const props = defineProps({
+  links: { type: Array, default: [] }
+})
 
 const subMenu = ref(null);
 const subMenuIndex = ref(null);

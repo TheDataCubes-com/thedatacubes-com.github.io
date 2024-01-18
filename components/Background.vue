@@ -9,26 +9,18 @@
     <bgCurveLineToRight class="backgound__curveLineRight"/>
     <bgDotsLine class="dotsLine--1"/>
     <bgDotsLine class="dotsLine--2"/>
-    <bgAngles
-      :class="[
-        'background__angles',
-        {'angles--darker': darkAgnles}
-      ]"
-    />
+    <bgAngles class="background__angles" />
 
   </div>
 </template>
 
 <script setup>
 const route = useRoute();
-const appWidth = inject("appWidth");
 
-const isMain = computed(() => {
+const noTopElements = computed(() => {
   var { name } = route;
   return name !== "index";
 });
-const darkAgnles = computed(() => isMain.value || appWidth.value < 1660);
-const noTopElements = computed(() => isMain.value);
 </script>
 
 <style>
@@ -43,14 +35,14 @@ const noTopElements = computed(() => isMain.value);
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background-image: url("assets/svg/background.svg");
+    background-image: url("/svg/background.svg");
     background-size: cover;
     z-index: 0;
 }
 .background__lines {
     width: 100%;
     height: 100%;
-    background-image: url("assets/svg/vertical-lines.svg");
+    background-image: url("/svg/vertical-lines.svg");
     background-size: cover;
     opacity: 0.2;
     z-index: 1;
@@ -111,10 +103,7 @@ const noTopElements = computed(() => isMain.value);
     width: 41%;
     top: 45%;
     left: 50%;
-    opacity: 0.4;
-}
-.angles--darker {
-    opacity: 0.1;
+    opacity: 0.2;
 }
 @media (max-width: 1279.99px) {
     .background__dotsBot {

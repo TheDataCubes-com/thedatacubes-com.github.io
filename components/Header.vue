@@ -1,10 +1,14 @@
 <template>
   <header
     @mouseleave="handleHeaderLeave"
-    :class="['header', {'header--blur': isBlur}]"
+    :class="[
+      'header',
+      {'header--blur': isBlur},
+      {'header--white': props.isWhite}
+    ]"
   >
     <nav class="header__inner">
-      <Logo @mouseover="handleHeaderLeave" class="header__logo"/>
+      <Logo @mouseover="handleHeaderLeave" :isWhite="props.isWhite" class="header__logo"/>
       <ul v-if="!isMobile" class="header__nav">
         <li
           v-for="{name, link, children, disabled} in links"
@@ -75,7 +79,34 @@
 </template>
 
 <script setup>
-import links from "../app_data/header.js";
+const links = ref([
+  {
+    name: "Why Us",
+    link: "/#why-us"
+  },
+  {
+    name: "Our Services",
+    link: "/services",
+    disabled: true,
+    children: [
+      { name: "Advisory" , link: "/advisory" },
+      { name: "Business Analysis & Data Modeling" , link: "/analysis-modeling" },
+      { name: "Enterprise Data Management & Analytics Strategy" , link: "/data-management" },
+      { name: "Master Data Management & Entity Resolution" , link: "/mdm" },
+      { name: "AI and Data Observability" , link: "/ai" },
+      { name: "Executive Services - Education & Literacy" , link: "/executive-services" },
+      { name: "Screening & Assessment of Data Professionals" , link: "/staffing" },
+    ],
+  },
+  {
+    name: "How Do I Start",
+    link: "/get-consultation"
+  },
+]);
+
+const props = defineProps({
+  isWhite: { type: Boolean, default: true }
+});
 
 const subMenu = ref(null);
 const subMenuPos = ref(0);
@@ -106,6 +137,7 @@ const isBlur = computed(() => scroll.value > 10);
 
 const route = useRoute();
 
+
 watch(() => route.fullPath, () => burgerActive.value = false);
 watch(isMobile, (value) => {
   value ? handleHeaderLeave() : burgerActive.value = false;
@@ -120,10 +152,10 @@ watch(isMobile, (value) => {
     z-index: 11;
     top: 0px;
     position: sticky;
-    transition: backgrop-filter 0.3s ease;
+    transition: backgrop-filter 0.3s ease, background-color 0.3s ease;
 }
 .header--blur {
-    backdrop-filter: blur(10px);
+    background-color: var(--maxWidth);
 }
 .header__backgroundBlend {
     position: absolute;
@@ -160,6 +192,8 @@ watch(isMobile, (value) => {
     cursor: pointer;
     position: relative;
     transition: color 0.3s ease, text-decoration 0.3s ease;
+    font-weight: 400;
+    color: white;
 }
 .header__item:before {
     content: "";
@@ -245,6 +279,25 @@ watch(isMobile, (value) => {
     }
     .header__burger:hover > .header__burger__item {
         background-color: var(--mainYellow);
+    }
+}
+.header--white {
+    box-shadow: 0px 0px 10px 1px var(--darkPurple);
+    background-color: white;
+}
+.header--white .header__item {
+    color: var(--darkPurple)
+}
+.header--white .header__burger__item {
+    background-color: var(--darkPurple) ;
+}
+.header--white .header__button {
+    border-color: var(--darkPurple);
+    color: var(--darkPurple);
+}
+@media (max-width: 1659.99px) {
+    .main {
+        padding: 46px 100px;
     }
 }
 @media (max-width: 1279.99px) {
