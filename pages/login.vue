@@ -50,6 +50,7 @@ const handleLogin = (form) => {
 .login > h1 {
     font-size: 32px;
     width: fit-content;
+    color: white;
 }
 .login__form {
     max-width: 800px;

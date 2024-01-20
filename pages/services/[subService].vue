@@ -55,7 +55,16 @@ const pageData = computed(() => pages.value[route.params.subService]);
 </script>
 
 <style>
-.services > p {
-    max-width: 100%;
+.services {
+    padding: 80px 60px;
+    gap: 40px;
+}
+.services h1 {
+    max-width: 80%;
+}
+.services h1, .services h2, .servics h3,
+.services span, .services a, .services p,
+.services button {
+    color: white;
 }
 </style>

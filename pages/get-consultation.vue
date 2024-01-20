@@ -65,12 +65,8 @@ const handleLogin = (form) => {
     place-self: center;
     width: 800px;
 }
-.consult__form input {
-    font-size: 22px;
-}
 .consult__form > .form__fieldset > label:last-of-type > textarea {
     min-height: 160px;
-    font-size: 22px;
     resize: none;
 }
 </style>

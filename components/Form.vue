@@ -63,9 +63,8 @@ const handleSubmit = event => {
 }
 .form__input {
     color: black;
-    font-size: 28px;
     border: none;
-    padding: 12px 20px;
+    padding: 20px;
     width: 100%;
     border-radius: 20px;
     outline-color: var(--mainPurple);
@@ -74,18 +73,20 @@ const handleSubmit = event => {
     display: inline-block;
     margin-bottom: 4px;
     padding-left: 20px;
-    font-size: 20px;
+    color: white;
     transition: opacity 0.1s ease;
 }
 .form__button {
     background-color: white;
     width: 200px;
-    font-size: 20px;
     place-self: center;
 }
 .form__errors {
+    border: 1px solid var(--errorRed);
     color: var(--errorRed);
-    font-size: 28px;
+    border-radius: 12px;
+    padding: 12px 20px;
+    background-color: #ff626259;
 }
 .button--clicked {
     background-color: var(--mainYellow) !important;

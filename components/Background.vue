@@ -1,12 +1,19 @@
 <template>
-  <div class="background__item background">
+  <div
+    :style="consultPage ? 'height: 100%' : ''"
+    :class="[
+      'background__item',
+      'background',
+      {'background--static': !isMain}
+    ]"
+  >
     <div class="background__item background__lines"/>
-    <bgCircleTop class="background__circle circle--top"/>
-    <bgCircleBot class="background__circle circle--bot"/>
+    <bgCircleTop v-if="isMain" class="background__circle circle--top"/>
+    <bgCircleBot v-if="isMain" class="background__circle circle--bot"/>
     <bgDotsBot class="background__dotsBot"/>
     <bgDotsSide class="backgorund__dotsSide" />
-    <bgCurveLineToLeft v-if="!noTopElements" class="background__curveLineLeft" />
-    <bgCurveLineToRight class="backgound__curveLineRight"/>
+    <bgCurveLineToLeft v-if="isMain" class="background__curveLineLeft" />
+    <bgCurveLineToRight v-if="!consultPage" class="backgound__curveLineRight"/>
     <bgDotsLine class="dotsLine--1"/>
     <bgDotsLine class="dotsLine--2"/>
     <bgAngles class="background__angles" />
@@ -17,9 +24,13 @@
 <script setup>
 const route = useRoute();
 
-const noTopElements = computed(() => {
+const isMain = computed(() => {
   var { name } = route;
-  return name !== "index";
+  return name === "index"
+});
+const consultPage = computed(() => {
+  var { name } = route;
+  return name === "get-consultation"
 });
 </script>
 
@@ -38,6 +49,10 @@ const noTopElements = computed(() => {
     background-image: url("/svg/background.svg");
     background-size: cover;
     z-index: 0;
+}
+.background--static {
+    background-color: #160247;
+    background-image: none;
 }
 .background__lines {
     width: 100%;

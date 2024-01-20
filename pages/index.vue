@@ -1,17 +1,8 @@
 <template>
   <section class="main banner">
-    <h1>
-      <img
-        :src="currentSlide.title.image"
-        :alt="currentSlide.title.text"
-        class="main__title">
+    <h1 ref="textSlide" class="main__title">
+      <img :src="currentSlide" :alt="`mainSlide_${slideIndex}`">
     </h1>
-    <h2>
-      <img
-      :src="currentSlide.subTitle.image"
-      :alt="currentSlide.subTitle.text"
-      class="main__subTitle">
-    </h2>
     <section class="banner__text">
       <p v-for="paragraph in bannerText">{{paragraph}}</p>
     </section>
@@ -29,6 +20,7 @@
       >
         <h3>{{title}}</h3>
         <p>{{text}}</p>
+        <img v-if="!index" src="/images/people-picture.jpg" alt="whyUs-picture" />
       </div>
     </div>
   </section>
@@ -60,28 +52,7 @@
 </template>
 
 <script setup>
-const slides = ([
-  {
-    title: {
-      image: "text/keep-simple.svg",
-      text: "keep it simple"
-    },
-    subTitle: {
-      image: "text/through-services.svg",
-      text: "through our Data Services"
-    },
-  },
-  {
-    title: {
-      image: "text/about-time.svg",
-      text: "It's about time"
-    },
-    subTitle: {
-      image: "text/to-simplify.svg",
-      text: "to simplify your Data"
-    },
-  },
-]);
+const slides = ([ "/svg/keep-it-simple.svg", "/svg/about-time.svg" ]);
 
 const bannerText = ([
   "We transform data chaos into profitable insights, organizing and refining messy, siloed data into actionable intelligence that your Business team can easily work with. Our goal is to make you successful by helping you monetize every aspect of your data.",
@@ -107,20 +78,32 @@ const whyUs = ref({
 });
 
 const headerSwitchPosition = ref(1080);
+const slideIndex = ref(1);
+const textSlide = ref(null);
+const swiper = ref(null);
 
 const changeHeader = inject("changeHeader");
 const scroll = inject("scroll");
 const appWidth = inject("appWidth");
 
-const slideIndex = ref(0);
-
 const currentSlide = computed(() => slides[slideIndex.value]);
+
+const changeSlide = () => {
+  console.log(1)
+  var className = "textTransition";
+  textSlide.value.classList.add(className);
+  slideIndex.value ^= 1;
+  setTimeout(() => textSlide.value.classList.remove(className), 500);
+};
 
 onMounted(() => {
   var anchor = document.getElementById("why-us");
   var { y } = anchor.getBoundingClientRect();
   headerSwitchPosition.value = y;
+  swiper.value = setInterval(changeSlide, 10000);
 });
+onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
+
 watch([scroll, appWidth], value => {
   changeHeader(value[0] + 148 >= headerSwitchPosition.value);
 });
@@ -129,16 +112,26 @@ watch([scroll, appWidth], value => {
 <style>
 .banner {
     height: calc(100vh - 149px);
+    position: relative;
 }
 .main__title {
-    width: 1152px;
-    transform: translateX(100px);
+    position: absolute;
+    width: 70%;
+    left: calc(100px);
+    opacity: 1;
+    transition: left 1s ease, opacity 1s ease;
 }
-.main__subTitle {
-    width: 652px;
+.main__title img {
+    width: 100%;
+}
+.textTransition {
+    left: calc(100vh * 2);
+    opacity: 0;
+    transition: inital;
 }
 .banner__text {
-    margin: 50px 0;
+    position: absolute;
+    top: calc(100vh * 0.4);
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -178,6 +171,14 @@ watch([scroll, appWidth], value => {
     gap: 12px;
     max-width: 66%;
     width: 100%;
+    position: relative;
+}
+.whyUs__points > img {
+    position: absolute;
+    top: 50%;
+    left: calc(100% * 1.5);
+    transform: translate(calc(-100% - 80px), -50%);
+    height: 100%;
 }
 .points--even {
     place-self: flex-end;
@@ -244,12 +245,20 @@ watch([scroll, appWidth], value => {
     font-weight: 500;
     place-self: flex-end;
 }
+@media (max-height: 960px) {
+    .banner__text {
+        gap: 20px;
+    }
+    .banner__text > p {
+        font-size: 20px;
+    }
+    .main__title {
+        width: 45%;
+    }
+}
 @media (max-width: 1659.99px) {
     .main__title {
-        width: 820px;
-    }
-    .main__subTitle {
-        width: 410px;
+        width: 60%;
     }
     .banner__text {
         max-width: 860px;
@@ -265,10 +274,7 @@ watch([scroll, appWidth], value => {
 }
 @media (max-width: 1439.99px) {
     .main__title {
-        width: 680px;
-    }
-    .main__subTitle {
-        width: 320px;
+        width: 50%;
     }
     .banner__text {
         max-width: 740px;
@@ -282,8 +288,6 @@ watch([scroll, appWidth], value => {
     .main__title {
         width: 560px;
     }
-    .main__subTitle {
-        width: 320px;
-    }
 }
+
 </style>

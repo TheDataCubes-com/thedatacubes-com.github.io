@@ -231,6 +231,9 @@ watch(isMobile, (value) => {
     flex-direction: column;
     gap: 12px;
 }
+.header__dropDown__nav a {
+    font-size: 18px;
+}
 .link--disabled {
     cursor: default;
     user-select: none;
@@ -301,13 +304,22 @@ watch(isMobile, (value) => {
     }
 }
 @media (max-width: 1659.99px) {
+    .header {
+        padding: 12px 0;
+    }
     .header__logo {
         max-width: 125px;
+    }
+    .header__dropDown__nav a {
+        font-size: 16px;
     }
 }
 @media (max-width: 1439.99px) {
     .header__logo {
         max-width: 110px;
+    }
+    .header__dropDown__nav a {
+        font-size: 14px;
     }
 }
 @media (max-width: 1279.99px) {
@@ -316,6 +328,9 @@ watch(isMobile, (value) => {
     }
     .header__nav  {
         gap: 0;
+    }
+    .header__dropDown__nav a {
+        font-size: 12px;
     }
 }
 @media (max-width: 859.99px) {

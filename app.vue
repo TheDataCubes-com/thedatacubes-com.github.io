@@ -77,6 +77,9 @@ a {
 ul {
     list-style: none;
 }
+h1 {
+    font-size: 80px;
+}
 h2 {
     font-weight: 500;
     font-size: 60px;
@@ -123,6 +126,9 @@ p {
     z-index: 20;
 }
 @media (max-width: 1659.99px) {
+    h1 {
+        font-size: 64px;
+    }
     h2 {
         font-size: 42px;
     }
@@ -132,13 +138,10 @@ p {
     p, a, span {
         font-size: 22px;
     }
-    .main {
-        padding: 66px 90px;
-    }
 }
 @media (max-width: 1439.99px) {
-    .main {
-        padding: 56px 80px;
+    h1 {
+        font-size: 56px;
     }
     h2 {
         font-size: 38px;
@@ -151,8 +154,8 @@ p {
     }
 }
 @media (max-width: 1279.99px) {
-    .main {
-        padding: 46px 60px;
+    h1 {
+        font-size: 48px;
     }
     h2 {
         font-size: 32px;

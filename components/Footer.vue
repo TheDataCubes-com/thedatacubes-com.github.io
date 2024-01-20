@@ -17,17 +17,35 @@ const isSolid = computed(() => {
 .footer {
     position: absolute;
     z-index: 10;
-    bottom: 20px;
+    bottom: 12px;
     left: 64px;
     display: flex;
     gap: 60px;
+}
+.footer span, footer a {
+    color: white;
+    font-size: 18px;
 }
 .footer--solid {
     position: static;
     background-color: var(--darkPurple);
 }
 .footer--solid * {
-    color: white;
     padding: 20px;
+}
+@media (max-width: 1659.99px) {
+    .footer span, footer a {
+        font-size: 16px;
+    }
+}
+@media (max-width: 1439.99px) {
+    .footer span, footer a {
+        font-size: 14px;
+    }
+}
+@media (max-width: 1279.99px) {
+    .footer span, footer a {
+        font-size: 12px;
+    }
 }
 </style>
