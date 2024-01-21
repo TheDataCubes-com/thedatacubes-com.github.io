@@ -1,6 +1,5 @@
 <template>
   <form @submit="handleSubmit" class="form__form">
-    <p v-if="props.error" class="form__errors">{{props.error}}</p>
     <fieldset class="form__fieldset">
       <label
         v-for="{id, text, required, inputType, type } in props.fields"
@@ -24,6 +23,7 @@
       :text="props.submitText"
       class="form__button"
     />
+    <p v-if="props.error" class="form__errors">{{props.error}}</p>
   </form>
 </template>
 

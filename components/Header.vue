@@ -19,11 +19,11 @@
             style="cursor: default"
             class="header__item header__link link--disabled"
           >{{name}}</span>
-          <NuxtLink
+          <a
             v-else
-            :to="link"
+            :href="link"
             class="header__item header__link"
-          >{{name}}</NuxtLink>
+          >{{name}}</a>
         </li>
       </ul>
       <div class="header__nav">
@@ -150,7 +150,7 @@ watch(isMobile, (value) => {
     display: flex;
     place-content: center;
     padding: 20px 0;
-    z-index: 11;
+    z-index: 31;
     top: 0px;
     position: sticky;
     transition: backgrop-filter 0.3s ease, background-color 0.3s ease;

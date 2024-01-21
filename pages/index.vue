@@ -24,7 +24,7 @@
       </div>
     </div>
   </section>
-  <section class="ourClients">
+  <!-- <section class="ourClients">
     <div class="ourClients__inner">
       <h2>What Our Clients Say</h2>
       <div class="ourClients__cardsWrap">
@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </template>
 
 <script setup>
@@ -89,7 +89,6 @@ const appWidth = inject("appWidth");
 const currentSlide = computed(() => slides[slideIndex.value]);
 
 const changeSlide = () => {
-  console.log(1)
   var className = "textTransition";
   textSlide.value.classList.add(className);
   slideIndex.value ^= 1;
@@ -177,8 +176,8 @@ watch([scroll, appWidth], value => {
     position: absolute;
     top: 50%;
     left: calc(100% * 1.5);
-    transform: translate(calc(-100% - 80px), -50%);
-    height: 100%;
+    transform: translate(calc(-100%), -50%);
+    height: 125%;
 }
 .points--even {
     place-self: flex-end;
@@ -270,6 +269,9 @@ watch([scroll, appWidth], value => {
     }
     .whyUs__points {
         max-width: 75%;
+    }
+    .whyUs__points > img {
+        left: calc(100% * 1.35);
     }
 }
 @media (max-width: 1439.99px) {
