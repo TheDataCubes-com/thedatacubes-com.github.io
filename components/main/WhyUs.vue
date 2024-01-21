@@ -107,6 +107,7 @@ watch([scroll, appWidth], value => {
     background-color: #cc90ff;
     border: 2px solid #cc90ff;
     width: 30%;
+    padding: 8px 12px;
 }
 .points--even {
     place-self: flex-end;

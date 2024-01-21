@@ -99,17 +99,9 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     }
 }
 @media (max-width: 1439.99px) {
-    .main__title {
-        width: 50%;
-    }
     .banner__text {
         max-width: 740px;
         margin: 20px 0;
-    }
-}
-@media (max-width: 1279.99px) {
-    .main__title {
-        width: 560px;
     }
 }
 </style>

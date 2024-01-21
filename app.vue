@@ -155,9 +155,6 @@ p {
     }
 }
 @media (max-width: 1279.99px) {
-    .main {
-        padding: 26px 40px;
-    }
     h2, h1 {
         font-size: 32px;
     }
