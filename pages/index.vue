@@ -63,14 +63,14 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     top: calc(100vh * 0.4);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
     max-width: 990px;
     width: 100%;
 }
 .banner__text > p {
     width: 100%;
     font-size: 24px;
-    line-height: 1.5;
+    line-height: 1.7;
     font-weight: 300;
     color: white;
 }
@@ -82,7 +82,7 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
         font-size: 20px;
     }
     .main__title {
-        width: 45%;
+        width: 55%;
     }
 }
 @media (max-width: 1659.99px) {
