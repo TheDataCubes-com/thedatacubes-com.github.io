@@ -43,9 +43,11 @@ const formFields = ref([
 ]);
 
 const setError = (message) => {
+  var successMessage = "Thank you for your interest. We'll be in touch soon.";
   if (error.value) clearTimeout(err.handler);
   var handler = setTimeout(() => error.value = null, 5000);
   error.value = { message: message, handler }
+
 }
 
 const handleLogin = (form) => {

@@ -1,7 +1,7 @@
 <template>
   <footer :class="['footer', {'footer--solid': isSolid}]">
-    <span class="footer__info__item">© 2024 TheDataCubes.</span>
-    <NuxtLink to="/" class="footer__info__item">Privacy Policy</NuxtLink>
+    <span class="footer__info__item">{{copyright}}</span>
+    <!-- <NuxtLink to="/" class="footer__info__item">Privacy Policy</NuxtLink> -->
   </footer>
 </template>
 
@@ -10,6 +10,11 @@ const route = useRoute();
 const isSolid = computed(() => {
   var { name } = route;
   return name === "index";
+});
+
+const copyright = computed(() => {
+  var date = new Date();
+  return `© ${date.getFullYear()} TheDataCubes.`;
 });
 </script>
 
@@ -21,17 +26,13 @@ const isSolid = computed(() => {
     left: 64px;
     display: flex;
     gap: 60px;
+    padding: 20px;
+    position: static;
+    background-color: var(--darkPurple);
 }
 .footer span, footer a {
     color: white;
     font-size: 18px;
-}
-.footer--solid {
-    position: static;
-    background-color: var(--darkPurple);
-}
-.footer--solid * {
-    padding: 20px;
 }
 @media (max-width: 1659.99px) {
     .footer span, footer a {

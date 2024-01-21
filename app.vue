@@ -62,7 +62,7 @@ watch(() => route.fullPath, () => headerWhite.value = false);
 }
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 200px;
+    scroll-padding-top: 80px;
 }
 * {
     margin: 0;
@@ -77,20 +77,20 @@ a {
 ul {
     list-style: none;
 }
-h1 {
-    font-size: 80px;
-}
-h2 {
+h2, h1 {
     font-weight: 500;
     font-size: 60px;
+    color: #3D3D3D;
 }
 h3 {
     font-weight: 400;
     font-size: 32px;
+    color: #3D3D3D;
 }
-p, a, span {
+p, a, span, button {
     font-weight: 300;
     font-size: 24px;
+    color: #666666;
 }
 p {
     line-height: 1.5;
@@ -114,6 +114,7 @@ p {
     overflow-x: hidden;
 }
 .pageLayout {
+    flex-grow: 1;
     z-index: 10;
     width: 100%;
     display: flex;
@@ -126,10 +127,7 @@ p {
     z-index: 20;
 }
 @media (max-width: 1659.99px) {
-    h1 {
-        font-size: 64px;
-    }
-    h2 {
+    h2, h1 {
         font-size: 42px;
     }
     h3 {
@@ -138,12 +136,15 @@ p {
     p, a, span {
         font-size: 22px;
     }
+    .main {
+        padding: 66px 80px;
+    }
 }
 @media (max-width: 1439.99px) {
-    h1 {
-        font-size: 56px;
+    .main {
+        padding: 46px 60px;
     }
-    h2 {
+    h2, h1 {
         font-size: 38px;
     }
     h3 {
@@ -154,10 +155,10 @@ p {
     }
 }
 @media (max-width: 1279.99px) {
-    h1 {
-        font-size: 48px;
+    .main {
+        padding: 26px 40px;
     }
-    h2 {
+    h2, h1 {
         font-size: 32px;
     }
     h3 {

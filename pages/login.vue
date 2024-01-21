@@ -38,7 +38,7 @@ const setError = (message) => {
 }
 
 const handleLogin = (form) => {
-  setError("some error");
+  setError("The email address and/or password you specified are not correct");
 }
 </script>
 
@@ -51,6 +51,7 @@ const handleLogin = (form) => {
     font-size: 32px;
     width: fit-content;
     color: white;
+   place-self: center;
 }
 .login__form {
     max-width: 800px;

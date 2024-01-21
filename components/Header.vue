@@ -214,7 +214,7 @@ watch(isMobile, (value) => {
     height: fit-content;
     transform: translateY(100%);
     overflow: hidden;
-    background-color: var(--darkPurple);
+    background-color: #240164;
     border-radius: 20px;
     border-top-left-radius: 0px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;

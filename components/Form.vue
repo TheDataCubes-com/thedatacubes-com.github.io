@@ -53,10 +53,7 @@ const handleSubmit = event => {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 40px 60px;
     width: 100%;
-    background-color: rgb(255, 255, 255, 0.6);
-    border-radius: 20px;
 }
 .form__label {
     width: 100%;
@@ -82,11 +79,7 @@ const handleSubmit = event => {
     place-self: center;
 }
 .form__errors {
-    border: 1px solid var(--errorRed);
     color: var(--errorRed);
-    border-radius: 12px;
-    padding: 12px 20px;
-    background-color: #ff626259;
 }
 .button--clicked {
     background-color: var(--mainYellow) !important;

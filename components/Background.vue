@@ -13,8 +13,15 @@
     <bgDotsBot class="background__dotsBot"/>
     <bgDotsSide class="backgorund__dotsSide" />
     <bgCurveLineToLeft v-if="isMain" class="background__curveLineLeft" />
-    <bgCurveLineToRight v-if="!consultPage" class="backgound__curveLineRight"/>
-    <bgDotsLine class="dotsLine--1"/>
+    <bgCurveLineToRight
+      v-if="!consultPage"
+      :style="`top: calc(100vh - 13% - ${bottomElementsMargin}px);`"
+      class="backgound__curveLineRight"
+    />
+    <bgDotsLine
+      :style="`top: calc(100vh - 5% - ${bottomElementsMargin}px);`"
+      class="dotsLine--1"
+    />
     <bgDotsLine class="dotsLine--2"/>
     <bgAngles class="background__angles" />
 
@@ -24,6 +31,8 @@
 <script setup>
 const route = useRoute();
 
+const bottomElementsMargin = ref(0);
+
 const isMain = computed(() => {
   var { name } = route;
   return name === "index"
@@ -32,6 +41,13 @@ const consultPage = computed(() => {
   var { name } = route;
   return name === "get-consultation"
 });
+const setMargin = () => {
+  if (isMain.value) return 0;
+  var footer = document.querySelector("footer");
+  bottomElementsMargin.value = footer?.offsetHeight || 0;
+};
+
+onMounted(() => setMargin());
 </script>
 
 <style>
@@ -51,7 +67,7 @@ const consultPage = computed(() => {
     z-index: 0;
 }
 .background--static {
-    background-color: #160247;
+    background-color: #170247;
     background-image: none;
 }
 .background__lines {
@@ -98,14 +114,12 @@ const consultPage = computed(() => {
 .backgound__curveLineRight {
     position: absolute;
     left: 0;
-    top: calc(100vh - 13%);
     width: 49%;
 }
 .dotsLine--1 {
     position: absolute;
     width: 130px;
     left: 78px;
-    top: calc(100vh - 5%);
 }
 .dotsLine--2 {
     position: absolute;
