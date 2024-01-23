@@ -78,10 +78,11 @@ const handleLogin = (form) => {
     gap: 20px;
     flex-direction: row;
     display: grid;
-    grid-template-columns: minmax(0px, 320px) minmax(0, 440px);
+    grid-template-columns: minmax(0px, 410px) minmax(0, 440px);
     grid-template-areas:
     ". form"
     "text form"
+    ". form"
     ". form"
     ". form";
     place-content: center;
@@ -89,11 +90,12 @@ const handleLogin = (form) => {
 }
 .consult > h1 {
     opacity: 0.8;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 300;
     width: fit-content;
     color: white;
     grid-area: text;
+    line-height: 1.6;
 }
 .consult > p {
     max-width: 100%;

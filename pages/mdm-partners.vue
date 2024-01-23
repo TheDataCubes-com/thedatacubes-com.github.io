@@ -1,34 +1,36 @@
 <template>
-  <article class="main partners">
-    <h1>MDM Partners</h1>
-    <p>Finding a firm with expertise in technology products, deep knowledge of the Financial Services industry, and proficiency in guiding strategy and implementation is a rare combination. It's challenging to come across an organization that effectively possesses all these capabilities to deliver solutions to business problems.</p>
-    <p>We excel in Strategic Consulting and the delivery of MDM solutions, particularly within the Financial Services sector. Our standout ability lies in translating complex business problems into successful technical solutions, a skill that significantly contributed to the success of our projects.</p>
-    <div
-      v-for="({text, bullets}, index) in pageText"
-      :key="index"
-      class="partners__text"
-    >
-      <h3 @click="() => setActive(index)">
-        {{text}}
-        <svg
-          height="30px"
-          width="30px"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 50 50"
-          :class="{'partners__arrow': index===active}"
-        >
-        <path fill="#666666" d="M15.563,40.836c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293l15-15
-	c0.391-0.391,0.391-1.023,0-1.414l-15-15c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l14.293,14.293L15.563,39.422
-	C15.172,39.813,15.172,40.446,15.563,40.836z"/>
-        </svg>
-      </h3>
-      <ul v-if="bullets"
-        :class="['partners__bullets', {'expand': index === active}]"
+  <div class="bg--pink">
+    <article class="main partners">
+      <h1>MDM Partners</h1>
+      <p>Finding a firm with expertise in technology products, deep knowledge of the Financial Services industry, and proficiency in guiding strategy and implementation is a rare combination. It's challenging to come across an organization that effectively possesses all these capabilities to deliver solutions to business problems.</p>
+      <p>We excel in Strategic Consulting and the delivery of MDM solutions, particularly within the Financial Services sector. Our standout ability lies in translating complex business problems into successful technical solutions, a skill that significantly contributed to the success of our projects.</p>
+      <div
+        v-for="({text, bullets}, index) in pageText"
+        :key="index"
+        class="partners__text"
       >
-        <li v-for="(bullet, index) in bullets" :key="index" v-html="bullet" />
-      </ul>
-    </div>
-  </article>
+        <h3 @click="() => setActive(index)">
+          {{text}}
+          <svg
+            height="30px"
+            width="30px"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 50 50"
+            :class="{'partners__arrow': index===active}"
+          >
+          <path fill="#666666" d="M15.563,40.836c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293l15-15
+  	c0.391-0.391,0.391-1.023,0-1.414l-15-15c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l14.293,14.293L15.563,39.422
+  	C15.172,39.813,15.172,40.446,15.563,40.836z"/>
+          </svg>
+        </h3>
+        <ul v-if="bullets"
+          :class="['partners__bullets', {'expand': index === active}]"
+        >
+          <li v-for="(bullet, index) in bullets" :key="index" v-html="bullet" />
+        </ul>
+      </div>
+    </article>
+  </div>
 </template>
 
 <script setup>
@@ -53,6 +55,7 @@ const pageText = ref([
       `<b>Leveraging Personal Networks in FinServ</b>: Our extensive personal network within the FinServ industry serves as a valuable resource for generating new leads. These connections are pivotal in identifying potential clients who can benefit from the product.`,
       `<b>Collaboration with Technology Partners</b>: We collaborate with technology partners like Salesforce to enhance client understanding in differentiating between products such as SFDC, CDP, Customer Master, C360, MDM, and ER. Leading to creating opportunities for new leads for the right product fit.`,
       `<b>Insights and Data Channel (I&D)</b>: Our Insights and Data channel is an additional source of new leads. By showcasing our expertise and success stories, we attract businesses looking for advanced data management solutions.`,
+      `<b>Target New trending Use Cases (AI)</b>: Tap into completely new for the MDM market use cases related to GenAI (enabled by underlying product's technology).`,
       `<b>Targeting Companies with On-Premise MDM Solutions</b>: There is a opportunity in engaging with companies currently using on-premise solutions like INFA. We can address their needs by offering more advanced, cloud-based solutions that enhance their data management capabilities.`,
     ]
   },
@@ -82,12 +85,19 @@ changeHeader(true)
 </script>
 
 <style>
-.partners {
-    gap: 20px;
+.bg--pink {
     background-color: #dfd4e547;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+.partners {
+    padding: 46px 100px;
+    gap: 20px;
 }
 .partners h1 {
+    place-self: center;
     max-width: 80%;
     font-size: 32px;
 }

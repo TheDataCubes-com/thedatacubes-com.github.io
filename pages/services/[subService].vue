@@ -1,7 +1,7 @@
 <template>
   <article class="main services">
     <h1>{{pageData.title}}</h1>
-    <p v-html="pageData.text"/>
+    <!-- <p v-html="pageData.text"/> -->
   </article>
 </template>
 
@@ -56,11 +56,12 @@ const pageData = computed(() => pages.value[route.params.subService]);
 
 <style>
 .services {
-    padding: 80px 60px;
+    padding: 46px 100px;
     gap: 40px;
 }
 .services h1 {
-    max-width: 80%;
+    font-size: 32px;
+    place-self: center;
 }
 .services h1, .services h2, .servics h3,
 .services span, .services a, .services p,
