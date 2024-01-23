@@ -1,13 +1,30 @@
 <template>
   <article class="main partners">
     <h1>MDM Partners</h1>
+    <p>Finding a firm with expertise in technology products, deep knowledge of the Financial Services industry, and proficiency in guiding strategy and implementation is a rare combination. It's challenging to come across an organization that effectively possesses all these capabilities to deliver solutions to business problems.</p>
+    <p>We excel in Strategic Consulting and the delivery of MDM solutions, particularly within the Financial Services sector. Our standout ability lies in translating complex business problems into successful technical solutions, a skill that significantly contributed to the success of our projects.</p>
     <div
       v-for="({text, bullets}, index) in pageText"
       :key="index"
       class="partners__text"
     >
-      <p v-html="text" />
-      <ul v-if="bullets" class="partners__bullets">
+      <h3 @click="() => setActive(index)">
+        {{text}}
+        <svg
+          height="30px"
+          width="30px"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 50 50"
+          :class="{'partners__arrow': index===active}"
+        >
+        <path fill="#666666" d="M15.563,40.836c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293l15-15
+	c0.391-0.391,0.391-1.023,0-1.414l-15-15c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l14.293,14.293L15.563,39.422
+	C15.172,39.813,15.172,40.446,15.563,40.836z"/>
+        </svg>
+      </h3>
+      <ul v-if="bullets"
+        :class="['partners__bullets', {'expand': index === active}]"
+      >
         <li v-for="(bullet, index) in bullets" :key="index" v-html="bullet" />
       </ul>
     </div>
@@ -15,17 +32,14 @@
 </template>
 
 <script setup>
+const active = ref(null);
+const setActive = (i) => {
+  console.log(i)
+  active.value =   active.value === i ? null : i;
+}
 const pageText = ref([
   {
-    text: "Finding a firm with expertise in technology products, deep knowledge of the Financial Services industry, and proficiency in guiding strategy and implementation is a rare combination. It's challenging to come across an organization that effectively possesses all these capabilities to deliver solutions to business problems.",
-    bullets: null
-  },
-  {
-    text: "We excel in Strategic Consulting and the delivery of MDM solutions, particularly within the Financial Services sector. Our standout ability lies in translating complex business problems into successful technical solutions, a skill that significantly contributed to the success of our projects.",
-    bullets: null
-  },
-  {
-    text: "<b>Growth Partner for Existing Clients</b>",
+    text: "Growth Partner for Existing Clients",
     bullets: [
       '<b>Third-Party Independent Advisor ("hot lead to close")</b>: As an independent specialist team specializing in the Financial services sector, we step in when sales team needs help closing promising leads. Our unbiased approach and deep expertise in financial services make us more relatable and effective than a vendor’s sales team. We offer vendor-independent evaluations of customer use cases, MDM product concerns, and solution gaps, aiding MDM Leads to close deals with confidence.',
       `<b>Enhancing Client Retention and Cross-Selling ("Stickiness")</b>: We conduct thorough evaluations of existing customers' business needs to offer tailored MDM modeling solutions (e.g., custom solutions for mortgage clients). This approach supports new business use cases, combining deep business domain knowledge with MDM expertise. Our optimization billing aids in justifying funding/license renewals.`,
@@ -34,7 +48,7 @@ const pageText = ref([
     ]
   },
   {
-    text: "<b>Generating New Leads</b>",
+    text: "Generating New Leads",
     bullets: [
       `<b>Leveraging Personal Networks in FinServ</b>: Our extensive personal network within the FinServ industry serves as a valuable resource for generating new leads. These connections are pivotal in identifying potential clients who can benefit from the product.`,
       `<b>Collaboration with Technology Partners</b>: We collaborate with technology partners like Salesforce to enhance client understanding in differentiating between products such as SFDC, CDP, Customer Master, C360, MDM, and ER. Leading to creating opportunities for new leads for the right product fit.`,
@@ -43,18 +57,18 @@ const pageText = ref([
     ]
   },
   {
-    text: "<b>Our Products</b>",
+    text: "Our Products",
     bullets: [`FinServ velocity pack (+ potentially new leads source like DnB)`]
   },
   {
-    text: "<b>Support for MDM Product Roadmap (Product Management team)</b>",
+    text: "Support for MDM Product Roadmap (Product Management team)",
     bullets: [
       `<b>Expanding New Domains</b>: FinServ velocity pack.`,
       `<b>Client Engagement and Feedback Translation</b>: Regular meetings with MDM clients are vital in understanding their unique challenges and needs. Our team, equipped with both technical expertise and financial services domain knowledge, acts as a bridge. We translate client feedback and challenges into actionable insights for the Product Management team, ensuring that the MDM product roadmap aligns closely with client requirements and industry trends.`
     ]
   },
   {
-    text: "<b>Support for MDM Product Technology</b>",
+    text: "Support for MDM Product Technology",
     bullets: [
       `<b>IA</b>: Review`,
       `<b>Advisory Service on Feasibility</b>: We provide critical insights into what will or will not work for specific features (e.g., industry standard models adoption).`,
@@ -63,6 +77,8 @@ const pageText = ref([
     ]
   },
 ]);
+const changeHeader = inject("changeHeader");
+changeHeader(true)
 </script>
 
 <style>
@@ -71,15 +87,12 @@ const pageText = ref([
 }
 .partners h1 {
     max-width: 80%;
-    color: white;
+    font-size: 32px;
 }
 .partners__text {
     display: flex;
     flex-direction: column;
     gap: 20px
-}
-.partners__text * {
-    color: white;
 }
 .partners__bullets {
     color: white;
@@ -88,6 +101,23 @@ const pageText = ref([
     gap: 8px;
     list-style: disc inside;
     width: 100%;
+    height: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.partners__text h3 {
+    display: flex;
+    gap: 12px;
+    place-content: center;
+    align-self: flex-start;
+    cursor: pointer;
+}
+.partners__text>h3>svg {
+    transition: rotate 0.3s ease;
+}
+.expand {
+    max-height: 100vh;
 }
 .partners__bullets > li {
     line-height: 1.5;
@@ -95,5 +125,8 @@ const pageText = ref([
     width: 100%;
     place-self: flex-end;
     font-weight: 300;
+}
+.partners__arrow {
+    rotate: 90deg;
 }
 </style>

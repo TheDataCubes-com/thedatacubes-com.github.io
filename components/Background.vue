@@ -1,10 +1,11 @@
 <template>
   <div
+    v-if="!partnersPage"
     :style="!isMain ? 'height:100%;' : ''"
     :class="[
       'background__item',
       'background',
-      {'background--static': !isMain}
+      {'background--static': !isMain},
     ]"
   >
     <div class="background__item background__lines"/>
@@ -25,7 +26,6 @@
     />
     <bgDotsLine v-if="!partnersPage" class="dotsLine--2"/>
     <bgAngles class="background__angles" />
-
   </div>
 </template>
 

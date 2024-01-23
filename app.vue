@@ -95,6 +95,10 @@ p, a, span, button, li {
 p {
     line-height: 1.5;
 }
+b {
+    font-size: 24px;
+    color: #666666;
+}
 #__nuxt {
     position: relative;
     display: flex;
@@ -133,7 +137,7 @@ p {
     h3 {
         font-size: 28px;
     }
-    p, a, span, li {
+    p, a, span, li, b {
         font-size: 22px;
     }
     .main {
@@ -150,7 +154,7 @@ p {
     h3 {
         font-size: 26px;
     }
-    p, a, span li {
+    p, a, span, li, b {
         font-size: 20px;
     }
 }
@@ -161,7 +165,7 @@ p {
     h3 {
         font-size: 24px;
     }
-    p, a, span, li {
+    p, a, span, li, b {
         font-size: 18px;
     }
 }
