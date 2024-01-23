@@ -8,7 +8,7 @@
     </section>
   </section>
   <mainWhyUs />
-  <!-- <mainOurClients /> -->
+  <mainOurClients />
 </template>
 
 <script setup>

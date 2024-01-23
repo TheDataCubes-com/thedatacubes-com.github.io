@@ -35,7 +35,7 @@
         >Login</NuxtLink>
         <DynamicButton
           text="Get a Free Consult"
-          link="/get-consultation"
+          link="/free-consultation"
           :isInline="true"
           class="header__button"
         />
@@ -101,7 +101,7 @@ const links = ref([
   },
   {
     name: "How Do I Start",
-    link: "/get-consultation"
+    link: "/free-consultation"
   },
 ]);
 

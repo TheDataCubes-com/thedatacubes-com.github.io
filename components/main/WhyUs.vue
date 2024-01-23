@@ -20,7 +20,7 @@
       />
       <DynamicButton
         v-if="index === (whyUs.points.length - 1)"
-        link="/get-consultation"
+        link="/free-consultation"
         text="Reach Out to Us Today"
         :isInline="true"
         class="whyUs__button"

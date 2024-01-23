@@ -3,28 +3,27 @@
   <div class="ourClients__inner">
     <h2>What Our Clients Say</h2>
     <div class="ourClients__cardsWrap">
-      <div class="ourClients__card">
-        <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <span>Sam Smith</span>
-        </div>
-      </div>
-      <div class="ourClients__card">
-        <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <span>Sam Smith</span>
-        </div>
-      </div>
-      <div class="ourClients__card">
-        <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <span>Sam Smith</span>
+      <div v-for="({company, text}, index) in cards" class="ourClients__card">
+        <div :key="index">
+          <p>{{text}}</p>
+          <span>@ {{company}}</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 </template>
+
+<script setup>
+const cards = ref([
+  { company: "Bank of America", text: "" },
+  { company: "PennyMac Loan Services, LLC", text: "" },
+  { company: "Bold Metrics", text: "" },
+  { company: "Sonos", text: "" },
+  { company: "Silicon Valley Bank", text: "" },
+  { company: "IBM", text: "" },
+]);
+</script>
 
 <style>
 .cards {
@@ -65,6 +64,7 @@
 }
 .ourClients__cardsWrap {
     display: flex;
+    flex-wrap: wrap;
     margin: -20px;
     width: 100%;
 }
@@ -73,6 +73,7 @@
     padding: 20px;
 }
 .ourClients__card>div {
+    min-height: 180px;
     background-color: white;
     border-radius: 12px;
     display: flex;
@@ -84,5 +85,6 @@
     font-size: 16px;
     font-weight: 500;
     place-self: flex-end;
+    margin-top: auto;
 }
 </style>

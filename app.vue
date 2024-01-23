@@ -7,7 +7,7 @@
   <Background />
   <DynamicButton
     v-if="isButton"
-    link="/get-consultation"
+    link="/free-consultation"
     text="Set up a Free Consultation"
     :isIcon="true"
     class="consultButton"
@@ -26,7 +26,7 @@ const headerWhite = ref(false);
 
 const isButton = computed(() => {
   var { name } = route;
-  return name !== "login" && name !== "get-consultation";
+  return name !== "login" && name !== "free-consultation" && name !== "mdm-partners";
 });
 
 const setAppWidth = throttle(({ target }) => appWidth.value = target.innerWidth, 200);
@@ -87,7 +87,7 @@ h3 {
     font-size: 32px;
     color: #3D3D3D;
 }
-p, a, span, button {
+p, a, span, button, li {
     font-weight: 300;
     font-size: 24px;
     color: #666666;
@@ -133,11 +133,11 @@ p {
     h3 {
         font-size: 28px;
     }
-    p, a, span {
+    p, a, span, li {
         font-size: 22px;
     }
     .main {
-        padding: 66px 80px;
+        padding: 56px 80px;
     }
 }
 @media (max-width: 1439.99px) {
@@ -150,7 +150,7 @@ p {
     h3 {
         font-size: 26px;
     }
-    p, a, span {
+    p, a, span li {
         font-size: 20px;
     }
 }
@@ -161,7 +161,7 @@ p {
     h3 {
         font-size: 24px;
     }
-    p, a, span {
+    p, a, span, li {
         font-size: 18px;
     }
 }

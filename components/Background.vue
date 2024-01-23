@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="consultPage ? 'height: 100%' : ''"
+    :style="!isMain ? 'height:100%;' : ''"
     :class="[
       'background__item',
       'background',
@@ -14,15 +14,16 @@
     <bgDotsSide class="backgorund__dotsSide" />
     <bgCurveLineToLeft v-if="isMain" class="background__curveLineLeft" />
     <bgCurveLineToRight
-      v-if="!consultPage"
+      v-if="!consultPage && !partnersPage"
       :style="`top: calc(100vh - 13% - ${bottomElementsMargin}px);`"
       class="backgound__curveLineRight"
     />
     <bgDotsLine
+      v-if="!partnersPage"
       :style="`top: calc(100vh - 5% - ${bottomElementsMargin}px);`"
       class="dotsLine--1"
     />
-    <bgDotsLine class="dotsLine--2"/>
+    <bgDotsLine v-if="!partnersPage" class="dotsLine--2"/>
     <bgAngles class="background__angles" />
 
   </div>
@@ -37,9 +38,13 @@ const isMain = computed(() => {
   var { name } = route;
   return name === "index"
 });
+const partnersPage = computed(() => {
+  var { name } = route;
+  return name === "mdm-partners";
+});
 const consultPage = computed(() => {
   var { name } = route;
-  return name === "get-consultation"
+  return name === "free-consultation";
 });
 const setMargin = () => {
   if (isMain.value) return 0;
@@ -48,6 +53,7 @@ const setMargin = () => {
 };
 
 onMounted(() => setMargin());
+watch(() => route.fullPath, setMargin);
 </script>
 
 <style>
@@ -134,11 +140,6 @@ onMounted(() => setMargin());
     left: 50%;
     opacity: 0.2;
 }
-@media (max-width: 1439.99px) {
-    .background__curveLineLeft {
-        opacity: 0.2;
-    }
-}
 @media (max-width: 1279.99px) {
     .background__dotsBot {
         width: 50%;
@@ -148,11 +149,6 @@ onMounted(() => setMargin());
     .backgorund__dotsSide {
         height: 50%;
         top: 25%;
-    }
-}
-@media (max-width: 1023.99px) {
-    .dotsLine--2, .background__curveLineLeft {
-        display: none;
     }
 }
 </style>
