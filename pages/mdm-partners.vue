@@ -83,11 +83,16 @@ changeHeader(true)
 
 <style>
 .partners {
-    gap: 40px;
+    gap: 20px;
+    background-color: #dfd4e547;
+    flex-grow: 1;
 }
 .partners h1 {
     max-width: 80%;
     font-size: 32px;
+}
+.partners p {
+    font-size: 18px;
 }
 .partners__text {
     display: flex;
@@ -107,6 +112,7 @@ changeHeader(true)
     transition: max-height 0.3s ease;
 }
 .partners__text h3 {
+    font-size: 24px;
     display: flex;
     gap: 12px;
     place-content: center;
@@ -125,6 +131,10 @@ changeHeader(true)
     width: 100%;
     place-self: flex-end;
     font-weight: 300;
+    font-size: 18px;
+}
+.partners__bullets > li > b {
+    font-size: 18px;
 }
 .partners__arrow {
     rotate: 90deg;
