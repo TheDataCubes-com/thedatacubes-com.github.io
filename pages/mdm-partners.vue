@@ -1,7 +1,9 @@
 <template>
   <div class="bg--pink">
+    <div class="titleWrap">
+      <h1>We help MDM solution providers to win in the market</h1>
+    </div>
     <article class="main partners">
-      <h1>MDM Partners</h1>
       <p>Finding a firm with expertise in technology products, deep knowledge of the Financial Services industry, and proficiency in guiding strategy and implementation is a rare combination. It's challenging to come across an organization that effectively possesses all these capabilities to deliver solutions to business problems.</p>
       <p>We excel in Strategic Consulting and the delivery of MDM solutions, particularly within the Financial Services sector. Our standout ability lies in translating complex business problems into successful technical solutions, a skill that significantly contributed to the success of our projects.</p>
       <div
@@ -81,7 +83,9 @@ const pageText = ref([
   },
 ]);
 const changeHeader = inject("changeHeader");
-changeHeader(true)
+
+onBeforeMount(() => changeHeader(true));
+onBeforeUnmount(() => changeHeader(false));
 </script>
 
 <style>
@@ -92,14 +96,27 @@ changeHeader(true)
     flex-direction: column;
     place-items: center;
 }
+.titleWrap {
+   margin-top: 40px;
+   width: 100vw;
+   background-color: var(--darkPurple);
+   padding: 40px 0;
+   display: flex;
+   place-content: center;
+}
+.titleWrap h1 {
+    color: white;
+    max-width: var(--maxWidth);
+    width: 100%;
+    padding: 0 40px;
+    font-size: 32px;
+}
 .partners {
     padding: 46px 100px;
     gap: 20px;
 }
-.partners h1 {
+.partners h2 {
     place-self: center;
-    max-width: 80%;
-    font-size: 32px;
 }
 .partners p {
     font-size: 18px;

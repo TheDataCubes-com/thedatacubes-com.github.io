@@ -90,13 +90,12 @@ const links = ref([
     link: "/services",
     disabled: true,
     children: [
-      { name: "Advisory" , link: "/advisory" },
-      { name: "Business Analysis & Data Modeling" , link: "/analysis-modeling" },
-      { name: "Enterprise Data Management & Analytics Strategy" , link: "/data-management" },
-      { name: "Master Data Management & Entity Resolution" , link: "/mdm" },
-      { name: "AI and Data Observability" , link: "/ai" },
-      { name: "Executive Services - Education & Literacy" , link: "/executive-services" },
-      { name: "Screening & Assessment of Data Professionals" , link: "/staffing" },
+      { name: "Master Data Management and Entity Resolution Consulting" , link: "/mdm" },
+      { name: "Data Management Strategy Consulting" , link: "/data-management" },
+      { name: "Executive Services" , link: "/executive-services" },
+      // { name: "AI and Data Observability" , link: "/ai" },
+      // { name: "Business Analysis and Data Modeling" , link: "/analysis-modeling" },
+      // { name: "Screening & Assessment of Data Professionals" , link: "/staffing" },
     ],
   },
   {
@@ -279,10 +278,10 @@ watch(isMobile, (value) => {
     background-color: white;
 }
 .header--white .header__item {
-    color: var(--darkPurple)
+    color: #1e1d1d
 }
 .header--white .header__burger__item {
-    background-color: var(--darkPurple) ;
+    background-color: #1e1d1d;
 }
 .header--white .header__button {
     border-color: var(--darkPurple);
@@ -291,6 +290,9 @@ watch(isMobile, (value) => {
 .header--white .header__dropDown__nav {
     background-color: white;
     box-shadow: 0px 3px 10px 0px var(--darkPurple);
+}
+.header--white .header__item:before {
+    background: linear-gradient(to right, var(--darkPurple), transparent);
 }
 @media (hover:hover) {
     .header__item:hover:before {
@@ -301,6 +303,9 @@ watch(isMobile, (value) => {
     }
     .header__burger:hover > .header__burger__item {
         background-color: var(--mainYellow);
+    }
+    .header--white .header__item:hover {
+        color: var(--darkPurple) !important;
     }
 }
 @media (max-width: 1659.99px) {
@@ -328,9 +333,6 @@ watch(isMobile, (value) => {
     }
     .header__nav  {
         gap: 0;
-    }
-    .header__dropDown__nav a {
-        font-size: 12px;
     }
 }
 @media (max-width: 859.99px) {

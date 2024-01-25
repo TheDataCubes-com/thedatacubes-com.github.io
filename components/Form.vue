@@ -23,7 +23,7 @@
       :text="props.submitText"
       class="form__button"
     />
-    <p v-if="props.error" class="form__errors">{{props.error}}</p>
+    <p v-if="props.error" v-html="props.error" class="form__errors"/>
   </form>
   <p v-else v-html="ok" class="form__success" />
 </template>

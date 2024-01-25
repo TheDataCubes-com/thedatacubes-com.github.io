@@ -46,9 +46,10 @@ const formFields = ref([
 ]);
 
 const setError = (message) => {
-  if (error.value) clearTimeout(err.handler);
+  var errorMessage = "Some unexpected error happened<br/>Please try again later or consider contact us directly via <a href='mailto:info@thedatacubes.com'>info@thedatacubes.com</a> mail box.";
+  if (error.value) clearTimeout(error.value.handler);
   var handler = setTimeout(() => error.value = null, 5000);
-  error.value = { message: message, handler }
+  error.value = { message: message || errorMessage, handler }
 }
 
 const setOk = (message) => {
@@ -62,14 +63,14 @@ useHead({
 const handleLogin = (form) => {
   var token = "cb3d9ad6-d54c-43b8-8687-f47d5272fc91";
   Email.send({
-    SecureToken: token,
-    To: 'isorrowno@gmail.com',
+    // SecureToken: token,
+    // To: 'isorrowno@gmail.com',
     From: "isorrowno@gmail.com",
     Subject: "This is the subject",
     Body: `name: ${form.name.value}\n\nmail: ${form.mail.value}\n\nmessage: ${form.message.value}`
   })
-    .then(message => setOk(message))
-    .catch(message => setError(message));
+    .then(message => setOk())
+    .catch(message => setError());
 }
 </script>
 
@@ -85,8 +86,7 @@ const handleLogin = (form) => {
     ". form"
     ". form"
     ". form";
-    place-content: center;
-    transform: translateX(-10%);
+    justify-content: space-evenly;
 }
 .consult > h1 {
     opacity: 0.8;

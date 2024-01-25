@@ -29,11 +29,14 @@ const changeSlide = () => {
   var className = "textTransition";
   textSlide.value.classList.add(className);
   slideIndex.value ^= 1;
-  setTimeout(() => textSlide.value.classList.remove(className), 500);
+  setTimeout(() => textSlide.value.classList.remove(className), 100);
 };
 
 onMounted(() => {
-  swiper.value = setInterval(changeSlide, 5000);
+  setTimeout(() => {
+    changeSlide();
+    swiper.value = setInterval(changeSlide, 4000);
+  }, 3000);
 });
 onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 </script>
@@ -44,6 +47,7 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     position: relative;
 }
 .main__title {
+    top: 50px;
     position: absolute;
     width: 70%;
     left: calc(100px);
@@ -92,7 +96,6 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     .banner__text {
         max-width: 860px;
         gap: 20px;
-        margin: 40px 0;
     }
     .banner__text >p {
         font-size: 18px;
@@ -101,7 +104,6 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 @media (max-width: 1439.99px) {
     .banner__text {
         max-width: 740px;
-        margin: 20px 0;
     }
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
   <footer :class="['footer', {'footer--solid': isSolid}]">
-    <span class="footer__info__item">{{copyright}}</span>
-    <!-- <NuxtLink to="/" class="footer__info__item">Privacy Policy</NuxtLink> -->
+    <div class="footer__inner">
+      <span class="footer__info__item">{{copyright}}</span>
+      <LinkedIcon link="https://www.linkedin.com/in/rouzannadanielian/"/>
+      <!-- <NuxtLink to="/" class="footer__info__item">Privacy Policy</NuxtLink> -->
+    </div>
   </footer>
 </template>
 
@@ -20,19 +23,23 @@ const copyright = computed(() => {
 
 <style>
 .footer {
-    position: absolute;
     z-index: 10;
-    bottom: 12px;
-    left: 64px;
-    display: flex;
-    gap: 60px;
-    padding: 20px;
     position: static;
+    display: flex;
+    place-content: center;
     background-color: var(--darkPurple);
 }
 .footer span, footer a {
     color: white;
     font-size: 18px;
+}
+.footer__inner {
+    display: flex;
+    gap: 40px;
+    place-items: center;
+    max-width: var(--maxWidth);
+    width: 100%;
+    padding: 20px 40px;
 }
 @media (max-width: 1659.99px) {
     .footer span, footer a {

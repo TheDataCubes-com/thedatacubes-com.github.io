@@ -19,7 +19,7 @@ const formFields = ref([
     id: "mail",
     text: "Email",
     inputType: "input",
-    type: "mail",
+    type: "email",
     required: true,
   },
   {
@@ -32,7 +32,7 @@ const formFields = ref([
 ]);
 
 const setError = (message) => {
-  if (error.value) clearTimeout(error.handler);
+  if (error.value) clearTimeout(error.value.handler);
   var handler = setTimeout(() => error.value = null, 5000);
   error.value = { message: message, handler }
 }
