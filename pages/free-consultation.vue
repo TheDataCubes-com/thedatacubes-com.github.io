@@ -1,8 +1,9 @@
 <template>
   <div class="main consult">
-    <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
+    <h1 v-if="!ok">Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
+    <h1 v-else>{{ok}}</h1>
     <Form
-      :ok="ok"
+      v-if="!ok"
       :error="error && error.message"
       :fields="formFields"
       @submit="handleLogin"
@@ -46,7 +47,7 @@ const formFields = ref([
 ]);
 
 const setError = (message) => {
-  var errorMessage = "Some unexpected error happened<br/>Please try again later or consider contact us directly via <a href='mailto:info@thedatacubes.com'>info@thedatacubes.com</a> mail box.";
+  var errorMessage = "An unexpected error happened.<br/>Please try again later or consider contact us directly via <a class='form__err__link' href='mailto:info@thedatacubes.com'>info@thedatacubes.com</a> mail box.";
   if (error.value) clearTimeout(error.value.handler);
   var handler = setTimeout(() => error.value = null, 5000);
   error.value = { message: message || errorMessage, handler }
@@ -63,9 +64,9 @@ useHead({
 const handleLogin = (form) => {
   var token = "cb3d9ad6-d54c-43b8-8687-f47d5272fc91";
   Email.send({
-    // SecureToken: token,
-    // To: 'isorrowno@gmail.com',
-    From: "isorrowno@gmail.com",
+    SecureToken: token,
+    From: 'isorrowno@gmail.com',
+    To: "info@thedatacubes.com",
     Subject: "This is the subject",
     Body: `name: ${form.name.value}\n\nmail: ${form.mail.value}\n\nmessage: ${form.message.value}`
   })

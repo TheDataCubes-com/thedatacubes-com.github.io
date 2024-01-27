@@ -1,5 +1,5 @@
 <template>
-  <form v-if="!ok" @submit="handleSubmit" class="form__form">
+  <form @submit="handleSubmit" class="form__form">
     <fieldset class="form__fieldset">
       <label
         v-for="{id, text, required, inputType, type } in props.fields"
@@ -25,7 +25,6 @@
     />
     <p v-if="props.error" v-html="props.error" class="form__errors"/>
   </form>
-  <p v-else v-html="ok" class="form__success" />
 </template>
 
 <script setup>
@@ -33,7 +32,6 @@ const emit = defineEmits(["submit"]);
 const props = defineProps({
   fields: { type: Array, default: [] },
   error: { type: String, default: "" },
-  ok: { type: String, default: "" },
   submitText: { type: String, default: "Submit" }
 });
 
@@ -85,7 +83,8 @@ const handleSubmit = event => {
     padding: 12px 20px;
 }
 .form__errors {
-    color: var(--errorRed);
+    color: red;
+    font-size: 16px;
 }
 .button--clicked {
     background-color: var(--mainYellow) !important;
@@ -103,10 +102,18 @@ const handleSubmit = event => {
 .form__success {
     color: white;
 }
+.form__err__link {
+    font-size: 16px;
+    color: white;
+    transition: opacity 0.3s ease;
+}
 @media (hover:hover) {
     .form__button:hover {
         background-color: white;
         color: black;
+    }
+    .form__err__link:hover {
+        opacity: 0.7;
     }
 }
 </style>

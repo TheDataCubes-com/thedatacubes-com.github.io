@@ -37,46 +37,46 @@
 
 <script setup>
 const active = ref(null);
-const setActive = (i) => {
-  console.log(i)
-  active.value =   active.value === i ? null : i;
-}
+const setActive = (i) => active.value =   active.value === i ? null : i;
+
 const pageText = ref([
   {
-    text: "Growth Partner for Existing Clients",
+    text: "Growth Partner for your existing MDM Clients",
     bullets: [
       '<b>Third-Party Independent Advisor ("hot lead to close")</b>: As an independent specialist team specializing in the Financial services sector, we step in when sales team needs help closing promising leads. Our unbiased approach and deep expertise in financial services make us more relatable and effective than a vendor’s sales team. We offer vendor-independent evaluations of customer use cases, MDM product concerns, and solution gaps, aiding MDM Leads to close deals with confidence.',
       `<b>Enhancing Client Retention and Cross-Selling ("Stickiness")</b>: We conduct thorough evaluations of existing customers' business needs to offer tailored MDM modeling solutions (e.g., custom solutions for mortgage clients). This approach supports new business use cases, combining deep business domain knowledge with MDM expertise. Our optimization billing aids in justifying funding/license renewals.`,
-      `<b>Accelerators and Advisory Services ("Tips and Tricks")</b>: Our custom-built frameworks, like MCMS, MDM Gateway, assist new customers in kickstarting their MDM implementations.<br/>"Where to start?" "How to succeed with implementation delivery?" We focus on practical purpose built reusable application - how Data Products will be used - rather than exporting all data  in DW / DL.`,
       `<b>Navigating Implementation and Strategy Challenges ("Budget and Learning curve")</b>: We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights help in reducing costs and preparation time, especially when engaging with System Integrators (SIs). Our expertise is particularly valuable in scenarios where top-tier SI have previously stalled due to budget constraints, offering an effective alternative with proven in-house MDM implementation strategies.`,
     ]
   },
   {
     text: "Generating New Leads",
     bullets: [
-      `<b>Leveraging Personal Networks in FinServ</b>: Our extensive personal network within the FinServ industry serves as a valuable resource for generating new leads. These connections are pivotal in identifying potential clients who can benefit from the product.`,
+      `<b>Leveraging Our Deep Understanding of FinServ</b>: Our extensive expertise in the Financial Services industry is a valuable asset in generating new leads. This profound knowledge enables us to identify potential clients who stand to gain significantly from MDM product.`,
       `<b>Collaboration with Technology Partners</b>: We collaborate with technology partners (e.g., Salesforce) to enhance client understanding in differentiating between products such as SFDC, CDP, Customer Master, C360, MDM, and ER. Leading to creating opportunities for new leads for the right product fit.`,
       `<b>Insights and Data Channel (I&D)</b>: Our Insights and Data channel is an additional source of new leads. By showcasing our expertise and success stories, we attract businesses looking for advanced data management solutions.`,
       `<b>Target New trending Use Cases (AI)</b>: Tap into completely new for the MDM market use cases related to GenAI (enabled by underlying product's technology).`,
-      `<b>Targeting Companies with On-Premise MDM Solutions</b>: There is an opportunity in engaging with companies currently using on-premise solutions like INFA. We can address their needs by offering more advanced, cloud-based solutions that enhance their data management capabilities.`,
+      `<b>Targeting Companies with On-Premise MDM Solutions</b>: There is an opportunity in engaging with companies currently using on-premise solutions and seeking to migrate to the cloud. We can help to address their needs by offering more advanced, cloud-based solutions that enhance their data management capabilities.`,
     ]
   },
   {
     text: "Our Products",
-    bullets: [`FinServ velocity pack (+ potentially new leads source like DnB).`]
+    bullets: [
+      `<b>Accelerators</b>: Our custom-built frameworks, like MCMS, MDM Gateway, assist new customers in kickstarting their MDM implementations. Additionally, we offer a specialized package tailored to aid the Financial Services sector, with a specific emphasis on the Venture Capital industry, designed to accelerate the implementation process.`,
+      `<b>Advisory Services</b>: "Where to start?", "How to succeed with implementation delivery?"... We focus on practical purpose built reusable application - how Data Products will be used - rather than exporting all of the data "as is" in DW / DL.`,
+      `<b>Navigating Implementation Challenges ("Budget and Learning curve")</b>: We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights help in reducing costs and preparation time, especially when engaging with SI. Our expertise is particularly valuable in scenarios where top-tier SI have previously stalled due to budget constraints, offering an effective alternative with proven in-house MDM implementation strategies.`,
+    ]
   },
   {
-    text: "Support for MDM Product Roadmap (Product Management team)",
+    text: "Support for MDM Product Management",
     bullets: [
-      `<b>Expanding New Domains</b>: re: FinServ velocity pack (model, business use case, POC to test the interest, and more).`,
+      `<b>Expanding New Domains</b>: We offer a specialized package (model, business use case, POC to test the interest) tailored to aid the Financial Services sector, with a specific emphasis on the Venture Capital industry, designed to accelerate the implementation process.`,
       `<b>Client Engagement and Feedback Translation</b>: Regular meetings with MDM clients are vital in understanding their unique challenges and needs. Our team, equipped with both technical expertise and financial services domain knowledge, acts as a bridge. We translate client feedback and challenges into actionable insights for the Product Management team, ensuring that the MDM product roadmap aligns closely with client requirements and industry trends.`
     ]
   },
   {
-    text: "Support for MDM Product Technology",
+    text: "Support for MDM Platform Technology",
     bullets: [
-      `<b>Advisory Service on Feasibility</b>: We provide critical insights into what will or will not work for specific features, discuss adoption (e.g., industry standard models adoption).`,
-      `<b>Reltio IA functionality</b>: Review.`,
+      `<b>Features Feasibility Analysis</b>: We provide critical insights into what will or will not work for specific MDM features, discuss it's adoption (e.g., industry standard models adoption, intuitiveness of features leveraging AI, and more).`,
       `<b>Data Products</b>: Data Products and it's usage, rather than just exporting all data into DW or DL. Data to be aligned with the clients' specific operational needs and usage scenarios.`,
       `Client's <b>implementation related pain points</b> review.`
     ]
