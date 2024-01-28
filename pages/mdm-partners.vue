@@ -37,7 +37,7 @@
 
 <script setup>
 const active = ref(null);
-const setActive = (i) => active.value =   active.value === i ? null : i;
+const setActive = (i) => active.value = active.value === i ? null : i;
 
 const pageText = ref([
   {
@@ -82,10 +82,6 @@ const pageText = ref([
     ]
   },
 ]);
-const changeHeader = inject("changeHeader");
-
-onBeforeMount(() => changeHeader(true));
-onBeforeUnmount(() => changeHeader(false));
 </script>
 
 <style>

@@ -27,9 +27,9 @@ const currentSlide = computed(() => slides[slideIndex.value]);
 
 const changeSlide = () => {
   var className = "textTransition";
-  textSlide.value.classList.add(className);
+  textSlide.value?.classList.add(className);
   slideIndex.value ^= 1;
-  setTimeout(() => textSlide.value.classList.remove(className), 100);
+  setTimeout(() => textSlide.value?.classList.remove(className), 100);
 };
 
 onMounted(() => {

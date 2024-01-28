@@ -1,14 +1,16 @@
 <template>
-  <div class="main consult">
-    <h1 v-if="!ok">Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
+  <div :class="['main', 'consult', {'consult--ok': ok}]">
+    <section v-if="!ok" class="consult__formWrap">
+      <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
+      <Form
+        v-if="!ok"
+        :error="error && error.message"
+        :fields="formFields"
+        @submit="handleLogin"
+        class="consult__form"
+      />
+    </section>
     <h1 v-else>{{ok}}</h1>
-    <Form
-      v-if="!ok"
-      :error="error && error.message"
-      :fields="formFields"
-      @submit="handleLogin"
-      class="consult__form"
-    />
   </div>
 </template>
 
@@ -76,35 +78,40 @@ const handleLogin = (form) => {
 </script>
 
 <style>
-.consult {
+.consult__formWrap {
+    max-width: 75%;
+    width: 100%;
+    display: flex;
     gap: 20px;
-    flex-direction: row;
-    display: grid;
-    grid-template-columns: minmax(0px, 410px) minmax(0, 440px);
-    grid-template-areas:
-    ". form"
-    "text form"
-    ". form"
-    ". form"
-    ". form";
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
-.consult > h1 {
+.consult--ok {
+    flex-grow: 1;
+    place-content: center;
+}
+.consult>h1 {
+    color: white;
+    font-size: 38px;
+    place-self: center;
+    font-weight: 300;
+    transform: translateY(-100%);
+}
+.consult__formWrap > h1 {
+    padding-top: 92px;
     opacity: 0.8;
     font-size: 24px;
     font-weight: 300;
     width: fit-content;
     color: white;
-    grid-area: text;
     line-height: 1.6;
+    max-width: 500px;
 }
-.consult > p {
+.consult__formWrap > p {
     max-width: 100%;
     margin: 0;
 }
 .consult__form {
     place-self: center;
-    grid-area: form;
     max-width: 440px;
 }
 .consult__form > .form__fieldset > label:last-of-type > textarea {

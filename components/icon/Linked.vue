@@ -20,6 +20,10 @@ const props = defineProps({
 </script>
 
 <style>
+.linked__link {
+    height: 24px;
+    width: 24px;
+}
 .linked__link > svg {
    width: 24px;
    height: 24px;

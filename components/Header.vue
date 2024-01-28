@@ -4,14 +4,14 @@
     :class="[
       'header',
       {'header--blur': isBlur},
-      {'header--white': props.isWhite}
+      {'header--white': isWhite}
     ]"
   >
     <nav class="header__inner">
-      <Logo @mouseover="handleHeaderLeave" :isWhite="props.isWhite" class="header__logo"/>
+      <Logo @mouseover="handleHeaderLeave" :isWhite="isWhite" class="header__logo"/>
       <ul v-if="!isMobile" class="header__nav">
         <li
-          v-for="{name, link, children, disabled} in links"
+          v-for="({name, link, children, disabled}, index) in links"
           @mouseover="handleMouseOver($event, children, link)"
         >
           <span
@@ -19,6 +19,9 @@
             style="cursor: default"
             class="header__item header__link link--disabled"
           >{{name}}</span>
+          <NuxtLink v-else-if="index !== 0" :to="link" class="header__item header__link">
+            {{name}}
+          </NuxtLink>
           <a
             v-else
             :href="link"
@@ -80,6 +83,14 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  isWhite: { type: Boolean, default: false }
+});
+
+const subMenu = ref(null);
+const subMenuPos = ref(0);
+const subMenuParentLink = ref("");
+const burgerActive = ref(false);
 const links = ref([
   {
     name: "Why Us",
@@ -104,17 +115,10 @@ const links = ref([
   },
 ]);
 
-const props = defineProps({
-  isWhite: { type: Boolean, default: true }
-});
-
-const subMenu = ref(null);
-const subMenuPos = ref(0);
-const subMenuParentLink = ref("");
-const burgerActive = ref(false);
-
 const appWidth = inject("appWidth");
 const scroll = inject("scroll");
+
+const route = useRoute();
 
 const handleMouseOver = (event, menu, parentLink) => {
   if (!menu) {
@@ -134,9 +138,7 @@ const toggleBurger = () => burgerActive.value = !burgerActive.value;
 
 const isMobile = computed(() => appWidth.value < 860);
 const isBlur = computed(() => scroll.value > 10);
-
-const route = useRoute();
-
+const isWhite = computed(() => props.isWhite || route.name === "mdm-partners");
 
 watch(() => route.fullPath, () => burgerActive.value = false);
 watch(isMobile, (value) => {

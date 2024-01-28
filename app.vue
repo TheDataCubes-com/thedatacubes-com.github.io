@@ -35,7 +35,7 @@ const handleScroll = throttle(() => scroll.value = window.scrollY, 200);
 provide('appWidth', appWidth);
 provide("scroll", scroll);
 provide("changeHeader", (val) => {
-  if (val != headerWhite.value) headerWhite.value = val;
+  if (val !== headerWhite.value) headerWhite.value = val;
 });
 
 onMounted(() => {
