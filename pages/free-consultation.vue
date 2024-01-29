@@ -4,7 +4,7 @@
       <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
       <Form
         v-if="!ok"
-        netlify
+        name="consult"
         :error="error && error.message"
         :fields="formFields"
         @submit="handleLogin"

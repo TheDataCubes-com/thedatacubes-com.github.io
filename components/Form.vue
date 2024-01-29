@@ -1,5 +1,5 @@
 <template>
-  <form @submit="handleSubmit" class="form__form">
+  <form class="form__form" netlify :name="name">
     <fieldset class="form__fieldset">
       <label
         v-for="{id, text, required, inputType, type } in props.fields"
@@ -32,7 +32,8 @@ const emit = defineEmits(["submit"]);
 const props = defineProps({
   fields: { type: Array, default: [] },
   error: { type: String, default: "" },
-  submitText: { type: String, default: "Submit" }
+  submitText: { type: String, default: "Submit" },
+  name: { type: String, default: "" }
 });
 
 const useButton = (button) => {
