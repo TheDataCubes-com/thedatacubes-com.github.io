@@ -7,8 +7,7 @@
       <p v-for="paragraph in bannerText">{{paragraph}}</p>
     </section>
   </section>
-  <mainWhyUs />
-  <mainOurClients />
+  <MainWhyUs />
 </template>
 
 <script setup>

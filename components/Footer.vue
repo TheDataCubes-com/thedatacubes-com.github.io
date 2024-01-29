@@ -1,23 +1,17 @@
 <template>
-  <footer :class="['footer', {'footer--solid': isSolid}]">
+  <footer class="footer">
+  <MainOurClients />
     <div class="footer__inner">
       <span class="footer__info__item">{{copyright}}</span>
       <div class="footer__info__links">
         <iconLinked link="https://www.linkedin.com/in/rouzannadanielian/"/>
         <iconMail link="mailto:info@thedatacubes.com"/>
       </div>
-      <!-- <NuxtLink to="/" class="footer__info__item">Privacy Policy</NuxtLink> -->
     </div>
   </footer>
 </template>
 
 <script setup>
-const route = useRoute();
-const isSolid = computed(() => {
-  var { name } = route;
-  return name === "index";
-});
-
 const copyright = computed(() => {
   var date = new Date();
   return `© ${date.getFullYear()} TheDataCubes, Inc.`;
@@ -29,7 +23,8 @@ const copyright = computed(() => {
     z-index: 10;
     position: static;
     display: flex;
-    place-content: center;
+    flex-direction: column;
+    place-items: center;
     background-color: var(--darkPurple);
 }
 .footer span, footer a {

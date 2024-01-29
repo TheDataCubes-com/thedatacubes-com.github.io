@@ -9,30 +9,28 @@
     ]"
   >
     <div class="background__item background__lines"/>
-    <bgCircleTop v-if="isMain" class="background__circle circle--top"/>
-    <bgCircleBot v-if="isMain" class="background__circle circle--bot"/>
-    <bgDotsBot class="background__dotsBot"/>
-    <bgDotsSide class="backgorund__dotsSide" />
-    <bgCurveLineToLeft v-if="isMain" class="background__curveLineLeft" />
-    <bgCurveLineToRight
+    <BgCircleTop v-if="isMain" class="background__circle circle--top"/>
+    <BgCircleBot v-if="isMain" class="background__circle circle--bot"/>
+    <BgDotsBot class="background__dotsBot"/>
+    <BgDotsSide class="backgorund__dotsSide" />
+    <BgCurveLineToLeft v-if="isMain" class="background__curveLineLeft" />
+    <BgCurveLineToRight
       v-if="!consultPage && !partnersPage"
-      :style="`top: calc(100vh - 13% - ${bottomElementsMargin}px);`"
+      :style="position.line"
       class="backgound__curveLineRight"
     />
-    <bgDotsLine
+    <BgDotsLine
       v-if="!partnersPage"
-      :style="`top: calc(100vh - 5% - ${bottomElementsMargin}px);`"
+      :style="position.dots"
       class="dotsLine--1"
     />
-    <bgDotsLine v-if="!partnersPage" class="dotsLine--2"/>
-    <bgAngles class="background__angles" />
+    <BgDotsLine v-if="!partnersPage" class="dotsLine--2"/>
+    <BgAngles class="background__angles" />
   </div>
 </template>
 
 <script setup>
 const route = useRoute();
-
-const bottomElementsMargin = ref(0);
 
 const isMain = computed(() => {
   var { name } = route;
@@ -46,14 +44,15 @@ const consultPage = computed(() => {
   var { name } = route;
   return name === "free-consultation";
 });
-const setMargin = () => {
-  if (isMain.value) return 0;
-  var footer = document.querySelector("footer");
-  bottomElementsMargin.value = footer?.offsetHeight || 0;
-};
-
-onMounted(() => setMargin());
-watch(() => route.fullPath, setMargin);
+const position = computed(() => {
+  var margin = isMain.value
+    ? 0
+    : (document.querySelector("footer")?.offsetHeight || 0);
+  return {
+    line: `top: calc(100vh - 13% - ${margin}px);`,
+    dots: `top: calc(100vh - 5% - ${margin}px);`
+  }
+});
 </script>
 
 <style>
