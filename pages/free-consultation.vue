@@ -67,8 +67,8 @@ useHead({
 })
 
 const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    return Object.entries(data)
+        .map(([k,v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
         .join("&");
   }
 const handleLogin = (form) => {

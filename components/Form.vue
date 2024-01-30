@@ -49,10 +49,10 @@ const useButton = (button) => {
   setTimeout(() => button.classList.remove(className), 70);
 };
 const handleSubmit = event => {
-  event.preventDefault();
   var { target } = event;
   useButton(target.button);
   emit("submit", target);
+  event.preventDefault();
 }
 </script>
 
