@@ -65,12 +65,24 @@ const setOk = (message) => {
 useHead({
   script: [{src: "https://smtpjs.com/v3/smtp.js"}]
 })
+
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
 const handleLogin = (form) => {
-  var data = new FormData(form);
+  var { name, mail, company, message } = form
+  var data = {
+    name: name.value,
+    mail: mail.value,
+    company: company.value,
+    message: message.value
+  }
   fetch("/", {
      method: "POST",
      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-     body: new URLSearchParams(data).toString(),
+     body: encode({"form-name": "consult", ...data })
    })
     .then(message => setOk())
     .catch(message => setError());
