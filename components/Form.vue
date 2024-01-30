@@ -15,6 +15,7 @@
         <component
           :is="inputType"
           :id="id"
+          :name="id"
           :placeholder="text"
           :type="type"
           :required="required"
