@@ -7,15 +7,14 @@
   >
     <fieldset class="form__fieldset">
       <label
-        v-for="{id, text, required, inputType, type } in props.fields"
-        :key="id"
+        v-for="{name, text, required, inputType, type } in props.fields"
+        :key="name"
         class="form__label"
       >
         <span :class="['form__labelText', {'input--required': required}]">{{text}}</span>
         <component
           :is="inputType"
-          :id="id"
-          :name="id"
+          :name="name"
           :placeholder="text"
           :type="type"
           :required="required"
@@ -49,10 +48,10 @@ const useButton = (button) => {
   setTimeout(() => button.classList.remove(className), 70);
 };
 const handleSubmit = event => {
+  event.preventDefault();
   var { target } = event;
   useButton(target.button);
   emit("submit", target);
-  event.preventDefault();
 }
 </script>
 

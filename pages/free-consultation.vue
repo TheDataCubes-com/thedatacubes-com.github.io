@@ -21,28 +21,28 @@ const error = ref(null);
 const ok = ref(null);
 const formFields = ref([
   {
-    id: "name",
+    name: "name",
     text: "Name",
     inputType: "input",
     type: "text",
     required: true,
   },
   {
-    id: "mail",
+    name: "mail",
     text: "Email",
     inputType: "input",
     type: "email",
     required: true,
   },
   {
-    id: "company",
+    name: "company",
     text: "Company",
     inputType: "input",
     type: "text",
     required: false,
   },
   {
-    id: "message",
+    name: "message",
     text: "Message",
     inputType: "textarea",
     type: "text",
