@@ -2,7 +2,7 @@
   <div :class="['main', 'consult', {'consult--ok': ok}]">
     <section v-if="!ok" class="consult__formWrap">
       <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
-      <Form
+      <!-- <Form
         v-if="!ok"
         name="consult"
         :active="true"
@@ -10,7 +10,7 @@
         :fields="formFields"
         @submit="handleLogin"
         class="consult__form"
-      />
+      /> -->
     </section>
     <h1 v-else>{{ok}}</h1>
   </div>

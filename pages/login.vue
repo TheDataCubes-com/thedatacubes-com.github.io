@@ -1,14 +1,14 @@
 <template>
   <div class="main login">
     <h1>Sign in with your existing account.</h1>
-    <Form
+    <!-- <Form
       name="login"
       :error="error && error.message"
       :fields="formFields"
       @submit="handleLogin"
       submitText="Sign in"
       class="login__form"
-    />
+    /> -->
   </div>
 </template>
 

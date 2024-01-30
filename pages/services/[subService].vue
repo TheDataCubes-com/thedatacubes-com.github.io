@@ -1,6 +1,10 @@
 <template>
   <article class="main services">
     <h1>{{pageData.title}}</h1>
+    <form name="serv-form" netlify>
+      <input name="mail" type="text">
+      <button>asd</button>
+    </form>
     <!-- <p v-html="pageData.text"/> -->
   </article>
 </template>
