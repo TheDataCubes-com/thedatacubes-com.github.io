@@ -5,6 +5,7 @@
       <Form
         v-if="!ok"
         name="consult"
+        :active="true"
         :error="error && error.message"
         :fields="formFields"
         @submit="handleLogin"
@@ -65,14 +66,12 @@ useHead({
   script: [{src: "https://smtpjs.com/v3/smtp.js"}]
 })
 const handleLogin = (form) => {
-  var token = "cb3d9ad6-d54c-43b8-8687-f47d5272fc91";
-  Email.send({
-    SecureToken: token,
-    From: 'isorrowno@gmail.com',
-    To: "info@thedatacubes.com",
-    Subject: "This is the subject",
-    Body: `name: ${form.name.value}\n\nmail: ${form.mail.value}\n\nmessage: ${form.message.value}`
-  })
+  var data = new FormData(form);
+  fetch("/", {
+     method: "POST",
+     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+     body: new URLSearchParams(data).toString(),
+   })
     .then(message => setOk())
     .catch(message => setError());
 }

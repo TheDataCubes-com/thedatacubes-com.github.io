@@ -1,5 +1,10 @@
 <template>
-  <form class="form__form" netlify :name="name">
+  <form
+    :data-netlify="active"
+    :name="name"
+    @submit="handleSubmit"
+    class="form__form"
+  >
     <fieldset class="form__fieldset">
       <label
         v-for="{id, text, required, inputType, type } in props.fields"
@@ -33,7 +38,8 @@ const props = defineProps({
   fields: { type: Array, default: [] },
   error: { type: String, default: "" },
   submitText: { type: String, default: "Submit" },
-  name: { type: String, default: "" }
+  name: { type: String, default: "" },
+  active: { type: Boolean, default: false }
 });
 
 const useButton = (button) => {
