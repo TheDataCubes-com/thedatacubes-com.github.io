@@ -5,7 +5,9 @@
     </div>
     <article class="main partners">
       <section class="partners__top">
-        <div/>
+        <div>
+        <Logo :isWhite="true" class="part--logo"/>
+        </div>
         <p>Finding a firm that combines expertise in Technology products, deep knowledge of the FinServ industry, and proficiency in guiding strategy and implementation is rare.<br/><br/>We excel in Strategic Consulting and the delivery of MDM solutions within the FinServ sector.<br/><br/>Our standout ability lies in translating complex business problems into successful technical solutions.</p>
       </section>
       <h2>List of our Services:</h2>
@@ -173,15 +175,25 @@ const pageText = ref([
     place-content: center;
 }
 .partners__top>div {
+    position: relative;
     border: 1px solid;
     opacity: 0.1;
-    height: 300px;
-    width: 300px;
+    height: 180px;
+    width: 180px;
     border-radius: 50px;
     flex-shrink: 0;
 }
 .partners__top>p {
     max-width: 60%;
+}
+.part--logo {
+    width: 70%;
+    height: 50%;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 @keyframes glow {
  0% {box-shadow: 0px 0px 0px 0px var(--darkPurple);}
