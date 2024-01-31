@@ -1,6 +1,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  ssr: false,
+  ssr: true,
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
   modules: [],
   alias: {
     data: "/app_data",

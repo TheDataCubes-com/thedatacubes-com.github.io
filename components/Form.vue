@@ -1,5 +1,6 @@
 <template>
   <form
+    data-netlify-honeypot="bot-field"
     :data-netlify="active"
     :name="name"
     @submit="handleSubmit"
