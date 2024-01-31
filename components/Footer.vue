@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-  <MainOurClients />
+    <MainOurClients />
     <div class="footer__inner">
       <span class="footer__info__item">{{copyright}}</span>
       <div class="footer__info__links">
@@ -27,7 +27,7 @@ const copyright = computed(() => {
     place-items: center;
     background-color: var(--darkPurple);
 }
-.footer span, footer a {
+.footer__inner span, footer a {
     color: white;
     font-size: 18px;
 }
