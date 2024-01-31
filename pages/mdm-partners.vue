@@ -5,8 +5,7 @@
     </div>
     <article class="main partners">
       <section class="partners__top">
-        <div/>
-        <p>Finding a firm that combines expertise in Technology products, deep knowledge of the FinServ industry, and proficiency in guiding strategy and implementation is rare.<br/><br/>We excel in Strategic Consulting and the delivery of MDM solutions within the FinServ sector.<br/><br/>Our standout ability lies in translating complex business problems into successful technical solutions.</p>
+        <p>Finding a firm that combines expertise in Technology products, deep knowledge of the FinServ industry, and proficiency in guiding strategy and implementation is rare.<br/><br/>We excel in Strategic Consulting and the delivery of MDM solutions within the FinServ sector. Our standout ability lies in translating complex business problems into successful technical solutions.</p>
       </section>
       <h2>List of our Services:</h2>
       <div
@@ -170,7 +169,6 @@ const pageText = ref([
     gap: 10%;
     place-items: center;
     margin-bottom: 40px;
-    place-content: center;
 }
 .partners__top>div {
     border: 1px solid;
@@ -181,7 +179,7 @@ const pageText = ref([
     flex-shrink: 0;
 }
 .partners__top>p {
-    max-width: 60%;
+    max-width: 80%;
 }
 @keyframes glow {
  0% {box-shadow: 0px 0px 0px 0px var(--darkPurple);}
