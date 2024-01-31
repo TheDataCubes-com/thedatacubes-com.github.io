@@ -168,7 +168,8 @@ const pageText = ref([
     display: flex;
     gap: 10%;
     place-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    place-content: center;
 }
 .partners__top>div {
     border: 1px solid;
@@ -179,7 +180,7 @@ const pageText = ref([
     flex-shrink: 0;
 }
 .partners__top>p {
-    max-width: 80%;
+    max-width: 60%;
 }
 @keyframes glow {
  0% {box-shadow: 0px 0px 0px 0px var(--darkPurple);}
