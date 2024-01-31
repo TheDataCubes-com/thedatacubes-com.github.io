@@ -22,11 +22,11 @@
           <NuxtLink v-else-if="index !== 0" :to="link" class="header__item header__link">
             {{name}}
           </NuxtLink>
-          <a
+          <NuxtLink
             v-else
-            :href="link"
+            :to="link"
             class="header__item header__link"
-          >{{name}}</a>
+          >{{name}}</NuxtLink>
         </li>
       </ul>
       <div class="header__nav">

@@ -6,6 +6,10 @@
 </template>
 
 <script setup>
+onBeforeMount(() => {
+  const r = useRouter();
+  r.replace("/mdm-partners")
+});
 const pages = ref({
   services: {
     title: "service title",

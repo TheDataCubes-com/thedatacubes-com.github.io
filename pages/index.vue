@@ -31,6 +31,11 @@ const changeSlide = () => {
   setTimeout(() => textSlide.value?.classList.remove(className), 100);
 };
 
+onBeforeMount(() => {
+  const r = useRouter();
+  r.replace("/mdm-partners")
+});
+
 onMounted(() => {
   setTimeout(() => {
     changeSlide();

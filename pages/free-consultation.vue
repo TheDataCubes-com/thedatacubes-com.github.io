@@ -17,6 +17,11 @@
 </template>
 
 <script setup>
+onBeforeMount(() => {
+  const r = useRouter();
+  r.replace("/mdm-partners")
+});
+
 const error = ref(null);
 const ok = ref(null);
 const formFields = ref([

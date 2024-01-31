@@ -13,6 +13,10 @@
 </template>
 
 <script setup>
+onBeforeMount(() => {
+  const r = useRouter();
+  r.replace("/mdm-partners")
+});
 const error = ref(null);
 
 const formFields = ref([
