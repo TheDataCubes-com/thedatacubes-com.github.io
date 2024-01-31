@@ -5,9 +5,10 @@
     </div>
     <article class="main partners">
       <section class="partners__top">
-        <div>
-        <Logo :isWhite="true" class="part--logo"/>
-        </div>
+        <img src="/images/diagram.png" alt="dc-diagram" class="partners__diagram">
+        <!-- <div>
+          <Logo :isWhite="true" class="part--logo"/>
+        </div> -->
         <p>Finding a firm that combines expertise in Technology products, deep knowledge of the FinServ industry, and proficiency in guiding strategy and implementation is rare.<br/><br/>We excel in Strategic Consulting and the delivery of MDM solutions within the FinServ sector.<br/><br/>Our standout ability lies in translating complex business problems into successful technical solutions.</p>
       </section>
       <h2>List of our Services:</h2>
@@ -186,14 +187,9 @@ const pageText = ref([
 .partners__top>p {
     max-width: 60%;
 }
-.part--logo {
-    width: 70%;
-    height: 50%;
-    pointer-events: none;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.partners__diagram {
+    max-width: 320px;
+    width: 100%;
 }
 @keyframes glow {
  0% {box-shadow: 0px 0px 0px 0px var(--darkPurple);}
