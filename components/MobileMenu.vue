@@ -66,6 +66,7 @@ const toggleSubMenu = (menu, parentLink, menuIndex) => {
     margin-bottom: 40px;
 }
 .mobileNav__item {
+    color: white;
     font-size: 16px;
     display: inline-block;
     cursor: pointer;

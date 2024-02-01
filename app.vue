@@ -169,4 +169,9 @@ b {
         font-size: 18px;
     }
 }
+@media (max-width: 1023.99px) {
+    .main {
+        padding: 40px;
+    }
+}
 </style>

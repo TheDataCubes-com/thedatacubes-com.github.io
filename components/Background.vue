@@ -123,14 +123,14 @@ const position = computed(() => {
 }
 .dotsLine--1 {
     position: absolute;
-    width: 130px;
+    width: 7vw;
     left: 78px;
 }
 .dotsLine--2 {
     position: absolute;
-    width: 130px;
+    width: 7vw;
     right: 46px;
-    top: 237px;
+    top: calc(100vh * 0.25);
 }
 .background__angles {
     position: absolute;
@@ -138,6 +138,11 @@ const position = computed(() => {
     top: 45%;
     left: 50%;
     opacity: 0.2;
+}
+@media (max-height: 639.99px) {
+    .background__curveLineLeft {
+        display: none;
+    }
 }
 @media (max-width: 1279.99px) {
     .background__dotsBot {
@@ -148,6 +153,14 @@ const position = computed(() => {
     .backgorund__dotsSide {
         height: 50%;
         top: 25%;
+    }
+}
+@media (max-width: 1023.99px) {
+    .background__curveLineLeft {
+        top: calc(100vh * 0.30);
+    }
+    .dotsLine--2 {
+        width: 10vw;
     }
 }
 </style>

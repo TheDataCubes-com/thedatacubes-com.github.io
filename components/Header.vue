@@ -72,6 +72,7 @@
     </nav>
     <MobileMenu
       v-else
+      :links="links"
       :isWhite="isWhite"
       :class="[
         'header__mobileMenu',
@@ -350,6 +351,9 @@ watch(isMobile, (value) => {
 @media (max-width: 374.99px) {
     .header__button {
         display: none;
+    }
+    .header__nav {
+        place-self: center;
     }
 }
 </style>

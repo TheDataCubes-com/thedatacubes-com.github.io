@@ -33,8 +33,8 @@ const changeSlide = () => {
 
 onMounted(() => {
   setTimeout(() => {
-    changeSlide();
-    swiper.value = setInterval(changeSlide, 4000);
+    // changeSlide();
+    // swiper.value = setInterval(changeSlide, 4000);
   }, 3000);
 });
 onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
@@ -48,8 +48,8 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 .main__title {
     top: 50px;
     position: absolute;
-    width: 70%;
-    left: calc(100px);
+    width: 60vw;
+    left: 100px;
     opacity: 1;
     transition: left 1s ease, opacity 1s ease;
 }
@@ -88,6 +88,15 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
         width: 55%;
     }
 }
+@media (max-height: 800px) {
+    .banner__text > p {
+        font-size: 18px;
+    }
+    .banner__text {
+        gap: 12px;
+        max-width: 1040px;
+    }
+}
 @media (max-width: 1659.99px) {
     .main__title {
         width: 60%;
@@ -103,6 +112,24 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 @media (max-width: 1439.99px) {
     .banner__text {
         max-width: 740px;
+    }
+    .banner__text > p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 1179.99px) {
+    .consultButton {
+        top: calc(100vh * 0.88);
+    }
+}
+@media (max-width: 1023.99px) {
+    .main__title {
+        left: 0;
+        width: 80vw;
+        padding: 0 20px;
+    }
+    .banner__text {
+        max-width: calc(100% - 40px * 2);
     }
 }
 </style>
