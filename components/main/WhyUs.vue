@@ -18,14 +18,13 @@
         alt="whyUs-picture"
         class="whyUs__image"
       />
-      <DynamicButton
-        v-if="index === (whyUs.points.length - 1)"
-        link="/free-consultation"
-        text="Reach Out to Us Today"
-        :isInline="true"
-        class="whyUs__button"
-      />
     </div>
+    <DynamicButton
+      link="/free-consultation"
+      text="Discuss How We Can Help Address Your Data Needs"
+      :isInline="true"
+      class="whyUs__button"
+    />
   </div>
 </section>
 </template>
@@ -94,7 +93,7 @@ watch([scroll, appWidth], value => {
     width: 100%;
     position: relative;
 }
-.whyUs__image, .whyUs__button {
+.whyUs__image {
     position: absolute;
     top: 50%;
     left: calc(100% * 1.5);
@@ -104,9 +103,11 @@ watch([scroll, appWidth], value => {
     height: 125%;
 }
 .whyUs__button {
+    position: relative;
     background-color: #cc90ff;
     border: 2px solid #cc90ff;
-    width: 30%;
+    width: fit-content;
+    place-self: center;
     padding: 8px 12px;
 }
 .points--even {
@@ -116,7 +117,7 @@ watch([scroll, appWidth], value => {
     .whyUs__points {
         max-width: 75%;
     }
-    .whyUs__image, .whyUs__button {
+    .whyUs__image {
         left: calc(100% * 1.35);
     }
 }
