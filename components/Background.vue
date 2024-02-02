@@ -163,4 +163,19 @@ const position = computed(() => {
         width: 10vw;
     }
 }
+@media (max-width: 767.99px) {
+    .background__curveLineLeft, .dotsLine--1,
+    .dotsLine--2, .backgound__curveLineRight {
+        display: none;
+    }
+    .background__circle {
+        width: 75%;
+    }
+    .circle--top {
+        top: 10%;
+    }
+    .circle--bot {
+        bottom: -10%;
+    }
+}
 </style>

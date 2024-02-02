@@ -117,11 +117,6 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
         font-size: 16px;
     }
 }
-@media (max-width: 1179.99px) {
-    .consultButton {
-        top: calc(100vh * 0.88);
-    }
-}
 @media (max-width: 1023.99px) {
     .main__title {
         left: 0;
@@ -130,6 +125,22 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     }
     .banner__text {
         max-width: calc(100% - 40px * 2);
+    }
+}
+@media (max-width: 767.99px) {
+    .main__title {
+        width: 100vw;
+    }
+    .banner__text {
+        top: calc(100vh * 0.35);
+    }
+}
+@media (max-width: 574.99px) {
+    .banner__text {
+        top: calc(100vh * 0.25);
+    }
+    .banner__text>p {
+        font-size: 14px;
     }
 }
 </style>

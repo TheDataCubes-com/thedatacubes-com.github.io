@@ -174,4 +174,17 @@ b {
         padding: 40px;
     }
 }
+@media (max-width: 1179.99px) {
+    .consultButton {
+        top: calc(100vh * 0.88);
+    }
+}
+@media (max-width: 767.99px) {
+    .consultButton {
+        width: calc(100vw - 40px * 2);
+        top: calc(100vh - 80px);
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
 </style>
