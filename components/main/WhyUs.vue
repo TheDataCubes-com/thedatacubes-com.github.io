@@ -19,7 +19,7 @@
         class="whyUs__image"
       />
     </div>
-    <DynamicButton
+    <CommonDynamicButton
       link="/free-consultation"
       text="Discuss How We Can Help Address Your Data Needs"
       :isInline="true"
@@ -78,7 +78,7 @@ watch([scroll, appWidth], value => {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 80px 80px;
+    padding: 100px 80px 40px;
 }
 .whyUs__inner > h2 {
     font-size: 60px;

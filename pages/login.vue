@@ -1,7 +1,7 @@
 <template>
   <div class="main login">
     <h1>Sign in with your existing account.</h1>
-    <Form
+    <CommonForm
       name="login"
       :error="error && error.message"
       :fields="formFields"

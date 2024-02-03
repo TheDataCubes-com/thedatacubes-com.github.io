@@ -5,7 +5,7 @@
   </main>
   <Footer />
   <Background />
-  <DynamicButton
+  <CommonDynamicButton
     v-if="isButton"
     link="/free-consultation"
     text="Set up a Free Consultation"

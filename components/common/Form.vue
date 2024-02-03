@@ -23,7 +23,7 @@
         />
       </label>
     </fieldset>
-    <DynamicButton
+    <CommonDynamicButton
       id="button"
       type="submit"
       :text="props.submitText"

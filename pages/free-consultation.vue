@@ -2,7 +2,7 @@
   <div :class="['main', 'consult', {'consult--ok': ok}]">
     <section v-if="!ok" class="consult__formWrap">
       <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
-      <Form
+      <CommonForm
         v-if="!ok"
         name="consult"
         :active="true"

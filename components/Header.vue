@@ -8,7 +8,7 @@
     ]"
   >
     <nav class="header__inner">
-      <Logo @mouseover="handleHeaderLeave" :isWhite="isWhite" class="header__logo"/>
+      <CommonLogo @mouseover="handleHeaderLeave" :isWhite="isWhite" class="header__logo"/>
       <ul v-if="!isMobile" class="header__nav">
         <li
           v-for="({name, link, children, disabled}, index) in links"
@@ -36,7 +36,7 @@
           @mouseover="handleHeaderLeave"
           class="header__item header__link"
         >Login</NuxtLink>
-        <DynamicButton
+        <CommonDynamicButton
           text="Get a Free Consult"
           link="/free-consultation"
           :isInline="true"
