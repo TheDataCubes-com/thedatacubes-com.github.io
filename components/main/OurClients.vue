@@ -69,7 +69,7 @@ const cards = ref([
     sector: "data",
     company: "Bold&nbspMetrics&nbspInc."
   },
-  { position: "Sonos", text: "", logo: {} },
+  // { position: "Sonos", text: "", logo: {} },
   { position: "Silicon Valley Bank", text: "", logo: {} },
 ]);
 
