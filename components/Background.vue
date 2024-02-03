@@ -169,13 +169,16 @@ const position = computed(() => {
         display: none;
     }
     .background__circle {
-        width: 75%;
+        width: 85%;
     }
     .circle--top {
-        top: 10%;
+        top: -20%;
     }
     .circle--bot {
-        bottom: -10%;
+        bottom: -20%;
+    }
+    .background__angles {
+        width: 100%;
     }
 }
 </style>

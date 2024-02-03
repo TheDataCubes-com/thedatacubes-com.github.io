@@ -132,7 +132,7 @@ b {
 }
 @media (max-width: 1659.99px) {
     h2, h1 {
-        font-size: 42px;
+        font-size: 52px;
     }
     h3 {
         font-size: 28px;
@@ -149,7 +149,7 @@ b {
         padding: 46px 60px;
     }
     h2, h1 {
-        font-size: 38px;
+        font-size: 48px;
     }
     h3 {
         font-size: 26px;
@@ -160,7 +160,7 @@ b {
 }
 @media (max-width: 1279.99px) {
     h2, h1 {
-        font-size: 32px;
+        font-size: 44px;
     }
     h3 {
         font-size: 24px;
@@ -169,17 +169,20 @@ b {
         font-size: 18px;
     }
 }
-@media (max-width: 1023.99px) {
-    .main {
-        padding: 40px;
-    }
-}
 @media (max-width: 1179.99px) {
     .consultButton {
         top: calc(100vh * 0.88);
     }
 }
+@media (max-width: 1023.99px) {
+    .main {
+        padding: 40px;
+    }
+}
 @media (max-width: 767.99px) {
+    p, a, span, li, b {
+        font-size: 16px;
+    }
     .consultButton {
         width: calc(100vw - 40px * 2);
         top: calc(100vh - 80px);

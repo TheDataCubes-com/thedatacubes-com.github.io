@@ -130,7 +130,7 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 }
 @media (max-width: 767.99px) {
     .main__title {
-        width: 100vw;
+        width: 100%;
     }
     .banner__text {
         top: calc(100vh * 0.35);

@@ -102,7 +102,6 @@ const filteredClients = computed(() => {
     padding: 80px 0px;
 }
 .ourClients__inner > h2 {
-    font-size: 60px;
     place-self: center;
 }
 .cards {

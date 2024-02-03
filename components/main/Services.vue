@@ -56,7 +56,6 @@ const cards = ref([
     padding: 40px 80px;
 }
 .mainServices__inner > h2 {
-    font-size: 60px;
     margin-bottom: 20px;
     place-self: center;
 }

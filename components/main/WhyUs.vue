@@ -81,7 +81,6 @@ watch([scroll, appWidth], value => {
     padding: 100px 80px 40px;
 }
 .whyUs__inner > h2 {
-    font-size: 60px;
     margin-bottom: 20px;
     place-self: center;
 }
@@ -124,11 +123,20 @@ watch([scroll, appWidth], value => {
 @media (max-width: 1439.99px) {
     .whyUs__inner {
         gap: 20px;
+        padding: 100px 60px 40px;
     }
 }
 @media (max-width: 1279.99px) {
     .main__title {
         width: 560px;
+    }
+}
+@media (max-width: 1023.99px) {
+    .whyUs__image {
+        display: none;
+    }
+    .whyUs__inner {
+        padding: 100px 40px 40px;
     }
 }
 </style>

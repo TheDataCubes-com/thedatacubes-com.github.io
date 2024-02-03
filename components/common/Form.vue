@@ -22,6 +22,7 @@
           class="form__input"
         />
       </label>
+      <div data-netlify-recaptcha="true"></div>
     </fieldset>
     <CommonDynamicButton
       id="button"
