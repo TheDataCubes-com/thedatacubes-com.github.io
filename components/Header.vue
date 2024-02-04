@@ -103,7 +103,7 @@ const links = ref([
     disabled: true,
     children: [
       { name: "Master Data Management and Entity Resolution Consulting" , link: "/mdm" },
-      { name: "AI and Data Management Strategy Consulting" , link: "/data-management" },
+      { name: "Data Management and AI Strategy Consulting" , link: "/data-management" },
       { name: "Executive Services" , link: "/executive-services" },
       // { name: "AI and Data Observability" , link: "/ai" },
       // { name: "Business Analysis and Data Modeling" , link: "/analysis-modeling" },
@@ -268,13 +268,13 @@ watch(isMobile, (value) => {
   transform: translateY(-11px) rotate(-45deg);
 }
 .header__mobileMenu {
+    display: none;
     position: absolute;
+    top: 100%;
     right: 0;
-    bottom: 0;
-    transform: translate(100%, 100%);
 }
 .mobileMenu--open {
-    transform: translate(0%, 100%);
+    display: block;
 }
 .header--white {
     box-shadow: 0px 0px 10px 1px var(--darkPurple);

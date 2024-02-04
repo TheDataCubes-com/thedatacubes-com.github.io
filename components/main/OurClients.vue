@@ -1,7 +1,7 @@
 <template>
   <section v-if="shown" class="ourClients">
+    <h2>What Our Clients Say</h2>
     <div class="ourClients__inner">
-      <h2>What Our Clients Say</h2>
       <div class="ourClients__cardsWrap">
         <div
           v-for="({name, position, text, logo, company}, index) in filteredClients"
@@ -88,7 +88,7 @@ const filteredClients = computed(() => {
 
 <style>
 .ourClients {
-    background-color: #dfd4e5;
+    background-color: #f7eefc;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -98,9 +98,15 @@ const filteredClients = computed(() => {
     place-self: center;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    padding: 40px;
 }
-.ourClients__inner > h2 {
+.ourClients > h2 {
+    margin: 20px;
+    width: 100%;
+    background-color: var(--darkPurple);
+    color: white;
+    padding: 40px 0;
+    font-size: 32px;
     place-self: center;
 }
 .cards {
@@ -124,13 +130,12 @@ const filteredClients = computed(() => {
     place-self: center;
     display: flex;
     flex-wrap: wrap;
-    margin: -20px;
+    margin: -12px;
     width: 100%;
-    padding-left: 20px;
 }
 .ourClients__card {
-    width: 33%;
-    padding: 20px;
+    width: 33.3%;
+    padding: 12px;
 }
 .ourClients__card>div {
     min-height: 180px;
@@ -162,7 +167,7 @@ const filteredClients = computed(() => {
     place-self: flex-end;
     width: 100%;
 }
-@media (max-width: 1439.99px) {
+/* @media (max-width: 1439.99px) {
     .ourClients {
         gap: 20px;
         padding: 40px 60px;
@@ -172,10 +177,13 @@ const filteredClients = computed(() => {
     .ourClients {
         padding: 40px;
     }
+    .ourClients__card {
+        width: 50%;
+    }
 }
 @media (max-width: 573.99px) {
     .ourClients {
         padding: 40px 20px;
     }
-}
+} */
 </style>

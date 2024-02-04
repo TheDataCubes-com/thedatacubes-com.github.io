@@ -1,7 +1,7 @@
 <template>
   <section id="why-us" class="whyUs">
+    <h2>{{whyUs.title}}</h2>
     <div class="whyUs__inner">
-      <h2>{{whyUs.title}}</h2>
       <div
         v-for="({title, text}, index) in whyUs.points"
         :key="index"
@@ -66,6 +66,7 @@ watch([scroll, appWidth], value => {
 
 <style>
 .whyUs {
+    padding-top: 60px;
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -78,10 +79,15 @@ watch([scroll, appWidth], value => {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 100px 80px 40px;
+    padding: 40px 80px;
 }
-.whyUs__inner > h2 {
-    margin-bottom: 20px;
+.whyUs > h2 {
+    margin: 20px;
+    width: 100%;
+    background-color: var(--darkPurple);
+    color: white;
+    padding: 40px 0;
+    font-size: 32px;
     place-self: center;
 }
 .whyUs__points {
@@ -114,7 +120,7 @@ watch([scroll, appWidth], value => {
 .points--even {
     place-self: flex-end;
 }
-@media (max-width: 1659.99px) {
+/* @media (max-width: 1659.99px) {
     .whyUs__points {
         max-width: 75%;
     }
@@ -146,5 +152,5 @@ watch([scroll, appWidth], value => {
     .whyUs__points {
         max-width: 90%;
     }
-}
+} */
 </style>
