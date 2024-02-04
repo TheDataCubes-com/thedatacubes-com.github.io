@@ -99,7 +99,6 @@ const filteredClients = computed(() => {
     display: flex;
     flex-direction: column;
     gap: 60px;
-    padding: 80px 0px;
 }
 .ourClients__inner > h2 {
     place-self: center;
@@ -162,5 +161,21 @@ const filteredClients = computed(() => {
     margin-top: 12px;
     place-self: flex-end;
     width: 100%;
+}
+@media (max-width: 1439.99px) {
+    .ourClients {
+        gap: 20px;
+        padding: 40px 60px;
+    }
+}
+@media (max-width: 1023.99px) {
+    .ourClients {
+        padding: 40px;
+    }
+}
+@media (max-width: 573.99px) {
+    .ourClients {
+        padding: 40px 20px;
+    }
 }
 </style>

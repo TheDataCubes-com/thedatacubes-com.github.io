@@ -1,32 +1,32 @@
 <template>
-<section id="why-us" class="whyUs">
-  <div class="whyUs__inner">
-    <h2>{{whyUs.title}}</h2>
-    <div
-      v-for="({title, text}, index) in whyUs.points"
-      :key="index"
-      :class="[
-        'whyUs__points',
-        {'points--even': index % 2}
-      ]"
-    >
-      <h3>{{title}}</h3>
-      <p>{{text}}</p>
-      <img
-        v-if="!index"
-        src="/images/people-picture.jpg"
-        alt="whyUs-picture"
-        class="whyUs__image"
+  <section id="why-us" class="whyUs">
+    <div class="whyUs__inner">
+      <h2>{{whyUs.title}}</h2>
+      <div
+        v-for="({title, text}, index) in whyUs.points"
+        :key="index"
+        :class="[
+          'whyUs__points',
+          {'points--even': index % 2}
+        ]"
+      >
+        <h3>{{title}}</h3>
+        <p>{{text}}</p>
+        <img
+          v-if="!index"
+          src="/images/people-picture.jpg"
+          alt="whyUs-picture"
+          class="whyUs__image"
+        />
+      </div>
+      <CommonDynamicButton
+        link="/free-consultation"
+        text="Discuss How We Can Help Address Your Data Needs"
+        :isInline="true"
+        class="whyUs__button"
       />
     </div>
-    <CommonDynamicButton
-      link="/free-consultation"
-      text="Discuss How We Can Help Address Your Data Needs"
-      :isInline="true"
-      class="whyUs__button"
-    />
-  </div>
-</section>
+  </section>
 </template>
 
 <script setup>
@@ -102,12 +102,14 @@ watch([scroll, appWidth], value => {
     height: 125%;
 }
 .whyUs__button {
+    margin-top: 12px;
     position: relative;
     background-color: #cc90ff;
     border: 2px solid #cc90ff;
     width: fit-content;
     place-self: center;
     padding: 8px 12px;
+    text-align: center;
 }
 .points--even {
     place-self: flex-end;
@@ -126,17 +128,23 @@ watch([scroll, appWidth], value => {
         padding: 100px 60px 40px;
     }
 }
-@media (max-width: 1279.99px) {
-    .main__title {
-        width: 560px;
-    }
-}
 @media (max-width: 1023.99px) {
     .whyUs__image {
         display: none;
     }
     .whyUs__inner {
         padding: 100px 40px 40px;
+    }
+    .whyUs__points {
+        max-width: 85%;
+    }
+}
+@media (max-width: 573.99px) {
+    .whyUs__inner {
+        padding: 100px 20px 40px;
+    }
+    .whyUs__points {
+        max-width: 90%;
     }
 }
 </style>

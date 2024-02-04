@@ -40,7 +40,7 @@ const cards = ref([
 
 <style>
 .mainServices {
-    border-top: 1px solid;
+    box-shadow: 0px 1px 10px var(--darkPurple);
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -71,6 +71,37 @@ const cards = ref([
 @media (max-width: 1439.99px) {
     .mainServices__inner {
         gap: 20px;
+        padding: 40px 60px;
+    }
+}
+@media (max-width: 1023.99px) {
+    .mainServices__inner {
+        padding: 40px;
+    }
+    .mainServices__cardWrapper {
+        margin: 0;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .mainServices__card {
+        width: 75%;
+        padding: 0;
+    }
+    .mainServices__card:nth-of-type(even) {
+        place-self: flex-end;
+    }
+}
+@media (max-width: 767.99px) {
+   .mainServices__card {
+       width: 85%;
+   }
+}
+@media (max-width: 573.99px) {
+    .mainServices__inner {
+        padding: 40px 20px;
+    }
+    .mainServices__card {
+        width: 100%
     }
 }
 </style>

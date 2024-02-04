@@ -51,8 +51,6 @@ const props = defineProps({
     font-weight: 400;
     color: black;
     cursor: pointer;
-    transition: color 0.3s ease;
-    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 28px;

@@ -109,6 +109,13 @@ const toggleSubMenu = (menu, parentLink, menuIndex) => {
 .mobileNav--white {
     background-color: white;
 }
+.mobileNav--white .mobileNav__item {
+    color: #666666;
+}
+.mobileNav--white .mobileNav__button {
+    color: var(--darkPurple);
+    border: 2px solid var(--darkPurple);
+}
 @media (hover:hover) {
     .mobileNav__item:hover:before {
         width: 100%;

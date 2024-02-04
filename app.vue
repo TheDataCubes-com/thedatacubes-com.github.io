@@ -81,6 +81,7 @@ h2, h1 {
     font-weight: 500;
     font-size: 60px;
     color: #3D3D3D;
+    text-align: center;
 }
 h3 {
     font-weight: 400;
@@ -175,11 +176,20 @@ b {
     }
 }
 @media (max-width: 1023.99px) {
+    h2, h1 {
+        font-size: 40px;
+    }
     .main {
         padding: 40px;
     }
 }
 @media (max-width: 767.99px) {
+    h2, h1 {
+        font-size: 36px;
+    }
+    h3 {
+        font-size: 20px;
+    }
     p, a, span, li, b {
         font-size: 16px;
     }
@@ -188,6 +198,17 @@ b {
         top: calc(100vh - 80px);
         right: 50%;
         transform: translateX(50%);
+    }
+}
+@media (max-width: 574.99px) {
+    h2, h1 {
+        font-size: 32px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    p, a, span, li, b {
+        font-size: 14px;
     }
 }
 </style>
