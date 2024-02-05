@@ -102,7 +102,7 @@ const links = ref([
     disabled: true,
     children: [
       { name: "Master Data Management and Entity Resolution Consulting" , link: "/mdm" },
-      { name: "Data Management Strategy Consulting" , link: "/data-management" },
+      { name: "Data Management and AI Strategy Consulting" , link: "/data-management" },
       { name: "Executive Services" , link: "/executive-services" },
       // { name: "AI and Data Observability" , link: "/ai" },
       // { name: "Business Analysis and Data Modeling" , link: "/analysis-modeling" },
