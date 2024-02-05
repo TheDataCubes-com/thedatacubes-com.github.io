@@ -112,6 +112,7 @@ const pageText = ref([
 .partners h2 {
     font-size: 28px;
     color: var(--darkPurple);
+    place-self: flex-start;
 }
 .partners p {
     font-size: 18px;

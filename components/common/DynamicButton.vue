@@ -66,7 +66,7 @@ const props = defineProps({
 }
 .dynamicButtonInline {
     padding: 4px 12px;
-    font-size: 24px;
+    font-size: 18px;
     color: white;
     border: 2px solid white;
 }
@@ -105,17 +105,11 @@ const props = defineProps({
         padding: 16px 24px;
         gap: 20px;
     }
-    .dynamicButtonInline {
-        font-size: 22px
-    }
 }
 @media (max-width: 1439.99px) {
     .dynamicButton {
         padding: 12px 20px;
         font-size: 20px;
-    }
-    .dynamicButtonInline {
-        font-size: 20px
     }
 }
 @media (max-width: 1279.99px) {
@@ -123,14 +117,8 @@ const props = defineProps({
         padding: 12px 20px;
         font-size: 18px;
     }
-    .dynamicButtonInline {
-        font-size: 18px
-    }
 }
 @media (max-width: 1023.99px) {
-    .dynamicButtonInline {
-        font-size: 18px;
-    }
     .dynamicButton {
         font-size: 16px;
         padding: 10px 16px;
