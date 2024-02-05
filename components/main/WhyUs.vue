@@ -110,8 +110,8 @@ watch([scroll, appWidth], value => {
 .whyUs__button {
     margin-top: 12px;
     position: relative;
-    background-color: #cc90ff;
-    border: 2px solid #cc90ff;
+    background-color: #63087d;
+    border: 2px solid #63087d;
     width: fit-content;
     place-self: center;
     padding: 8px 12px;
