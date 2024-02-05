@@ -24,17 +24,17 @@
 const cards = ref([
   {
     title: "Data Management and AI Strategy Consulting",
-    text: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
+    text: "<p>We assess your data needs from a Business perspective and create a data strategy to enable practical, self-service data-driven solutions to various business challenges.</p>",
     link: { name: "Read more", path: "/services/data-management" }
   },
   {
     title: "Master Data Management and Entity Resolution Consulting",
-    text: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
+    text: "<p>We help your Business to make better decisions faster about getting Customer 360 views, and more.<br/><br/>We offer MDM product evaluations that best fit your use case, along with strategy and implementation recommendations.</p>",
     link: { name: "Read more", path: "/services/mdm" }
   },
   {
     title: "Executive Services",
-    text: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
+    text: "<ul><li>Personalized Education and Literacy to all levels of management, up to CEO level</li><li>Advisory and Mentorship</li><li>Assessment and Screening of data professionals</li></ul>",
     link: { name: "Read more", path: "/services/executive-services" }
   },
 ]);
@@ -80,7 +80,7 @@ const cards = ref([
 .mainServices__quote {
     margin-bottom: 40px;
 }
-/* @media (max-width: 1439.99px) {
+@media (max-width: 1439.99px) {
     .mainServices__inner {
         padding: 40px 60px;
     }
@@ -114,5 +114,5 @@ const cards = ref([
     .mainServices__card {
         width: 100%
     }
-} */
+}
 </style>

@@ -52,7 +52,14 @@ const cards = ref([
     sector: "banking",
     company: "Bank&nbspof&nbspAmerica"
   },
-  { position: "PennyMac Loan Services, LLC", text: "", logo: {} },
+  {
+    text: "",
+    name: "",
+    position: "",
+    logo: {},
+    sector: "banking",
+    company: "PennyMac Loan Services, LLC"
+  },
   {
     text: "Rouzanna, the founder of TheDataCubes team, is an exceptionally talented expert in all things data, who really takes the time to learn the unique and different challenges of each project she takes on. At Bold Metrics, Rouzanna quickly became part of the team, she took the time to learn all facets of the problems we were trying to solve and the impact it would make on our clients. While Rouzanna is without a doubt an expert in the Data Management world, she's also incredibly savvy when it comes to building and managing teams, and truly bringing out the best in people.<br/><br/>While there are a lot of ways that Rouzanna made a major impact, I think her ability to take a step back and dive deep into problems, architecting solutions tailored to our specific use-case is what makes her so effective. There are plenty of experts in the world, what makes Rouzanna so unique and different is her ability to augment her techniques and approach in ways that I would only expect from someone who had been with us for years.<br/><br/>I can confidently say Rouzanna was able to completely transform our data strategy, while teaching our whole team how to think about data architecture in an entirely new way. It's an honor to know that from here forward we have a truly world class data backbone designed by someone who cared about us, our clients, and of course - our data!",
     name: "Morgan Linton",
@@ -61,16 +68,23 @@ const cards = ref([
     sector: "data",
     company: "Bold&nbspMetrics&nbspInc."
   },
-  {
-    text: "The data architecture that TheDataCubes team designed for us was well thought out, flexible, and scalable for our needs. Designed from the ground up to specifically fit our use-case, this solution enabled our business to have quick self-service insights into our data, and we were able to fast-track our application to deliver ahead of time.<br/><br/>The bonus was a super performant data warehouse we’ll use for years to come.<br/><br/>Thank you!",
-    name: "Joe LaChance",
-    position: "Vice President, Engineering",
-    logo: { width: "40px", path: "/images/bm-logo.png"},
-    sector: "data",
-    company: "Bold&nbspMetrics&nbspInc."
-  },
   // { position: "Sonos", text: "", logo: {} },
-  { position: "Silicon Valley Bank", text: "", logo: {} },
+  {
+    text: "I have been working closely with Rouzanna at SVB and have consistently been impressed with her exceptional strategic skills and expertise in Master Data Management (MDM), particularly with near real time use cases leveraging Reltio and batch processing using Informatica.<br/><br/>Her in-depth knowledge and hands-on experience with MDM solutions helps to navigate complex data landscapes seamlessly and derive maximum value from the data platforms. Rouzanna has consistently demonstrated the ability to align MDM strategies with broader business goals. Her strategic mindset ensures that MDM initiatives not only meet technical requirements but also contribute to the overall success and growth of the organization resulting in improved data accuracy, streamlined processes, and enhanced decision-making capabilities.<br/><br/>Rouzanna has a track record of successfully implementing MDM solutions and excels in fostering collaboration among cross-functional teams. I am impressed by her leadership style which encourages open communication, knowledge sharing, and a collective commitment to achieving MDM objectives.",
+    name: "Raj Chayapathi",
+    position: "Principal Enterprise Architect",
+    logo: { width: "140px", path: "/images/svb-logo.png"},
+    sector: "banking",
+    company: "Silicon&nbspValley&nbspBank"
+ },
+ {
+   text: "The data architecture that TheDataCubes team designed for us was well thought out, flexible, and scalable for our needs. Designed from the ground up to specifically fit our use-case, this solution enabled our business to have quick self-service insights into our data, and we were able to fast-track our application to deliver ahead of time.<br/><br/>The bonus was a super performant data warehouse we’ll use for years to come.<br/><br/>Thank you!",
+   name: "Joe LaChance",
+   position: "Vice President, Engineering",
+   logo: { width: "40px", path: "/images/bm-logo.png"},
+   sector: "data",
+   company: "Bold&nbspMetrics&nbspInc."
+ },
 ]);
 
 const route = useRoute();
@@ -167,23 +181,11 @@ const filteredClients = computed(() => {
     place-self: flex-end;
     width: 100%;
 }
-/* @media (max-width: 1439.99px) {
-    .ourClients {
-        gap: 20px;
-        padding: 40px 60px;
-    }
-}
 @media (max-width: 1023.99px) {
-    .ourClients {
-        padding: 40px;
-    }
     .ourClients__card {
         width: 50%;
     }
 }
 @media (max-width: 573.99px) {
-    .ourClients {
-        padding: 40px 20px;
-    }
-} */
+}
 </style>

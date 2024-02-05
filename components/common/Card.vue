@@ -1,7 +1,7 @@
 <template>
   <article class="card">
     <h3 class="card__title">{{props.title}}</h3>
-    <p class="card__text">{{props.text}}</p>
+    <div v-html="text" class="card__text"/>
     <NuxtLink
       v-if="link"
       :to="props.link.path"
@@ -25,16 +25,24 @@ const props = defineProps({
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     padding: 12px 20px;
     border-radius: 12px;
 }
 .card__title {
     font-size: 20px;
+    min-height: 48px;
 }
 .card__text {
+    margin: 32px 0 4px;
+}
+.card__text * {
     font-size: 16px;
-    margin-bottom: 12px;
+}
+.card__text > ul {
+    list-style: disc inside;
+}
+.card__text > ul > li {
+    text-align: left;
 }
 .card__link {
     margin-top: auto;

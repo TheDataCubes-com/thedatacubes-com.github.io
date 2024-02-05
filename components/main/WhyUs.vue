@@ -120,7 +120,7 @@ watch([scroll, appWidth], value => {
 .points--even {
     place-self: flex-end;
 }
-/* @media (max-width: 1659.99px) {
+@media (max-width: 1659.99px) {
     .whyUs__points {
         max-width: 75%;
     }
@@ -131,7 +131,7 @@ watch([scroll, appWidth], value => {
 @media (max-width: 1439.99px) {
     .whyUs__inner {
         gap: 20px;
-        padding: 100px 60px 40px;
+        padding: 40px 60px;
     }
 }
 @media (max-width: 1023.99px) {
@@ -139,7 +139,7 @@ watch([scroll, appWidth], value => {
         display: none;
     }
     .whyUs__inner {
-        padding: 100px 40px 40px;
+        padding: 40px;
     }
     .whyUs__points {
         max-width: 85%;
@@ -147,10 +147,10 @@ watch([scroll, appWidth], value => {
 }
 @media (max-width: 573.99px) {
     .whyUs__inner {
-        padding: 100px 20px 40px;
+        padding: 40px 20px;
     }
     .whyUs__points {
         max-width: 90%;
     }
-} */
+}
 </style>

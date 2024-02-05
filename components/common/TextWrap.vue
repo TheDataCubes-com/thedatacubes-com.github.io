@@ -5,88 +5,76 @@
       :style="`width: ${descriptionWidth}%; font-size: ${fontSize}px;`"
       v-html="description"
       :class="[
-        'toggleDescriptionItem__description',
-        {'toggleDescriptionItem__description--gradient': moreContent},
-        {'toggleDescriptionItem__description--gradient--blue': gradientBlue}
+        'textWrap__description',
+        {'textWrap__description--gradient': moreContent},
       ]"
     />
     <div v-if="isToggle">
-      <router-link
-        v-if="moreButtonIsLink && showBtn || isStaticMoreButton"
-        :to="moreButtonLink"
-        v-html="'Читать полностью'"
-        :target="target"
-        class="toggleDescriptionItem__moreContent"
-      />
       <div
-        v-else-if="showBtn && !getPrint"
         @click="showContent"
-        class="toggleDescriptionItem__moreContent"
+        class="textWrap__moreContent"
       >{{ toggleBtn ? 'Cкрыть' : 'Читать полностью' }}</div>
     </div>
   </div>
 </template>
 
 <script script>
-import { mapGetters } from 'vuex';
-
-export default {
-  props: {
-    isStatic: {type: Boolean, default: false},
-    description: { type: String, default: '' },
-    descriptionWidth: { type: Number, default: 100 },
-    maxHeight: { type: Number, default: 100 },
-    fontSize: { type: String, default: '14' },
-    gradientBlue: { type: Boolean, default: false },
-    moreButtonIsLink: { type: Boolean, default: false},
-    moreButtonLink: { type: [String, Object], default: '' },
-    isToggle: { type: Boolean, default: true },
-    target: { type: String, default: '_blank'},
-    isStaticMoreButton: { type: Boolean, default: false},
-  },
-  data() {
-    return {
-      moreContent: false,
-      toggleBtn: false,
-      showBtn: false,
-    }
-  },
-  mounted() {
-    if (!this.isStatic) this.setMaxHeight();
-  },
-  computed: {
-    ...mapGetters({
-      getPrint: 'app/getPrint',
-      isMobile: 'app/isMobile',
-    })
-  },
-  methods: {
-    showContent() {
-      const description = this.$refs.description;
-      description.style.height = 'auto';
-      this.toggleBtn = !this.toggleBtn;
-      this.moreContent = !this.moreContent
-      if (this.moreContent) {
-        description.style.height = `${this.maxHeight}px`;
-      }
-    },
-    setMaxHeight() {
-      const description = this.$refs.description;
-      if (description.clientHeight > this.maxHeight) {
-        description.style.height = `${this.maxHeight}px`;
-        this.moreContent = true;
-        this.showBtn = true;
-      }
-    }
-  },
-  watch: {
-    getPrint(value) { if (value) this.showContent(); },
-  }
-}
+const props = defineProps({
+  isStatic: { type: Boolean, default: false },
+  description: { type: String, default: '' },
+  descriptionWidth: { type: Number, default: 100 },
+  maxHeight: { type: Number, default: 100 },
+  fontSize: { type: String, default: '14' },
+  gradientBlue: { type: Boolean, default: false },
+  moreButtonIsLink: { type: Boolean, default: false },
+  moreButtonLink: { type: [String, Object], default: '' },
+  isToggle: { type: Boolean, default: true },
+  target: { type: String, default: '_blank' },
+  isStaticMoreButton: { type: Boolean, default: false },
+});
+//   data() {
+//     return {
+//       moreContent: false,
+//       toggleBtn: false,
+//       showBtn: false,
+//     }
+//   },
+//   mounted() {
+//     if (!this.isStatic) this.setMaxHeight();
+//   },
+//   computed: {
+//     ...mapGetters({
+//       getPrint: 'app/getPrint',
+//       isMobile: 'app/isMobile',
+//     })
+//   },
+//   methods: {
+//     showContent() {
+//       const description = this.$refs.description;
+//       description.style.height = 'auto';
+//       this.toggleBtn = !this.toggleBtn;
+//       this.moreContent = !this.moreContent
+//       if (this.moreContent) {
+//         description.style.height = `${this.maxHeight}px`;
+//       }
+//     },
+//     setMaxHeight() {
+//       const description = this.$refs.description;
+//       if (description.clientHeight > this.maxHeight) {
+//         description.style.height = `${this.maxHeight}px`;
+//         this.moreContent = true;
+//         this.showBtn = true;
+//       }
+//     }
+//   },
+//   watch: {
+//     getPrint(value) { if (value) this.showContent(); },
+//   }
+// }
 </script>
 
 <style>
-.toggleDescriptionItem__description {
+.textWrap__description {
   position: relative;
   color: var(--gray02);
   font-family: var(--fontRegular);
@@ -96,7 +84,7 @@ export default {
   white-space: pre-wrap;
   word-break: break-word;
 }
-.toggleDescriptionItem__description--gradient {
+.textWrap__description--gradient {
   &:after {
     position: absolute;
     left: 0;
@@ -107,12 +95,7 @@ export default {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--blue03) 100%);
   }
 }
-.toggleDescriptionItem__description--gradient--blue {
-  &:after {
-    background: linear-gradient(180deg, rgba(241, 243, 255, 0) 0%, #F1F3FF 100%);
-  }
-}
-.toggleDescriptionItem__moreContent {
+.textWrap__moreContent {
   text-decoration: none;
   display: inline-block;
   margin: 12px 0 0 0;
