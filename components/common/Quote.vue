@@ -38,7 +38,7 @@ const props = defineProps({
     transform: translate(-30px, -40px);
 }
 .quote__inner>p {
-    font-weight: 400;
+    font-weight: 600;
     position: relative;
     color: white;
     font-size: 20px;
