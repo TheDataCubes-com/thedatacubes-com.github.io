@@ -20,8 +20,6 @@
         <h3 @click="() => setActive(index)">
           {{text}}
           <svg
-            height="30px"
-            width="30px"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 50 50"
             :class="{'partners__arrow': index===active}"
@@ -105,17 +103,17 @@ const pageText = ref([
 }
 .titleWrap h1 {
     color: white;
-    max-width: var(--maxWidth);
-    width: 100%;
+    width: fit-content;
     padding: 0 40px;
     font-size: 32px;
+    place-self: center;
 }
 .partners {
     padding: 46px 100px;
-    gap: 20px;
+    gap: 12px;
 }
 .partners h2 {
-    font-size: 32px;
+    font-size: 28px;
     color: var(--darkPurple);
 }
 .partners p {
@@ -139,8 +137,8 @@ const pageText = ref([
     transition: max-height 0.3s ease;
 }
 .partners__text h3 {
-    font-size: 24px;
     display: flex;
+    place-items: center;
     gap: 12px;
     place-content: center;
     align-self: flex-start;
@@ -148,8 +146,10 @@ const pageText = ref([
 }
 .partners__text>h3>svg {
     border-radius: 20px;
-    box-shadow: 0px 0px 1px 1px var(--darkPurple);
-    transition: box-shadow 10s ease, rotate 0.3s ease;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--darkPurple);
+    transition: 0.3s ease;
 }
 .expand {
     max-height: 100vh;

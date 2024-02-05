@@ -81,15 +81,17 @@ h2, h1 {
     font-weight: 500;
     font-size: 60px;
     color: #3D3D3D;
+    place-self: center;
 }
 h3 {
     font-weight: 400;
-    font-size: 32px;
+    place-self: center;
+    font-size: 20px;
     color: #3D3D3D;
 }
 p, a, span, button, li {
     font-weight: 300;
-    font-size: 24px;
+    font-size: 18px;
     color: #666666;
 }
 p {
@@ -134,12 +136,6 @@ b {
     h2, h1 {
         font-size: 42px;
     }
-    h3 {
-        font-size: 28px;
-    }
-    p, a, span, li, b {
-        font-size: 22px;
-    }
     .main {
         padding: 56px 80px;
     }
@@ -151,22 +147,10 @@ b {
     h2, h1 {
         font-size: 38px;
     }
-    h3 {
-        font-size: 26px;
-    }
-    p, a, span, li, b {
-        font-size: 20px;
-    }
 }
 @media (max-width: 1279.99px) {
     h2, h1 {
         font-size: 32px;
-    }
-    h3 {
-        font-size: 24px;
-    }
-    p, a, span, li, b {
-        font-size: 18px;
     }
 }
 </style>
