@@ -47,13 +47,13 @@ const props = defineProps({
 
 <style>
 .dynamicButton, .dynamicButtonInline {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
     color: black;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 12px;
     border-radius: 20px;
     width: fit-content;
     border: none;
@@ -61,7 +61,7 @@ const props = defineProps({
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 .dynamicButton {
-    padding: 18px 30px;
+    padding: 8px 24px;
     background-color: rgb(255, 255, 255, 0.6);
 }
 .dynamicButtonInline {
@@ -99,41 +99,24 @@ const props = defineProps({
         color: black;
     }
 }
-@media (max-width: 1659.99px) {
-    .dynamicButton {
-        font-size: 24px;
-        padding: 16px 24px;
-        gap: 20px;
-    }
-}
 @media (max-width: 1439.99px) {
     .dynamicButton {
-        padding: 12px 20px;
         font-size: 20px;
     }
 }
 @media (max-width: 1279.99px) {
     .dynamicButton {
-        padding: 12px 20px;
         font-size: 18px;
     }
 }
 @media (max-width: 1023.99px) {
     .dynamicButton {
         font-size: 16px;
-        padding: 10px 16px;
-        gap: 16px;
     }
 }
 @media (max-width: 767.99px) {
     .dynamicButton {
         font-size: 14px;
-        gap: 12px;
-    }
-}
-@media (max-width: 574.99px) {
-    .dynamicButtonInline {
-        font-size: 16px;
     }
 }
 </style>

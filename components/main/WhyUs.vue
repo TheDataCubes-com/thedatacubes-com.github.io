@@ -88,6 +88,8 @@ watch([scroll, appWidth], value => {
     color: white;
     padding: 40px 0;
     font-size: 32px;
+    text-align: left;
+    padding-left: 80px;
     place-self: center;
 }
 .whyUs__points {
