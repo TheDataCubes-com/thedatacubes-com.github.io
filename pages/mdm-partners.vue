@@ -6,41 +6,40 @@
     <article class="main partners">
       <section class="partners__top">
         <img src="/images/diagram.png" alt="dc-diagram" class="partners__diagram">
-        <!-- <div>
-          <Logo :isWhite="true" class="part--logo"/>
-        </div> -->
-        <p>Finding a firm that combines expertise in Technology products, deep knowledge of the FinServ industry, and proficiency in guiding strategy and implementation is rare.<br/><br/>We excel in Strategic Consulting and the delivery of MDM solutions within the FinServ sector.<br/><br/>Our standout ability lies in translating complex business problems into successful technical solutions.</p>
+        <p>TheDataCubes is <span class="top--creaming">trusted by</span> Fortune 500 companies and leading startups alike, with deep expertise in translating complex business problems into successful technical solutions.</p>
       </section>
-      <h2>List of our Services:</h2>
-      <div
-        v-for="({text, bullets}, index) in pageText"
-        :key="index"
-        class="partners__text"
-      >
-        <h3 @click="() => setActive(index)">
-          {{text}}
-          <svg
-            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 50 50"
-            :class="{'partners__arrow': index===active}"
-          >
-          <path fill="#666666" d="M15.563,40.836c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293l15-15
-  	c0.391-0.391,0.391-1.023,0-1.414l-15-15c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l14.293,14.293L15.563,39.422
-  	C15.172,39.813,15.172,40.446,15.563,40.836z"/>
-          </svg>
-        </h3>
-        <ul v-if="bullets"
-          :class="['partners__bullets', {'expand': index === active}]"
+      <h2>Our Services:</h2>
+      <section class="partners__points">
+        <div
+          v-for="({text, bullets}, index) in pageText"
+          :key="index"
+          class="partners__text"
         >
-          <li v-for="(bullet, index) in bullets" :key="index" v-html="bullet" />
-        </ul>
-      </div>
+          <h3 @click="() => setActive(index)">
+            {{text}}
+            <svg
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 50 50"
+              :class="{'partners__arrow': index===active}"
+            >
+            <path fill="#666666" d="M15.563,40.836c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293l15-15
+   	c0.391-0.391,0.391-1.023,0-1.414l-15-15c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l14.293,14.293L15.563,39.422
+   	C15.172,39.813,15.172,40.446,15.563,40.836z"/>
+            </svg>
+          </h3>
+          <ul v-if="bullets"
+            :class="['partners__bullets', {'expand': index === active}]"
+          >
+            <li v-for="(bullet, index) in bullets" :key="index" v-html="bullet" />
+          </ul>
+        </div>
+      </section>
     </article>
   </div>
 </template>
 
 <script setup>
-const active = ref(null);
+const active = ref(0);
 const setActive = (i) => active.value = active.value === i ? null : i;
 
 const pageText = ref([
@@ -103,10 +102,10 @@ const pageText = ref([
 }
 .titleWrap h1 {
     color: white;
-    width: fit-content;
+    max-width: var(--maxWidth);
+    width: 100%;
     padding: 0 40px;
     font-size: 32px;
-    place-self: center;
 }
 .partners {
     padding: 46px 100px;
@@ -115,7 +114,7 @@ const pageText = ref([
 .partners h2 {
     font-size: 28px;
     color: var(--darkPurple);
-    place-self: flex-start;
+    place-self: center;
 }
 .partners p {
     font-size: 18px;
@@ -123,7 +122,8 @@ const pageText = ref([
 .partners__text {
     display: flex;
     flex-direction: column;
-    gap: 20px
+    gap: 20px;
+    max-width: 70%;
 }
 .partners__bullets {
     color: white;
@@ -135,15 +135,18 @@ const pageText = ref([
     height: fit-content;
     max-height: 0;
     overflow: hidden;
+    margin-bottom: 12px;
     transition: max-height 0.3s ease;
 }
 .partners__text h3 {
     display: flex;
+    text-decoration: underline;
     place-items: center;
     gap: 12px;
-    place-content: center;
     align-self: flex-start;
     cursor: pointer;
+    width: fit-content;
+    place-self: center;
 }
 .partners__text>h3>svg {
     border-radius: 20px;
@@ -157,7 +160,6 @@ const pageText = ref([
 }
 .partners__bullets > li {
     line-height: 1.5;
-    max-width: 90%;
     width: 100%;
     place-self: flex-end;
     font-weight: 300;
@@ -172,9 +174,9 @@ const pageText = ref([
 .partners__top {
     display: flex;
     gap: 10%;
-    place-items: center;
     margin-bottom: 10px;
     place-content: center;
+    place-items: center;
 }
 .partners__top>div {
     position: relative;
@@ -192,15 +194,15 @@ const pageText = ref([
     max-width: 320px;
     width: 100%;
 }
-@keyframes glow {
- 0% {box-shadow: 0px 0px 0px 0px var(--darkPurple);}
- 25% {box-shadow: 0px 0px 2px 0.5px var(--darkPurple);}
- 50% {box-shadow: 0px 0px 8px 0.5px var(--darkPurple);}
- 25% {box-shadow: 0px 0px 2px 0.5px var(--darkPurple);}
- 100% {box-shadow: 0px 0px 0px 0px var(--darkPurple);}
+.partners__points {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    place-items: center;
 }
-.partners__text>h3>svg {
- /* animation: glow 10s infinite */
+.top--creaming {
+    color: var(--darkPurple);
+    font-weight: 600;
+    text-transform: uppercase;
 }
-
 </style>
