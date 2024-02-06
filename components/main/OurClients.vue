@@ -9,7 +9,8 @@
           class="ourClients__card"
         >
           <div>
-            <p v-html="text" class="ourClients__text"/>
+          <!-- <CommonTextWrap :text="text" class="ourClients__text"/> -->
+          <p v-html="text" class="ourClients__text"/>
             <div class="ourClients__signature">
               <span v-html="name"/>
               <span v-html="position"/>
@@ -48,7 +49,7 @@ const cards = ref([
     text: "I had the opportunity to work alongside Rouzanna at Bank of America, where we collaborated on various initiatives in Enterprise Data Integration, Big Data, AI, and Machine Learning. Additionally, we jointly developed the Enterprise Data Strategy for the Consumer Banking sector, with a focus on its Digital Transformation.<br/><br/>She excels in strategic consulting and the delivery of Enterprise Data Management and MDM solutions, particularly within the Financial Services sector. Her standout ability lies in translating complex business problems into successful technical solutions, a skill that significantly contributed to the success of our projects at Bank of America.<br/><br/>A final comment about Rouzanna is her rare combination of technical expertise, enterprise implementation, and the ability to capture and present concepts, solutions, and implementations in architecture models, something we don't often see these days.",
     name: "Patrick Ikhifa",
     position: "Distinguished Client Architect, FINS",
-    logo: {width: "80px" , path: "/images/mule-soft.png"},
+    logo: {width: "80px", path: "/images/boa-logo.png"},
     sector: "banking",
     company: "Bank&nbspof&nbspAmerica"
   },

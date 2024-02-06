@@ -1,116 +1,60 @@
 <template>
-  <div class="textWrap">
-    <div
-      ref="description"
-      :style="`width: ${descriptionWidth}%; font-size: ${fontSize}px;`"
-      v-html="description"
-      :class="[
-        'textWrap__description',
-        {'textWrap__description--gradient': moreContent},
-      ]"
-    />
-    <div v-if="isToggle">
-      <div
-        @click="showContent"
+  <div>
+    <div ref="content" v-html="text" :class="['textWrap', {'textWrap--gradient': wrapped}]"/>
+    <div v-if="isWrap">
+      <button
+        @click="toggle"
         class="textWrap__moreContent"
-      >{{ toggleBtn ? 'Cкрыть' : 'Читать полностью' }}</div>
+      >{{ !wrapped ? 'collapse' : 'show all' }}</button>
     </div>
   </div>
 </template>
 
-<script script>
+<script setup>
 const props = defineProps({
-  isStatic: { type: Boolean, default: false },
-  description: { type: String, default: '' },
-  descriptionWidth: { type: Number, default: 100 },
-  maxHeight: { type: Number, default: 100 },
-  fontSize: { type: String, default: '14' },
-  gradientBlue: { type: Boolean, default: false },
-  moreButtonIsLink: { type: Boolean, default: false },
-  moreButtonLink: { type: [String, Object], default: '' },
-  isToggle: { type: Boolean, default: true },
-  target: { type: String, default: '_blank' },
-  isStaticMoreButton: { type: Boolean, default: false },
+  text: { type: String, default: "" },
+  maxHeight: { type: Number, default: 200 },
 });
-//   data() {
-//     return {
-//       moreContent: false,
-//       toggleBtn: false,
-//       showBtn: false,
-//     }
-//   },
-//   mounted() {
-//     if (!this.isStatic) this.setMaxHeight();
-//   },
-//   computed: {
-//     ...mapGetters({
-//       getPrint: 'app/getPrint',
-//       isMobile: 'app/isMobile',
-//     })
-//   },
-//   methods: {
-//     showContent() {
-//       const description = this.$refs.description;
-//       description.style.height = 'auto';
-//       this.toggleBtn = !this.toggleBtn;
-//       this.moreContent = !this.moreContent
-//       if (this.moreContent) {
-//         description.style.height = `${this.maxHeight}px`;
-//       }
-//     },
-//     setMaxHeight() {
-//       const description = this.$refs.description;
-//       if (description.clientHeight > this.maxHeight) {
-//         description.style.height = `${this.maxHeight}px`;
-//         this.moreContent = true;
-//         this.showBtn = true;
-//       }
-//     }
-//   },
-//   watch: {
-//     getPrint(value) { if (value) this.showContent(); },
-//   }
-// }
+
+const content = ref(null);
+const wrapped = ref(0);
+const isWrap = ref(false);
+
+const toggle = () => {
+  content.value.style.height = 'auto';
+  wrapped.value ^= 1;
+  if (isWrap.value && wrapped.value) content.value.style.height = `${props.maxHeight}px`;
+}
+const setMaxHeight = () => {
+  if (content.value && content.value.clientHeight > props.maxHeight) {
+    content.value.style.height = `${props.maxHeight}px`;
+    wrapped.value = 1;
+    isWrap.value = true;
+  }
+}
+
+onMounted(() => {
+  setMaxHeight();
+})
 </script>
 
 <style>
-.textWrap__description {
-  position: relative;
-  color: var(--gray02);
-  font-family: var(--fontRegular);
-  font-size: 16px;
-  line-height: 1.6;
+.textWrap {
   overflow: hidden;
-  white-space: pre-wrap;
-  word-break: break-word;
+  transition: max-height 0.3s ease;
 }
-.textWrap__description--gradient {
-  &:after {
+.textWrap--gradient:after {
     position: absolute;
     left: 0;
     bottom: 0;
     content: '';
     width: 100%;
     height: 25px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--blue03) 100%);
-  }
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, white 100%);
 }
 .textWrap__moreContent {
-  text-decoration: none;
-  display: inline-block;
-  margin: 12px 0 0 0;
-  text-decoration: none;
-  color: var(--brand);
-  font-family: var(--fontRegular);
-  line-height: 1.5;
+border: none;
+background-color: unset;
   cursor: pointer;
-  user-select: none;
-  transition: color 0.3s ease;
-  &:hover {
-    color: var(--blue02);
-  }
-}
-@media (hover:hover) {
-
 }
 </style>
