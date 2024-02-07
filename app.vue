@@ -59,6 +59,7 @@ watch(() => route.fullPath, () => headerWhite.value = false);
     --mainYellow: #ffc107;
     --errorRed: #770000;
     --maxWidth: 1660px;
+    --maxContentWidth: 1420px;
 }
 html {
     scroll-behavior: smooth;

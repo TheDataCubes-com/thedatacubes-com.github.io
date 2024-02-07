@@ -1,15 +1,17 @@
 <template>
   <section class="titleLine">
-    <div class="titleLine__titleWrap">
-      <component :is="props.heading" class="titleLine__title">{{props.title}}</component>
-        <div
-          v-if="props.description"
-          v-html="props.description"
-          class="titleLine__description"
-        />
-    </div>
-    <div class="titleLine__additional">
-      <slot  />
+    <div class="titleLine__inner">
+      <div class="titleLine__titleWrap">
+        <component :is="props.heading" class="titleLine__title">{{props.title}}</component>
+          <div
+            v-if="props.description"
+            v-html="props.description"
+            class="titleLine__description"
+          />
+      </div>
+      <div class="titleLine__additional">
+        <slot  />
+      </div>
     </div>
   </section>
 </template>
@@ -29,7 +31,12 @@ const props = defineProps({
     background-color: var(--darkPurple);
     padding: 40px 60px;
     display: flex;
+    place-content: center;
+}
+.titleLine__inner {
+    display: flex;
     gap: 40px;
+    max-width: var(--maxContentWidth);
 }
 .titleLine__titleWrap {
     display: flex;

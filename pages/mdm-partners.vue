@@ -7,14 +7,14 @@
     >
       <img src="/images/d1.png" alt="dc-diagram" class="partners__diagram">
     </CommonTitleLine>
-      <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+      <!-- <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
         <template #item="itemProps">
           <div
           :style="`background-image: url(${itemProps.slide});`"
           class="partner__slide"
           />
         </template>
-      </CommonCustomSwiper>
+      </CommonCustomSwiper> -->
       <h2 class="partners__subTitle">Services</h2>
       <section class="partners__points">
         <div
@@ -147,11 +147,11 @@ const pageText = ref([
     width: 100%;
 }
 .partners__points {
+    max-width: var(--maxContentWidth);
     transform: translateY(-40px);
     display: flex;
     width: 100%;
     margin: -12px;
-    padding: 0 40px;
 }
 .partners__pointWrap {
     padding: 12px;
@@ -168,15 +168,16 @@ const pageText = ref([
     height: 60px;
 }
 .partners__text {
+    min-height: 170px;
     cursor: pointer;
-    min-height: 200px;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     background-color: white;
     border-radius: 20px;
-    padding: 20px;
+    padding: 12px;
+    flex-grow: 1;
     box-shadow: 4px 4px 12px 0px var(--darkPurple);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -217,10 +218,9 @@ const pageText = ref([
     height: 24px;
     border: 1px solid var(--darkPurple);
     flex-shrink: 0;
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
     transition: 0.3s ease;
+    place-self: flex-end;
+    margin-top: auto;
 }
 .top--screaming {
     color: var(--mainYellow);
