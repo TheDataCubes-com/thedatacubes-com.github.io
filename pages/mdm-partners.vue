@@ -6,7 +6,7 @@
     <article class="main partners">
       <section class="partners__top">
         <img src="/images/diagram.png" alt="dc-diagram" class="partners__diagram">
-        <p>TheDataCubes is <span class="top--creaming">trusted by</span> Fortune 500 companies and leading startups alike, with deep expertise in translating complex business problems into successful technical solutions.</p>
+        <p><span class="top--creaming">trusted by</span> Fortune 500 companies and leading startups alike. We translate complex business problems into successful technical solutions.</p>
       </section>
       <h2>Our Services:</h2>
       <section class="partners__points">
