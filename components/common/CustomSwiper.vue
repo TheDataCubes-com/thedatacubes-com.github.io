@@ -36,6 +36,8 @@ const props = defineProps({
 .customSwiper {
     width: 100%;
     padding: 40px 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 .customSwiper .swiper-slide {
     transition-timing-function: linear !important;

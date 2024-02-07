@@ -7,14 +7,14 @@
     >
       <img src="/images/d1.png" alt="dc-diagram" class="partners__diagram">
     </CommonTitleLine>
-      <!-- <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+      <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
         <template #item="itemProps">
           <div
           :style="`background-image: url(${itemProps.slide});`"
           class="partner__slide"
           />
         </template>
-      </CommonCustomSwiper> -->
+      </CommonCustomSwiper>
       <h2 class="partners__subTitle">Services</h2>
       <section class="partners__points">
         <div
@@ -136,7 +136,7 @@ const pageText = ref([
     font-size: 48px;
     color: var(--darkPurple);
     place-self: center;
-    background-color: #e0bcf4;
+    background-color: #eedcf9;
     width: 100%;
     padding-top: 40px;
     padding-bottom: 80px;
@@ -239,7 +239,7 @@ const pageText = ref([
     font-size: 18px;
     color: #666666;
 }
-.text--selected {
+.text--selected .partners__arrow {
     background-color: var(--mainYellow);
 }
 .partner__slide {
