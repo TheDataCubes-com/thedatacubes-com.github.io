@@ -67,7 +67,6 @@ watch([scroll, appWidth], value => {
 <style>
 .whyUs {
     background-color: #f7eefc;
-    padding-top: 60px;
     position: relative;
     min-height: 100vh;
     display: flex;

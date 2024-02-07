@@ -3,10 +3,18 @@
     <CommonTitleLine
       description='<span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike. We translate complex business problems into successful technical solutions.'
       title="We help MDM solution providers win in the market"
+      class="partners__title"
     >
       <img src="/images/d1.png" alt="dc-diagram" class="partners__diagram">
     </CommonTitleLine>
-    <!-- <CommonCustomSwiper /> -->
+      <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+        <template #item="itemProps">
+          <div
+          :style="`background-image: url(${itemProps.slide});`"
+          class="partner__slide"
+          />
+        </template>
+      </CommonCustomSwiper>
       <h2 class="partners__subTitle">Services</h2>
       <section class="partners__points">
         <div
@@ -18,10 +26,13 @@
             @click="() => setActive(index, bullets)"
             :class="['partners__text', {'text--selected': index === active}]"
           >
-            <svg class="partners__icon" viewBox="0 0 56 56" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50.7 31.7c-1.7-.5-3.6-.5-5.4.1l-6.2 2c-.1-.4-.4-.9-.9-1.4-1-1.1-2.6-1.8-4.2-1.8h-5.3c-.3 0-.7-.1-.9-.3-3.9-3.3-8.4-1.8-9.7-1.2-.3.1-.6.3-.8.5l-6.1 5.1c-.5-.5-1.2-.9-1.9-1-.9-.1-1.8.1-2.6.7l-2.3 1.7c-1.5 1.2-1.8 3.3-.7 4.9l8 10.6c.6.7 1.4 1.2 2.3 1.3h.5c.7 0 1.5-.2 2.1-.7l2.3-1.7c1.2-.9 1.7-2.6 1.1-3.9l1.2-.9c.3-.2.6-.3.9-.3l11.3-.2c2 0 4-.6 5.8-1.6l11.6-6.7c.6-.3 2.4-1.5 2.2-3.1-.1-1-.9-1.7-2.3-2.1zM17.6 48.9l-2.3 1.7c-.3.3-.7.4-1 .4-.4-.1-.7-.3-1-.6l-8-10.6c-.5-.6-.4-1.6.3-2.1L7.9 36c.3-.2.6-.3.9-.3H9c.4.1.7.2.9.5l5.6 7.4 2.5 3.2c.4.7.3 1.7-.4 2.1zm32.2-13.8-11.6 6.7c-1.5.8-3.1 1.3-4.8 1.3l-11.4.2c-.8 0-1.5.3-2.1.7l-1 .8-2.3-3-4.2-5.6 6.1-5.1c.1-.1.2-.1.3-.2 1-.4 4.6-1.7 7.6.9.6.5 1.4.8 2.2.8h5.3c1.1 0 2.1.4 2.8 1.1.2.3.5.7.5 1 0 .2-.3.8-1.9 1.5h-7.6c-.6 0-1 .4-1 1s.4 1 1 1h8.1l.2-.1c1.5-.7 2.4-1.4 2.9-2.2l7.1-2.2c1.4-.5 2.9-.5 4.2-.1.6.2.8.3.9.4-.2.3-.8.8-1.3 1.1z"/>
-              <path d="m9.1 38.1-1.8 1.3c-.4.3-.5 1-.2 1.4.2.3.5.4.8.4.2 0 .4-.1.6-.2l1.8-1.3c.4-.3.5-1 .2-1.4-.4-.5-1-.6-1.4-.2zM27.2 14c1.7 1.4 4 1.7 5.9 1.7 1.1 0 2.2-.1 2.9-.3v6.2c-3.7.5-6.6 3.4-6.6 6.8v1h15.7v-1c0-3.6-3.2-6.5-7.2-6.8v-7.2c1.4.6 3.6 1.3 5.8 1.3 1 0 2-.1 2.9-.5 4.2-1.7 5.6-7.6 5.7-7.9.1-.4-.1-.8-.4-1.1-.2-.1-5.4-3.3-9.6-1.6-2.2.9-3.9 3-4.9 4.8-.4-1.6-1.3-3.4-2.9-4.6-3.7-3-9.8-1.3-10.1-1.2-.4.1-.7.5-.7.9 0 .3-.3 6.6 3.5 9.5zM43 27.5H31.5c.6-2.2 2.9-3.9 5.7-3.9 2.9 0 5.3 1.7 5.8 3.9zm.1-20.9c2.5-1 5.8.4 7.1 1.1-.5 1.5-1.8 4.7-4.3 5.8-2 .8-4.5.2-6.3-.5l7.2-2.8c.4-.2.6-.5.6-.9 0-.1 0-.2-.1-.4-.2-.5-.8-.8-1.3-.6l-7.2 2.8c.9-1.7 2.3-3.7 4.3-4.5zm-9.8-.3c1.8 1.4 2.4 4 2.6 5.8l-6.3-5c-.4-.3-1.1-.3-1.4.2-.1.2-.2.4-.2.6 0 .3.1.6.4.8l6.3 5c-1.8.2-4.4.2-6.2-1.2-2.3-1.8-2.6-5.5-2.7-7.1 1.5-.4 5.2-.9 7.5.9z"/>
-            </svg>
+          <svg class="partners__icon" data-bbox="20.532 45.947 158.928 108.107" viewBox="20.532 45.947 158.928 108.107" height="200" width="200" xmlns="http://www.w3.org/2000/svg" data-type="color" aria-hidden="true">
+            <g fill="#210076">
+              <path d="m82.935 75.852 44.836 20.692a4.833 4.833 0 0 0 4.048 0l44.836-20.692a4.828 4.828 0 0 0 0-8.768l-44.836-20.692a4.826 4.826 0 0 0-4.047 0L82.935 67.083a4.828 4.828 0 0 0 0 8.769zm46.86-19.759 33.312 15.374-33.312 15.374-33.312-15.374 33.312-15.374z" data-color="1"/>
+              <path d="m172.608 95.616-42.813 19.758-42.813-19.758a4.83 4.83 0 0 0-4.047 8.769l44.836 20.692a4.833 4.833 0 0 0 4.048 0l44.836-20.692a4.83 4.83 0 0 0-4.047-8.769z" data-color="1"/>
+              <path d="m172.608 124.149-42.813 19.758-42.813-19.758a4.828 4.828 0 1 0-4.047 8.769l44.836 20.692a4.833 4.833 0 0 0 4.048 0l44.836-20.692a4.83 4.83 0 0 0-4.047-8.769zM65.095 95.171H25.368a4.829 4.829 0 1 0 0 9.658h39.727a4.829 4.829 0 1 0 0-9.658zm0-18.725H37.44a4.829 4.829 0 1 0 0 9.658h27.655a4.829 4.829 0 1 0 0-9.658zm0 37.451H49.512a4.829 4.829 0 1 0 0 9.658h15.583a4.829 4.829 0 1 0 0-9.658z" data-color="1"/>
+            </g>
+          </svg>
             <h3>{{text}}</h3>
             <svg
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -52,7 +63,6 @@
 const active = ref(null);
 const placeText = ref(null);
 const setActive = (index, bullets) => {
-  console.log(index, bullets)
   if (active.value === index) {
     active.value = null;
     placeText.value = null;
@@ -63,6 +73,14 @@ const setActive = (index, bullets) => {
   }
 };
 
+const trustedBy = ref([
+  "/images/boa-logo.png",
+  "/images/sonos-logo.png",
+  "/images/bm-logo.png",
+  "/images/pennymac-logo.png",
+  "/images/mattel-logo.png",
+  "/images/svb-logo.png",
+]);
 const pageText = ref([
   {
     text: "For your existing MDM clients and prospects",
@@ -223,6 +241,17 @@ const pageText = ref([
 }
 .text--selected {
     background-color: var(--mainYellow);
+}
+.partner__slide {
+    place-self: center;
+    width: 200px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.partners__title {
+    margin: 20px 0 0;
 }
 @media (hover:hover) {
     .partners__text:hover {

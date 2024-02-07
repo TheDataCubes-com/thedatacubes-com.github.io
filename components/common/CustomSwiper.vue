@@ -1,32 +1,47 @@
 <template>
   <Swiper
     :modules="[SwiperAutoplay]"
-    :slidesPerView="4"
+    :slidesPerView="props.maxPerView"
     :simulateTouch="false"
     :loop="true"
-    style="width: 100%;"
     spaceBetween="20"
-    speed="50000"
+    :speed="40000"
     :freeMode="true"
     :free-mode-sticky="true"
     :autoplay="{
       delay: 0,
       disableOnInteraction: false,
     }"
+    :style="`background-color: ${props.bgColor};`"
     class="customSwiper"
   >
-    <SwiperSlide v-for="slide in [0,1,2,3,4,5,6, 7]" :key="slide"
-    :style="`background-color: ${['black', 'white', 'yellow', 'grey', 'purple', 'blue', 'red', 'green'][slide]};`">
-      <strong>{{ slide }}</strong>
-    </SwiperSlide>
+    <SwiperSlide
+      v-for="(slide, index)
+      in props.items"
+      :key="index"
+      class="customSlide"
+    ><slot name="item" :slide="slide" :index="index" /></SwiperSlide>
   </Swiper>
 </template>
 
 <script setup>
+const props = defineProps({
+  items: { type: Array, default: [] },
+  maxPerView: { type: Number, default: 4 },
+  bgColor: { type: String, default: "white" }
+});
 </script>
 
 <style>
+.customSwiper {
+    width: 100%;
+    padding: 40px 0;
+}
 .customSwiper .swiper-slide {
     transition-timing-function: linear !important;
+}
+.customSlide {
+    display: flex;
+    flex-direction: column;
 }
 </style>

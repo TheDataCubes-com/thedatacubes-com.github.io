@@ -1,6 +1,11 @@
 <template>
   <section class="mainServices">
     <CommonTitleLine heading="h2" title="Services" />
+    <CommonQuote
+      quote="Data that sit unused are no different from data that were never collected in the first place."
+      sign="Doug Fisher"
+      class="mainServices__quote"
+    />
     <div class="mainServices__inner">
       <p class="mainServices__text">It is evident that despite advances in new technologies, data remains a massive untapped resource in many organizations, necessitating a solid Data Management Strategy before investing in new tools.<br/><br/>We have focused exclusively on Data Management Strategy and MDM for over 20 years. Our business-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for success.</p>
       <div class="mainServices__cardWrapper">
@@ -12,11 +17,6 @@
       </div>
       <p class="mainServices__text">Each TheDataCubes engagement is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.</p>
     </div>
-    <CommonQuote
-      quote="Data that sit unused are no different from data that were never collected in the first place."
-      sign="Doug Fisher"
-      class="mainServices__quote"
-    />
   </section>
 </template>
 
@@ -69,7 +69,7 @@ const cards = ref([
     place-self: center;
 }
 .mainServices__quote {
-    margin-bottom: 40px;
+    margin-top: 40px;
 }
 @media (max-width: 1439.99px) {
     .mainServices__inner {

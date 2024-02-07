@@ -7,6 +7,14 @@
       <p v-for="paragraph in bannerText">{{paragraph}}</p>
     </section>
   </section>
+  <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+    <template #item="itemProps">
+      <div
+      :style="`background-image: url(${itemProps.slide});`"
+      class="partner__slide"
+      />
+    </template>
+  </CommonCustomSwiper>
   <MainWhyUs />
   <MainServices />
 </template>
@@ -22,6 +30,15 @@ const bannerText = ([
 const slideIndex = ref(1);
 const textSlide = ref(null);
 const swiper = ref(null);
+
+const trustedBy = ref([
+  "/images/boa-logo.png",
+  "/images/sonos-logo.png",
+  "/images/bm-logo.png",
+  "/images/pennymac-logo.png",
+  "/images/mattel-logo.png",
+  "/images/svb-logo.png",
+]);
 
 const currentSlide = computed(() => slides[slideIndex.value]);
 
@@ -77,6 +94,14 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     line-height: 1.7;
     font-weight: 300;
     color: white;
+}
+.partner__slide {
+    place-self: center;
+    width: 200px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 @media (max-height: 960px) {
     .banner__text {
