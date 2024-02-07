@@ -60,19 +60,6 @@
 </template>
 
 <script setup>
-const active = ref(null);
-const placeText = ref(null);
-const setActive = (index, bullets) => {
-  if (active.value === index) {
-    active.value = null;
-    placeText.value = null;
-  }
-  else {
-    active.value = index;
-    placeText.value = bullets;
-  }
-};
-
 const trustedBy = ref([
   "/images/boa-logo.png",
   "/images/sonos-logo.png",
@@ -121,6 +108,19 @@ const pageText = ref([
     ]
   },
 ]);
+const active = ref(0);
+const placeText = ref(pageText.value[0].bullets);
+
+const setActive = (index, bullets) => {
+  if (active.value === index) {
+    active.value = null;
+    placeText.value = null;
+  }
+  else {
+    active.value = index;
+    placeText.value = bullets;
+  }
+};
 </script>
 
 <style>
@@ -238,6 +238,9 @@ const pageText = ref([
     font-weight: 300;
     font-size: 18px;
     color: #666666;
+}
+.text--selected {
+    pointer-events: none;
 }
 .text--selected .partners__arrow {
     background-color: var(--mainYellow);
