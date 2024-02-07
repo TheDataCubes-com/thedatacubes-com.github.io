@@ -1,6 +1,6 @@
 <template>
   <section v-if="shown" class="ourClients">
-    <h2>What Our Clients Say</h2>
+    <CommonTitleLine title="What Our Clients Say" heading="h2" />
     <div class="ourClients__inner">
       <div class="ourClients__cardsWrap">
         <div
@@ -114,15 +114,6 @@ const filteredClients = computed(() => {
     display: flex;
     flex-direction: column;
     padding: 40px;
-}
-.ourClients > h2 {
-    margin: 20px;
-    width: 100%;
-    background-color: var(--darkPurple);
-    color: white;
-    padding: 40px 0;
-    font-size: 32px;
-    place-self: center;
 }
 .cards {
     max-width: var(--maxWidth);

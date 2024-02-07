@@ -6,7 +6,10 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
-  modules: [],
+  modules: ["nuxt-swiper"],
+  swiper: {
+    modules: ["autoplay"],
+  },
   alias: {
     data: "/app_data",
   },

@@ -1,6 +1,6 @@
 <template>
   <section class="mainServices">
-    <h2>Services</h2>
+    <CommonTitleLine heading="h2" title="Services" />
     <div class="mainServices__inner">
       <p class="mainServices__text">It is evident that despite advances in new technologies, data remains a massive untapped resource in many organizations, necessitating a solid Data Management Strategy before investing in new tools.<br/><br/>We have focused exclusively on Data Management Strategy and MDM for over 20 years. Our business-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for success.</p>
       <div class="mainServices__cardWrapper">
@@ -53,15 +53,6 @@ const cards = ref([
     display: flex;
     flex-direction: column;
     padding: 40px 80px;
-}
-.mainServices > h2 {
-    margin: 20px;
-    width: 100%;
-    background-color: var(--darkPurple);
-    color: white;
-    padding: 40px 0;
-    font-size: 32px;
-    place-self: center;
 }
 .mainServices__cardWrapper {
     margin: 60px -12px 20px;

@@ -1,6 +1,6 @@
 <template>
   <section id="why-us" class="whyUs">
-    <h2>{{whyUs.title}}</h2>
+    <CommonTitleLine heading="h2" :title="whyUs.title"/>
     <div class="whyUs__inner">
       <div
         v-for="({title, text}, index) in whyUs.points"
@@ -80,17 +80,6 @@ watch([scroll, appWidth], value => {
     flex-direction: column;
     gap: 40px;
     padding: 40px 80px;
-}
-.whyUs > h2 {
-    margin: 20px;
-    width: 100%;
-    background-color: var(--darkPurple);
-    color: white;
-    padding: 40px 0;
-    font-size: 32px;
-    text-align: left;
-    padding-left: 80px;
-    place-self: center;
 }
 .whyUs__points {
     display:flex;
