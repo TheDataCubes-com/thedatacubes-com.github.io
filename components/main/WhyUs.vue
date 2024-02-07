@@ -66,6 +66,7 @@ watch([scroll, appWidth], value => {
 
 <style>
 .whyUs {
+    background-color: #f7eefc;
     padding-top: 60px;
     position: relative;
     min-height: 100vh;
@@ -88,6 +89,9 @@ watch([scroll, appWidth], value => {
     max-width: 66%;
     width: 100%;
     position: relative;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 20px;
 }
 .whyUs__image {
     position: absolute;

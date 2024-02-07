@@ -23,6 +23,11 @@
 <script setup>
 const cards = ref([
   {
+    title: "Executive Services",
+    text: "<ul><li>Personalized Education and Literacy to all levels of management, up to CEO level</li><li>Advisory and Mentorship</li><li>Assessment and Screening of data professionals</li></ul>",
+    link: { name: "Read more", path: "/services/executive-services" }
+  },
+  {
     title: "Data Management and AI Strategy Consulting",
     text: "<p>We assess your data needs from a Business perspective and create a data strategy to enable practical, self-service data-driven solutions to various business challenges.</p>",
     link: { name: "Read more", path: "/services/data-management" }
@@ -31,11 +36,6 @@ const cards = ref([
     title: "Master Data Management and Entity Resolution Consulting",
     text: "<p>We help your Business to make better decisions faster about getting Customer 360 views, and more.<br/><br/>We offer MDM product evaluations that best fit your use case, along with strategy and implementation recommendations.</p>",
     link: { name: "Read more", path: "/services/mdm" }
-  },
-  {
-    title: "Executive Services",
-    text: "<ul><li>Personalized Education and Literacy to all levels of management, up to CEO level</li><li>Advisory and Mentorship</li><li>Assessment and Screening of data professionals</li></ul>",
-    link: { name: "Read more", path: "/services/executive-services" }
   },
 ]);
 </script>

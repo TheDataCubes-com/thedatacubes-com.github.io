@@ -21,12 +21,12 @@ const props = defineProps({
 <style>
 .card {
     height: 100%;
-    border: 2px solid #4e20c6;
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 12px 20px;
     border-radius: 12px;
+    background-color: #f7eefc;
 }
 .card__title {
     font-size: 20px;
@@ -49,7 +49,7 @@ const props = defineProps({
     font-weight: 400;
     font-size: 16px;
     padding: 8px 12px;
-    background-color: #4e20c6;
+    background-color: var(--darkPurple);
     border-radius: 12px;
     width: fit-content;
     color: white;

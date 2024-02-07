@@ -24,7 +24,7 @@ const props = defineProps({
 
 <style>
 .titleLine {
-    margin: 20px;
+    margin: 20px 0;
     width: 100%;
     background-color: var(--darkPurple);
     padding: 40px 60px;
