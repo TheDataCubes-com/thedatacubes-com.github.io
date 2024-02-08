@@ -7,14 +7,14 @@
       <p v-for="paragraph in bannerText">{{paragraph}}</p>
     </section>
   </section>
-  <!-- <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+  <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
     <template #item="itemProps">
       <div
       :style="`background-image: url(${itemProps.slide});`"
       class="partner__slide"
       />
     </template>
-  </CommonCustomSwiper> -->
+  </CommonCustomSwiper>
   <MainWhyUs />
   <MainServices />
 </template>

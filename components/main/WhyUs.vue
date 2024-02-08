@@ -14,7 +14,7 @@
         <p>{{text}}</p>
         <img
           v-if="!index"
-          src="/images/people-picture.jpg"
+          src="/images/t2.png"
           alt="whyUs-picture"
           class="whyUs__image"
         />
@@ -85,7 +85,7 @@ watch([scroll, appWidth], value => {
     display:flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 66%;
+    max-width: 55%;
     width: 100%;
     position: relative;
     background-color: white;
@@ -95,7 +95,7 @@ watch([scroll, appWidth], value => {
 .whyUs__image {
     position: absolute;
     top: 50%;
-    left: calc(100% * 1.5);
+    left: calc(100% * 1.8);
     transform: translate(-100%, -50%);
 }
 .whyUs__image {

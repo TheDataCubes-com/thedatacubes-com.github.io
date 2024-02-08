@@ -24,7 +24,7 @@
 const cards = ref([
   {
     title: "Executive Services",
-    text: "<ul><li>Personalized Education and Literacy to all levels of management, up to CEO level</li><li>Advisory and Mentorship</li><li>Assessment and Screening of data professionals</li></ul>",
+    text: "<ul style='display: flex; flex-direction: column; gap: 8px;'><li>Fractional Chief Data Officer (CDO)</li><li>Personalized Education & Literacy</li><li>Advisory & Mentorship</li><li>Assessment & Screening of data professionals</li></ul>",
     link: { name: "Read more", path: "/services/executive-services" }
   },
   {
