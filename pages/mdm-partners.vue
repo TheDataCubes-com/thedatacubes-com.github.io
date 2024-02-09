@@ -135,7 +135,8 @@ const setActive = (index, bullets) => {
     place-items: center;
 }
 .partners__subTitle {
-    font-size: 48px;
+    font-size: 44px;
+    font-weight: 600;
     color: var(--darkPurple);
     place-self: center;
     background-color: #eedcf9;
@@ -256,7 +257,7 @@ const setActive = (index, bullets) => {
 .partner__slide {
     place-self: center;
     width: 200px;
-    height: 80px;
+    height: 50px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

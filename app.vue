@@ -84,7 +84,7 @@ h2, h1 {
     text-align: center;
 }
 h3 {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px;
     color: #3D3D3D;
 }
