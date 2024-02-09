@@ -35,7 +35,7 @@ const trustedBy = ref([
   "/images/boa-logo.png",
   "/images/sonos-logo.png",
   "/images/bm-logo.png",
-  "/images/pennymac-logo.png",
+  "/images/pm-logo.svg",
   "/images/mattel-logo.png",
   "/images/svb-logo.png",
 ]);

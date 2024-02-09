@@ -41,7 +41,7 @@ const props = defineProps({
     font-weight: 600;
     position: relative;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-style: italic;
     color: var(--darkPurple);
 }

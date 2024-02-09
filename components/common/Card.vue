@@ -26,14 +26,15 @@ const props = defineProps({
     flex-direction: column;
     padding: 12px 20px;
     border-radius: 12px;
-    background-color: #f7eefc;
+    background-color: var(--softPink);
 }
 .card__title {
+    text-align: center;
     font-size: 20px;
     min-height: 48px;
 }
 .card__text {
-    margin: 32px 0 4px;
+    margin: 8px 0;
 }
 .card__text * {
     font-size: 16px;
@@ -49,17 +50,17 @@ const props = defineProps({
     font-weight: 400;
     font-size: 16px;
     padding: 8px 12px;
-    background-color: var(--darkPurple);
+    background-color: var(--mainYellow);
+    color: var(--darkPurple);
     border-radius: 12px;
     width: fit-content;
-    color: white;
-    place-self: flex-end;
+    place-self: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 @media (hover:hover) {
     .card__link:hover {
-        background-color: var(--mainYellow);
-        color: var(--darkPurple);
+        background-color: var(--darkPurple);
+        color: white;
     }
 }
 </style>

@@ -80,7 +80,6 @@ const handleSubmit = event => {
     display: inline-block;
     margin-bottom: 4px;
     padding-left: 20px;
-    color: white;
     transition: opacity 0.1s ease;
     font-size: 14px;
 }

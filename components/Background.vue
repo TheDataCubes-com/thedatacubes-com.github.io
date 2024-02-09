@@ -1,61 +1,43 @@
 <template>
-  <div
-    v-if="!partnersPage"
-    :style="!isMain ? 'height:100%;' : ''"
-    :class="[
-      'background__item',
-      'background',
-      {'background--static': !isMain},
-    ]"
-  >
+  <div class="background__item background">
     <div class="background__item background__lines"/>
-    <BgCircleTop v-if="isMain" class="background__circle circle--top"/>
-    <BgCircleBot v-if="isMain" class="background__circle circle--bot"/>
+    <BgCircleTop  class="background__circle circle--top"/>
+    <BgCircleBot  class="background__circle circle--bot"/>
     <BgDotsBot class="background__dotsBot"/>
     <BgDotsSide class="backgorund__dotsSide" />
-    <BgCurveLineToLeft v-if="isMain" class="background__curveLineLeft" />
-    <BgCurveLineToRight
-      v-if="!consultPage && !partnersPage"
-      :style="position.line"
-      class="backgound__curveLineRight"
-    />
-    <BgDotsLine
-      v-if="!partnersPage"
-      :style="position.dots"
-      class="dotsLine--1"
-    />
-    <BgDotsLine v-if="!partnersPage" class="dotsLine--2"/>
+    <BgCurveLineToLeft  class="background__curveLineLeft" />
+    <BgCurveLineToRight class="backgound__curveLineRight" />
+    <BgDotsLine class="dotsLine--1" />
+    <BgDotsLine class="dotsLine--2"/>
     <BgAngles class="background__angles" />
+    <span class="main__trusted">TRUSTED BY</span>
   </div>
 </template>
 
-<script setup>
-const route = useRoute();
-
-const isMain = computed(() => {
-  var { name } = route;
-  return name === "index"
-});
-const partnersPage = computed(() => {
-  var { name } = route;
-  return name === "mdm-partners";
-});
-const consultPage = computed(() => {
-  var { name } = route;
-  return name === "free-consultation";
-});
-const position = computed(() => {
-  var margin = isMain.value
-    ? 0
-    : (document.querySelector("footer")?.offsetHeight || 0);
-  return {
-    line: `top: calc(100vh - 13% - ${margin}px);`,
-    dots: `top: calc(100vh - 5% - ${margin}px);`
-  }
-});
-</script>
-
 <style>
+.main__trusted {
+    position: absolute;
+    top: calc(100vh - 5.5%);
+    left: 280px;
+    z-index: 1;
+    color: #b2b5bb;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.main__trusted:before {
+   content: "";
+   height: 80px;
+   width: 50%;
+   border-right: 2px dashed #b2b5bb;
+   border-left: 2px dashed #b2b5bb;
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translate(-50%, 100%);
+   opacity: 0.5;
+   z-index: 2;
+}
 .background__item {
     position: absolute;
     background-repeat: no-repeat;
@@ -117,11 +99,13 @@ const position = computed(() => {
     width: 54%;
 }
 .backgound__curveLineRight {
+    top: calc(100vh - 13%);
     position: absolute;
     left: 0;
     width: 49%;
 }
 .dotsLine--1 {
+    top: calc(100vh - 5%);
     position: absolute;
     width: 7vw;
     left: 78px;

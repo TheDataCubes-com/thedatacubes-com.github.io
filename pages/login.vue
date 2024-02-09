@@ -1,5 +1,5 @@
 <template>
-  <div class="main login">
+  <div class="login">
     <h1>Sign in with your existing account.</h1>
     <CommonForm
       name="login"
@@ -45,16 +45,20 @@ const handleLogin = (form) => {
 
 <style>
 .login {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--softPink);
+    width: 100%;
     gap: 20px;
-    width: fit-content;
+    padding: 80px 60px;
 }
 .login > h1 {
     opacity: 0.7;
     font-size: 28px;
     font-weight: 300;
     width: fit-content;
-    color: white;
-   place-self: center;
+    place-self: center;
 }
 .login__form {
     max-width: 440px;

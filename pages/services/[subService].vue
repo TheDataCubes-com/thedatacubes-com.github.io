@@ -1,8 +1,16 @@
 <template>
-  <article class="main services">
-    <h1>{{pageData.title}}</h1>
+  <article class="services">
+    <CommonTitleLine :title="pageData.title" class="services__title" />
     <section class="services__wrap">
-      <div v-html="pageData.text" class="services__text"/>
+      <div class="servicess__content">
+        <div v-html="pageData.text" class="services__text"/>
+        <CommonDynamicButton
+          link="/free-consultation"
+          :text="pageData.buttonText"
+          :isIcon="true"
+          class="services__button"
+        />
+      </div>
       <img src="/images/t1.png" alt="">
     </section>
   </article>
@@ -12,6 +20,7 @@
 const pages = ref({
   "executive-services": {
     title: "Executive Services - Education & Literacy",
+    buttonText: "Get in Touch",
     text: [
       "<p>Keeping pace with technological advancements can be challenging for data professionals, let alone for those steering the business. Our suite of executive services is designed to clarify emerging technologies like AI, MDM, data science, machine learning, and analytics for executives. We show how these innovations can enhance your organization through:</p>",
       "<ul class='services__list'>",
@@ -68,26 +77,38 @@ const pageData = computed(() => pages.value[route.params.subService]);
 
 <style>
 .services {
-    padding: 46px 100px;
-    gap: 80px;
+    flex-grow: 1;
+    background-color: var(--softPink);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
-.services h1 {
-    font-size: 32px;
-    place-self: center;
-}
-.services * {
-    color: white;
+.services__title {
+    margin: 0;
+    padding: 20px 60px;
 }
 .services__wrap {
+    margin: auto 0;
+    max-width: var(--maxContentWidth);
+    place-self: center;
     width: 100%;
+    padding: 40px 60px;
     display: flex;
     justify-content: space-between;
 }
+.servicess__content {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 .services__wrap img {
     max-width: 40%;
+    height: 360px;
+    place-self: center;
 }
 .services__text {
-    max-width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -98,5 +119,26 @@ const pageData = computed(() => pages.value[route.params.subService]);
     flex-direction: column;
     gap: 12px;
     list-style: disc inside;
+}
+.services__button {
+    font-weight: 400;
+    gap: 0;
+    background-color: var(--mainYellow);
+    place-self: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 4px 16px;
+}
+.services__button > svg {
+    fill: none;
+}
+.services__button > svg > path{
+    stroke: var(--darkPurple);
+}
+@media (hover:hover) {
+    .services__button:hover {
+        background-color: var(--darkPurple);
+        color: white;
+    }
 }
 </style>

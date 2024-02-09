@@ -1,6 +1,6 @@
 <template>
   <section class="mainServices">
-    <CommonTitleLine heading="h2" title="Services" />
+    <CommonTitleLine heading="h2" title="Services" class="mainServices__title" />
     <CommonQuote
       quote="Data that sit unused are no different from data that were never collected in the first place."
       sign="Doug Fisher"
@@ -92,6 +92,9 @@ const cards = ref([
     .mainServices__card:nth-of-type(even) {
         place-self: flex-end;
     }
+}
+.mainServices__title {
+    margin: 0;
 }
 @media (max-width: 767.99px) {
    .mainServices__card {

@@ -45,7 +45,7 @@ const props = defineProps({
 .titleLine__title {
     color: white;
     width: fit-content;
-    font-size: 48px;
+    font-size: 32px;
     text-align: left;
     display: flex;
     place-items: center;

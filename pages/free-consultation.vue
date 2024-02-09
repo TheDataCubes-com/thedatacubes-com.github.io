@@ -1,18 +1,20 @@
 <template>
-  <div :class="['main', 'consult', {'consult--ok': ok}]">
-    <section v-if="!ok" class="consult__formWrap">
-      <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
-      <CommonForm
-        v-if="!ok"
-        name="consult"
-        :active="true"
-        :error="error && error.message"
-        :fields="formFields"
-        @submit="handleLogin"
-        class="consult__form"
-      />
-    </section>
-    <h1 v-else>{{ok}}</h1>
+  <div :class="['consult', {'consult--ok': ok}]">
+    <div class="consult__inner">
+      <section v-if="!ok" class="consult__formWrap">
+        <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
+        <CommonForm
+          v-if="!ok"
+          name="consult"
+          :active="true"
+          :error="error && error.message"
+          :fields="formFields"
+          @submit="handleLogin"
+          class="consult__form"
+        />
+      </section>
+      <h1 v-else>{{ok}}</h1>
+    </div>
   </div>
 </template>
 
@@ -90,6 +92,20 @@ const handleLogin = (form) => {
 </script>
 
 <style>
+.consult {
+    background-color: var(--softPink);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 60px;
+}
+.consult__inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: var(--maxWidth);
+    place-self: center;
+}
 .consult__formWrap {
     max-width: 75%;
     width: 100%;
@@ -102,7 +118,6 @@ const handleLogin = (form) => {
     place-content: center;
 }
 .consult>h1 {
-    color: white;
     font-size: 38px;
     place-self: center;
     font-weight: 300;
@@ -114,7 +129,6 @@ const handleLogin = (form) => {
     font-size: 24px;
     font-weight: 300;
     width: fit-content;
-    color: white;
     line-height: 1.6;
     max-width: 500px;
 }

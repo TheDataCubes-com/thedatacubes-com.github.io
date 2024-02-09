@@ -4,11 +4,11 @@
     :class="[
       'header',
       {'header--blur': isBlur},
-      {'header--white': isWhite}
+      {'header--white': props.isWhite}
     ]"
   >
     <nav class="header__inner">
-      <CommonLogo @mouseover="handleHeaderLeave" :isWhite="isWhite" class="header__logo"/>
+      <CommonLogo @mouseover="handleHeaderLeave" :isWhite="props.isWhite" class="header__logo"/>
       <ul v-if="!isMobile" class="header__nav">
         <li
           v-for="({name, link, children, disabled}, index) in links"
@@ -73,7 +73,7 @@
     <MobileMenu
       v-else
       :links="links"
-      :isWhite="isWhite"
+      :isWhite="props.isWhite"
       :class="[
         'header__mobileMenu',
         {'mobileMenu--open': burgerActive}
@@ -139,7 +139,6 @@ const toggleBurger = () => burgerActive.value = !burgerActive.value;
 
 const isMobile = computed(() => appWidth.value < 860);
 const isBlur = computed(() => scroll.value > 10);
-const isWhite = computed(() => props.isWhite || route.name === "mdm-partners");
 
 watch(() => route.fullPath, () => burgerActive.value = false);
 watch(isMobile, (value) => {

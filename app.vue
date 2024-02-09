@@ -1,12 +1,10 @@
 <template>
-  <Header :isWhite="headerWhite" />
-  <main class="pageLayout">
-    <NuxtPage />
-  </main>
+  <Header :isWhite="!isMain || headerWhite" />
+  <main class="pageLayout"><NuxtPage /></main>
   <Footer />
-  <Background />
+  <Background v-if="isMain" />
   <CommonDynamicButton
-    v-if="isButton"
+    v-if="isMain"
     link="/free-consultation"
     text="Set up a Free Consultation"
     :isIcon="true"
@@ -24,9 +22,9 @@ const appWidth = ref(1440);
 const scroll = ref(0);
 const headerWhite = ref(false);
 
-const isButton = computed(() => {
+const isMain = computed(() => {
   var { name } = route;
-  return name !== "login" && name !== "free-consultation" && name !== "mdm-partners";
+  return name === "index";
 });
 
 const setAppWidth = throttle(({ target }) => appWidth.value = target.innerWidth, 200);
@@ -55,6 +53,7 @@ watch(() => route.fullPath, () => headerWhite.value = false);
 <style>
 :root {
     --mainPurple: rgb(98, 0, 155);
+    --softPink: #f7eefc;
     --darkPurple: #210076;
     --mainYellow: #ffc107;
     --errorRed: #770000;
@@ -85,7 +84,7 @@ h2, h1 {
     text-align: center;
 }
 h3 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
     color: #3D3D3D;
 }

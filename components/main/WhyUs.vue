@@ -1,31 +1,32 @@
 <template>
   <section id="why-us" class="whyUs">
-    <CommonTitleLine heading="h2" :title="whyUs.title"/>
+    <h2 class="whyUs__title">{{whyUs.title}}</h2>
     <div class="whyUs__inner">
-      <div
-        v-for="({title, text}, index) in whyUs.points"
-        :key="index"
-        :class="[
-          'whyUs__points',
-          {'points--even': index % 2}
-        ]"
-      >
-        <h3>{{title}}</h3>
-        <p>{{text}}</p>
-        <img
-          v-if="!index"
-          src="/images/t2.png"
-          alt="whyUs-picture"
-          class="whyUs__image"
-        />
-      </div>
-      <CommonDynamicButton
-        link="/free-consultation"
-        text="Discuss How We Can Help Address Your Data Needs"
-        :isInline="true"
-        class="whyUs__button"
+      <section class="whyUs__cardsWrap">
+        <div
+            v-for="({title, text}, index) in whyUs.points"
+            :key="index"
+            :class="[
+              'whyUs__points',
+              {'points--even': index % 2}
+            ]"
+          >
+            <h3>{{title}}</h3>
+            <p>{{text}}</p>
+          </div>
+      </section>
+      <img
+        src="/images/t2.png"
+        alt="whyUs-picture"
+        class="whyUs__image"
       />
     </div>
+    <CommonDynamicButton
+      link="/free-consultation"
+      text="Discuss How We Can Help Address Your Data Needs"
+      :isInline="true"
+      class="whyUs__button"
+    />
   </section>
 </template>
 
@@ -66,26 +67,41 @@ watch([scroll, appWidth], value => {
 
 <style>
 .whyUs {
-    background-color: #f7eefc;
+    background-color: var(--softPink);
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+.whyUs__title {
+    max-width: var(--maxWidth);
+    width: 100%;
+    place-self: center;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: left;
+    padding: 80px 80px 0 ;
 }
 .whyUs__inner {
     max-width: var(--maxWidth);
     width: 100%;
     place-self: center;
     display: flex;
-    flex-direction: column;
     gap: 40px;
     padding: 40px 80px;
+    justify-content: space-between;
+}
+.whyUs__cardsWrap {
+    max-width: 50%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .whyUs__points {
     display:flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 55%;
     width: 100%;
     position: relative;
     background-color: white;
@@ -93,19 +109,14 @@ watch([scroll, appWidth], value => {
     border-radius: 20px;
 }
 .whyUs__image {
-    position: absolute;
-    top: 50%;
-    left: calc(100% * 1.8);
-    transform: translate(-100%, -50%);
-}
-.whyUs__image {
-    height: 125%;
+    place-self: center;
+    max-width: 39%;
 }
 .whyUs__button {
-    margin-top: 12px;
+    margin: 12px 0 40px;
     position: relative;
-    background-color: #63087d;
-    border: 2px solid #63087d;
+    background-color: #c852ea;
+    border: 2px solid #c852ea;
     width: fit-content;
     place-self: center;
     padding: 8px 12px;
@@ -114,7 +125,7 @@ watch([scroll, appWidth], value => {
 .points--even {
     place-self: flex-end;
 }
-@media (max-width: 1659.99px) {
+/* @media (max-width: 1659.99px) {
     .whyUs__points {
         max-width: 75%;
     }
@@ -146,5 +157,5 @@ watch([scroll, appWidth], value => {
     .whyUs__points {
         max-width: 90%;
     }
-}
+} */
 </style>
