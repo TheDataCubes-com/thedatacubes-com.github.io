@@ -73,6 +73,10 @@ const pages = ref({
 const route = useRoute();
 
 const pageData = computed(() => pages.value[route.params.subService]);
+
+const changeHeader = inject("changeHeader");
+
+onBeforeMount(() => changeHeader(true));
 </script>
 
 <style>

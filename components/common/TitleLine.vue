@@ -10,7 +10,7 @@
           />
       </div>
       <div class="titleLine__additional">
-        <slot  />
+        <slot />
       </div>
     </div>
   </section>

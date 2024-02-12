@@ -93,7 +93,6 @@ const handleLogin = (form) => {
 
 <style>
 .consult {
-    background-color: var(--softPink);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -118,12 +117,14 @@ const handleLogin = (form) => {
     place-content: center;
 }
 .consult>h1 {
+    color: white;
     font-size: 38px;
     place-self: center;
     font-weight: 300;
     transform: translateY(-100%);
 }
 .consult__formWrap > h1 {
+    color: white;
     padding-top: 92px;
     opacity: 0.8;
     font-size: 24px;

@@ -1,22 +1,27 @@
 <template>
-  <div class="bg--pink">
-    <CommonTitleLine
-      description='<span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike. We translate complex business problems into successful technical solutions.'
-      title="We help MDM solution providers win in the market"
-      class="partners__title"
-    >
+  <Banner class="partners__banner">
+    <template v-slot:slot--title>
+      <span class="partners__title">We help MDM solution providers win in the market</span>
       <img src="/images/d1.png" alt="dc-diagram" class="partners__diagram">
-    </CommonTitleLine>
-      <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
-        <template #item="itemProps">
-          <div
+    </template>
+    <template v-slot:slot--secondary>
+      <p class="partners__bannerText">
+        <span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike. We translate complex business problems into successful technical solutions.
+      </p>
+    </template>
+  </Banner>
+  <div class="bg--pink">
+    <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+      <template #item="itemProps">
+        <div
           :style="`background-image: url(${itemProps.slide});`"
           class="partner__slide"
-          />
-        </template>
-      </CommonCustomSwiper>
-      <h2 class="partners__subTitle">Services</h2>
-      <section class="partners__points">
+        />
+      </template>
+    </CommonCustomSwiper>
+    <h2 class="partners__subTitle">Services</h2>
+    <section class="partners__content">
+      <div class="partners__points">
         <div
           v-for="({text, bullets, icon}, index) in pageText"
           :key="index"
@@ -37,7 +42,7 @@
             </svg>
           </div>
         </div>
-      </section>
+      </div>
       <ul v-if="placeText" :class="['partners__bullets', {'expand': placeText}]">
         <li
           v-for="({title, text}, index) in placeText"
@@ -54,6 +59,7 @@
           class="partners__button"
         />
       </ul>
+    </section>
   </div>
 </template>
 
@@ -128,11 +134,44 @@ const setActive = (index, bullets) => {
 
 <style>
 .bg--pink {
-    background-color: var(--softPink);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     place-items: center;
+}
+.partners__banner > .banner__secondary {
+   top: calc(100vh * 0.5);
+}
+.partners__diagram {
+    position: absolute;
+    top: 6vh;
+    max-width: 420px;
+    right: 12%;
+}
+.partners__title {
+    position: absolute;
+    max-width: 55%;
+    text-align: left;
+    font-weight: 700;
+    top: 16vh;
+    left: 0;
+    font-size: 60px;
+    color: white;
+}
+.partners__bannerText {
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.7;
+    font-weight: 300;
+    color: white;
+}
+.top--screaming {
+    z-index: 1;
+    color: var(--mainYellow);
+    font-weight: 600;
+    font-size: 24px;
+    text-transform: uppercase;
+    position: relative;
 }
 .partners__subTitle {
     font-size: 44px;
@@ -144,26 +183,26 @@ const setActive = (index, bullets) => {
     padding-top: 40px;
     padding-bottom: 80px;
 }
-.partners__diagram {
-    place-self: center;
-    max-width: 320px;
-    width: 100%;
-}
-.partners__points {
-    max-width: var(--maxContentWidth);
+.partners__content {
+    padding: 60px 60px 0;
+    width: fit-content;
+    background-color: white;
     transform: translateY(-40px);
     display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px var(--darkPurple);
+}
+.partners__points {
+    max-width: var(--maxCardWidth);
+    place-self: center;
+    display: flex;
     width: 100%;
-    margin: -12px;
 }
 .partners__pointWrap {
     padding: 12px;
     width: 20%;
     flex-grow: 1;
-}
-.titleWrap > div > p {
-    color: white;
-    margin-top: auto;
 }
 .partners__icon {
     place-self: center;
@@ -171,25 +210,25 @@ const setActive = (index, bullets) => {
     height: 60px;
 }
 .partners__text {
-    min-height: 170px;
+    height: 100%;
     cursor: pointer;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
     background-color: white;
     border-radius: 20px;
-    padding: 12px;
+    padding: 20px;
     flex-grow: 1;
-    box-shadow: 4px 4px 12px 0px var(--darkPurple);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px var(--darkPurple);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .partners__bullets {
+    max-width: var(--maxCardWidth);
     background-color: white;
     border-radius: 20px;
-    padding: 40px 40px 20px;
+    padding: 40px 20px 20px;
     display: flex;
-    max-width: 70%;
     place-self: center;
     flex-direction: column;
     gap: 20px;
@@ -226,17 +265,9 @@ const setActive = (index, bullets) => {
     stroke: var(--darkPurple);
     transition: 0.3s ease;
 }
-.top--screaming {
-    z-index: 1;
-    color: var(--mainYellow);
-    font-weight: 600;
-    font-size: 20px;
-    text-transform: uppercase;
-    position: relative;
-}
 .bullet__item > h4 {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     color: #3D3D3D;
     margin-bottom: 4px;
 }
@@ -246,8 +277,9 @@ const setActive = (index, bullets) => {
     color: #666666;
 }
 .text--selected {
+    transform: translateY(-15px);
+    box-shadow: 0 10px 14px var(--darkPurple);
     pointer-events: none;
-    box-shadow: none;
 }
 .text--selected .partners__arrow {
     rotate: 90deg;
@@ -261,12 +293,6 @@ const setActive = (index, bullets) => {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-}
-.partners__title {
-    margin: 0;
-}
-.partners__title h1 {
-    font-size: 48px;
 }
 .partners__button {
     margin-top: 40px;
@@ -290,7 +316,40 @@ const setActive = (index, bullets) => {
         color: white;
     }
     .partners__text:hover {
-        background-color: var(--mainYellow);
+        transform: translateY(-15px);
+        box-shadow: 0 10px 14px var(--darkPurple);
+    }
+}
+@media (max-height: 960px) {
+    .top--screaming {
+        font-size: 20px;
+    }
+    .partners__bannerText {
+        font-size: 20px;
+    }
+}
+@media (max-width: 1659.99px) {
+    .partners__bannerText {
+        font-size: 18px;
+    }
+    .top--screaming {
+        font-size: 18px;
+    }
+}
+@media (max-width: 1439.99px) {
+    .top--screaming {
+        font-size: 16px;
+    }
+    .partners__bannerText {
+        font-size: 16px;
+    }
+}
+@media (max-width: 574.99px) {
+    .top--screaming {
+        font-size: 14px;
+    }
+    .partners__bannerText {
+        font-size: 14px;
     }
 }
 </style>

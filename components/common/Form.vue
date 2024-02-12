@@ -77,6 +77,7 @@ const handleSubmit = event => {
     outline-color: var(--mainPurple);
 }
 .form__labelText {
+    color: white;
     display: inline-block;
     margin-bottom: 4px;
     padding-left: 20px;

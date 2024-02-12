@@ -48,7 +48,6 @@ const handleLogin = (form) => {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: var(--softPink);
     width: 100%;
     gap: 20px;
     padding: 80px 60px;
@@ -59,6 +58,7 @@ const handleLogin = (form) => {
     font-weight: 300;
     width: fit-content;
     place-self: center;
+    color: white;
 }
 .login__form {
     max-width: 440px;

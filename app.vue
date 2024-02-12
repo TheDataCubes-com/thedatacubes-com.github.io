@@ -1,15 +1,10 @@
 <template>
-  <Header :isWhite="!isMain || headerWhite" />
+  <Header :isWhite="headerWhite" />
   <main class="pageLayout"><NuxtPage /></main>
   <Footer />
-  <Background v-if="isMain" />
-  <CommonDynamicButton
-    v-if="isMain"
-    link="/free-consultation"
-    text="Set up a Free Consultation"
-    :isIcon="true"
-    class="consultButton"
-  />
+  <ClientOnly>
+    <Background />
+  </ClientOnly>
 </template>
 
 <script setup>
@@ -22,19 +17,12 @@ const appWidth = ref(1440);
 const scroll = ref(0);
 const headerWhite = ref(false);
 
-const isMain = computed(() => {
-  var { name } = route;
-  return name === "index";
-});
-
 const setAppWidth = throttle(({ target }) => appWidth.value = target.innerWidth, 200);
 const handleScroll = throttle(() => scroll.value = window.scrollY, 200);
 
 provide('appWidth', appWidth);
 provide("scroll", scroll);
-provide("changeHeader", (val) => {
-  if (val !== headerWhite.value) headerWhite.value = val;
-});
+provide("changeHeader", (val) =>  headerWhite.value = val);
 
 onMounted(() => {
   appWidth.value = window.innerWidth;
@@ -59,6 +47,7 @@ watch(() => route.fullPath, () => headerWhite.value = false);
     --errorRed: #770000;
     --maxWidth: 1660px;
     --maxContentWidth: 1420px;
+    --maxCardWidth: 900px;
 }
 html {
     scroll-behavior: smooth;
@@ -125,12 +114,6 @@ b {
     display: flex;
     flex-direction: column;
 }
-.consultButton {
-    position: absolute;
-    top: calc(100vh * 0.76);
-    right: 80px;
-    z-index: 20;
-}
 @media (max-width: 1659.99px) {
     h2, h1 {
         font-size: 52px;
@@ -152,11 +135,6 @@ b {
         font-size: 44px;
     }
 }
-@media (max-width: 1179.99px) {
-    .consultButton {
-        top: calc(100vh * 0.88);
-    }
-}
 @media (max-width: 1023.99px) {
     h2, h1 {
         font-size: 40px;
@@ -174,12 +152,6 @@ b {
     }
     p, a, span, li, b {
         font-size: 16px;
-    }
-    .consultButton {
-        width: calc(100vw - 40px * 2);
-        top: calc(100vh - 80px);
-        right: 50%;
-        transform: translateX(50%);
     }
 }
 @media (max-width: 574.99px) {

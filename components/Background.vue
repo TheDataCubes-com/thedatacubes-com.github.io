@@ -1,43 +1,69 @@
 <template>
-  <div class="background__item background">
+  <div
+    v-if="isActive"
+    :style="formPage ? 'height:100%;' : ''"
+    :class="[
+      'background__item',
+      'background',
+      {'background--static': formPage},
+    ]"
+  >
     <div class="background__item background__lines"/>
-    <BgCircleTop  class="background__circle circle--top"/>
-    <BgCircleBot  class="background__circle circle--bot"/>
+    <BgCircleTop v-if="!formPage" class="background__circle circle--top"/>
+    <BgCircleBot v-if="!formPage" class="background__circle circle--bot"/>
     <BgDotsBot class="background__dotsBot"/>
     <BgDotsSide class="backgorund__dotsSide" />
-    <BgCurveLineToLeft  class="background__curveLineLeft" />
-    <BgCurveLineToRight class="backgound__curveLineRight" />
-    <BgDotsLine class="dotsLine--1" />
-    <BgDotsLine class="dotsLine--2"/>
+    <BgCurveLineToLeft v-if="!formPage && !partnersPage" class="background__curveLineLeft" />
+    <BgCurveLineToRight
+      v-if="!formPage"
+      :style="position.line"
+      class="backgound__curveLineRight"
+    />
+    <BgDotsLine v-if="!partnersPage" :style="position.dots" class="dotsLine--1" />
+    <BgDotsLine class="dotsLine--2" />
     <BgAngles class="background__angles" />
-    <span class="main__trusted">TRUSTED BY</span>
+    <CommonDynamicButton
+      v-if="!formPage"
+      link="/free-consultation"
+      :text="buttonText"
+      :isIcon="true"
+      :class="[
+        'consultButton',
+        {'button--left': partnersPage}
+      ]"
+    />
   </div>
 </template>
 
+<script setup>
+const route = useRoute();
+
+const isActive = computed(() => {
+  var activeRoutes = ["index", "mdm-partners", "login", "free-consultation"];
+  return activeRoutes.includes(route.name);
+});
+const formPage = computed(() => {
+  var formPages = ["login", "free-consultation"];
+  return formPages.includes(route.name);
+});
+const partnersPage = computed(() => route.name === "mdm-partners");
+const position = computed(() => {
+  var margin = !formPage.value
+    ? 0
+    : (document?.querySelector("footer")?.offsetHeight || 0);
+  return {
+    line: `top: calc(100vh - 13% - ${margin}px);`,
+    dots: `top: calc(100vh - 5% - ${margin}px);`
+  }
+});
+const buttonText = computed(() => {
+  return route.name === "index"
+    ? "Set up a Free Consultation"
+    : "Work with Us";
+});
+</script>
+
 <style>
-.main__trusted {
-    position: absolute;
-    top: calc(100vh - 5.5%);
-    left: 280px;
-    z-index: 1;
-    color: #b2b5bb;
-    font-weight: 600;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-.main__trusted:before {
-   content: "";
-   height: 80px;
-   width: 50%;
-   border-right: 2px dashed #b2b5bb;
-   border-left: 2px dashed #b2b5bb;
-   position: absolute;
-   bottom: 0;
-   left: 50%;
-   transform: translate(-50%, 100%);
-   opacity: 0.5;
-   z-index: 2;
-}
 .background__item {
     position: absolute;
     background-repeat: no-repeat;
@@ -123,6 +149,16 @@
     left: 50%;
     opacity: 0.2;
 }
+.consultButton {
+    position: absolute;
+    top: calc(100vh * 0.76);
+    right: 80px;
+    z-index: 20;
+}
+.button--left {
+    right: initial;
+    left: calc(100vw * 0.1);
+}
 @media (max-height: 639.99px) {
     .background__curveLineLeft {
         display: none;
@@ -139,6 +175,11 @@
         top: 25%;
     }
 }
+@media (max-width: 1179.99px) {
+    .consultButton {
+        top: calc(100vh * 0.88);
+    }
+}
 @media (max-width: 1023.99px) {
     .background__curveLineLeft {
         top: calc(100vh * 0.30);
@@ -148,6 +189,12 @@
     }
 }
 @media (max-width: 767.99px) {
+    .consultButton {
+        width: calc(100vw - 40px * 2);
+        top: calc(100vh - 80px);
+        right: 50%;
+        transform: translateX(50%);
+    }
     .background__curveLineLeft, .dotsLine--1,
     .dotsLine--2, .backgound__curveLineRight {
         display: none;
