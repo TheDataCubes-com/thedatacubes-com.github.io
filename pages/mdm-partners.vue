@@ -6,7 +6,13 @@
     </template>
     <template v-slot:slot--secondary>
       <p class="partners__bannerText">
-        <span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike. We translate complex business problems into successful technical solutions.
+        <span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike.<br/>We translate complex business problems into successful technical solutions.
+        <CommonDynamicButton
+          link="/free-consultation"
+          text="Work With Us"
+          :isIcon="true"
+          class="partners__bannerButton"
+        />
       </p>
     </template>
   </Banner>
@@ -164,6 +170,10 @@ const setActive = (index, bullets) => {
     line-height: 1.7;
     font-weight: 300;
     color: white;
+}
+.partners__bannerButton {
+    line-height: 1;
+    margin-top: 40px;
 }
 .top--screaming {
     z-index: 1;

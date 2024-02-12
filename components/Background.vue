@@ -20,17 +20,14 @@
       class="backgound__curveLineRight"
     />
     <BgDotsLine v-if="!partnersPage" :style="position.dots" class="dotsLine--1" />
-    <BgDotsLine class="dotsLine--2" />
+    <BgDotsLine v-if="!partnersPage" class="dotsLine--2" />
     <BgAngles class="background__angles" />
     <CommonDynamicButton
-      v-if="!formPage"
+      v-if="!formPage && !partnersPage"
       link="/free-consultation"
-      :text="buttonText"
+      text="Set up a Free Consultation"
       :isIcon="true"
-      :class="[
-        'consultButton',
-        {'button--left': partnersPage}
-      ]"
+      class="consultButton"
     />
   </div>
 </template>
@@ -55,11 +52,6 @@ const position = computed(() => {
     line: `top: calc(100vh - 13% - ${margin}px);`,
     dots: `top: calc(100vh - 5% - ${margin}px);`
   }
-});
-const buttonText = computed(() => {
-  return route.name === "index"
-    ? "Set up a Free Consultation"
-    : "Work with Us";
 });
 </script>
 
@@ -154,10 +146,6 @@ const buttonText = computed(() => {
     top: calc(100vh * 0.76);
     right: 80px;
     z-index: 20;
-}
-.button--left {
-    right: initial;
-    left: calc(100vw * 0.1);
 }
 @media (max-height: 639.99px) {
     .background__curveLineLeft {
