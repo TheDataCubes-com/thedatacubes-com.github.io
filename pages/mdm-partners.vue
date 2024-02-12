@@ -174,6 +174,7 @@ const setActive = (index, bullets) => {
 .partners__bannerButton {
     line-height: 1;
     margin-top: 40px;
+    font-size: 20px;
 }
 .top--screaming {
     z-index: 1;
@@ -194,7 +195,7 @@ const setActive = (index, bullets) => {
     padding-bottom: 80px;
 }
 .partners__content {
-    padding: 60px 60px 0;
+    padding: 60px 80px 0;
     width: fit-content;
     background-color: white;
     transform: translateY(-40px);
