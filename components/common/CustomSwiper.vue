@@ -59,7 +59,7 @@ const props = defineProps({
     z-index: 2;
     position: absolute;
     left: 140px;
-    top: -30px;
+    top: -44px;
     color: #b2b5bb;
     font-weight: 600;
     font-size: 14px;
@@ -78,7 +78,7 @@ const props = defineProps({
 }
 .top--screaming:before {
     content: "";
-    height: 28px;
+    height: 40px;
     width: 50%;
     border-right: 2px dashed #b2b5bb;
     border-left: 2px dashed #b2b5bb;
