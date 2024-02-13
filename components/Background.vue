@@ -1,53 +1,53 @@
 <template>
   <div
-    v-if="!partnersPage"
-    :style="!isMain ? 'height:100%;' : ''"
+    v-if="isActive"
+    :style="formPage ? 'height:100%;' : ''"
     :class="[
       'background__item',
       'background',
-      {'background--static': !isMain},
+      {'background--static': formPage},
     ]"
   >
     <div class="background__item background__lines"/>
-    <BgCircleTop v-if="isMain" class="background__circle circle--top"/>
-    <BgCircleBot v-if="isMain" class="background__circle circle--bot"/>
+    <BgCircleTop v-if="!formPage" class="background__circle circle--top"/>
+    <BgCircleBot v-if="!formPage" class="background__circle circle--bot"/>
     <BgDotsBot class="background__dotsBot"/>
     <BgDotsSide class="backgorund__dotsSide" />
-    <BgCurveLineToLeft v-if="isMain" class="background__curveLineLeft" />
+    <BgCurveLineToLeft v-if="!formPage && !partnersPage" class="background__curveLineLeft" />
     <BgCurveLineToRight
-      v-if="!consultPage && !partnersPage"
+      v-if="!formPage"
       :style="position.line"
       class="backgound__curveLineRight"
     />
-    <BgDotsLine
-      v-if="!partnersPage"
-      :style="position.dots"
-      class="dotsLine--1"
-    />
-    <BgDotsLine v-if="!partnersPage" class="dotsLine--2"/>
+    <BgDotsLine v-if="!partnersPage" :style="position.dots" class="dotsLine--1" />
+    <BgDotsLine v-if="!partnersPage" class="dotsLine--2" />
     <BgAngles class="background__angles" />
+    <CommonDynamicButton
+      v-if="!formPage && !partnersPage"
+      link="/free-consultation"
+      text="Set up a Free Consultation"
+      :isIcon="true"
+      class="consultButton"
+    />
   </div>
 </template>
 
 <script setup>
 const route = useRoute();
 
-const isMain = computed(() => {
-  var { name } = route;
-  return name === "index"
+const isActive = computed(() => {
+  var activeRoutes = ["index", "mdm-partners", "login", "free-consultation"];
+  return activeRoutes.includes(route.name);
 });
-const partnersPage = computed(() => {
-  var { name } = route;
-  return name === "mdm-partners";
+const formPage = computed(() => {
+  var formPages = ["login", "free-consultation"];
+  return formPages.includes(route.name);
 });
-const consultPage = computed(() => {
-  var { name } = route;
-  return name === "free-consultation";
-});
+const partnersPage = computed(() => route.name === "mdm-partners");
 const position = computed(() => {
-  var margin = isMain.value
+  var margin = !formPage.value
     ? 0
-    : (document.querySelector("footer")?.offsetHeight || 0);
+    : (document?.querySelector("footer")?.offsetHeight || 0);
   return {
     line: `top: calc(100vh - 13% - ${margin}px);`,
     dots: `top: calc(100vh - 5% - ${margin}px);`
@@ -117,20 +117,22 @@ const position = computed(() => {
     width: 54%;
 }
 .backgound__curveLineRight {
+    top: calc(100vh - 13%);
     position: absolute;
     left: 0;
     width: 49%;
 }
 .dotsLine--1 {
+    top: calc(100vh - 5%);
     position: absolute;
-    width: 130px;
+    width: 7vw;
     left: 78px;
 }
 .dotsLine--2 {
     position: absolute;
-    width: 130px;
+    width: 7vw;
     right: 46px;
-    top: 237px;
+    top: calc(100vh * 0.25);
 }
 .background__angles {
     position: absolute;
@@ -138,6 +140,17 @@ const position = computed(() => {
     top: 45%;
     left: 50%;
     opacity: 0.2;
+}
+.consultButton {
+    position: absolute;
+    top: calc(100vh * 0.76);
+    right: 80px;
+    z-index: 20;
+}
+@media (max-height: 639.99px) {
+    .background__curveLineLeft {
+        display: none;
+    }
 }
 @media (max-width: 1279.99px) {
     .background__dotsBot {
@@ -148,6 +161,43 @@ const position = computed(() => {
     .backgorund__dotsSide {
         height: 50%;
         top: 25%;
+    }
+}
+@media (max-width: 1179.99px) {
+    .consultButton {
+        top: calc(100vh * 0.88);
+    }
+}
+@media (max-width: 1023.99px) {
+    .background__curveLineLeft {
+        top: calc(100vh * 0.30);
+    }
+    .dotsLine--2 {
+        width: 10vw;
+    }
+}
+@media (max-width: 767.99px) {
+    .consultButton {
+        width: calc(100vw - 40px * 2);
+        top: calc(100vh - 80px);
+        right: 50%;
+        transform: translateX(50%);
+    }
+    .background__curveLineLeft, .dotsLine--1,
+    .dotsLine--2, .backgound__curveLineRight {
+        display: none;
+    }
+    .background__circle {
+        width: 85%;
+    }
+    .circle--top {
+        top: -20%;
+    }
+    .circle--bot {
+        bottom: -20%;
+    }
+    .background__angles {
+        width: 100%;
     }
 }
 </style>

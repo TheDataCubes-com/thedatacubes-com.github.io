@@ -1,7 +1,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  ssr: false,
-  modules: [],
+  ssr: true,
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
+  modules: ["nuxt-swiper"],
+  swiper: {
+    modules: ["autoplay"],
+  },
   alias: {
     data: "/app_data",
   },

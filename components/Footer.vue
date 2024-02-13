@@ -44,17 +44,17 @@ const copyright = computed(() => {
     gap: 12px;
 }
 @media (max-width: 1659.99px) {
-    .footer span, footer a {
+    .footer__inner span, footer a {
         font-size: 16px;
     }
 }
 @media (max-width: 1439.99px) {
-    .footer span, footer a {
+    .footer__inner span, footer a {
         font-size: 14px;
     }
 }
 @media (max-width: 1279.99px) {
-    .footer span, footer a {
+    .footer__inner span, footer a {
         font-size: 12px;
     }
 }

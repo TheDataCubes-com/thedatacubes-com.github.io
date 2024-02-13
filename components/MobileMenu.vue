@@ -24,7 +24,7 @@
       </li>
     </ul>
     <NuxtLink to="/login" class="mobileNav__item">Login</NuxtLink>
-    <DynamicButton
+    <CommonDynamicButton
       text="Get a Free Consult"
       link="/free-consultation"
       :isInline="true"
@@ -66,6 +66,7 @@ const toggleSubMenu = (menu, parentLink, menuIndex) => {
     margin-bottom: 40px;
 }
 .mobileNav__item {
+    color: white;
     font-size: 16px;
     display: inline-block;
     cursor: pointer;
@@ -107,6 +108,13 @@ const toggleSubMenu = (menu, parentLink, menuIndex) => {
 }
 .mobileNav--white {
     background-color: white;
+}
+.mobileNav--white .mobileNav__item {
+    color: #666666;
+}
+.mobileNav--white .mobileNav__button {
+    color: var(--darkPurple);
+    border: 2px solid var(--darkPurple);
 }
 @media (hover:hover) {
     .mobileNav__item:hover:before {

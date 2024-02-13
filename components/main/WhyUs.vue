@@ -1,33 +1,35 @@
 <template>
-<section id="why-us" class="whyUs">
-  <div class="whyUs__inner">
-    <h2>{{whyUs.title}}</h2>
-    <div
-      v-for="({title, text}, index) in whyUs.points"
-      :key="index"
-      :class="[
-        'whyUs__points',
-        {'points--even': index % 2}
-      ]"
-    >
-      <h3>{{title}}</h3>
-      <p>{{text}}</p>
-      <img
-        v-if="!index"
-        src="/images/people-picture.jpg"
-        alt="whyUs-picture"
-        class="whyUs__image"
-      />
-      <DynamicButton
-        v-if="index === (whyUs.points.length - 1)"
-        link="/free-consultation"
-        text="Reach Out to Us Today"
-        :isInline="true"
-        class="whyUs__button"
-      />
-    </div>
-  </div>
-</section>
+  <section id="why-us" class="whyUs">
+    <CommonTitleLine :title="whyUs.title" heading="h2" />
+    <section class="whyUs__cardsWrap">
+      <div
+        v-for="({title, text, image}, index) in whyUs.points"
+        :key="index"
+        :class="[
+          'whyUs__point',
+          {'point--first': !index},
+          {'point--even': index % 2}
+        ]"
+        >
+          <div>
+            <h3>{{title}}</h3>
+            <p>{{text}}</p>
+          </div>
+          <img
+            v-if="image"
+            :src="image"
+            alt="whyUs-picture"
+            class="whyUs__image"
+          />
+      </div>
+    </section>
+    <CommonDynamicButton
+      link="/free-consultation"
+      text="Discuss How We Can Help Address Your Data Needs"
+      :isInline="true"
+      class="whyUs__button"
+    />
+  </section>
 </template>
 
 <script setup>
@@ -40,11 +42,13 @@ const whyUs = ref({
     },
     {
       title: "Vendor-Independent Consulting",
-      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management, Cloud, and Data Management. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations."
+      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management, Cloud, and Data Management. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations.",
+      image: "/images/t2.png"
     },
     {
       title: "Decades of Experience and Custom Solutions",
-      text: "Leveraging decades of experience, our frameworks and accelerators include industry-specific use cases and custom models. Our expertise in Data Management and MDM accelerators is geared towards breaking down traditional data silos, modeling your business in data, and fully integrating your data into your business strategy."
+      text: "Leveraging decades of experience, our frameworks and accelerators include industry-specific use cases and custom models. Our expertise in Data Management and MDM accelerators is geared towards breaking down traditional data silos, modeling your business in data, and fully integrating your data into your business strategy.",
+      image: "/images/t3.png"
     },
   ]
 });
@@ -77,57 +81,88 @@ watch([scroll, appWidth], value => {
     width: 100%;
     place-self: center;
     display: flex;
+    gap: 40px;
+    padding: 40px 80px;
+    justify-content: space-between;
+}
+.whyUs__cardsWrap {
+    max-width: var(--maxWidth);
+    width: 100%;
+    place-self: center;
+    flex-shrink: 0;
+    display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 80px 80px;
+    padding: 40px 100px;
 }
-.whyUs__inner > h2 {
-    font-size: 60px;
-    margin-bottom: 20px;
-    place-self: center;
+.whyUs__point {
+    display:flex;
+    width: 100%;
+    position: relative;
+    background-color: white;
+    gap: 40px;
+    border-radius: 20px;
+    place-items: center;
 }
-.whyUs__points {
+.whyUs__point > div {
     display:flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 66%;
-    width: 100%;
-    position: relative;
-}
-.whyUs__image, .whyUs__button {
-    position: absolute;
-    top: 50%;
-    left: calc(100% * 1.5);
-    transform: translate(-100%, -50%);
+    max-width: 60%;
 }
 .whyUs__image {
-    height: 125%;
+    place-self: center;
+    max-width: 30%;
+    width: 100%;
 }
 .whyUs__button {
-    background-color: #cc90ff;
-    border: 2px solid #cc90ff;
-    width: 30%;
+    margin: 12px 0 40px;
+    position: relative;
+    background-color: var(--softPink);
+    border: 2px solid var(--softPink);
+    color: var(--darkPurple);
+    width: fit-content;
+    place-self: center;
     padding: 8px 12px;
+    text-align: center;
 }
-.points--even {
-    place-self: flex-end;
+.point--first > div {
+   max-width: 100%;
 }
-@media (max-width: 1659.99px) {
-    .whyUs__points {
+.point--even {
+    flex-direction: row-reverse;
+}
+/* @media (max-width: 1659.99px) {
+    .whyUs__point {
         max-width: 75%;
     }
-    .whyUs__image, .whyUs__button {
+    .whyUs__image {
         left: calc(100% * 1.35);
     }
 }
 @media (max-width: 1439.99px) {
     .whyUs__inner {
         gap: 20px;
+        padding: 40px 60px;
     }
 }
-@media (max-width: 1279.99px) {
-    .main__title {
-        width: 560px;
+@media (max-width: 1023.99px) {
+    .whyUs__image {
+        display: none;
+    }
+    .whyUs__inner {
+        padding: 40px;
+    }
+    .whyUs__point {
+        max-width: 85%;
     }
 }
+@media (max-width: 573.99px) {
+    .whyUs__inner {
+        padding: 40px 20px;
+    }
+    .whyUs__point {
+        max-width: 90%;
+    }
+} */
 </style>

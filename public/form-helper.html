@@ -8,14 +8,15 @@
         <form
             method="post"
             name="consult"
-            data-tenfily="true"
-            netlify-honeypot="bot-field"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             hidden
         >
             <input type="hidden" name="name" required />
             <input type="hidden" name="mail" required />
             <input type="hidden" name="company" />
             <textarea name="message" type="hidden" required></textarea>
+            <div data-netlify-recaptcha="true"></div>
         </form>
     </body>
 </html>

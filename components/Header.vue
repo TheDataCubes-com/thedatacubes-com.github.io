@@ -4,11 +4,11 @@
     :class="[
       'header',
       {'header--blur': isBlur},
-      {'header--white': isWhite}
+      {'header--white': props.isWhite}
     ]"
   >
     <nav class="header__inner">
-      <Logo @mouseover="handleHeaderLeave" :isWhite="isWhite" class="header__logo"/>
+      <CommonLogo @mouseover="handleHeaderLeave" :isWhite="props.isWhite" class="header__logo"/>
       <ul v-if="!isMobile" class="header__nav">
         <li
           v-for="({name, link, children, disabled}, index) in links"
@@ -36,7 +36,7 @@
           @mouseover="handleHeaderLeave"
           class="header__item header__link"
         >Login</NuxtLink>
-        <DynamicButton
+        <CommonDynamicButton
           text="Get a Free Consult"
           link="/free-consultation"
           :isInline="true"
@@ -72,7 +72,8 @@
     </nav>
     <MobileMenu
       v-else
-      :isWhite="isWhite"
+      :links="links"
+      :isWhite="props.isWhite"
       :class="[
         'header__mobileMenu',
         {'mobileMenu--open': burgerActive}
@@ -138,7 +139,6 @@ const toggleBurger = () => burgerActive.value = !burgerActive.value;
 
 const isMobile = computed(() => appWidth.value < 860);
 const isBlur = computed(() => scroll.value > 10);
-const isWhite = computed(() => props.isWhite || route.name === "mdm-partners");
 
 watch(() => route.fullPath, () => burgerActive.value = false);
 watch(isMobile, (value) => {
@@ -267,13 +267,13 @@ watch(isMobile, (value) => {
   transform: translateY(-11px) rotate(-45deg);
 }
 .header__mobileMenu {
+    display: none;
     position: absolute;
+    top: 100%;
     right: 0;
-    bottom: 0;
-    transform: translate(100%, 100%);
 }
 .mobileMenu--open {
-    transform: translate(0%, 100%);
+    display: block;
 }
 .header--white {
     box-shadow: 0px 0px 10px 1px var(--darkPurple);
@@ -350,6 +350,9 @@ watch(isMobile, (value) => {
 @media (max-width: 374.99px) {
     .header__button {
         display: none;
+    }
+    .header__nav {
+        place-self: center;
     }
 }
 </style>

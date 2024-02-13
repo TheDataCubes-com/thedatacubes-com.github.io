@@ -1,5 +1,6 @@
 <template>
   <form
+    data-netlify-honeypot="bot-field"
     :data-netlify="active"
     :name="name"
     @submit="handleSubmit"
@@ -21,8 +22,9 @@
           class="form__input"
         />
       </label>
+      <div data-netlify-recaptcha="true"></div>
     </fieldset>
-    <DynamicButton
+    <CommonDynamicButton
       id="button"
       type="submit"
       :text="props.submitText"
@@ -75,10 +77,10 @@ const handleSubmit = event => {
     outline-color: var(--mainPurple);
 }
 .form__labelText {
+    color: white;
     display: inline-block;
     margin-bottom: 4px;
     padding-left: 20px;
-    color: white;
     transition: opacity 0.1s ease;
     font-size: 14px;
 }
