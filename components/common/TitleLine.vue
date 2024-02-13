@@ -1,18 +1,10 @@
 <template>
   <section class="titleLine">
-    <div class="titleLine__inner">
-      <div class="titleLine__titleWrap">
-        <component :is="props.heading" class="titleLine__title">{{props.title}}</component>
-          <div
-            v-if="props.description"
-            v-html="props.description"
-            class="titleLine__description"
-          />
-      </div>
-      <div class="titleLine__additional">
-        <slot />
-      </div>
-    </div>
+    <component
+      :is="props.heading"
+      :style="props.centered ? 'text-align: center;' : ''"
+      class="titleLine__title"
+    >{{props.title}}</component>
   </section>
 </template>
 
@@ -20,44 +12,26 @@
 const props = defineProps({
   title: { type: String, default: "" },
   heading: { type: String, default: "h1" },
-  description: { type: String, default: "" },
+  centered: { type: Boolean, default: false }
 });
 </script>
 
 <style>
 .titleLine {
-    margin: 20px 0;
+    background-color: #eedcf9;
     width: 100%;
-    background-color: var(--darkPurple);
-    padding: 40px 60px;
-    display: flex;
-    place-content: center;
-}
-.titleLine__inner {
-    display: flex;
-    gap: 40px;
-    max-width: var(--maxContentWidth);
-}
-.titleLine__titleWrap {
+    padding: 40px 0;
     display: flex;
     flex-direction: column;
 }
 .titleLine__title {
-    color: white;
-    width: fit-content;
+    place-self: center;
+    color: var(--darkPurple);
     font-size: 32px;
+    font-weight: 600;
     text-align: left;
-    display: flex;
-    place-items: center;
-    flex-grow: 1;
-}
-.titleLine__description {
-    color: white;
-    font-size: 20px;
-}
-.titleLine__additional {
-    display: flex;
-    flex-grow: 1;
-    place-content: center;
+    max-width: var(--maxWidth);
+    width: 100%;
+    padding: 0 100px;
 }
 </style>

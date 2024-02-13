@@ -24,14 +24,19 @@ const props = defineProps({
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 12px 20px;
+    padding: 20px;
+    gap: 12px;
     border-radius: 12px;
-    background-color: var(--softPink);
+    /* background-color: var(--softPink); */
+    box-shadow: 0 4px 8px var(--darkPurple);
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 .card__title {
     text-align: center;
     font-size: 20px;
     min-height: 48px;
+    color: var(--darkPurple);
 }
 .card__text {
     margin: 8px 0;
@@ -50,17 +55,25 @@ const props = defineProps({
     font-weight: 400;
     font-size: 16px;
     padding: 8px 12px;
-    background-color: var(--mainYellow);
-    color: var(--darkPurple);
+    background-color: var(--darkPurple);
+    color: white;
     border-radius: 12px;
     width: fit-content;
     place-self: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 @media (hover:hover) {
-    .card__link:hover {
-        background-color: var(--darkPurple);
+    .card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 10px 14px var(--darkPurple);
+    }
+    .card:hover .card__link {
+        background-color: var(--mainYellow);
         color: white;
     }
+    /* .card__link:hover {
+        background-color: var(--darkPurple);
+        color: white;
+    } */
 }
 </style>

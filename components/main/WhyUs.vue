@@ -1,12 +1,13 @@
 <template>
   <section id="why-us" class="whyUs">
-    <h2 class="whyUs__title">{{whyUs.title}}</h2>
+    <CommonTitleLine :title="whyUs.title" heading="h2" />
     <section class="whyUs__cardsWrap">
       <div
-        v-for="({title, text}, index) in whyUs.points"
+        v-for="({title, text, image}, index) in whyUs.points"
         :key="index"
         :class="[
           'whyUs__point',
+          {'point--first': !index},
           {'point--even': index % 2}
         ]"
         >
@@ -15,14 +16,8 @@
             <p>{{text}}</p>
           </div>
           <img
-            v-if="index === 1"
-            src="/images/t2.png"
-            alt="whyUs-picture"
-            class="whyUs__image"
-          />
-          <img
-            v-if="index === 2"
-            src="/images/t3.png"
+            v-if="image"
+            :src="image"
             alt="whyUs-picture"
             class="whyUs__image"
           />
@@ -47,11 +42,13 @@ const whyUs = ref({
     },
     {
       title: "Vendor-Independent Consulting",
-      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management, Cloud, and Data Management. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations."
+      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management, Cloud, and Data Management. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations.",
+      image: "/images/t2.png"
     },
     {
       title: "Decades of Experience and Custom Solutions",
-      text: "Leveraging decades of experience, our frameworks and accelerators include industry-specific use cases and custom models. Our expertise in Data Management and MDM accelerators is geared towards breaking down traditional data silos, modeling your business in data, and fully integrating your data into your business strategy."
+      text: "Leveraging decades of experience, our frameworks and accelerators include industry-specific use cases and custom models. Our expertise in Data Management and MDM accelerators is geared towards breaking down traditional data silos, modeling your business in data, and fully integrating your data into your business strategy.",
+      image: "/images/t3.png"
     },
   ]
 });
@@ -79,15 +76,6 @@ watch([scroll, appWidth], value => {
     display: flex;
     flex-direction: column;
 }
-.whyUs__title {
-    color: var(--darkPurple);
-    background-color: #eedcf9;
-    width: 100%;
-    text-align: left;
-    font-weight: 600;
-    padding: 40px 80px;
-    font-size: 32px;
-}
 .whyUs__inner {
     max-width: var(--maxWidth);
     width: 100%;
@@ -98,10 +86,14 @@ watch([scroll, appWidth], value => {
     justify-content: space-between;
 }
 .whyUs__cardsWrap {
+    max-width: var(--maxWidth);
+    width: 100%;
+    place-self: center;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
+    padding: 40px 100px;
 }
 .whyUs__point {
     display:flex;
@@ -110,14 +102,18 @@ watch([scroll, appWidth], value => {
     background-color: white;
     gap: 40px;
     border-radius: 20px;
+    place-items: center;
 }
 .whyUs__point > div {
     display:flex;
     flex-direction: column;
     gap: 12px;
+    max-width: 60%;
 }
 .whyUs__image {
     place-self: center;
+    max-width: 30%;
+    width: 100%;
 }
 .whyUs__button {
     margin: 12px 0 40px;
@@ -130,12 +126,11 @@ watch([scroll, appWidth], value => {
     padding: 8px 12px;
     text-align: center;
 }
+.point--first > div {
+   max-width: 100%;
+}
 .point--even {
     flex-direction: row-reverse;
-}
-.point--even > div {
-    width: 60%;
-    flex-shrink: 0;
 }
 /* @media (max-width: 1659.99px) {
     .whyUs__point {

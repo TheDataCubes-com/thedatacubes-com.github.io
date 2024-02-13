@@ -1,6 +1,6 @@
 <template>
   <section v-if="shown" class="ourClients">
-    <CommonTitleLine title="What Our Clients Say" heading="h2" />
+    <CommonTitleLine title="What Our Clients Say" heading="h2" :centered="true" />
     <div class="ourClients__inner">
       <div class="ourClients__cardsWrap">
         <div
