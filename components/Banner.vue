@@ -14,6 +14,7 @@
     height: 100vh;
     position: relative;
     height: calc(100vh - 149px);
+    overflow-x: hidden;
 }
 .banner__title {
     width: 100%;

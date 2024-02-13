@@ -6,15 +6,8 @@
     :class="isInline ? 'dynamicButtonInline' : 'dynamicButton'"
   >
     {{text}}
-    <svg v-if="isIcon" viewBox="0 0 28.77 28.77" class="dynamicButton__icon">
-      <circle
-        cx="14.39"
-        cy="14.39"
-        r="14.39"
-        transform="rotate(-22.88 14.399 14.385)"
-        class="dynamicButton__iconCircle"
-      />
-      <path d="m12.31 20.68 5.45-6.29-5.45-6.3" class="dynamicButton__iconArrow"/>
+    <svg v-if="isIcon" class="dynamicButton__icon">
+      <use xlink:href="#arrow-button" />
     </svg>
   </NuxtLink>
   <button
@@ -23,15 +16,8 @@
     :class="isInline ? 'dynamicButtonInline' : 'dynamicButton'"
   >
     {{text}}
-    <svg v-if="isIcon" viewBox="0 0 28.77 28.77" class="dynamicButton__icon">
-      <circle
-        cx="14.39"
-        cy="14.39"
-        r="14.39"
-        transform="rotate(-22.88 14.399 14.385)"
-        class="dynamicButton__iconCircle"
-      />
-      <path d="m12.31 20.68 5.45-6.29-5.45-6.3" class="dynamicButton__iconArrow"/>
+    <svg v-if="isIcon" class="dynamicButton__icon">
+      <use xlink:href="#arrow-button" />
     </svg>
   </button>
 </template>
@@ -77,17 +63,7 @@ const props = defineProps({
 .dynamicButton__icon {
     width: 28px;
     height: 28px;
-}
-.dynamicButton__iconCircle {
-    opacity:.43;
-    stroke-width:0;
-    transition: fill 0.3s ease, opacity 0.3s ease;
-}
-.dynamicButton__iconArrow {
-    fill:none;
-    stroke:#fff;
-    stroke-linejoin:round;
-    stroke-width:3px;
+
 }
 @media (hover:hover) {
     .dynamicButton:hover {
