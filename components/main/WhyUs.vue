@@ -15,8 +15,14 @@
             <p>{{text}}</p>
           </div>
           <img
-            v-if="index"
+            v-if="index === 1"
             src="/images/t2.png"
+            alt="whyUs-picture"
+            class="whyUs__image"
+          />
+          <img
+            v-if="index === 2"
+            src="/images/t3.png"
             alt="whyUs-picture"
             class="whyUs__image"
           />
@@ -74,16 +80,13 @@ watch([scroll, appWidth], value => {
     flex-direction: column;
 }
 .whyUs__title {
-    max-width: var(--maxWidth);
     color: var(--darkPurple);
     background-color: #eedcf9;
     width: 100%;
     text-align: left;
     font-weight: 600;
-    padding: 40px 80px 80px;
-
+    padding: 40px 80px;
     font-size: 32px;
-    font-size: 44px;
 }
 .whyUs__inner {
     max-width: var(--maxWidth);
@@ -119,8 +122,9 @@ watch([scroll, appWidth], value => {
 .whyUs__button {
     margin: 12px 0 40px;
     position: relative;
-    background-color: #c852ea;
-    border: 2px solid #c852ea;
+    background-color: var(--softPink);
+    border: 2px solid var(--softPink);
+    color: var(--darkPurple);
     width: fit-content;
     place-self: center;
     padding: 8px 12px;

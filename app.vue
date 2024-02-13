@@ -5,6 +5,7 @@
   <ClientOnly>
     <Background />
   </ClientOnly>
+  <CommonIcons />
 </template>
 
 <script setup>
