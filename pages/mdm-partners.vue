@@ -6,7 +6,7 @@
     </template>
     <template v-slot:slot--secondary>
       <p class="partners__bannerText">
-        <span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike.<br/>We translate complex business problems into successful technical solutions.
+        We translate complex business problems into successful technical solutions.
         <CommonDynamicButton
           link="/free-consultation"
           text="Work With Us"
@@ -179,14 +179,6 @@ const setActive = (index, bullets) => {
    width: 20px;
    height: 20px;
 }
-.top--screaming {
-    z-index: 1;
-    color: var(--mainYellow);
-    font-weight: 600;
-    font-size: 24px;
-    text-transform: uppercase;
-    position: relative;
-}
 .partners__subTitle {
     font-size: 44px;
     font-weight: 600;
@@ -195,13 +187,13 @@ const setActive = (index, bullets) => {
     background-color: #eedcf9;
     width: 100%;
     padding-top: 40px;
-    padding-bottom: 80px;
+    padding-bottom: 260px;
 }
 .partners__content {
     padding: 60px 80px 0;
     width: fit-content;
     background-color: white;
-    transform: translateY(-40px);
+    transform: translateY(-20%);
     display: flex;
     flex-direction: column;
     border-radius: 20px;
@@ -346,9 +338,6 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-height: 960px) {
-    .top--screaming {
-        font-size: 20px;
-    }
     .partners__bannerText {
         font-size: 20px;
     }
@@ -357,22 +346,13 @@ const setActive = (index, bullets) => {
     .partners__bannerText {
         font-size: 18px;
     }
-    .top--screaming {
-        font-size: 18px;
-    }
 }
 @media (max-width: 1439.99px) {
-    .top--screaming {
-        font-size: 16px;
-    }
     .partners__bannerText {
         font-size: 16px;
     }
 }
 @media (max-width: 574.99px) {
-    .top--screaming {
-        font-size: 14px;
-    }
     .partners__bannerText {
         font-size: 14px;
     }
