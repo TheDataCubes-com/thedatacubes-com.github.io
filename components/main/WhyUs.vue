@@ -1,6 +1,13 @@
 <template>
   <section id="why-us" class="whyUs">
-    <CommonTitleLine :title="whyUs.title" heading="h2" :padBottom="120" />
+    <CommonTitleLine
+      :title="whyUs.title"
+      heading="h2"
+      :padBottom="40"
+      :centered="true"
+      :noBg="true"
+      :size="42"
+    />
     <section class="whyUs__cardsWrap">
       <div
         v-for="({title, text, image}, index) in whyUs.points"
@@ -69,7 +76,6 @@ watch([scroll, appWidth], value => {
 <style>
 .whyUs {
     position: relative;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -91,7 +97,6 @@ watch([scroll, appWidth], value => {
     flex-direction: column;
     gap: 40px;
     padding: 0 100px 40px;
-    transform: translateY(-12%);
 }
 .whyUs__point {
     display:flex;

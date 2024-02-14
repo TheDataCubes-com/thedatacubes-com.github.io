@@ -16,8 +16,7 @@
 </template>
 
 <script setup>
-import pkg from 'lodash';
-const { throttle } = pkg;
+import { throttle } from 'lodash';
 
 const route = useRoute();
 
@@ -32,7 +31,7 @@ const handleScroll = throttle(() => scroll.value = window.scrollY, 200);
 
 provide('appWidth', appWidth);
 provide("scroll", scroll);
-provide("changeHeader", (val) =>  headerWhite.value = val);
+provide("changeHeader", (val) => headerWhite.value = val);
 
 onMounted(() => {
   appWidth.value = window.innerWidth;

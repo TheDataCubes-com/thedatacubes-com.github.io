@@ -1,6 +1,13 @@
 <template>
   <section class="mainServices">
-    <CommonTitleLine heading="h2" title="Services" :centered="true" :padBottom="40"/>
+    <CommonTitleLine
+      heading="h2"
+      title="Services"
+      :centered="true"
+      :padBottom="40"
+      :noBg="true"
+      :size="42"
+    />
     <CommonQuote
       quote="Data that sit unused are no different from data that were never collected in the first place."
       sign="Doug Fisher"
@@ -10,7 +17,15 @@
       <p class="mainServices__text">It is evident that despite advances in new technologies, data remains a massive untapped resource in many organizations, necessitating a solid Data Management Strategy before investing in new tools.<br/><br/>We have focused exclusively on Data Management Strategy and MDM for over 20 years. Our business-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for success.</p>
       <button @click="() => v = !v" class="b">toggle variant</button>
       <div v-if="v" class="wr">
-        <img src="/images/cube.png" alt="" />
+        <video
+          autoplay
+          loop
+          playsinline
+          muted
+          src="/videos/cubes.mp4"
+          type="video/mp4"
+          class="mainServices__video"
+        />
         <div class="cwr">
           <div v-for="c in cards" class="c">
             <h4>{{c.title}}</h4>
@@ -54,20 +69,28 @@ const cards = ref([
 
 <style>
 .wr {
-   display: flex;
-   place-items: center;
-   width: 100%;
+    display: flex;
+    width: 100%;
     background-color: #07233f;
-   padding: 40px 0 100px;
-   gap: 120px;
-   margin-bottom: 40px;
+    padding: 12px 100px 78px;
+    gap: 120px;
+    margin-bottom: 40px;
+    place-content: flex-end;
+    position: relative;
 }
-.wr img {
-    max-width: 720px;
-   max-height: 580px;
-   width: 100%;
+.mainServices__video {
+    top: 0;
+    left: 0;
+    position: absolute;
+    max-height: 100%;
+    width: 100%;
+    object-position: left;
+    z-index: 0;
 }
 .cwr {
+    position: static;
+    z-index: 1;
+    place-self: center;
     max-width: var(--maxCardWidth);
     width: 100%;
     height: 100%;
@@ -84,7 +107,6 @@ const cards = ref([
     display: flex;
     flex-direction: column;
     gap: 12px;
-    box-shadow: 0px 10px 15px var(--darkPurple);
 }
 .c:nth-of-type(1) {
     grid-area: c1;
@@ -147,15 +169,7 @@ const cards = ref([
 .mainServices__quote {
     margin-top: 40px;
 }
-@media (max-width: 1439.99px) {
-    .mainServices__inner {
-        padding: 40px 60px;
-    }
-}
 @media (max-width: 1023.99px) {
-    .mainServices__inner {
-        padding: 40px;
-    }
     .mainServices__cardWrapper {
         margin: 0;
         flex-direction: column;
@@ -178,9 +192,6 @@ const cards = ref([
    }
 }
 @media (max-width: 573.99px) {
-    .mainServices__inner {
-        padding: 40px 20px;
-    }
     .mainServices__card {
         width: 100%
     }

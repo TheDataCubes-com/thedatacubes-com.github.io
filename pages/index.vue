@@ -94,6 +94,7 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     font-size: 24px;
     line-height: 1.7;
     font-weight: 300;
+    max-width: 820px;
     color: white;
 }
 @media (max-height: 960px) {

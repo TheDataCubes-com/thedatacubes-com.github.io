@@ -14,7 +14,6 @@
     height: 100vh;
     position: relative;
     height: calc(100vh - 149px);
-    overflow-x: hidden;
 }
 .banner__title {
     width: 100%;
@@ -26,11 +25,10 @@
 }
 .banner__secondary {
     position: absolute;
-    top: calc(100vh * 0.4);
+    top: calc(100vh * 0.42);
     display: flex;
     flex-direction: column;
     gap: 60px;
-    max-width: 990px;
     width: 100%;
 }
 @media (max-height: 960px) {

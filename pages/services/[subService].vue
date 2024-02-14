@@ -1,6 +1,11 @@
 <template>
   <article class="services">
-    <CommonTitleLine :title="pageData.title" class="services__title" />
+    <CommonTitleLine
+      :title="pageData.title"
+      :centered="true"
+      :padBottom="40"
+      :noBg="true"
+    />
     <section class="services__wrap">
       <div class="servicess__content">
         <div v-html="pageData.text" class="services__text"/>
@@ -76,7 +81,7 @@ const pageData = computed(() => pages.value[route.params.subService]);
 
 const changeHeader = inject("changeHeader");
 
-onBeforeMount(() => changeHeader(true));
+onMounted(() => setTimeout(() => changeHeader(true), 100));
 </script>
 
 <style>
@@ -86,10 +91,6 @@ onBeforeMount(() => changeHeader(true));
     padding: 0;
     display: flex;
     flex-direction: column;
-}
-.services__title {
-    margin: 0;
-    padding: 20px 60px;
 }
 .services__wrap {
     margin: auto 0;
