@@ -1,7 +1,7 @@
 <template>
   <div class="swiperWrap">
-    <span v-if="props.trusted" class="tr-2 main__trusted">TRUSTED BY</span>
-    <p v-else class="main__trusted"><span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike.</p>
+    <span v-if="props.trusted" class="main__trusted">TRUSTED BY</span>
+    <p v-else class="main__trusted tr-2"><span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike.</p>
     <Swiper
       :modules="[SwiperAutoplay]"
       :slidesPerView="props.maxPerView"
@@ -59,7 +59,7 @@ const props = defineProps({
     z-index: 2;
     position: absolute;
     left: 140px;
-    top: -30px;
+    top: -44px;
     color: #b2b5bb;
     font-weight: 600;
     font-size: 14px;
@@ -73,12 +73,9 @@ const props = defineProps({
     text-transform: uppercase;
     position: relative;
 }
-.tr-2 {
-    text-transform: uppercase;
-}
-.top--screaming:before {
+.top--screaming:before, .main__trusted:before {
     content: "";
-    height: 28px;
+    height: 36px;
     width: 50%;
     border-right: 2px dashed #b2b5bb;
     border-left: 2px dashed #b2b5bb;
@@ -88,5 +85,8 @@ const props = defineProps({
     transform: translate(-50%, 100%);
     opacity: 0.5;
     z-index: 2;
+}
+.tr-2:before {
+    content: none;
 }
 </style>

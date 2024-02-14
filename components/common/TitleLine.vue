@@ -1,5 +1,5 @@
 <template>
-  <section class="titleLine">
+  <section :style="`padding-bottom:${props.padBottom}px;`" class="titleLine">
     <component
       :is="props.heading"
       :style="props.centered ? 'text-align: center;' : ''"
@@ -12,7 +12,8 @@
 const props = defineProps({
   title: { type: String, default: "" },
   heading: { type: String, default: "h1" },
-  centered: { type: Boolean, default: false }
+  centered: { type: Boolean, default: false },
+  padBottom: { type: Number, default: 260 }
 });
 </script>
 

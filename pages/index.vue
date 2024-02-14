@@ -50,20 +50,21 @@ const trustedBy = ref([
   "/images/svb-logo.png",
 ]);
 
-const currentSlide = computed(() => slides[slideIndex.value]);
+const currentSlide = computed(() => slides[slideIndex.value % 2]);
 
 const changeSlide = () => {
+  // if (slideIndex.value === 3) clearInterval(swiper.value);
   var className = "imgTransition";
   titleSlide.value?.classList.add(className);
-  slideIndex.value ^= 1;
+  slideIndex.value += 1;
   setTimeout(() => titleSlide.value?.classList.remove(className), 100);
 };
 
 onMounted(() => {
   setTimeout(() => {
     changeSlide();
-    swiper.value = setInterval(changeSlide, 4000);
-  }, 3000);
+    swiper.value = setInterval(changeSlide, 7000);
+  }, 6000);
 });
 onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 </script>

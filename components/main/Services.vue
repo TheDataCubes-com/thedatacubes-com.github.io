@@ -1,6 +1,6 @@
 <template>
   <section class="mainServices">
-    <CommonTitleLine heading="h2" title="Services" :centered="true" />
+    <CommonTitleLine heading="h2" title="Services" :centered="true" :padBottom="40"/>
     <CommonQuote
       quote="Data that sit unused are no different from data that were never collected in the first place."
       sign="Doug Fisher"
