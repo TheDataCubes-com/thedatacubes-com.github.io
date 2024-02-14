@@ -17,7 +17,7 @@
       />
     </template>
   </Banner>
-  <CommonCustomSwiper :items="trustedBy" :maxPerView="6" :trusted="true" >
+  <CommonCustomSwiper :items="trustedBy" :maxPerView="6" :solo="true" >
     <template #item="itemProps">
       <div
       :style="`background-image: url(${itemProps.slide});`"
@@ -50,12 +50,13 @@ const trustedBy = ref([
   "/images/svb-logo.png",
 ]);
 
-const currentSlide = computed(() => slides[slideIndex.value]);
+const currentSlide = computed(() => slides[slideIndex.value % 2]);
 
 const changeSlide = () => {
+  // if (slideIndex.value === 3) clearInterval(swiper.value);
   var className = "imgTransition";
   titleSlide.value?.classList.add(className);
-  slideIndex.value ^= 1;
+  slideIndex.value += 1;
   setTimeout(() => titleSlide.value?.classList.remove(className), 100);
 };
 
@@ -67,8 +68,8 @@ onBeforeMount(() => {
 onMounted(() => {
   setTimeout(() => {
     changeSlide();
-    swiper.value = setInterval(changeSlide, 4000);
-  }, 3000);
+    swiper.value = setInterval(changeSlide, 7000);
+  }, 6000);
 });
 onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 </script>
@@ -98,6 +99,7 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     font-size: 24px;
     line-height: 1.7;
     font-weight: 300;
+    max-width: 820px;
     color: white;
 }
 @media (max-height: 960px) {

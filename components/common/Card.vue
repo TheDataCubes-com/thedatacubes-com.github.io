@@ -1,13 +1,11 @@
 <template>
-  <article class="card">
-    <h3 class="card__title">{{props.title}}</h3>
-    <div v-html="text" class="card__text"/>
-    <NuxtLink
-      v-if="link"
-      :to="props.link.path"
-      class="card__link"
-    >{{props.link.name}}</NuxtLink>
-  </article>
+  <NuxtLink :to="props.link.path">
+    <article class="card">
+      <h3 class="card__title">{{props.title}}</h3>
+      <div v-html="text" class="card__text"/>
+      <span class="card__link">{{props.link.name}}</span>
+    </article>
+  </NuxtLink>
 </template>
 
 <script setup>
@@ -24,10 +22,9 @@ const props = defineProps({
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 40px 20px;
     gap: 12px;
     border-radius: 12px;
-    /* background-color: var(--softPink); */
     box-shadow: 0 4px 8px var(--darkPurple);
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -35,7 +32,7 @@ const props = defineProps({
 .card__title {
     text-align: center;
     font-size: 20px;
-    min-height: 48px;
+    min-height: 70px;
     color: var(--darkPurple);
 }
 .card__text {

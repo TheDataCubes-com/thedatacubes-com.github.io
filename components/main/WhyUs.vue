@@ -1,6 +1,13 @@
 <template>
   <section id="why-us" class="whyUs">
-    <CommonTitleLine :title="whyUs.title" heading="h2" />
+    <CommonTitleLine
+      :title="whyUs.title"
+      heading="h2"
+      :padBottom="40"
+      :centered="true"
+      :noBg="true"
+      :size="42"
+    />
     <section class="whyUs__cardsWrap">
       <div
         v-for="({title, text, image}, index) in whyUs.points"
@@ -15,12 +22,9 @@
             <h3>{{title}}</h3>
             <p>{{text}}</p>
           </div>
-          <img
-            v-if="image"
-            :src="image"
-            alt="whyUs-picture"
-            class="whyUs__image"
-          />
+          <div v-if="image">
+            <img :src="image" alt="whyUs-picture" class="whyUs__image"/>
+          </div>
       </div>
     </section>
     <CommonDynamicButton
@@ -71,8 +75,8 @@ watch([scroll, appWidth], value => {
 
 <style>
 .whyUs {
+    margin-top: 40px;
     position: relative;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -86,20 +90,19 @@ watch([scroll, appWidth], value => {
     justify-content: space-between;
 }
 .whyUs__cardsWrap {
-    max-width: var(--maxWidth);
+    max-width: 1260px;
     width: 100%;
     place-self: center;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 40px 100px;
+    padding: 0 100px 40px;
 }
 .whyUs__point {
     display:flex;
     width: 100%;
     position: relative;
-    background-color: white;
     gap: 40px;
     border-radius: 20px;
     place-items: center;
@@ -107,19 +110,20 @@ watch([scroll, appWidth], value => {
 .whyUs__point > div {
     display:flex;
     flex-direction: column;
-    gap: 12px;
-    max-width: 60%;
+    max-width: 50%;
+    width: 100%;
 }
 .whyUs__image {
     place-self: center;
-    max-width: 30%;
+    max-width: 320px;
+    align-self: center;
     width: 100%;
 }
 .whyUs__button {
     margin: 12px 0 40px;
     position: relative;
-    background-color: var(--softPink);
-    border: 2px solid var(--softPink);
+    background-color: #eedcf9;
+    border: 2px solid #eedcf9;
     color: var(--darkPurple);
     width: fit-content;
     place-self: center;
