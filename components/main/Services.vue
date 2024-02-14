@@ -11,7 +11,6 @@
     <CommonQuote
       quote="Data that sit unused are no different from data that were never collected in the first place."
       sign="Doug Fisher"
-      class="mainServices__quote"
     />
     <div class="mainServices__inner">
       <p class="mainServices__text">It is evident that despite advances in new technologies, data remains a massive untapped resource in many organizations, necessitating a solid Data Management Strategy before investing in new tools.<br/><br/>We have focused exclusively on Data Management Strategy and MDM for over 20 years. Our business-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for success.</p>
@@ -41,7 +40,10 @@
           class="mainServices__card"
         ><CommonCard :title="title" :text="text" :link="link" /></div>
       </div>
-      <p class="mainServices__text">Each TheDataCubes engagement is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.</p>
+      <p class="mainServices__text">
+        Each of our engagements is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.
+        <NuxtLink to="/free-consultation">Talk To Us</NuxtLink>
+      </p>
     </div>
   </section>
 </template>
@@ -166,8 +168,16 @@ const cards = ref([
     font-size: 18px;
     place-self: center;
 }
-.mainServices__quote {
-    margin-top: 40px;
+.mainServices__text > a {
+    color: var(--darkPurple);
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+@media (hover:hover) {
+    .mainServices__text > a:hover {
+        color: var(--mainYellow);
+    }
 }
 @media (max-width: 1023.99px) {
     .mainServices__cardWrapper {

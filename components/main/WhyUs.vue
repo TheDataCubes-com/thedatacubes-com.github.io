@@ -75,6 +75,7 @@ watch([scroll, appWidth], value => {
 
 <style>
 .whyUs {
+    margin-top: 40px;
     position: relative;
     display: flex;
     flex-direction: column;
