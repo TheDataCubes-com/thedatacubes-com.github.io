@@ -16,7 +16,8 @@
 </template>
 
 <script setup>
-import { throttle } from 'lodash';
+import ld from 'lodash';
+const { throttle } = ld;
 
 const route = useRoute();
 
