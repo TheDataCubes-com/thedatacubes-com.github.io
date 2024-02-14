@@ -60,7 +60,8 @@ watch(() => route.fullPath, () => headerWhite.value = false);
 }
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 100px;
+    overflow-x: hidden;
 }
 * {
     margin: 0;

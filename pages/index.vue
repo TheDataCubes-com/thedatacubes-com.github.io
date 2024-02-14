@@ -17,7 +17,7 @@
       />
     </template>
   </Banner>
-  <CommonCustomSwiper :items="trustedBy" :maxPerView="6" :trusted="true" >
+  <CommonCustomSwiper :items="trustedBy" :maxPerView="6" :solo="true" >
     <template #item="itemProps">
       <div
       :style="`background-image: url(${itemProps.slide});`"

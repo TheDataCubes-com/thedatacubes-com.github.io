@@ -25,7 +25,6 @@ const props = defineProps({
     padding: 40px 20px;
     gap: 12px;
     border-radius: 12px;
-    /* background-color: var(--softPink); */
     box-shadow: 0 4px 8px var(--darkPurple);
     cursor: pointer;
     transition: transform 0.3s ease;

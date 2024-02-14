@@ -1,7 +1,11 @@
 <template>
   <div class="swiperWrap">
-    <span v-if="props.trusted" class="main__trusted">TRUSTED BY</span>
-    <p v-else class="main__trusted tr-2"><span class="top--screaming">trusted by</span> Fortune 500 companies and leading startups alike.</p>
+    <div class="swiperCaption">
+      <p class="captionItem">
+        <span :style="`color:${props.solo ? '#b2b5bb' : 'var(--mainYellow)'};`" class="caption--highlight">TRUSTED BY</span>
+        <span v-if="!props.solo" class="caption--tale">Fortune 500 companies and leading startups alike.</span>
+      </p>
+    </div>
     <Swiper
       :modules="[SwiperAutoplay]"
       :slidesPerView="props.maxPerView"
@@ -33,7 +37,7 @@ const props = defineProps({
   items: { type: Array, default: [] },
   maxPerView: { type: Number, default: 4 },
   bgColor: { type: String, default: "white" },
-  trusted: { type: Boolean, default: false },
+  solo: { type: Boolean, default: false }
 });
 </script>
 
@@ -55,25 +59,29 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
 }
-.main__trusted {
+.swiperCaption {
     z-index: 2;
     position: absolute;
-    left: 140px;
+    width: 100%;
     top: -44px;
-    color: #b2b5bb;
-    font-weight: 600;
-    font-size: 14px;
-    color: white;
 }
-.top--screaming {
-    z-index: 1;
-    color: var(--mainYellow);
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
+.captionItem {
     position: relative;
+    margin: 0 auto;
+    max-width: var(--maxWidth);
+    padding: 0 100px;
 }
-.top--screaming:before, .main__trusted:before {
+.captionItem > span {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+.caption--highlight {
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+}
+.swiperCaption span:first-of-type:before {
     content: "";
     height: 36px;
     width: 50%;
@@ -86,7 +94,23 @@ const props = defineProps({
     opacity: 0.5;
     z-index: 2;
 }
-.tr-2:before {
+.swiperCaption > p:before {
     content: none;
+    color: white;
+}
+@media (max-width: 1659.99px) {
+    .captionItem {
+        padding: 0 80px;
+    }
+}
+@media (max-width: 1439.99px) {
+    .captionItem {
+        padding: 0 60px;
+    }
+}
+@media (max-width: 1023.99px) {
+    .captionItem {
+        padding: 0 40px;
+    }
 }
 </style>

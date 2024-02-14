@@ -74,7 +74,7 @@ const cards = ref([
     display: flex;
     width: 100%;
     background-color: #07233f;
-    padding: 12px 100px 78px;
+    padding: 20px 100px 98px;
     gap: 120px;
     margin-bottom: 40px;
     place-content: flex-end;
@@ -97,18 +97,32 @@ const cards = ref([
     width: 100%;
     height: 100%;
     display: grid;
-    gap: 40px;
+    gap: 12px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:"c1 c2 c3";
 }
 .c {
+    height: 100%;
     width: 100%;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
+    padding: 40px 20px;
     gap: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: white;
+}
+.c h4 {
+    text-align: center;
+    font-size: 20px;
+    min-height: 70px;
+    color: var(--darkPurple);
+}
+.c > div > ul {
+    list-style: disc inside;
+}
+.c > div > ul > li {
+    text-align: left;
 }
 .c:nth-of-type(1) {
     grid-area: c1;

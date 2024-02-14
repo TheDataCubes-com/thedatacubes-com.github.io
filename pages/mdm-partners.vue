@@ -78,7 +78,7 @@ const trustedBy = ref([
 ]);
 const pageText = ref([
   {
-    text: "For your existing MDM clients and prospects",
+    text: "For Your Existing MDM Clients and Prospects",
     bullets: [
       { title: 'FinServ Advisory Services ("Hot lead to close")', text: "As an independent specialist team specializing in the Financial services sector, we step in when sales team needs help closing promising leads. Our deep expertise in financial services makes us more relatable and effective than a vendor’s sales team. We offer evaluations of customer use cases, any MDM product concerns, and solution gaps, aiding MDM Leads to close deals with confidence." },
       { title: 'Enhancing Client Retention and Cross-Selling ("Stickiness")', text: "We conduct thorough evaluations of existing customers' business needs to offer tailored MDM modeling solutions (e.g., custom solutions for mortgage clients). This approach supports new business use cases, combining deep business domain knowledge with MDM expertise. Our optimization billing aids in justifying funding / license renewals." },
@@ -193,7 +193,7 @@ const setActive = (index, bullets) => {
     padding: 60px 80px 0;
     width: fit-content;
     background-color: white;
-    transform: translateY(-20%);
+    transform: translateY(-200px);
     display: flex;
     flex-direction: column;
     border-radius: 20px;
