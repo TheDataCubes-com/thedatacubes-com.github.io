@@ -112,6 +112,7 @@ watch([scroll, appWidth], value => {
     flex-direction: column;
     max-width: 50%;
     width: 100%;
+    gap: 12px;
 }
 .whyUs__image {
     place-self: center;
