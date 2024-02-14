@@ -57,27 +57,24 @@ const cards = ref([
    display: flex;
    place-items: center;
    width: 100%;
-   padding: 40px;
-   gap: 40px;
+    background-color: #07233f;
+   padding: 40px 0 100px;
+   gap: 120px;
+   margin-bottom: 40px;
 }
 .wr img {
-   max-width: 720px;
+    max-width: 720px;
    max-height: 580px;
    width: 100%;
 }
 .cwr {
-    max-width: 560px;
+    max-width: var(--maxCardWidth);
     width: 100%;
     height: 100%;
     display: grid;
-    column-gap: 20px;
-    row-gap: 20px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "c1 ."
-        "c1 c3"
-        "c2 c3"
-        "c2 .";
+    gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:"c1 c2 c3";
 }
 .c {
     width: 100%;
@@ -94,10 +91,11 @@ const cards = ref([
 }
 .c:nth-of-type(2) {
     grid-area: c2;
+    transform: translateY(+8%);
 }
 .c:nth-of-type(3) {
     grid-area: c3;
-    transform: translateY(-16%);
+    transform: translateY(+16%);
 }
 .b {
     border: none;
@@ -123,12 +121,11 @@ const cards = ref([
     flex-direction: column;
 }
 .mainServices__inner {
-    max-width: var(--maxWidth);
     width: 100%;
     place-self: center;
     display: flex;
     flex-direction: column;
-    padding: 40px 80px;
+    padding: 40px 0px;
 }
 .mainServices__cardWrapper {
     max-width: var(--maxCardWidth);
