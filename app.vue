@@ -6,6 +6,13 @@
     <Background />
   </ClientOnly>
   <CommonIcons />
+  <CommonDynamicButton
+    v-if="isButton"
+    link="/free-consultation"
+    text="Set up a Free Consultation"
+    :isIcon="true"
+    class="consultButton"
+  />
 </template>
 
 <script setup>
@@ -17,6 +24,8 @@ const route = useRoute();
 const appWidth = ref(1440);
 const scroll = ref(0);
 const headerWhite = ref(false);
+
+const isButton = computed(() => route.name === "index");
 
 const setAppWidth = throttle(({ target }) => appWidth.value = target.innerWidth, 200);
 const handleScroll = throttle(() => scroll.value = window.scrollY, 200);
@@ -115,6 +124,24 @@ b {
     display: flex;
     flex-direction: column;
 }
+.consultButton {
+    position: absolute;
+    top: calc(100vh * 0.76);
+    right: 80px;
+    z-index: 20;
+    line-height: 1;
+    font-size: 18px;
+    padding: 6px 16px;
+}
+.consultButton > svg {
+   width: 20px;
+   height: 20px;
+}
+@media (max-width: 1179.99px) {
+    .consultButton {
+        top: calc(100vh * 0.88);
+    }
+}
 @media (max-width: 1659.99px) {
     h2, h1 {
         font-size: 52px;
@@ -145,6 +172,12 @@ b {
     }
 }
 @media (max-width: 767.99px) {
+    .consultButton {
+        width: calc(100vw - 40px * 2);
+        top: calc(100vh - 80px);
+        right: 50%;
+        transform: translateX(50%);
+    }
     h2, h1 {
         font-size: 36px;
     }
