@@ -31,7 +31,7 @@ const props = defineProps({
     font-size: 32px;
     font-weight: 600;
     text-align: left;
-    max-width: var(--maxWidth);
+    max-width: 1260px;
     width: 100%;
     padding: 0 100px;
 }

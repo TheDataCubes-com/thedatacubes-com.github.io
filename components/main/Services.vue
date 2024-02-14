@@ -142,8 +142,9 @@ const cards = ref([
     padding: 12px;
 }
 .mainServices__text {
+    max-width: 1260px;
+    padding: 0 100px;
     font-size: 18px;
-    max-width: 85%;
     place-self: center;
 }
 .mainServices__quote {
