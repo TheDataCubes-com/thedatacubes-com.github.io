@@ -19,7 +19,6 @@
     width: 100%;
     top: 50px;
     position: absolute;
-    left: 100px;
     opacity: 1;
     color: white;
 }
@@ -63,10 +62,12 @@
     .banner {
         height: calc(100vh - 89px);
     }
+    .banner__secondary {
+        max-width: 520px;
+    }
 }
 @media (max-width: 1023.99px) {
     .banner__title {
-        left: 0;
         padding: 0 20px;
     }
     .banner__secondary {

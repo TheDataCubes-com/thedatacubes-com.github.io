@@ -2,7 +2,7 @@
   <Banner class="partners__banner">
     <template v-slot:slot--title>
       <span class="partners__title">We help MDM solution providers win in the market</span>
-      <img src="/images/d1.png" alt="dc-diagram" class="partners__diagram">
+      <CommonDiagram class="partners__diagram"/>
     </template>
     <template v-slot:slot--secondary>
       <p class="partners__bannerText">
@@ -16,16 +16,16 @@
       </p>
     </template>
   </Banner>
-  <div class="bg--pink">
-    <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
-      <template #item="itemProps">
-        <div
-          :style="`background-image: url(${itemProps.slide});`"
-          class="partner__slide"
-        />
-      </template>
-    </CommonCustomSwiper>
-    <CommonTitleLine heading="h2" title="Services" :centered="true" />
+  <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+    <template #item="itemProps">
+      <div
+        :style="`background-image: url(${itemProps.slide});`"
+        class="partner__slide"
+      />
+    </template>
+  </CommonCustomSwiper>
+  <CommonTitleLine heading="h2" title="Services" :centered="true" />
+  <div class="partners__info">
     <section class="partners__content">
       <div class="partners__points">
         <div
@@ -137,19 +137,19 @@ const setActive = (index, bullets) => {
 </script>
 
 <style>
-.bg--pink {
+.partners__info {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     place-items: center;
+    padding: 0 20px;
 }
 .partners__banner > .banner__secondary {
    top: calc(100vh * 0.5);
 }
 .partners__diagram {
     position: absolute;
-    top: 6vh;
-    max-width: 420px;
+    top: calc(100vh * 0.06);
     right: 12%;
 }
 .partners__title {
@@ -262,7 +262,7 @@ const setActive = (index, bullets) => {
     color: var(--darkPurple);
 }
 .expand {
-    max-height: 100vh;
+    max-height: 500vh;
 }
 .partners__arrow {
     border-radius: 20px;
@@ -281,11 +281,6 @@ const setActive = (index, bullets) => {
     font-weight: 600;
     color: #3D3D3D;
     margin-bottom: 4px;
-}
-.bullet__item > p {
-    font-weight: 300;
-    font-size: 18px;
-    color: #666666;
 }
 .text--selected {
     box-shadow: none;
@@ -343,6 +338,9 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 1659.99px) {
+    .partners__title {
+       font-size: 52px;
+    }
     .partners__bannerText {
         font-size: 18px;
     }
@@ -351,9 +349,88 @@ const setActive = (index, bullets) => {
     .partners__bannerText {
         font-size: 16px;
     }
+    .partners__content {
+        padding: 60px 60px 0;
+    }
+}
+@media (max-width: 1267.99px) {
+    .partners__content {
+        padding: 40px 40px 0;
+    }
+    .partners__title {
+        font-size: 40px;
+        max-width: 50%;
+    }
+    .bullet__item > h4 {
+       font-size: 18px;
+    }
+    .bullet__item > p {
+        font-size: 16px;
+    }
+    .partners__icon {
+        width: 48px;
+        height: 48px;
+    }
+    .partners__text h3 {
+        font-size: 14px;
+    }
+}
+@media (max-width: 1023.99px) {
+    .partners__content {
+        padding: 28px 20px 0;
+    }
+    .partners__text {
+        padding: 20px 12px;
+    }
+    .partners__arrow {
+        display: none;
+    }
+}
+@media (max-width: 767.99px) {
+   .partners__text > h3 {
+       display: none;
+   }
+   .partners__bullets {
+       padding: 0;
+       padding-top: 40px;
+   }
+   .partners__pointWrap {
+       padding: 8px;
+   }
+   .partners__icon {
+       width: 40px;
+       height: 40px;
+   }
+   .partners__button {
+       margin-top: 20px;
+       font-size: 12px;
+   }
+   .partners__button > svg {
+       width: 24px;
+       height: 24px;
+   }
 }
 @media (max-width: 574.99px) {
+    .partners__button {
+        margin-top: 0px;
+    }
+    .partners__content {
+        padding: 28px 12px;
+    }
+    .partners__pointWrap {
+        padding: 0;
+    }
+    .partners__text {
+        padding: 8px;
+        box-shadow: none;
+    }
     .partners__bannerText {
+        font-size: 14px;
+    }
+    .bullet__item > h4 {
+        font-size: 16px;
+    }
+    .bullet__item > p {
         font-size: 14px;
     }
 }
