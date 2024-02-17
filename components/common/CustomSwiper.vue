@@ -6,7 +6,7 @@
         <span v-if="!props.solo" class="caption--tale">Fortune 500 companies and leading startups alike.</span>
       </p>
     </div>
-    <Swiper
+    <!-- <Swiper
       :modules="[SwiperAutoplay]"
       :slidesPerView="props.maxPerView"
       :simulateTouch="false"
@@ -27,16 +27,47 @@
         :key="index"
         class="customSlide"
       ><slot name="item" :slide="slide" :index="index" /></SwiperSlide>
-    </Swiper>
+    </Swiper> -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div
+          v-for="(slide, index) in props.items"
+          class="swiper-slide"
+        ><slot name="item" :slide="slide" :index="index" /></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import Swiper from "swiper";
+import "swiper/css/bundle";
+import { Autoplay } from 'swiper/modules';
+
+
 const props = defineProps({
   items: { type: Array, default: [] },
   maxPerView: { type: Number, default: 4 },
   bgColor: { type: String, default: "white" },
   solo: { type: Boolean, default: false }
+});
+
+onMounted(() => {
+  setTimeout(() => {
+   new Swiper('.swiper', {
+    modules: [Autoplay],
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 4,
+    slidesPerGroup: 1,
+    speed: 1000,
+     on: {
+       // toEdge: (e) => console.log(e)
+     }
+   });
+  }, 1000);
 });
 </script>
 
