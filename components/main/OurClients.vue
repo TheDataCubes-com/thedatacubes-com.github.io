@@ -5,6 +5,8 @@
       heading="h2"
       :centered="true"
       :padBottom="40"
+      :noBg="true"
+      :size="42"
     />
     <div class="ourClients__inner">
       <div class="ourClients__cardsWrap">

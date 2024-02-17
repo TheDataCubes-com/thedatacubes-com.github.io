@@ -1,5 +1,6 @@
 <template>
   <section id="why-us" class="whyUs">
+    <div class="whyUs__separator"/>
     <CommonTitleLine
       :title="whyUs.title"
       heading="h2"
@@ -7,6 +8,11 @@
       :centered="true"
       :noBg="true"
       :size="42"
+    />
+    <CommonQuote
+      quote="We translate complex business problems into successful technical solutions"
+      :phrase="true"
+      class="whyUs__quote"
     />
     <section class="whyUs__cardsWrap">
       <div
@@ -33,6 +39,7 @@
       :isInline="true"
       class="whyUs__button"
     />
+    <div class="whyUs__separator"/>
   </section>
 </template>
 
@@ -75,10 +82,17 @@ watch([scroll, appWidth], value => {
 
 <style>
 .whyUs {
-    margin-top: 40px;
     position: relative;
     display: flex;
     flex-direction: column;
+}
+.whyUs__separator {
+   height: 1px;
+   place-self: center;
+   max-width: 1060px;
+   width: 100%;
+   background-color: var(--darkPurple);
+   margin-bottom: 40px;
 }
 .whyUs__inner {
     max-width: var(--maxWidth);
@@ -88,6 +102,9 @@ watch([scroll, appWidth], value => {
     gap: 40px;
     padding: 40px 80px;
     justify-content: space-between;
+}
+.whyUs__quote {
+    margin-bottom: 40px;
 }
 .whyUs__cardsWrap {
     max-width: 1260px;
@@ -137,37 +154,12 @@ watch([scroll, appWidth], value => {
 .point--even {
     flex-direction: row-reverse;
 }
-/* @media (max-width: 1659.99px) {
-    .whyUs__point {
-        max-width: 75%;
-    }
-    .whyUs__image {
-        left: calc(100% * 1.35);
-    }
+@media (max-width: 1659.99px) {
 }
 @media (max-width: 1439.99px) {
-    .whyUs__inner {
-        gap: 20px;
-        padding: 40px 60px;
-    }
 }
 @media (max-width: 1023.99px) {
-    .whyUs__image {
-        display: none;
-    }
-    .whyUs__inner {
-        padding: 40px;
-    }
-    .whyUs__point {
-        max-width: 85%;
-    }
 }
 @media (max-width: 573.99px) {
-    .whyUs__inner {
-        padding: 40px 20px;
-    }
-    .whyUs__point {
-        max-width: 90%;
-    }
-} */
+}
 </style>

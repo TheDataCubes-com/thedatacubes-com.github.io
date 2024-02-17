@@ -1,23 +1,27 @@
 <template>
   <section class="mediaCards">
-    <!-- <video
-      autoplay
-      loop
-      playsinline
-      muted
-      src="/videos/cubes.mp4"
-      type="video/mp4"
-      class="mainServices__video"
-    /> -->
-    <div class="mediaCards__cardsWrap">
-      <CommonCard
-        v-for="({ text, link, title}, index) in cards"
-        :key="index"
-        :title="title"
-        :text="text"
-        :link="link"
-        class="mediaCards__card"
-      />
+    <div class="mediaCards__inner">
+      <div class="mediaCards__media">
+        <video
+          autoplay
+          loop
+          playsinline
+          muted
+          src="/videos/cubes.mp4"
+          type="video/mp4"
+          class="mainServices__video"
+        />
+      </div>
+      <div class="mediaCards__cardsWrap">
+        <CommonCard
+          v-for="({ text, link, title}, index) in cards"
+          :key="index"
+          :title="title"
+          :text="text"
+          :link="link"
+          class="mediaCards__card"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -49,9 +53,28 @@ const cardHeight = ref("440px");
 
 <style>
 .mediaCards {
-    background-color: #07233f;
     width: 100%;
-    display: flex;
+    animation: bgTransition 16s linear infinite;
+}
+.mediaCards__inner {
+   max-width: 1920px;
+   display: flex;
+   width: 100%;
+   gap: 20px;
+   height: 100%;
+}
+.mediaCards__media {
+    max-width: calc(100% - var(--maxCardWidth) - 40px);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.mainServices__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
 }
 .mediaCards__cardsWrap {
     max-width: var(--maxCardWidth);
@@ -73,5 +96,27 @@ const cardHeight = ref("440px");
 }
 .mediaCards__card:nth-of-type(3) {
   transform: translateY(+16%);
+}
+@keyframes bgTransition {
+  0% {
+      background:
+        linear-gradient(to bottom, #074567, #042f54, #03284f, #042141);
+  }
+  25% {
+      background:
+        linear-gradient(to bottom, #073c60, #053056, #052b52, #05254c)
+  }
+  50% {
+      background:
+        linear-gradient(to bottom, #043659, #042f54, #03284f, #03254c)
+  }
+  75% {
+      background:
+        linear-gradient(to bottom, #083b62, #042f54, #04284f, #04284f)
+  }
+  100% {
+      background:
+        linear-gradient(to bottom, #05375d, #062d53, #042851, #042448)
+  }
 }
 </style>

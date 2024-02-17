@@ -24,7 +24,7 @@
       />
     </template>
   </CommonCustomSwiper>
-  <CommonTitleLine heading="h2" title="Services We Offer" :centered="true" />
+  <CommonTitleLine heading="h2" title="Services" :centered="true" />
   <div class="partners__info">
     <section class="partners__content">
       <div class="partners__points">

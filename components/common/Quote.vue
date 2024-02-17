@@ -1,7 +1,8 @@
 <template>
   <blockquote class="quote">
     <div class="quote__inner">
-      <p>{{quote}}</p>
+      <div v-if="props.phrase">{{props.quote}}</div>
+      <p v-else>{{props.quote}}</p>
       <span>{{props.sign}}</span>
     </div>
   </blockquote>
@@ -10,6 +11,7 @@
 <script setup>
 const props = defineProps({
   quote: { type: String, default: "" },
+  phrase: { type: Boolean,default: false },
   sign: { type: String, default: "" }
 });
 </script>
@@ -37,7 +39,7 @@ const props = defineProps({
     top: 0;
     transform: translate(-30px, -40px);
 }
-.quote__inner>p {
+.quote__inner>p, .quote__inner>div {
     font-weight: 600;
     position: relative;
     color: white;
