@@ -7,7 +7,6 @@
       </p>
     </div>
     <Swiper
-      v-if="sliderOn"
       :modules="[SwiperAutoplay]"
       :slidesPerView="props.maxPerView"
       :simulateTouch="false"
@@ -39,12 +38,6 @@ const props = defineProps({
   bgColor: { type: String, default: "white" },
   solo: { type: Boolean, default: false }
 });
-
-const sliderOn = ref(false);
-
-onMounted(() => {
-  setTimeout(() => { console.log("swiper"); sliderOn.value = true; }, 1000)
- })
 </script>
 
 <style>
