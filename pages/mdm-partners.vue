@@ -16,7 +16,7 @@
       </p>
     </template>
   </Banner>
-  <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
+  <CommonCustomSwiper :items="trustedBy" :maxPerView="4">
     <template #item="itemProps">
       <div
         :style="`background-image: url(${itemProps.slide});`"

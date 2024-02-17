@@ -6,33 +6,11 @@
         <span v-if="!props.solo" class="caption--tale">Fortune 500 companies and leading startups alike.</span>
       </p>
     </div>
-    <!-- <Swiper
-      :modules="[SwiperAutoplay]"
-      :slidesPerView="props.maxPerView"
-      :simulateTouch="false"
-      :loop="true"
-      spaceBetween="20"
-      :speed="40000"
-      :freeMode="true"
-      :free-mode-sticky="true"
-      :autoplay="{
-        delay: 0,
-        disableOnInteraction: false,
-      }"
-      :style="`background-color: ${props.bgColor};`"
-      class="customSwiper"
-    >
-      <SwiperSlide
-        v-for="(slide, index) in props.items"
-        :key="index"
-        class="customSlide"
-      ><slot name="item" :slide="slide" :index="index" /></SwiperSlide>
-    </Swiper> -->
-    <div class="swiper">
+    <div class="swiper customSwiper">
       <div class="swiper-wrapper">
         <div
           v-for="(slide, index) in props.items"
-          class="swiper-slide"
+          class="swiper-slide customSlide"
         ><slot name="item" :slide="slide" :index="index" /></div>
       </div>
     </div>
@@ -57,17 +35,15 @@ onMounted(() => {
    new Swiper('.swiper', {
     modules: [Autoplay],
     autoplay: {
-      delay: 1000,
+      delay: 0,
       disableOnInteraction: false
     },
-    slidesPerView: 4,
+    spaceBetween: 20,
+    slidesPerView: props.maxPerView,
     slidesPerGroup: 1,
-    speed: 1000,
-     on: {
-       // toEdge: (e) => console.log(e)
-     }
+    speed: 60000,
    });
-  }, 1000);
+  }, 100);
 });
 </script>
 
@@ -75,6 +51,22 @@ onMounted(() => {
 .swiperWrap {
     width: 100%;
     position: relative;
+}
+.swiperWrap:before, .swiperWrap:after {
+    position: absolute;
+    top: 0;
+    content: '';
+    width: 20px;
+    height: 100%;
+    z-index: 10;
+}
+.swiperWrap:before{
+    left: 0;
+    background: linear-gradient(90deg, white 25%, hsla(0,0%,100%,0))
+}
+.swiperWrap:after {
+   right: 0;
+   background: linear-gradient(270deg, white 25%, hsla(0,0%,100%,0));
 }
 .customSwiper {
     width: 100%;
