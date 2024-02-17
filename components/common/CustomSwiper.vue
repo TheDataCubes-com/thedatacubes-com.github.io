@@ -23,8 +23,7 @@
       class="customSwiper"
     >
       <SwiperSlide
-        v-for="(slide, index)
-        in props.items"
+        v-for="(slide, index) in props.items"
         :key="index"
         class="customSlide"
       ><slot name="item" :slide="slide" :index="index" /></SwiperSlide>

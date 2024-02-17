@@ -17,11 +17,39 @@
       />
     </template>
   </Banner>
-  <CommonCustomSwiper :items="trustedBy" :maxPerView="4" :solo="true" >
+  <div class="swiperWrap">
+    <Swiper
+      :modules="[SwiperAutoplay]"
+      :slidesPerView="4"
+      :simulateTouch="false"
+      :loop="true"
+      spaceBetween="20"
+      :speed="40000"
+      :freeMode="true"
+      :free-mode-sticky="true"
+      :autoplay="{
+        delay: 0,
+        disableOnInteraction: false,
+      }"
+      class="customSwiper"
+    >
+      <SwiperSlide
+        v-for="(slide, index) in trustedBy"
+        :key="index"
+        class="customSlide"
+      >
+        <div
+          :style="`background-image: url(${slide});`"
+          class="partner__slide"
+        />
+      </SwiperSlide>
+    </Swiper>
+  </div>
+  <CommonCustomSwiper v-show="false" :items="trustedBy" :maxPerView="4" :solo="true" >
     <template #item="itemProps">
       <div
-      :style="`background-image: url(${itemProps.slide});`"
-      class="partner__slide"
+        :style="`background-image: url(${itemProps.slide});`"
+        class="partner__slide"
       />
     </template>
   </CommonCustomSwiper>
