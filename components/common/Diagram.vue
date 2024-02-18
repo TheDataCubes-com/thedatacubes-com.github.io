@@ -33,4 +33,9 @@
         font-size: 28px;
     }
 }
+@media (max-width: 1023.99px) {
+   .diagram {
+       font-size: 20px;
+   }
+}
 </style>

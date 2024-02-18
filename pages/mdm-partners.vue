@@ -1,5 +1,5 @@
 <template>
-  <Banner class="partners__banner">
+  <Banner :static="true" class="partners__banner">
     <template v-slot:slot--title>
       <span class="partners__title">We help MDM solution providers win in the market</span>
       <CommonDiagram class="partners__diagram"/>
@@ -16,7 +16,12 @@
       </p>
     </template>
   </Banner>
-  <CommonCustomSwiper :items="trustedBy" :maxPerView="4">
+  <CommonCustomSwiper
+    swiperId="trusted"
+    :autoplay="true"
+    :items="trustedBy"
+    class="partners__slider"
+  >
     <template #item="itemProps">
       <div
         :style="`background-image: url(${itemProps.slide});`"
@@ -27,7 +32,7 @@
   <CommonTitleLine heading="h2" title="Services" :centered="true" />
   <div class="partners__info">
     <section class="partners__content">
-      <div class="partners__points">
+      <div v-if="!cardSwiper" class="partners__points">
         <div
           v-for="({text, bullets, icon}, index) in pageText"
           :key="index"
@@ -41,12 +46,37 @@
               <use :xlink:href="icon" />
             </svg>
             <h3>{{text}}</h3>
-            <svg class="partners__arrow">
-              <use xlink:href="#arrow" />
-            </svg>
+            <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
           </div>
         </div>
       </div>
+      <CommonCustomSwiper
+        v-else
+        swiperId="cards"
+        :items="pageText"
+        :navigation="true"
+        :noCap="true"
+        :breakPoints="{
+          320: {
+            spaceBetween: 20,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            speed: 2000,
+          }
+        }"
+        @slideChange="(i) => setActive(i, pageText[i].bullets)"
+        class="partners__cardSwiper"
+      >
+        <template #item="itemProps">
+          <div class="partners__text text--selected">
+            <svg class="partners__icon">
+              <use :xlink:href="itemProps.slide.icon" />
+            </svg>
+            <h3>{{itemProps.slide.text}}</h3>
+            <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
+          </div>
+        </template>
+      </CommonCustomSwiper>
       <ul v-if="placeText" :class="['partners__bullets', {'expand': placeText}]">
         <li
           v-for="({title, text}, index) in placeText"
@@ -123,6 +153,9 @@ const pageText = ref([
 ]);
 const active = ref(0);
 const placeText = ref(pageText.value[0].bullets);
+const appWidth = inject("appWidth");
+
+const cardSwiper = computed(() => appWidth.value < 768);
 
 const setActive = (index, bullets) => {
   if (active.value === index) {
@@ -179,6 +212,10 @@ const setActive = (index, bullets) => {
    width: 20px;
    height: 20px;
 }
+.partners__slider {
+    margin: 0 auto;
+    max-width: 1920px;
+}
 .partners__subTitle {
     font-size: 44px;
     font-weight: 600;
@@ -231,9 +268,6 @@ const setActive = (index, bullets) => {
     box-shadow: 0 4px 8px var(--darkPurple);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-.partners__text h3 {
-    transition: color 0.3s ease;
-}
 .partners__bullets {
     max-width: var(--maxCardWidth);
     background-color: white;
@@ -251,6 +285,7 @@ const setActive = (index, bullets) => {
     transition: max-height 0.3s ease;
 }
 .partners__text h3 {
+    transition: color 0.3s ease;
     text-align: center;
     display: flex;
     place-items: center;
@@ -322,6 +357,13 @@ const setActive = (index, bullets) => {
 .partners__button > svg > path{
     stroke: var(--darkPurple);
 }
+.partners__cardSwiper {
+    place-self: center;
+    max-width: 400px;
+}
+.partners__cardSwiper .customSlide {
+    padding: 0 16px;
+}
 @media (hover:hover) {
     .partners__button:hover {
         background-color: var(--darkPurple);
@@ -376,6 +418,23 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 1023.99px) {
+    .partners__title {
+        position: static;
+        text-align: left;
+        max-width: 100%;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 32px;
+    }
+    .partners__diagram {
+        position: relative;
+        top: initial;
+        right: initial;
+        margin-bottom: 40px;
+    }
+    .partners__bannerButton {
+        margin-top: 20px;
+    }
     .partners__content {
         padding: 28px 20px 0;
     }
@@ -387,9 +446,16 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 767.99px) {
-   .partners__text > h3 {
-       display: none;
-   }
+    .partners__title {
+        font-size: 28px;
+        text-align: center;
+    }
+    .partners__diagram {
+        margin: 0 auto 40px;
+    }
+    .partners__bannerButton {
+        font-size: 16px;
+    }
    .partners__bullets {
        padding: 0;
        padding-top: 40px;
@@ -411,6 +477,9 @@ const setActive = (index, bullets) => {
    }
 }
 @media (max-width: 574.99px) {
+    .partners__banner {
+       padding: 40px 20px;
+    }
     .partners__button {
         margin-top: 0px;
     }
@@ -420,18 +489,28 @@ const setActive = (index, bullets) => {
     .partners__pointWrap {
         padding: 0;
     }
-    .partners__text {
-        padding: 8px;
-        box-shadow: none;
-    }
-    .partners__bannerText {
-        font-size: 14px;
-    }
     .bullet__item > h4 {
         font-size: 16px;
     }
     .bullet__item > p {
         font-size: 14px;
+    }
+    .partners__cardSwiper {
+        max-width: 320px;
+    }
+}
+@media (max-width: 374.99px) {
+    .partners__cardSwiper {
+        max-width: 260px;
+    }
+    .partners__title {
+        font-size: 24px;
+    }
+    .partners__diagram {
+        font-size: 14px;
+    }
+    .partners__bannerButton {
+        font-size: 16px;
     }
 }
 </style>

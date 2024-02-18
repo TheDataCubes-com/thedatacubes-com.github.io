@@ -18,7 +18,13 @@
     </template>
   </Banner>
   <ClientOnly>
-    <CommonCustomSwiper :items="trustedBy" :maxPerView="4" :solo="true" >
+    <CommonCustomSwiper
+      swiperId="index-trsuted"
+      :items="trustedBy"
+      :autoplay="true"
+      :solo="true"
+      class="index__swiper"
+    >
       <template #item="itemProps">
         <div
           :style="`background-image: url(${itemProps.slide});`"
@@ -82,6 +88,10 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     left: calc(100vh * 2);
     opacity: 0;
     transition: inital;
+}
+.index__swiper {
+    margin: 0 auto;
+    max-width: 1920px;
 }
 .partner__slide {
     place-self: center;
