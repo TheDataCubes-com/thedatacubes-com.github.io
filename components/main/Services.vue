@@ -48,7 +48,7 @@
 }
 .mainServices__text > a {
     color: var(--darkPurple);
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: underline;
     transition: color 0.3s ease;
 }
