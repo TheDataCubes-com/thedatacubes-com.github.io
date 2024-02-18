@@ -17,7 +17,8 @@
       <CommonMediaCards class="mainServices__cards"/>
       <p class="mainServices__text">
         Each of our engagements is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.
-        <NuxtLink to="/free-consultation">Schedule a 30 minute consultation to learn more about how the power of data can accelerate your business objectives</NuxtLink>
+        <NuxtLink to="/free-consultation">Schedule a 30 minute consultation</NuxtLink>
+        to learn more about how the power of data can accelerate your business objectives.
       </p>
     </div>
   </section>
