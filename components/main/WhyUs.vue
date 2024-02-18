@@ -49,17 +49,17 @@ const whyUs = ref({
   points: [
     {
       title: "Big Picture Approach",
-      text: "We take a high-level view of your Business strategy and assess how your data assets align with it. From this strategic vantage point, we design, develop, and implement a comprehensive, full-stack data strategy from data sourcing to analytics solutions. Our approach is not only strategic but also cost-effective, ensuring that you get the most value from your investment."
+      text: "We take a high-level view of your Business strategy and assess how your data assets align with it. From this strategic vantage point, we design, develop, and implement a comprehensive, full-stack Data and AI strategy from data sourcing to analytics solutions. Our approach is not only strategic but also cost-effective, ensuring that you get the most value from your investment."
     },
     {
       title: "Vendor-Independent Consulting",
-      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management, Cloud, and Data Management. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations.",
+      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management / ER, Cloud, and Enterprise Data Management & Analytics. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations.",
       image: "/images/t2.png"
     },
     {
       title: "Decades of Experience and Custom Solutions",
-      text: "Leveraging decades of experience, our frameworks and accelerators include industry-specific use cases and custom models. Our expertise in Data Management and MDM accelerators is geared towards breaking down traditional data silos, modeling your business in data, and fully integrating your data into your business strategy.",
-      image: "/images/t3.png"
+      text: "Leveraging decades of experience, our frameworks and accelerators include industry-specific use cases and custom models. Our expertise in Data Management, AI and MDM accelerators is geared towards breaking down traditional data silos, modeling your business in data, and fully integrating your data into your business strategy.",
+      image: "/images/t3.jpg"
     },
   ]
 });

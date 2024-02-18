@@ -24,10 +24,10 @@
 <script setup>
 const pages = ref({
   "executive-services": {
-    title: "Executive Services - Education & Literacy",
+    title: "Executive Services",
     buttonText: "Get in Touch",
     text: [
-      "<p>Keeping pace with technological advancements can be challenging for data professionals, let alone for those steering the business. Our suite of executive services is designed to clarify emerging technologies like AI, MDM, data science, machine learning, and analytics for executives. We show how these innovations can enhance your organization through:</p>",
+      "<p>Keeping pace with technological advancements can be challenging for data professionals, let alone for those steering the business. Our suite of personalized Executive Services is designed for high-value data decisioning and AI strategy. It aims to demystify emerging technologies such as AI, MDM, data science, machine learning, and analytics, providing insights into how these can be leveraged to enhance value within your organization.</p>",
       "<ul class='services__list'>",
       "<li>Fractional Chief Data Officer (CDO)</li>",
       "<li>Advisory & Mentorship</li>",
@@ -93,23 +93,22 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     flex-direction: column;
 }
 .services__wrap {
-    margin: auto 0;
     max-width: var(--maxContentWidth);
     place-self: center;
     width: 100%;
-    padding: 40px 60px;
+    padding: 0px 60px;
     display: flex;
     justify-content: space-between;
 }
 .servicess__content {
-    max-width: 50%;
+    max-width: 66%;
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 .services__wrap img {
-    max-width: 40%;
-    height: 360px;
+    max-width: 30%;
+    height: 270px;
     place-self: center;
 }
 .services__text {

@@ -37,7 +37,7 @@ const cards = ref([
     link: { name: "Read more", path: "/services/executive-services" }
   },
   {
-    title: "Data Management and AI Strategy Consulting",
+    title: "AI and Data Management Strategy Consulting",
     text: "<p>We assess your data needs from a Business perspective and create a data strategy to enable practical, self-service data-driven solutions to various business challenges.</p>",
     link: { name: "Read more", path: "/services/data-management" }
   },
@@ -64,7 +64,7 @@ const cardHeight = ref("440px");
    height: 100%;
 }
 .mediaCards__media {
-    max-width: calc(100% - var(--maxCardWidth) - 40px);
+    max-width: calc(100% - var(--maxCardWidth) - 200px);
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -82,7 +82,7 @@ const cardHeight = ref("440px");
     gap: 20px;
     font-size: v-bind(cardHeight);
     height: calc(1em + (1em * 0.16));
-    margin: 20px 0;
+    margin: 60px 0;
 }
 .mediaCards__card {
     background-color: white;

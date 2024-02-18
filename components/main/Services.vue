@@ -17,7 +17,7 @@
       <CommonMediaCards class="mainServices__cards"/>
       <p class="mainServices__text">
         Each of our engagements is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.
-        <NuxtLink to="/free-consultation">Talk To Us</NuxtLink>
+        <NuxtLink to="/free-consultation">Schedule a 30 minute consultation to learn more about how the power of data can accelerate your business objectives</NuxtLink>
       </p>
     </div>
   </section>
@@ -53,7 +53,7 @@
     transition: color 0.3s ease;
 }
 .mainServices__cards {
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 @media (hover:hover) {
     .mainServices__text > a:hover {

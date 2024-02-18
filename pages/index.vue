@@ -42,7 +42,7 @@ const slides = (["/svg/keep-it-simple.svg", "/svg/about-time.svg"]);
 
 const bannerText = ([
   "We transform data chaos into profitable insights, organizing and refining messy, siloed data into actionable intelligence that your Business team can easily work with. Our goal is to make you successful by helping you monetize every aspect of your data.",
-  "Our comprehensive range of services includes Master Data Management, Customer 360, AI & Data Management strategy, each tailored to meet your unique business needs."
+  "Our comprehensive range of services includes Master Data Management, Customer&nbsp360, AI & Data Management strategy, each tailored to meet your unique business needs."
 ]);
 
 const slideIndex = ref(1);

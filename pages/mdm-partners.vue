@@ -430,6 +430,7 @@ const setActive = (index, bullets) => {
         position: relative;
         top: initial;
         right: initial;
+        margin: 0 auto;
         margin-bottom: 40px;
     }
     .partners__bannerButton {
