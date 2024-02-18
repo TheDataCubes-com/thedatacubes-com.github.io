@@ -315,7 +315,10 @@ const setActive = (index, bullets) => {
     font-size: 20px;
     font-weight: 600;
     color: #3D3D3D;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
+}
+.bullet__item > p {
+    font-size: 16px;
 }
 .text--selected {
     box-shadow: none;
