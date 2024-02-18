@@ -96,7 +96,7 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     max-width: var(--maxContentWidth);
     place-self: center;
     width: 100%;
-    padding: 0px 60px;
+    padding: 20px 60px;
     display: flex;
     justify-content: space-between;
 }
