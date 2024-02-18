@@ -33,7 +33,7 @@ const props = defineProps({
 const cards = ref([
   {
     title: "Executive Services",
-    text: "<ul style='display: flex; flex-direction: column; gap: 8px;'><li>Fractional Chief Data Officer (CDO)</li><li>Personalized Education & Literacy</li><li>Advisory & Mentorship</li><li>Assessment & Screening of data professionals</li></ul>",
+    text: "<ul style='display: flex; flex-direction: column; gap: 8px;'><li>Fractional Chief Data Officer (CDO)</li><li>Personalized Education & Literacy</li><li>AI & Data Strategy</li><li>Assessment & Screening of Data professionals</li></ul>",
     link: { name: "Read more", path: "/services/executive-services" }
   },
   {
