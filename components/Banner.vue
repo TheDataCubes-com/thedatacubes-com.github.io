@@ -21,8 +21,10 @@ const setPosition = (width) => {
   if (!props.static) return;
   position.value = width < 1024 ? "static" : "absolute";
 }
+
 onBeforeMount(() => setPosition(appWidth.value));
-watch(appWidth, setPosition)
+
+watch(appWidth, setPosition);
 </script>
 
 <style>

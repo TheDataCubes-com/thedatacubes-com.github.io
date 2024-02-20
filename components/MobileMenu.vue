@@ -1,9 +1,9 @@
 <template>
   <nav :class="['mobileNav', {'mobileNav--white': isWhite}]">
     <ul class="mobileNav__list">
-      <li v-for="({name, link, children, disabled}, index) in props.links" :key="index">
+      <li v-for="({name, link, children}, index) in props.links" :key="index">
         <div
-          v-if="disabled"
+          v-if="children"
           :class="[
             'mobileNav__withSubList',
             {'subList--open': subMenuIndex === index}
@@ -16,7 +16,7 @@
           >{{name}}</button>
           <ul v-if="subMenuIndex === index" class="mobileNav__subList">
             <li v-for="{name, link} in subMenu">
-              <NuxtLink :to="subMenuParentLink + link" class="mobileNav__item">{{name}}</NuxtLink>
+              <NuxtLink :to="link" class="mobileNav__item">{{name}}</NuxtLink>
             </li>
           </ul>
         </div>
@@ -41,12 +41,10 @@ const props = defineProps({
 
 const subMenu = ref(null);
 const subMenuIndex = ref(null);
-const subMenuParentLink = ref("");
 
 const toggleSubMenu = (menu, parentLink, menuIndex) => {
   subMenu.value = subMenu.value ? null : menu;
   subMenuIndex.value = subMenuIndex.value ? null : menuIndex;
-  subMenuParentLink.value = subMenuParentLink.value ? null : parentLink;
 }
 </script>
 

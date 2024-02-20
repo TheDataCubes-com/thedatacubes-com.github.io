@@ -1,5 +1,5 @@
 <template>
-  <section class="mainServices">
+  <section id="services" class="mainServices">
     <CommonTitleLine
       heading="h2"
       title="Services"

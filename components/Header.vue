@@ -11,22 +11,17 @@
       <CommonLogo @mouseover="handleHeaderLeave" :isWhite="props.isWhite" class="header__logo"/>
       <ul v-if="!isMobile" class="header__nav">
         <li
-          v-for="({name, link, children, disabled}, index) in links"
+          v-for="({name, link, children, byID}) in links"
           @mouseover="handleMouseOver($event, children, link)"
         >
-          <span
-            v-if="disabled"
-            style="cursor: default"
-            class="header__item header__link link--disabled"
-          >{{name}}</span>
-          <NuxtLink v-else-if="index !== 0" :to="link" class="header__item header__link">
-            {{name}}
-          </NuxtLink>
           <a
-            v-else
+            v-if="byID"
             :href="link"
             class="header__item header__link"
           >{{name}}</a>
+          <NuxtLink v-else :to="link" class="header__item header__link">
+            {{name}}
+          </NuxtLink>
         </li>
       </ul>
       <div class="header__nav">
@@ -66,7 +61,7 @@
     >
       <ul>
         <li v-for="{name, link} in subMenu">
-          <NuxtLink :to="subMenuParentLink + link" class="header__item">{{name}}</NuxtLink>
+          <NuxtLink :to="link" class="header__item">{{name}}</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -90,21 +85,21 @@ const props = defineProps({
 
 const subMenu = ref(null);
 const subMenuPos = ref(0);
-const subMenuParentLink = ref("");
 const burgerActive = ref(false);
 const links = ref([
   {
     name: "Why Us",
-    link: "/#why-us"
+    link: "/#why-us",
+    byID: true,
   },
   {
     name: "Our Services",
-    link: "/services",
-    disabled: true,
+    link: "/#services",
+    byID: true,
     children: [
-      { name: "Master Data Management and Entity Resolution Consulting" , link: "/mdm" },
-      { name: "AI and Data Management Strategy Consulting" , link: "/data-management" },
-      { name: "Executive Services" , link: "/executive-services" },
+      { name: "Master Data Management and Entity Resolution Consulting" , link: "/services/mdm" },
+      { name: "AI and Data Management Strategy Consulting" , link: "/services/data-management" },
+      { name: "Executive Services" , link: "/services/executive-services" },
       // { name: "AI and Data Observability" , link: "/ai" },
       // { name: "Business Analysis and Data Modeling" , link: "/analysis-modeling" },
       // { name: "Screening & Assessment of Data Professionals" , link: "/staffing" },
@@ -128,12 +123,10 @@ const handleMouseOver = (event, menu, parentLink) => {
   }
   subMenu.value = menu;
   subMenuPos.value = event.target.offsetLeft;
-  subMenuParentLink.value = parentLink;
 };
 const handleHeaderLeave = () => {
   subMenu.value = null;
   subMenuPos.value = 0;
-  subMenuParentLink.value = "";
 };
 const toggleBurger = () => burgerActive.value = !burgerActive.value;
 
@@ -234,10 +227,6 @@ watch(isMobile, (value) => {
 }
 .header__dropDown__nav a {
     font-size: 18px;
-}
-.link--disabled {
-    cursor: default;
-    user-select: none;
 }
 .header__burger {
     display: flex;

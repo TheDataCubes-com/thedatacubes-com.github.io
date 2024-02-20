@@ -14,7 +14,7 @@
 <script setup>
 const copyright = computed(() => {
   var date = new Date();
-  return `© ${date.getFullYear()} TheDataCubes, Inc.`;
+  return `© ${date.getFullYear()} TheDataCubes, Inc. - All Right Reserved`;
 });
 </script>
 

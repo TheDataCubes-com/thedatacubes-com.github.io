@@ -1,10 +1,12 @@
 <template>
   <article class="services">
+    <div v-if="pageData.picture" class="t"></div>
     <CommonTitleLine
       :title="pageData.title"
       :centered="true"
       :padBottom="40"
       :noBg="true"
+      :size="42"
     />
     <section class="services__wrap">
       <div class="servicess__content">
@@ -16,7 +18,7 @@
           class="services__button"
         />
       </div>
-      <img src="/images/t1.png" alt="">
+      <img v-if="pageData.textImage" :src="pageData.textImage" alt="">
     </section>
   </article>
 </template>
@@ -25,7 +27,8 @@
 const pages = ref({
   "executive-services": {
     title: "Executive Services",
-    buttonText: "Get in Touch",
+    buttonText: "GET IN TOUCH",
+    textImage: "/images/t1.png",
     text: [
       "<p>Keeping pace with technological advancements can be challenging for data professionals, let alone for those steering the business. Our suite of personalized Executive Services is designed for high-value data decisioning and AI strategy. It aims to demystify emerging technologies such as AI, MDM, data science, machine learning, and analytics, providing insights into how these can be leveraged to enhance value within your organization.</p>",
       "<ul class='services__list'>",
@@ -37,6 +40,13 @@ const pages = ref({
       "</ul>"
       ].join(""),
     meta: {}
+  },
+  "data-management": {
+    title: "AI and Enterprise Data Management Strategy Consulting",
+    text: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>",
+    buttonText: "Drive Your Data Strategy Forward Now",
+    meta: {},
+    picture: true
   },
   services: {
     title: "service title",
@@ -50,11 +60,6 @@ const pages = ref({
   },
   "analysis-modeling": {
     title: "Business Analysis & Data Modeling",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    meta: {}
-  },
-  "data-management": {
-    title: "Enterprise Data Management & Analytics Strategy",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     meta: {}
   },
@@ -78,6 +83,7 @@ const pages = ref({
 const route = useRoute();
 
 const pageData = computed(() => pages.value[route.params.subService]);
+const textWidth = computed(() => pageData.value.textImage ? "66%" : "100%");
 
 const changeHeader = inject("changeHeader");
 
@@ -85,6 +91,14 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
 </script>
 
 <style>
+.t {
+    width: 100%;
+    height: 500px;
+    background-image: url("/images/x.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% 10%;
+}
 .services {
     flex-grow: 1;
     background-color: var(--softPink);
@@ -99,9 +113,10 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     padding: 20px 60px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 60px;
 }
 .servicess__content {
-    max-width: 66%;
+    max-width: v-bind(textWidth);
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -129,7 +144,6 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     gap: 0;
     background-color: var(--mainYellow);
     place-self: center;
-    text-transform: uppercase;
     font-size: 14px;
     padding: 4px 16px;
 }

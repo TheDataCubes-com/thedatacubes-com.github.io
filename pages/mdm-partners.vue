@@ -57,12 +57,12 @@
         :navigation="true"
         :noCap="true"
         :breakPoints="{
-          320: {
+          375: {
             spaceBetween: 20,
             slidesPerView: 1,
             slidesPerGroup: 1,
             speed: 2000,
-          }
+          },
         }"
         @slideChange="(i) => setActive(i, pageText[i].bullets)"
         class="partners__cardSwiper"
@@ -122,7 +122,7 @@ const pageText = ref([
       { title: "Target new trending Use Cases related to Generative AI", text: "Tap into entirely new use cases for the MDM market, related to the adoption of Generative AI by customers."},
       { title: "Leveraging Our Deep Understanding of FinServ", text: "Our extensive expertise in the Financial Services industry is a valuable asset in generating new leads. This profound knowledge enables us to identify potential clients who stand to gain significantly from MDM implementation."},
       { title: "Collaboration with Technology Partners", text: "We also collaborate with non MDM technology partners to enhance client understanding by complementing, contrasting, and determining the best combination of products such as CDP, Customer Master, Identity Resolution, C360, MDM, and ER, to identify the most effective solution."},
-      { title: 'Leveraging our "Data Management Strategy Consulting" service', text: "Our Data Management Strategy Consulting service acts as a key source of new leads for our vendor partners. Gained from our deep understanding of use cases through close collaboration with businesses, we uncover client needs and opportunities that align with our partners' offerings."},
+      { title: 'Leveraging our "AI & Data Management Strategy Consulting" service', text: `Our "AI & Data Management Strategy Consulting" service acts as a key source of new leads for our vendor partners. Gained from our deep understanding of use cases through close collaboration with businesses, we uncover client needs and opportunities that align with our partners' offerings.`},
       { title: "Targeting Companies with On-Premise MDM Solutions", text: "There is an opportunity in engaging with companies currently using on-premise solutions and seeking to migrate to the cloud. We can help to address their needs by offering more advanced, cloud-based solutions that enhance their data management capabilities."},
     ],
     icon: "#cloud"
@@ -155,7 +155,7 @@ const active = ref(0);
 const placeText = ref(pageText.value[0].bullets);
 const appWidth = inject("appWidth");
 
-const cardSwiper = computed(() => appWidth.value < 768);
+const cardSwiper = computed(() => appWidth.value < 930);
 
 const setActive = (index, bullets) => {
   if (active.value === index) {
@@ -362,10 +362,11 @@ const setActive = (index, bullets) => {
 }
 .partners__cardSwiper {
     place-self: center;
-    max-width: 400px;
+    max-width: 188px;
 }
 .partners__cardSwiper .customSlide {
     padding: 0 16px;
+    height: 230px;
 }
 @media (hover:hover) {
     .partners__button:hover {
@@ -377,25 +378,17 @@ const setActive = (index, bullets) => {
         box-shadow: 0 10px 14px var(--darkPurple);
     }
 }
-@media (max-height: 960px) {
-    .partners__bannerText {
-        font-size: 20px;
-    }
-}
 @media (max-width: 1659.99px) {
     .partners__title {
        font-size: 52px;
     }
-    .partners__bannerText {
-        font-size: 18px;
-    }
 }
 @media (max-width: 1439.99px) {
-    .partners__bannerText {
-        font-size: 16px;
-    }
     .partners__content {
         padding: 60px 60px 0;
+    }
+    .partners__bannerText {
+        font-size: 20px;
     }
 }
 @media (max-width: 1267.99px) {
@@ -415,9 +408,6 @@ const setActive = (index, bullets) => {
     .partners__icon {
         width: 48px;
         height: 48px;
-    }
-    .partners__text h3 {
-        font-size: 14px;
     }
 }
 @media (max-width: 1023.99px) {
@@ -441,12 +431,6 @@ const setActive = (index, bullets) => {
     }
     .partners__content {
         padding: 28px 20px 0;
-    }
-    .partners__text {
-        padding: 20px 12px;
-    }
-    .partners__arrow {
-        display: none;
     }
 }
 @media (max-width: 767.99px) {
@@ -501,6 +485,9 @@ const setActive = (index, bullets) => {
     }
     .partners__cardSwiper {
         max-width: 320px;
+    }
+    .partners__bannerText {
+        font-size: 18px;
     }
 }
 @media (max-width: 374.99px) {
