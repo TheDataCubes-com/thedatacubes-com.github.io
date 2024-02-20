@@ -121,7 +121,7 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     flex-direction: column;
 }
 .services__wrap {
-    max-width: 1260px;
+    max-width: 960px;
     place-self: center;
     width: 100%;
     padding: 20px 60px;
