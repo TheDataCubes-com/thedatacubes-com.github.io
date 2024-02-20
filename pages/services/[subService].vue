@@ -116,7 +116,6 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
 }
 .services {
     flex-grow: 1;
-    background-color: var(--softPink);
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -165,6 +164,7 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
 }
 .services__highlight {
     color: var(--darkPurple);
+    font-weight: 500;
 }
 .hl--block {
     display: block;
