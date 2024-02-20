@@ -59,14 +59,14 @@ const cardHeight = ref("440px");
    margin: 0 auto;
    display: flex;
    width: 100%;
-   gap: 20px;
+   gap: 40px;
    height: 100%;
+   margin: 100px 0;
 }
 .mainServices__video {
     flex-shrink: 1;
     max-width: 600px;
     height: v-bind(cardHeight);
-    place-self: center;
     object-fit: cover;
 }
 .mediaCards__cardsWrap {
@@ -75,7 +75,6 @@ const cardHeight = ref("440px");
     gap: 20px;
     font-size: v-bind(cardHeight);
     height: calc(1em + (1em * 0.16));
-    margin: 60px 0;
 }
 .mediaCards__card {
     background-color: white;
