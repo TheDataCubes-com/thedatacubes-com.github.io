@@ -61,7 +61,7 @@ const trustedBy = ref([
 const currentSlide = computed(() => slides[slideIndex.value % 2]);
 
 const changeSlide = () => {
-  // if (slideIndex.value === 3) clearInterval(swiper.value);
+  if (slideIndex.value === 3) clearInterval(swiper.value);
   var className = "imgTransition";
   titleSlide.value?.classList.add(className);
   slideIndex.value += 1;

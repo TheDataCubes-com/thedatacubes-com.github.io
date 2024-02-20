@@ -29,7 +29,7 @@
       />
     </template>
   </CommonCustomSwiper>
-  <CommonTitleLine heading="h2" title="Services" :centered="true" />
+  <CommonTitleLine heading="h2" :size="42" title="Services" :centered="true" />
   <div class="partners__info">
     <section class="partners__content">
       <div v-if="!cardSwiper" class="partners__points">

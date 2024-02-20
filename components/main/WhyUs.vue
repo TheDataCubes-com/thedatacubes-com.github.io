@@ -1,6 +1,6 @@
 <template>
   <section id="why-us" class="whyUs">
-    <div class="whyUs__separator"/>
+    <div style="max-width: 100%;" class="whyUs__separator"/>
     <CommonTitleLine
       :title="whyUs.title"
       heading="h2"
@@ -54,7 +54,7 @@ const whyUs = ref({
     {
       title: "Vendor-Independent Consulting",
       text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management / ER, Cloud, and Enterprise Data Management & Analytics. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations.",
-      image: "/images/t2.png"
+      image: "/images/x3.jpg"
     },
     {
       title: "Decades of Experience and Custom Solutions",

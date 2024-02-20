@@ -2,7 +2,7 @@
   <div :class="['swiperWrap', {'wrap--fade': !props.noWrap}]">
     <div v-if="!props.noCap" class="swiperCaption">
       <p class="captionItem">
-        <span :style="`color:${props.solo ? '#b2b5bb' : 'var(--mainYellow)'};`" class="caption--highlight">TRUSTED BY</span>
+        <span class="caption--highlight">TRUSTED BY</span>
         <span v-if="!props.solo" class="caption--tale">Fortune 500 companies and leading startups alike.</span>
       </p>
     </div>
@@ -175,6 +175,7 @@ onMounted(() => {
     position: relative;
     display: inline-block;
     margin-right: 8px;
+    color: var(--mainYellow) !important;
 }
 .swiperCaption span:first-of-type:before {
     content: "";

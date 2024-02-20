@@ -34,7 +34,7 @@ const props = defineProps({
     content: "“";
     font-family: 'Times New Roman', Times, serif;
     position: absolute;
-    color: #63087d;
+    color: var(--darkPurple);
     font-size: 60px !important;
     top: 0;
     transform: translate(-30px, -40px);
@@ -49,7 +49,7 @@ const props = defineProps({
 }
 .quote__inner>span {
     place-self: flex-end;
-    color: #63087d;
+    color: var(--darkPurple);
     font-weight: 500;
     font-size: 18px;
 }

@@ -55,13 +55,13 @@ const cardHeight = ref("440px");
     animation: bgTransition 16s linear infinite;
 }
 .mediaCards__inner {
-   max-width: 1920px;
-   margin: 0 auto;
-   display: flex;
-   width: 100%;
-   gap: 40px;
-   height: 100%;
-   margin: 100px 0;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    width: fit-content;
+    gap: 40px;
+    height: 100%;
+    margin: 100px auto;
 }
 .mainServices__video {
     flex-shrink: 1;
