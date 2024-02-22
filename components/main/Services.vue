@@ -77,4 +77,9 @@
         color: var(--mainYellow);
     }
 }
+@media (max-width: 767.99px) {
+    .mainServices__text, .mainServices__bottom {
+        padding: 12px 20px;
+    }
+}
 </style>

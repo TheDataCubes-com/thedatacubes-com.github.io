@@ -62,4 +62,23 @@ const props = defineProps({
         color: white;
     }
 }
+@media (max-width: 1439.99px) {
+    .card {
+        padding: 20px;
+    }
+    .card__title {
+        min-height: initial;
+    }
+}
+@media (max-width: 767.99px) {
+    .card__title {
+        font-size: 18px;
+    }
+    .card__text * {
+        font-size: 14px;
+    }
+    .card__link {
+        font-size: 14px;
+    }
+}
 </style>

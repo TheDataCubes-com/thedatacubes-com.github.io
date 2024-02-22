@@ -1,7 +1,31 @@
 <template>
   <Banner :static="true" class="partners__banner">
     <template v-slot:slot--title>
-      <span class="partners__title">We help MDM solution providers win in the market</span>
+      <div class="partners__title">
+        We help MDM solution providers
+        <CommonCustomSwiper
+          swiperId="banner-titile"
+          :vertical="true"
+          :noCap="true"
+          :noWrap="true"
+          :autoplay="true"
+          :items="titleStatements"
+          :break-points="{
+            320: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              speed: 2000,
+              loop: true
+            }
+          }"
+          :delay="2000"
+          class="partners__bannerSlider"
+        >
+          <template #item="itemProps">
+           <span class="partners__titleSlide">{{itemProps.slide}}</span>
+          </template>
+        </CommonCustomSwiper>
+      </div>
       <CommonDiagram class="partners__diagram"/>
     </template>
     <template v-slot:slot--secondary>
@@ -98,6 +122,11 @@
 </template>
 
 <script setup>
+const titleStatements = ref([
+  "win in the market",
+  "drive revenue faster",
+  "land and expand",
+]);
 const trustedBy = ref([
   "/images/boa-logo.png",
   "/images/sonos-logo.png",
@@ -170,6 +199,17 @@ const setActive = (index, bullets) => {
 </script>
 
 <style>
+.partners__bannerSlider {
+    height: 60px;
+}
+.partners__bannerSlider .customSwiper {
+    height: 100%;
+    padding: 0px !important;
+}
+.partners__titleSlide {
+    font-size: 60px;
+    color: var(--mainYellow);
+}
 .partners__info {
     flex-grow: 1;
     display: flex;
@@ -187,10 +227,13 @@ const setActive = (index, bullets) => {
     max-width: 55%;
     text-align: left;
     font-weight: 700;
-    top: 16vh;
+    top: 10vh;
     left: 0;
     font-size: 60px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .partners__bannerText {
     width: 100%;
@@ -377,8 +420,11 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 1659.99px) {
-    .partners__title {
+    .partners__title, .partners__titleSlide {
        font-size: 52px;
+    }
+    .partners__bannerSlider {
+        height: 52px;
     }
 }
 @media (max-width: 1439.99px) {
@@ -392,6 +438,12 @@ const setActive = (index, bullets) => {
 @media (max-width: 1267.99px) {
     .partners__content {
         padding: 40px 40px 0;
+    }
+    .partners__bannerSlider {
+        height: 40px;
+    }
+    .partners__titleSlide {
+        font-size: 40px;
     }
     .partners__title {
         font-size: 40px;
@@ -409,6 +461,12 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 1023.99px) {
+    .partners__bannerSlider {
+        height: 32px;
+    }
+    .partners__titleSlide {
+        font-size: 32px;
+    }
     .partners__title {
         position: static;
         text-align: left;
@@ -432,7 +490,10 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 767.99px) {
-    .partners__title {
+    .partners__bannerSlider {
+        height: 28px;
+    }
+    .partners__title, .partners__titleSlide {
         font-size: 28px;
         text-align: center;
     }
@@ -489,7 +550,10 @@ const setActive = (index, bullets) => {
     .partners__cardSwiper {
         max-width: 260px;
     }
-    .partners__title {
+    .partners__bannerSlider {
+        height: 24px;
+    }
+    .partners__title, .partners__titleSlide {
         font-size: 24px;
     }
     .partners__diagram {

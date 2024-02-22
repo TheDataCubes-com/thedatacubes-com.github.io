@@ -69,6 +69,7 @@ const cardHeight = ref("440px");
 .mainServices__video {
     flex-shrink: 1;
     max-width: 600px;
+    width: 100%;
     box-shadow: 0px 0px 14px 6px #09feff57;
     border-radius: 12px;
     height: v-bind(cardHeight);
@@ -127,5 +128,46 @@ const cardHeight = ref("440px");
       background:
         linear-gradient(to bottom, #05375d, #062d53, #042851, #042448)
   }
+}
+@media (max-width: 1659.99px) {
+    .mediaCards__cardsWrap {
+        max-width: calc(var(--maxCardWidth) - 60px);
+    }
+    .mainServices__video {
+        max-width: 500px;
+    }
+}
+@media (max-width: 1439.99px) {
+    .mediaCards__cardsWrap {
+        flex-direction: column;
+        row-gap: 20px;
+        height: fit-content;
+        max-width: 480px;
+    }
+    .mediaCards__card {
+        max-width: 100%;
+        transform: initial !important;
+    }
+    .mainServices__video {
+        max-width: 480px;
+        height: 380px;
+    }
+    .mediaCards__videoWrap {
+        place-self: center;
+    }
+}
+@media (max-width: 1023.99px) {
+    .mediaCards__inner {
+        flex-direction: column-reverse;
+        margin: 40px auto;
+    }
+}
+@media (max-width: 767.99px) {
+    .mainServices__video {
+        height: 260px;
+    }
+    .mediaCards__inner {
+        padding: 0 20px;
+    }
 }
 </style>

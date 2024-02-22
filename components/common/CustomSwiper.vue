@@ -48,8 +48,10 @@ const props = defineProps({
   noCap: { type: Boolean, default: false },
   noWrap: { type: Boolean, default: false },
   autoplay: { type: Boolean, default: false },
+  vertical: { type: Boolean, default: false },
   pagination: { type: Boolean, default: false },
   navigation: { type: Boolean, default: false },
+  delay: { type: Number, default: 0 },
 });
 const emit = defineEmits(["slideChange"]);
 
@@ -100,9 +102,10 @@ onMounted(() => {
   setTimeout(() => {
     swiper.value = new Swiper("#" + props.swiperId, {
     modules: props.autoplay ? [Autoplay] : [],
+    direction: props.vertical ? "vertical" : "horizontal",
     autoplay: props.autoplay
      ? {
-       delay: 0,
+       delay: props.delay,
        disableOnInteraction: false
      }
      : false,
@@ -143,7 +146,7 @@ onMounted(() => {
 }
 .customSwiper {
     width: 100%;
-    padding: 20px 0;
+    padding: 20px 0 !important;
     display: flex;
     justify-content: space-evenly;
 }
