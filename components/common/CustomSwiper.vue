@@ -143,7 +143,7 @@ onMounted(() => {
 }
 .customSwiper {
     width: 100%;
-    padding: 20px 0;
+    padding: 20px 0 !important;
     display: flex;
     justify-content: space-evenly;
 }
