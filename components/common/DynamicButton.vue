@@ -91,7 +91,7 @@ const props = defineProps({
     }
 }
 @media (max-width: 767.99px) {
-    .dynamicButton {
+    .dynamicButton, .dynamicButtonInline {
         font-size: 14px;
     }
 }

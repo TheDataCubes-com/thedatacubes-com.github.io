@@ -2,12 +2,10 @@
   <section id="why-us" class="whyUs">
     <div style="max-width: 100%;" class="whyUs__separator"/>
     <CommonTitleLine
-      :title="whyUs.title"
       heading="h2"
+      :title="whyUs.title"
       :padBottom="40"
-      :centered="true"
       :noBg="true"
-      :size="42"
     />
     <CommonQuote
       quote="We translate complex business problems into successful technical solutions"
@@ -28,17 +26,19 @@
             <h3>{{title}}</h3>
             <p>{{text}}</p>
           </div>
-          <div v-if="image">
-            <img :src="image" alt="whyUs-picture" class="whyUs__image"/>
+          <div v-if="image" class="whyUs__image">
+            <img :src="image" alt="whyUs-picture" />
           </div>
       </div>
     </section>
-    <CommonDynamicButton
-      link="/free-consultation"
-      text="Discuss How We Can Help Address Your Data Needs"
-      :isInline="true"
-      class="whyUs__button"
-    />
+    <div class="whyUs__buttonWrap">
+      <CommonDynamicButton
+        link="/free-consultation"
+        text="Discuss How We Can Help Address Your Data Needs"
+        :isInline="true"
+        class="whyUs__button"
+      />
+    </div>
     <div class="whyUs__separator"/>
   </section>
 </template>
@@ -131,11 +131,14 @@ watch([scroll, appWidth], value => {
     width: 100%;
     gap: 12px;
 }
-.whyUs__image {
+.whyUs__image > img {
     place-self: center;
     max-width: 320px;
     align-self: center;
     width: 100%;
+}
+.whyUs__buttonWrap {
+    place-self: center;
 }
 .whyUs__button {
     margin: 12px 0 40px;
@@ -144,7 +147,6 @@ watch([scroll, appWidth], value => {
     border: 2px solid #eedcf9;
     color: var(--darkPurple);
     width: fit-content;
-    place-self: center;
     padding: 8px 12px;
     text-align: center;
 }
@@ -154,12 +156,20 @@ watch([scroll, appWidth], value => {
 .point--even {
     flex-direction: row-reverse;
 }
-@media (max-width: 1659.99px) {
-}
-@media (max-width: 1439.99px) {
-}
 @media (max-width: 1023.99px) {
+    .whyUs__image {
+        display: none !important;
+    }
+    .whyUs__point > div {
+        max-width: 100%;
+    }
 }
-@media (max-width: 573.99px) {
+@media (max-width: 767.99px) {
+    .whyUs__cardsWrap {
+        padding: 0 20px 40px;
+    }
+    .whyUs__buttonWrap {
+        padding: 0 20px;
+    }
 }
 </style>

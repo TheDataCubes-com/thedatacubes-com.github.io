@@ -3,10 +3,8 @@
     <CommonTitleLine
       title="What Our Clients Say"
       heading="h2"
-      :centered="true"
       :padBottom="40"
       :noBg="true"
-      :size="42"
     />
     <div class="ourClients__inner">
       <div class="ourClients__cardsWrap">
@@ -181,11 +179,32 @@ const filteredClients = computed(() => {
     place-self: flex-end;
     width: 100%;
 }
-@media (max-width: 1023.99px) {
+@media (max-width: 1279.99px) {
     .ourClients__card {
         width: 50%;
     }
 }
-@media (max-width: 573.99px) {
+@media (max-width: 1023.99px) {
+   .ourClients__inner {
+       padding: 40px 20px;
+   }
+}
+@media (max-width: 767.99px) {
+    .ourClients__inner {
+        padding: 20px;
+    }
+    .ourClients__card {
+        padding: 0;
+        margin-bottom: 12px;
+    }
+    .ourClients__card>div {
+        padding: 20px;
+    }
+    .ourClients__card {
+        width: 100%;
+    }
+    .ourClients__text {
+        min-height: initial;
+    }
 }
 </style>

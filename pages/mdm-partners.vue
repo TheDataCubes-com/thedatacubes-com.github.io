@@ -29,7 +29,7 @@
       />
     </template>
   </CommonCustomSwiper>
-  <CommonTitleLine heading="h2" :size="42" title="Services" :centered="true" />
+  <CommonTitleLine heading="h2" title="Services" />
   <div class="partners__info">
     <section class="partners__content">
       <div v-if="!cardSwiper" class="partners__points">
@@ -68,7 +68,7 @@
         class="partners__cardSwiper"
       >
         <template #item="itemProps">
-          <div class="partners__text text--selected">
+          <div class="partners__text">
             <svg class="partners__icon">
               <use :xlink:href="itemProps.slide.icon" />
             </svg>
@@ -176,9 +176,6 @@ const setActive = (index, bullets) => {
     flex-direction: column;
     place-items: center;
     padding: 0 20px;
-}
-.partners__banner > .banner__secondary {
-   top: calc(100vh * 0.5);
 }
 .partners__diagram {
     position: absolute;
@@ -362,11 +359,12 @@ const setActive = (index, bullets) => {
 }
 .partners__cardSwiper {
     place-self: center;
-    max-width: 188px;
+    max-width: 320px;
 }
 .partners__cardSwiper .customSlide {
+    pointer-events: none;
     padding: 0 16px;
-    height: 230px;
+    height: fit-content;
 }
 @media (hover:hover) {
     .partners__button:hover {
@@ -482,9 +480,6 @@ const setActive = (index, bullets) => {
     }
     .bullet__item > p {
         font-size: 14px;
-    }
-    .partners__cardSwiper {
-        max-width: 320px;
     }
     .partners__bannerText {
         font-size: 18px;

@@ -53,4 +53,10 @@ const props = defineProps({
     font-weight: 500;
     font-size: 18px;
 }
+@media (max-width: 767.99px) {
+    .quote__inner>div {
+        font-size: 18px;
+        text-align: center;
+    }
+}
 </style>

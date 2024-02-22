@@ -51,6 +51,7 @@ watch(() => route.fullPath, () => headerWhite.value = false);
 @font-face {
   font-family: "franklinRegular";
   src: url('/fonts/LibreFranklin-Regular.ttf') format('truetype');
+  /* src: url('/fonts/EBGaramond-Regular.ttf') format('truetype'); */
 }
 :root {
     --mainPurple: rgb(98, 0, 155);

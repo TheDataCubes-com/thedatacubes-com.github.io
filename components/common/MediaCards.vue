@@ -1,15 +1,18 @@
 <template>
   <section class="mediaCards">
     <div class="mediaCards__inner">
-      <video
-        autoplay
-        loop
-        playsinline
-        muted
-        src="/videos/cubes.mp4"
-        type="video/mp4"
-        class="mainServices__video"
-      />
+      <div class="mediaCards__videoWrap">
+        <video
+          autoplay
+          loop
+          playsinline
+          muted
+          src="/videos/cubes.mp4"
+          type="video/mp4"
+          class="mainServices__video"
+        />
+        <CommonLogo :noLines="true" class="mainServices__logo" />
+      </div>
       <div class="mediaCards__cardsWrap">
         <CommonCard
           v-for="({ text, link, title}, index) in cards"
@@ -66,8 +69,22 @@ const cardHeight = ref("440px");
 .mainServices__video {
     flex-shrink: 1;
     max-width: 600px;
+    box-shadow: 0px 0px 14px 6px #09feff57;
+    border-radius: 12px;
     height: v-bind(cardHeight);
     object-fit: cover;
+}
+.mediaCards__videoWrap {
+   position: relative;
+   height: fit-content;
+}
+.mainServices__logo {
+    pointer-events: none;
+    position: absolute;
+    width: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .mediaCards__cardsWrap {
     max-width: var(--maxCardWidth);
