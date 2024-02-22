@@ -208,6 +208,7 @@ const setActive = (index, bullets) => {
 }
 .partners__titleSlide {
     font-size: 60px;
+    font-weight: 900;
     color: var(--mainYellow);
 }
 .partners__info {
@@ -226,7 +227,7 @@ const setActive = (index, bullets) => {
     position: absolute;
     max-width: 55%;
     text-align: left;
-    font-weight: 700;
+    font-weight: 500;
     top: 10vh;
     left: 0;
     font-size: 60px;
