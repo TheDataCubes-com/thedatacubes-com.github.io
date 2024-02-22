@@ -1,10 +1,8 @@
 <template>
-  <NuxtLink :to="props.link.path">
-    <article class="card">
-      <h3 class="card__title">{{props.title}}</h3>
-      <div v-html="text" class="card__text"/>
-      <span class="card__link">{{props.link.name}}</span>
-    </article>
+  <NuxtLink :to="props.link.path" class="card">
+    <h3 class="card__title">{{props.title}}</h3>
+    <div v-html="text" class="card__text"/>
+    <span class="card__link">{{props.link.name}}</span>
   </NuxtLink>
 </template>
 
@@ -25,9 +23,8 @@ const props = defineProps({
     padding: 40px 20px;
     gap: 12px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px var(--darkPurple);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    background-color: white;
 }
 .card__title {
     text-align: center;
@@ -60,17 +57,9 @@ const props = defineProps({
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 @media (hover:hover) {
-    .card:hover {
-        transform: translateY(-15px);
-        box-shadow: 0 10px 14px var(--darkPurple);
-    }
     .card:hover .card__link {
         background-color: var(--mainYellow);
         color: white;
     }
-    /* .card__link:hover {
-        background-color: var(--darkPurple);
-        color: white;
-    } */
 }
 </style>

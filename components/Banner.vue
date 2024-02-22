@@ -9,27 +9,44 @@
   </section>
 </template>
 
+<script setup>
+const props = defineProps({
+  static: { type: Boolean, default: false }
+});
+
+const appWidth = inject("appWidth");
+const position = ref("absolute");
+
+const setPosition = (width) => {
+  if (!props.static) return;
+  position.value = width < 1024 ? "static" : "absolute";
+}
+
+onBeforeMount(() => setPosition(appWidth.value));
+
+watch(appWidth, setPosition);
+</script>
+
 <style>
 .banner {
     height: 100vh;
     position: relative;
     height: calc(100vh - 149px);
 }
-.banner__title {
+.banner__title, .banner__secondary {
+    position: v-bind(position);
     width: 100%;
+}
+.banner__title {
     top: 50px;
-    position: absolute;
-    left: 100px;
     opacity: 1;
     color: white;
 }
 .banner__secondary {
-    position: absolute;
     top: calc(100vh * 0.4);
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 100%;
 }
 @media (max-height: 960px) {
     .banner__secondary {
@@ -63,12 +80,11 @@
     .banner {
         height: calc(100vh - 89px);
     }
+    .banner__secondary {
+        max-width: 520px;
+    }
 }
 @media (max-width: 1023.99px) {
-    .banner__title {
-        left: 0;
-        padding: 0 20px;
-    }
     .banner__secondary {
         max-width: calc(100% - 40px * 2);
     }
@@ -84,6 +100,7 @@
 @media (max-width: 574.99px) {
     .banner__secondary {
         top: calc(100vh * 0.25);
+        max-width: 100%;
     }
 }
 </style>

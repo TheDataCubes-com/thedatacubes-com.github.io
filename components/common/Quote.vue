@@ -1,7 +1,8 @@
 <template>
   <blockquote class="quote">
     <div class="quote__inner">
-      <p>{{quote}}</p>
+      <div v-if="props.phrase">{{props.quote}}</div>
+      <p v-else>{{props.quote}}</p>
       <span>{{props.sign}}</span>
     </div>
   </blockquote>
@@ -10,6 +11,7 @@
 <script setup>
 const props = defineProps({
   quote: { type: String, default: "" },
+  phrase: { type: Boolean,default: false },
   sign: { type: String, default: "" }
 });
 </script>
@@ -32,12 +34,12 @@ const props = defineProps({
     content: "“";
     font-family: 'Times New Roman', Times, serif;
     position: absolute;
-    color: #63087d;
+    color: var(--darkPurple);
     font-size: 60px !important;
     top: 0;
     transform: translate(-30px, -40px);
 }
-.quote__inner>p {
+.quote__inner>p, .quote__inner>div {
     font-weight: 600;
     position: relative;
     color: white;
@@ -47,8 +49,14 @@ const props = defineProps({
 }
 .quote__inner>span {
     place-self: flex-end;
-    color: #63087d;
+    color: var(--darkPurple);
     font-weight: 500;
     font-size: 18px;
+}
+@media (max-width: 767.99px) {
+    .quote__inner>div {
+        font-size: 18px;
+        text-align: center;
+    }
 }
 </style>

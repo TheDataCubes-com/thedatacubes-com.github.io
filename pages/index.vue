@@ -17,14 +17,22 @@
       />
     </template>
   </Banner>
-  <CommonCustomSwiper :items="trustedBy" :maxPerView="6" :solo="true" >
-    <template #item="itemProps">
-      <div
-      :style="`background-image: url(${itemProps.slide});`"
-      class="partner__slide"
-      />
-    </template>
-  </CommonCustomSwiper>
+  <ClientOnly>
+    <CommonCustomSwiper
+      swiperId="index-trsuted"
+      :items="trustedBy"
+      :autoplay="true"
+      :solo="true"
+      class="index__swiper"
+    >
+      <template #item="itemProps">
+        <div
+          :style="`background-image: url(${itemProps.slide});`"
+          class="partner__slide"
+        />
+      </template>
+    </CommonCustomSwiper>
+  </CLientOnly>
   <MainWhyUs />
   <MainServices />
 </template>
@@ -34,7 +42,7 @@ const slides = (["/svg/keep-it-simple.svg", "/svg/about-time.svg"]);
 
 const bannerText = ([
   "We transform data chaos into profitable insights, organizing and refining messy, siloed data into actionable intelligence that your Business team can easily work with. Our goal is to make you successful by helping you monetize every aspect of your data.",
-  "Our comprehensive range of services includes Master Data Management, Customer 360, AI & Data Management strategy, each tailored to meet your unique business needs."
+  "Our comprehensive range of services includes Master Data Management, Customer&nbsp360, AI & Data Management strategy, each tailored to meet your unique business needs."
 ]);
 
 const slideIndex = ref(1);
@@ -53,7 +61,7 @@ const trustedBy = ref([
 const currentSlide = computed(() => slides[slideIndex.value % 2]);
 
 const changeSlide = () => {
-  // if (slideIndex.value === 3) clearInterval(swiper.value);
+  if (slideIndex.value === 3) clearInterval(swiper.value);
   var className = "imgTransition";
   titleSlide.value?.classList.add(className);
   slideIndex.value += 1;
@@ -85,6 +93,10 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     left: calc(100vh * 2);
     opacity: 0;
     transition: inital;
+}
+.index__swiper {
+    margin: 0 auto;
+    max-width: 1920px;
 }
 .partner__slide {
     place-self: center;

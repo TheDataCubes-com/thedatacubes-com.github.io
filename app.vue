@@ -48,6 +48,11 @@ watch(() => route.fullPath, () => headerWhite.value = false);
 </script>
 
 <style>
+@font-face {
+  font-family: "franklinRegular";
+  src: url('/fonts/LibreFranklin-Regular.ttf') format('truetype');
+  /* src: url('/fonts/EBGaramond-Regular.ttf') format('truetype'); */
+}
 :root {
     --mainPurple: rgb(98, 0, 155);
     --softPink: #f7eefc;
@@ -67,7 +72,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Helvetica, sans-serif;
+    font-family: franklinRegular, sans-serif;
     color: black;
 }
 a {

@@ -1,26 +1,15 @@
 <template>
   <nav :class="['mobileNav', {'mobileNav--white': isWhite}]">
     <ul class="mobileNav__list">
-      <li v-for="({name, link, children, disabled}, index) in props.links" :key="index">
-        <div
-          v-if="disabled"
-          :class="[
-            'mobileNav__withSubList',
-            {'subList--open': subMenuIndex === index}
-          ]"
-        >
-          <button
-            type="buttin"
-            @click="toggleSubMenu(children, link, index)"
-            class="mobileNav__item"
-          >{{name}}</button>
-          <ul v-if="subMenuIndex === index" class="mobileNav__subList">
-            <li v-for="{name, link} in subMenu">
-              <NuxtLink :to="subMenuParentLink + link" class="mobileNav__item">{{name}}</NuxtLink>
+      <li v-for="({name, link, children}, index) in props.links" :key="index">
+        <NuxtLink :to="link" class="mobileNav__item">{{name}}</NuxtLink>
+        <div v-if="children" class="mobileNav__withSubList">
+          <ul class="mobileNav__subList">
+            <li v-for="{name, link} in children">
+              <NuxtLink :to="link" class="mobileNav__item">{{name}}</NuxtLink>
             </li>
           </ul>
         </div>
-        <NuxtLink v-else :to="link" class="mobileNav__item">{{name}}</NuxtLink>
       </li>
     </ul>
     <NuxtLink to="/login" class="mobileNav__item">Login</NuxtLink>
@@ -38,16 +27,6 @@ const props = defineProps({
   links: { type: Array, default: [] },
   isWhite: { type: Boolean, default: false},
 })
-
-const subMenu = ref(null);
-const subMenuIndex = ref(null);
-const subMenuParentLink = ref("");
-
-const toggleSubMenu = (menu, parentLink, menuIndex) => {
-  subMenu.value = subMenu.value ? null : menu;
-  subMenuIndex.value = subMenuIndex.value ? null : menuIndex;
-  subMenuParentLink.value = subMenuParentLink.value ? null : parentLink;
-}
 </script>
 
 <style>
@@ -88,14 +67,11 @@ const toggleSubMenu = (menu, parentLink, menuIndex) => {
 .mobileNav__withSubList {
     display: flex;
     flex-direction: column;
-    max-height: 20px;
+    max-height: 1000px;
     place-items: flex-start;
     height: fit-content;
     overflow: hidden;
     transition: max-height 0.5s ease;
-}
-.subList--open {
-    max-height: 1000px;
 }
 .mobileNav__subList {
     display: flex;

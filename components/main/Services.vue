@@ -1,5 +1,5 @@
 <template>
-  <section class="mainServices">
+  <section id="services" class="mainServices">
     <CommonTitleLine
       heading="h2"
       title="Services"
@@ -14,145 +14,20 @@
     />
     <div class="mainServices__inner">
       <p class="mainServices__text">It is evident that despite advances in new technologies, data remains a massive untapped resource in many organizations, necessitating a solid Data Management Strategy before investing in new tools.<br/><br/>We have focused exclusively on Data Management Strategy and MDM for over 20 years. Our business-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for success.</p>
-      <button @click="() => v = !v" class="b">toggle variant</button>
-      <div v-if="v" class="wr">
-        <video
-          autoplay
-          loop
-          playsinline
-          muted
-          src="/videos/cubes.mp4"
-          type="video/mp4"
-          class="mainServices__video"
-        />
-        <div class="cwr">
-          <div v-for="c in cards" class="c">
-            <h4>{{c.title}}</h4>
-            <div v-html="c.text"/>
-            <button class="b">Read more</button>
-          </div>
-        </div>
+      <CommonMediaCards class="mainServices__cards"/>
+      <p class="mainServices__text">Each of our engagements is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.<br/></p>
+      <div class="mainServices__bottom">
+        <svg class="mainServices__icon"><use xlink:href="#schedule" /></svg>
+        <p>
+          <NuxtLink to="/free-consultation">Schedule a 30 minute consultation</NuxtLink>
+          to learn more about how the power of data can accelerate your business objectives.
+        </p>
       </div>
-      <div v-else class="mainServices__cardWrapper">
-        <div
-          v-for="({ text, link, title}, index) in cards"
-          :key="index"
-          class="mainServices__card"
-        ><CommonCard :title="title" :text="text" :link="link" /></div>
-      </div>
-      <p class="mainServices__text">
-        Each of our engagements is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.
-        <NuxtLink to="/free-consultation">Talk To Us</NuxtLink>
-      </p>
     </div>
   </section>
 </template>
 
-<script setup>
-const v = ref(false);
-const cards = ref([
-  {
-    title: "Executive Services",
-    text: "<ul style='display: flex; flex-direction: column; gap: 8px;'><li>Fractional Chief Data Officer (CDO)</li><li>Personalized Education & Literacy</li><li>Advisory & Mentorship</li><li>Assessment & Screening of data professionals</li></ul>",
-    link: { name: "Read more", path: "/services/executive-services" }
-  },
-  {
-    title: "Data Management and AI Strategy Consulting",
-    text: "<p>We assess your data needs from a Business perspective and create a data strategy to enable practical, self-service data-driven solutions to various business challenges.</p>",
-    link: { name: "Read more", path: "/services/data-management" }
-  },
-  {
-    title: "Master Data Management and Entity Resolution Consulting",
-    text: "<p>We help your Business to make better decisions faster about getting Customer 360 views, and more.<br/><br/>We offer MDM product evaluations that best fit your use case, along with strategy and implementation recommendations.</p>",
-    link: { name: "Read more", path: "/services/mdm" }
-  },
-]);
-</script>
-
 <style>
-.wr {
-    display: flex;
-    width: 100%;
-    background-color: #07233f;
-    padding: 20px 100px 98px;
-    gap: 120px;
-    margin-bottom: 40px;
-    place-content: flex-end;
-    position: relative;
-}
-.mainServices__video {
-    top: 0;
-    left: 0;
-    position: absolute;
-    max-height: 100%;
-    width: 100%;
-    object-position: left;
-    z-index: 0;
-}
-.cwr {
-    position: static;
-    z-index: 1;
-    place-self: center;
-    max-width: var(--maxCardWidth);
-    width: 100%;
-    height: 100%;
-    display: grid;
-    gap: 12px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:"c1 c2 c3";
-}
-.c {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 12px;
-    border-radius: 12px;
-    cursor: pointer;
-    background-color: white;
-}
-.c h4 {
-    text-align: center;
-    font-size: 20px;
-    min-height: 70px;
-    color: var(--darkPurple);
-}
-.c > div > ul {
-    list-style: disc inside;
-}
-.c > div > ul > li {
-    text-align: left;
-}
-.c:nth-of-type(1) {
-    grid-area: c1;
-}
-.c:nth-of-type(2) {
-    grid-area: c2;
-    transform: translateY(+8%);
-}
-.c:nth-of-type(3) {
-    grid-area: c3;
-    transform: translateY(+16%);
-}
-.b {
-    border: none;
-    margin-top: auto;
-    font-weight: 400;
-    font-size: 16px;
-    padding: 8px 12px;
-    background-color: var(--darkPurple);
-    color: white;
-    border-radius: 12px;
-    width: fit-content;
-    place-self: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-.b:hover {
-    background-color: var(--mainYellow);
-    color: var(--darkPurple);
-    cursor:pointer;
-}
 .mainServices {
     position: relative;
     display: flex;
@@ -165,59 +40,41 @@ const cards = ref([
     flex-direction: column;
     padding: 40px 0px;
 }
-.mainServices__cardWrapper {
-    max-width: var(--maxCardWidth);
-    place-self: center;
-    margin: 60px -12px 20px;
-    display: flex;
-    flex-wrap: wrap;
-}
 .mainServices__card {
     width: 33.3%;
     padding: 12px;
 }
-.mainServices__text {
-    max-width: 1260px;
-    padding: 0 100px;
-    font-size: 18px;
+.mainServices__text, .mainServices__bottom {
     place-self: center;
+    padding: 12px 100px 0;
+    max-width: 1260px;
+    place-items: center;
 }
-.mainServices__text > a {
+.mainServices__bottom {
+    display: flex;
+    gap: 20px;
+}
+.mainServices__text, .mainServices__bottom > p {
+    font-size: 18px;
+}
+.mainServices__text > a, .mainServices__bottom > p > a {
     color: var(--darkPurple);
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: underline;
     transition: color 0.3s ease;
+}
+.mainServices__icon {
+    fill: var(--darkPurple);
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+}
+.mainServices__cards {
+    margin: 40px 0;
 }
 @media (hover:hover) {
     .mainServices__text > a:hover {
         color: var(--mainYellow);
-    }
-}
-@media (max-width: 1023.99px) {
-    .mainServices__cardWrapper {
-        margin: 0;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .mainServices__card {
-        width: 75%;
-        padding: 0;
-    }
-    .mainServices__card:nth-of-type(even) {
-        place-self: flex-end;
-    }
-}
-.mainServices__title {
-    margin: 0;
-}
-@media (max-width: 767.99px) {
-   .mainServices__card {
-       width: 85%;
-   }
-}
-@media (max-width: 573.99px) {
-    .mainServices__card {
-        width: 100%
     }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <Banner class="partners__banner">
+  <Banner :static="true" class="partners__banner">
     <template v-slot:slot--title>
       <span class="partners__title">We help MDM solution providers win in the market</span>
-      <img src="/images/d1.png" alt="dc-diagram" class="partners__diagram">
+      <CommonDiagram class="partners__diagram"/>
     </template>
     <template v-slot:slot--secondary>
       <p class="partners__bannerText">
@@ -16,18 +16,23 @@
       </p>
     </template>
   </Banner>
-  <div class="bg--pink">
-    <CommonCustomSwiper :items="trustedBy" :maxPerView="6">
-      <template #item="itemProps">
-        <div
-          :style="`background-image: url(${itemProps.slide});`"
-          class="partner__slide"
-        />
-      </template>
-    </CommonCustomSwiper>
-    <CommonTitleLine heading="h2" title="Services" :centered="true" />
+  <CommonCustomSwiper
+    swiperId="trusted"
+    :autoplay="true"
+    :items="trustedBy"
+    class="partners__slider"
+  >
+    <template #item="itemProps">
+      <div
+        :style="`background-image: url(${itemProps.slide});`"
+        class="partner__slide"
+      />
+    </template>
+  </CommonCustomSwiper>
+  <CommonTitleLine heading="h2" title="Services" />
+  <div class="partners__info">
     <section class="partners__content">
-      <div class="partners__points">
+      <div v-if="!cardSwiper" class="partners__points">
         <div
           v-for="({text, bullets, icon}, index) in pageText"
           :key="index"
@@ -41,12 +46,37 @@
               <use :xlink:href="icon" />
             </svg>
             <h3>{{text}}</h3>
-            <svg class="partners__arrow">
-              <use xlink:href="#arrow" />
-            </svg>
+            <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
           </div>
         </div>
       </div>
+      <CommonCustomSwiper
+        v-else
+        swiperId="cards"
+        :items="pageText"
+        :navigation="true"
+        :noCap="true"
+        :breakPoints="{
+          375: {
+            spaceBetween: 20,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            speed: 2000,
+          },
+        }"
+        @slideChange="(i) => setActive(i, pageText[i].bullets)"
+        class="partners__cardSwiper"
+      >
+        <template #item="itemProps">
+          <div class="partners__text">
+            <svg class="partners__icon">
+              <use :xlink:href="itemProps.slide.icon" />
+            </svg>
+            <h3>{{itemProps.slide.text}}</h3>
+            <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
+          </div>
+        </template>
+      </CommonCustomSwiper>
       <ul v-if="placeText" :class="['partners__bullets', {'expand': placeText}]">
         <li
           v-for="({title, text}, index) in placeText"
@@ -92,7 +122,7 @@ const pageText = ref([
       { title: "Target new trending Use Cases related to Generative AI", text: "Tap into entirely new use cases for the MDM market, related to the adoption of Generative AI by customers."},
       { title: "Leveraging Our Deep Understanding of FinServ", text: "Our extensive expertise in the Financial Services industry is a valuable asset in generating new leads. This profound knowledge enables us to identify potential clients who stand to gain significantly from MDM implementation."},
       { title: "Collaboration with Technology Partners", text: "We also collaborate with non MDM technology partners to enhance client understanding by complementing, contrasting, and determining the best combination of products such as CDP, Customer Master, Identity Resolution, C360, MDM, and ER, to identify the most effective solution."},
-      { title: 'Leveraging our "Data Management Strategy Consulting" service', text: "Our Data Management Strategy Consulting service acts as a key source of new leads for our vendor partners. Gained from our deep understanding of use cases through close collaboration with businesses, we uncover client needs and opportunities that align with our partners' offerings."},
+      { title: 'Leveraging our "AI & Data Management Strategy Consulting" service', text: `Our "AI & Data Management Strategy Consulting" service acts as a key source of new leads for our vendor partners. Gained from our deep understanding of use cases through close collaboration with businesses, we uncover client needs and opportunities that align with our partners' offerings.`},
       { title: "Targeting Companies with On-Premise MDM Solutions", text: "There is an opportunity in engaging with companies currently using on-premise solutions and seeking to migrate to the cloud. We can help to address their needs by offering more advanced, cloud-based solutions that enhance their data management capabilities."},
     ],
     icon: "#cloud"
@@ -123,6 +153,9 @@ const pageText = ref([
 ]);
 const active = ref(0);
 const placeText = ref(pageText.value[0].bullets);
+const appWidth = inject("appWidth");
+
+const cardSwiper = computed(() => appWidth.value < 930);
 
 const setActive = (index, bullets) => {
   if (active.value === index) {
@@ -137,19 +170,16 @@ const setActive = (index, bullets) => {
 </script>
 
 <style>
-.bg--pink {
+.partners__info {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     place-items: center;
-}
-.partners__banner > .banner__secondary {
-   top: calc(100vh * 0.5);
+    padding: 0 20px;
 }
 .partners__diagram {
     position: absolute;
-    top: 6vh;
-    max-width: 420px;
+    top: calc(100vh * 0.06);
     right: 12%;
 }
 .partners__title {
@@ -178,6 +208,10 @@ const setActive = (index, bullets) => {
 .partners__bannerButton > svg {
    width: 20px;
    height: 20px;
+}
+.partners__slider {
+    margin: 0 auto;
+    max-width: 1920px;
 }
 .partners__subTitle {
     font-size: 44px;
@@ -231,9 +265,6 @@ const setActive = (index, bullets) => {
     box-shadow: 0 4px 8px var(--darkPurple);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-.partners__text h3 {
-    transition: color 0.3s ease;
-}
 .partners__bullets {
     max-width: var(--maxCardWidth);
     background-color: white;
@@ -251,6 +282,7 @@ const setActive = (index, bullets) => {
     transition: max-height 0.3s ease;
 }
 .partners__text h3 {
+    transition: color 0.3s ease;
     text-align: center;
     display: flex;
     place-items: center;
@@ -262,7 +294,7 @@ const setActive = (index, bullets) => {
     color: var(--darkPurple);
 }
 .expand {
-    max-height: 100vh;
+    max-height: 500vh;
 }
 .partners__arrow {
     border-radius: 20px;
@@ -280,12 +312,10 @@ const setActive = (index, bullets) => {
     font-size: 20px;
     font-weight: 600;
     color: #3D3D3D;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
 }
 .bullet__item > p {
-    font-weight: 300;
-    font-size: 18px;
-    color: #666666;
+    font-size: 16px;
 }
 .text--selected {
     box-shadow: none;
@@ -327,6 +357,15 @@ const setActive = (index, bullets) => {
 .partners__button > svg > path{
     stroke: var(--darkPurple);
 }
+.partners__cardSwiper {
+    place-self: center;
+    max-width: 320px;
+}
+.partners__cardSwiper .customSlide {
+    pointer-events: none;
+    padding: 0 16px;
+    height: fit-content;
+}
 @media (hover:hover) {
     .partners__button:hover {
         background-color: var(--darkPurple);
@@ -337,24 +376,127 @@ const setActive = (index, bullets) => {
         box-shadow: 0 10px 14px var(--darkPurple);
     }
 }
-@media (max-height: 960px) {
+@media (max-width: 1659.99px) {
+    .partners__title {
+       font-size: 52px;
+    }
+}
+@media (max-width: 1439.99px) {
+    .partners__content {
+        padding: 60px 60px 0;
+    }
     .partners__bannerText {
         font-size: 20px;
     }
 }
-@media (max-width: 1659.99px) {
+@media (max-width: 1267.99px) {
+    .partners__content {
+        padding: 40px 40px 0;
+    }
+    .partners__title {
+        font-size: 40px;
+        max-width: 50%;
+    }
+    .bullet__item > h4 {
+       font-size: 18px;
+    }
+    .bullet__item > p {
+        font-size: 16px;
+    }
+    .partners__icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+@media (max-width: 1023.99px) {
+    .partners__title {
+        position: static;
+        text-align: left;
+        max-width: 100%;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 32px;
+    }
+    .partners__diagram {
+        position: relative;
+        top: initial;
+        right: initial;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+    .partners__bannerButton {
+        margin-top: 20px;
+    }
+    .partners__content {
+        padding: 28px 20px 0;
+    }
+}
+@media (max-width: 767.99px) {
+    .partners__title {
+        font-size: 28px;
+        text-align: center;
+    }
+    .partners__diagram {
+        margin: 0 auto 40px;
+    }
+    .partners__bannerButton {
+        font-size: 16px;
+    }
+   .partners__bullets {
+       padding: 0;
+       padding-top: 40px;
+   }
+   .partners__pointWrap {
+       padding: 8px;
+   }
+   .partners__icon {
+       width: 40px;
+       height: 40px;
+   }
+   .partners__button {
+       margin-top: 20px;
+       font-size: 12px;
+   }
+   .partners__button > svg {
+       width: 24px;
+       height: 24px;
+   }
+}
+@media (max-width: 574.99px) {
+    .partners__banner {
+       padding: 40px 20px;
+    }
+    .partners__button {
+        margin-top: 0px;
+    }
+    .partners__content {
+        padding: 28px 12px;
+    }
+    .partners__pointWrap {
+        padding: 0;
+    }
+    .bullet__item > h4 {
+        font-size: 16px;
+    }
+    .bullet__item > p {
+        font-size: 14px;
+    }
     .partners__bannerText {
         font-size: 18px;
     }
 }
-@media (max-width: 1439.99px) {
-    .partners__bannerText {
-        font-size: 16px;
+@media (max-width: 374.99px) {
+    .partners__cardSwiper {
+        max-width: 260px;
     }
-}
-@media (max-width: 574.99px) {
-    .partners__bannerText {
+    .partners__title {
+        font-size: 24px;
+    }
+    .partners__diagram {
         font-size: 14px;
+    }
+    .partners__bannerButton {
+        font-size: 16px;
     }
 }
 </style>
