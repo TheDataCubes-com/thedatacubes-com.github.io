@@ -14,7 +14,7 @@
             320: {
               slidesPerView: 1,
               slidesPerGroup: 1,
-              speed: 2000,
+              speed: 1500,
               loop: true
             }
           }"
@@ -200,11 +200,14 @@ const setActive = (index, bullets) => {
 
 <style>
 .partners__bannerSlider {
-    height: 60px;
+    height: 73px;
 }
 .partners__bannerSlider .customSwiper {
     height: 100%;
     padding: 0px !important;
+}
+.partners__bannerSlider .customSlide {
+    place-content: center !important;
 }
 .partners__titleSlide {
     font-size: 60px;
@@ -234,7 +237,6 @@ const setActive = (index, bullets) => {
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 .partners__bannerText {
     width: 100%;
@@ -425,7 +427,7 @@ const setActive = (index, bullets) => {
        font-size: 52px;
     }
     .partners__bannerSlider {
-        height: 52px;
+        height: 63px;
     }
 }
 @media (max-width: 1439.99px) {
@@ -441,7 +443,7 @@ const setActive = (index, bullets) => {
         padding: 40px 40px 0;
     }
     .partners__bannerSlider {
-        height: 40px;
+        height: 49px;
     }
     .partners__titleSlide {
         font-size: 40px;
@@ -463,7 +465,7 @@ const setActive = (index, bullets) => {
 }
 @media (max-width: 1023.99px) {
     .partners__bannerSlider {
-        height: 32px;
+        height: 39px;
     }
     .partners__titleSlide {
         font-size: 32px;
@@ -492,7 +494,7 @@ const setActive = (index, bullets) => {
 }
 @media (max-width: 767.99px) {
     .partners__bannerSlider {
-        height: 28px;
+        height: 34px;
     }
     .partners__title, .partners__titleSlide {
         font-size: 28px;
@@ -552,7 +554,7 @@ const setActive = (index, bullets) => {
         max-width: 260px;
     }
     .partners__bannerSlider {
-        height: 24px;
+        height: 29px;
     }
     .partners__title, .partners__titleSlide {
         font-size: 24px;

@@ -80,9 +80,6 @@ watch(appWidth, setPosition);
     .banner {
         height: calc(100vh - 89px);
     }
-    .banner__secondary {
-        max-width: 520px;
-    }
 }
 @media (max-width: 1023.99px) {
     .banner__secondary {

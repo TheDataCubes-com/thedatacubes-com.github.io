@@ -63,6 +63,7 @@ const handleSubmit = event => {
     flex-direction: column;
     gap: 20px;
     width: 100%;
+    padding: 0 20px;
 }
 .form__label {
     width: 100%;
@@ -123,6 +124,11 @@ const handleSubmit = event => {
     }
     .form__err__link:hover {
         opacity: 0.7;
+    }
+}
+@media (max-width: 767.99px) {
+    .form__input, .form__button {
+        padding: 8px 14px;
     }
 }
 </style>
