@@ -150,4 +150,30 @@ const handleLogin = (form) => {
     min-height: 160px;
     resize: none;
 }
+@media (max-width: 1023.99px) {
+    .consult__formWrap {
+        flex-direction: column;
+        place-self: center;
+    }
+   .consult__formWrap > h1  {
+        padding: 0;
+        place-self: center;
+        padding: 0 20px;
+        max-width: 440px;
+    }
+    .consult {
+        padding: 80px 0;
+    }
+    .consult__formWrap {
+        max-width: 100%;
+    }
+}
+@media (max-width: 767.99px) {
+    .consult__formWrap > h1  {
+         font-size: 24px;
+     }
+     .consult__form {
+         gap: 0px;
+     }
+}
 </style>

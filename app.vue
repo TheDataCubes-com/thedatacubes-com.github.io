@@ -8,7 +8,7 @@
   <CommonIcons />
   <CommonDynamicButton
     v-if="isButton"
-    link="/free-consultation"
+    link="/contact-form"
     text="Set up a Free Consultation"
     :isIcon="true"
     class="consultButton"

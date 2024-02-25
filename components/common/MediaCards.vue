@@ -9,7 +9,7 @@
           muted
           src="/videos/cubes.mp4"
           type="video/mp4"
-          class="mainServices__video"
+          class="mediaCards__video"
         />
         <CommonLogo :noLines="true" class="mainServices__logo" />
       </div>
@@ -49,7 +49,15 @@ const cards = ref([
   },
 ]);
 
-const cardHeight = ref("440px");
+const appWidth = inject("appWidth");
+
+const cardHeight = computed(() => {
+  switch (true) {
+    case appWidth.value < 768: return "380px";
+    case appWidth.value < 1440: return "500px";
+    default: return "440px";
+  }
+});
 </script>
 
 <style>
@@ -66,17 +74,20 @@ const cardHeight = ref("440px");
     height: 100%;
     margin: 100px auto;
 }
-.mainServices__video {
+.mediaCards__videoWrap {
+   position: relative;
+   place-self: center;
+   height: fit-content;
+   max-width: 600px;
+}
+.mediaCards__video {
+    max-height: 100%;
     flex-shrink: 1;
-    max-width: 600px;
+    width: 100%;
     box-shadow: 0px 0px 14px 6px #09feff57;
     border-radius: 12px;
     height: v-bind(cardHeight);
     object-fit: cover;
-}
-.mediaCards__videoWrap {
-   position: relative;
-   height: fit-content;
 }
 .mainServices__logo {
     pointer-events: none;
@@ -127,5 +138,63 @@ const cardHeight = ref("440px");
       background:
         linear-gradient(to bottom, #05375d, #062d53, #042851, #042448)
   }
+}
+@media (max-width: 1659.99px) {
+    .mediaCards__cardsWrap {
+        max-width: calc(var(--maxCardWidth) - 60px);
+    }
+    .mediaCards__videoWrap {
+        max-width: 500px;
+    }
+}
+@media (max-width: 1439.99px) {
+    .mediaCards__inner  {
+        gap: 20px;
+    }
+    .mediaCards__cardsWrap {
+        gap: 12px;
+        max-width: calc(var(--maxCardWidth) - 160px);
+    }
+    .mediaCards__videoWrap {
+        max-width: 420px;
+        height: 320px;
+    }
+}
+@media (max-width: 1239.99px) {
+    .mediaCards__videoWrap {
+        max-width: 300px;
+        height: 240px;
+    }
+}
+@media (max-width: 1079.99px) {
+    .mediaCards__inner {
+        width: 100%;
+        margin: 0px 0 60px;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .mediaCards__videoWrap {
+        max-width: 100%;
+        width: 100%;
+        max-height: 200px;
+    }
+    .mediaCards__video {
+        border-radius: 0;
+        box-shadow: 0px 4px 8px 0px #09feff57;
+    }
+    .mediaCards__cardsWrap {
+        place-self: center;
+    }
+}
+@media (max-width: 767.99px) {
+    .mediaCards__cardsWrap {
+        flex-direction: column;
+        height: fit-content;
+    }
+    .mediaCards__card  {
+        max-width: 280px;
+        transform: initial !important;
+        height: v-bind(cardHeight);
+    }
 }
 </style>

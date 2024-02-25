@@ -82,14 +82,14 @@ const cards = ref([
    sector: "banking",
    company: "Bank&nbspof&nbspAmerica"
  },
- {
-   text: "The data architecture that TheDataCubes team designed for us was well thought out, flexible, and scalable for our needs. Designed from the ground up to specifically fit our use-case, this solution enabled our business to have quick self-service insights into our data, and we were able to fast-track our application to deliver ahead of time.<br/><br/>The bonus was a super performant data warehouse we’ll use for years to come.<br/><br/>Thank you!",
-   name: "Joe LaChance",
-   position: "Vice President, Engineering",
-   logo: { width: "40px", path: "/images/bm-logoSign.png"},
-   sector: "data",
-   company: "Bold&nbspMetrics&nbspInc."
- },
+ // {
+ //   text: "The data architecture that TheDataCubes team designed for us was well thought out, flexible, and scalable for our needs. Designed from the ground up to specifically fit our use-case, this solution enabled our business to have quick self-service insights into our data, and we were able to fast-track our application to deliver ahead of time.<br/><br/>The bonus was a super performant data warehouse we’ll use for years to come.<br/><br/>Thank you!",
+ //   name: "Joe LaChance",
+ //   position: "Vice President, Engineering",
+ //   logo: { width: "40px", path: "/images/bm-logoSign.png"},
+ //   sector: "data",
+ //   company: "Bold&nbspMetrics&nbspInc."
+ // },
  // { position: "Sonos", text: "", logo: {} },
 ]);
 
@@ -144,6 +144,7 @@ const filteredClients = computed(() => {
     flex-wrap: wrap;
     margin: -12px;
     width: 100%;
+    place-content: center;
 }
 .ourClients__card {
     width: 33.3%;

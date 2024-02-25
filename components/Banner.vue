@@ -11,7 +11,9 @@
 
 <script setup>
 const props = defineProps({
-  static: { type: Boolean, default: false }
+  static: { type: Boolean, default: false },
+  staticBreak: { type: Number, default: 1024 },
+  staticType: { type: String, default: "static" }
 });
 
 const appWidth = inject("appWidth");
@@ -19,7 +21,7 @@ const position = ref("absolute");
 
 const setPosition = (width) => {
   if (!props.static) return;
-  position.value = width < 1024 ? "static" : "absolute";
+  position.value = width < props.staticBreak ? props.staticType : "absolute";
 }
 
 onBeforeMount(() => setPosition(appWidth.value));
@@ -79,9 +81,6 @@ watch(appWidth, setPosition);
 @media (max-width: 1279.99px) {
     .banner {
         height: calc(100vh - 89px);
-    }
-    .banner__secondary {
-        max-width: 520px;
     }
 }
 @media (max-width: 1023.99px) {
