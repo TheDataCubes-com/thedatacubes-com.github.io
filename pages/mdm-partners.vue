@@ -2,7 +2,7 @@
   <Banner :static="true" class="partners__banner">
     <template v-slot:slot--title>
       <div class="partners__title">
-        We help MDM, ER, Identity&nbspResolution solution providers
+        We help MDM, ER, and Identity&nbspResolution solution providers
         <CommonCustomSwiper
           swiperId="banner-titile"
           :vertical="true"
@@ -424,6 +424,11 @@ const setActive = (index, bullets) => {
     .partners__text:hover {
         transform: translateY(-15px);
         box-shadow: 0 10px 14px var(--darkPurple);
+    }
+}
+@media (max-height: 960px) {
+    .partners__banner .banner__secondary {
+        top: calc(100vh * 0.5);
     }
 }
 @media (max-width: 1659.99px) {
