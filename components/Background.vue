@@ -176,4 +176,9 @@ const position = computed(() => {
         width: 100%;
     }
 }
+@media (max-height: 740px) {
+    .backgound__curveLineRight {
+        display: none;
+    }
+}
 </style>

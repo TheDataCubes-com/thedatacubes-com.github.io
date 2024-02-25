@@ -1,45 +1,41 @@
 <template>
-  <Banner :static="true" class="partners__banner">
-    <template v-slot:slot--title>
-      <div class="partners__title">
-        We help MDM, ER, and Identity&nbspResolution solution providers
-        <CommonCustomSwiper
-          swiperId="banner-titile"
-          :vertical="true"
-          :noCap="true"
-          :noWrap="true"
-          :autoplay="true"
-          :items="titleStatements"
-          :break-points="{
-            320: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-              speed: 1500,
-              loop: true
-            }
-          }"
-          :delay="2000"
-          class="partners__bannerSlider"
-        >
-          <template #item="itemProps">
-           <span class="partners__titleSlide">{{itemProps.slide}}</span>
-          </template>
-        </CommonCustomSwiper>
-      </div>
-      <CommonDiagram class="partners__diagram"/>
-    </template>
-    <template v-slot:slot--secondary>
-      <p class="partners__bannerText">
-        We translate complex business problems into successful technical solutions for your customers.
-        <CommonDynamicButton
-          link="/contact-form"
-          text="Work With Us"
-          :isIcon="true"
-          class="partners__bannerButton"
-        />
-      </p>
-    </template>
-  </Banner>
+  <section class="partners__banner">
+    <h1 class="partners__title">
+      We help MDM, ER, and Identity&nbspResolution solution providers
+      <CommonCustomSwiper
+        swiperId="banner-titile"
+        :vertical="true"
+        :noCap="true"
+        :noWrap="true"
+        :autoplay="true"
+        :items="titleStatements"
+        :break-points="{
+          320: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            speed: 1500,
+            loop: true
+          }
+        }"
+        :delay="2000"
+        class="partners__bannerSlider"
+      >
+        <template #item="itemProps">
+          <span class="partners__titleSlide">{{itemProps.slide}}</span>
+        </template>
+      </CommonCustomSwiper>
+    </h1>
+    <p class="partners__bannerText">
+      We translate complex business problems into successful technical solutions for your customers.
+      <CommonDynamicButton
+        link="/contact-form"
+        text="Work With Us"
+        :isIcon="true"
+        class="partners__bannerButton"
+      />
+    </p>
+    <CommonDiagram class="partners__diagram"/>
+  </section>
   <CommonCustomSwiper
     swiperId="trusted"
     :autoplay="true"
@@ -199,6 +195,14 @@ const setActive = (index, bullets) => {
 </script>
 
 <style>
+.partners__banner {
+    height: calc(100vh - 149px);
+    max-width: var(--maxWidth);
+    width: 100%;
+    padding: 80px 40px;
+    position: relative;
+    margin: 0 auto;
+}
 .partners__bannerSlider {
     height: 73px;
 }
@@ -227,16 +231,15 @@ const setActive = (index, bullets) => {
     right: 12%;
 }
 .partners__title {
-    position: absolute;
-    max-width: 55%;
+    max-width: 60%;
     text-align: left;
     font-weight: 500;
-    top: 5vh;
     left: 0;
     font-size: 60px;
     color: white;
     display: flex;
     flex-direction: column;
+    margin-bottom: 80px;
 }
 .partners__bannerText {
     width: 100%;
@@ -413,9 +416,6 @@ const setActive = (index, bullets) => {
     padding: 0 16px;
     height: fit-content;
 }
-.partners__banner .banner__secondary {
-    top: calc(100vh * 0.45);
-}
 @media (hover:hover) {
     .partners__button:hover {
         background-color: var(--darkPurple);
@@ -427,9 +427,42 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-height: 960px) {
-    .partners__banner .banner__secondary {
-        top: calc(100vh * 0.5);
+    .partners__title {
+        margin-bottom: 60px;
+        font-size: 52px;
     }
+    .partners__titleSlide {
+        font-size: 52px;
+    }
+    .partners__bannerSlider {
+        height: 63px;
+    }
+    .partners__bannerButton {
+        margin-top: 20px;
+    }
+    .partners__banner {
+        padding: 40px;
+    }
+}
+@media (max-height: 740px) {
+    .partners__title {
+        margin-bottom: 40px;
+        font-size: 40px;
+    }
+    .partners__bannerSlider {
+        height: 49px;
+    }
+    .partners__titleSlide {
+        font-size: 40px;
+    }
+    .partners__banner {
+        padding: 20px;
+    }
+}
+@media (max-height: 640px) {
+   .partners__diagram  {
+       display: none;
+   }
 }
 @media (max-width: 1659.99px) {
     .partners__title, .partners__titleSlide {
@@ -438,8 +471,14 @@ const setActive = (index, bullets) => {
     .partners__bannerSlider {
         height: 63px;
     }
+    .partners__banner {
+        height: calc(100vh - 113px);
+    }
 }
 @media (max-width: 1439.99px) {
+    .partners__banner {
+        height: calc(100vh - 103px);
+    }
     .partners__content {
         padding: 60px 60px 0;
     }
@@ -448,6 +487,9 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 1267.99px) {
+    .partners__banner {
+        height: calc(100vh - 89px);
+    }
     .partners__content {
         padding: 40px 40px 0;
     }
@@ -487,6 +529,9 @@ const setActive = (index, bullets) => {
         margin-bottom: 20px;
         font-size: 32px;
     }
+    .partners__bannerText {
+        max-width: 100%;
+    }
     .partners__diagram {
         position: relative;
         top: initial;
@@ -502,6 +547,9 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 767.99px) {
+    .partners__banner {
+        padding: 40px 20px;
+    }
     .partners__bannerSlider {
         height: 34px;
     }
