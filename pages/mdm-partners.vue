@@ -231,7 +231,7 @@ const setActive = (index, bullets) => {
     max-width: 55%;
     text-align: left;
     font-weight: 500;
-    top: 10vh;
+    top: 5vh;
     left: 0;
     font-size: 60px;
     color: white;
