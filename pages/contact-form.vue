@@ -167,5 +167,8 @@ const handleLogin = (form) => {
     .consult__formWrap > h1  {
          font-size: 24px;
      }
+     .consult__form {
+         gap: 0px;
+     }
 }
 </style>

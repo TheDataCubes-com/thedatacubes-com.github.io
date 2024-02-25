@@ -11,7 +11,9 @@
 
 <script setup>
 const props = defineProps({
-  static: { type: Boolean, default: false }
+  static: { type: Boolean, default: false },
+  staticBreak: { type: Number, default: 1024 },
+  staticType: { type: String, default: "static" }
 });
 
 const appWidth = inject("appWidth");
@@ -19,7 +21,7 @@ const position = ref("absolute");
 
 const setPosition = (width) => {
   if (!props.static) return;
-  position.value = width < 1024 ? "static" : "absolute";
+  position.value = width < props.staticBreak ? props.staticType : "absolute";
 }
 
 onBeforeMount(() => setPosition(appWidth.value));

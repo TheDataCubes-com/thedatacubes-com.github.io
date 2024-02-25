@@ -64,11 +64,13 @@ const handleLogin = (form) => {
     max-width: 440px;
     width: 100vw;
     place-self: center;
-    gap: 40px;
 }
 @media (max-width: 767.99px) {
     .login > h1 {
         font-size: 24px;
+    }
+    .login__form {
+        gap: 0px;
     }
 }
 </style>

@@ -19,7 +19,7 @@
       <div class="mainServices__bottom">
         <svg class="mainServices__icon"><use xlink:href="#schedule" /></svg>
         <p>
-          <NuxtLink to="/free-consultation">Schedule a 30 minute consultation</NuxtLink>
+          <NuxtLink to="/contact-form">Schedule a 30 minute consultation</NuxtLink>
           to learn more about how the power of data can accelerate your business objectives.
         </p>
       </div>

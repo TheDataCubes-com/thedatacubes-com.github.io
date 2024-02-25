@@ -19,9 +19,14 @@
             :href="link"
             class="header__item header__link"
           >{{name}}</a>
-          <NuxtLink v-else :to="link" class="header__item header__link">
+          <NuxtLink
+            v-else-if="link"
+            :to="link"
+            class="header__item header__link"
+          >{{name}}</NuxtLink>
+          <span v-else class="header__item header__link">
             {{name}}
-          </NuxtLink>
+          </span>
         </li>
       </ul>
       <div class="header__nav">
@@ -33,7 +38,7 @@
         >Login</NuxtLink>
         <CommonDynamicButton
           text="Get a Free Consult"
-          link="/free-consultation"
+          link="/contact-form"
           :isInline="true"
           class="header__button"
         />
@@ -97,9 +102,9 @@ const links = ref([
     link: "/#services",
     byID: true,
     children: [
-      { name: "Master Data Management and Entity Resolution Consulting" , link: "/services/mdm" },
-      { name: "AI and Data Management Strategy Consulting" , link: "/services/data-management" },
-      { name: "Executive Services" , link: "/services/executive-services" },
+      { name: "Master Data Management and Entity Resolution Consulting", link: "/services/mdm" },
+      { name: "AI and Data Management Strategy Consulting", link: "/services/data-management" },
+      { name: "Executive Services", link: "/services/executive-services" },
       // { name: "AI and Data Observability" , link: "/ai" },
       // { name: "Business Analysis and Data Modeling" , link: "/analysis-modeling" },
       // { name: "Screening & Assessment of Data Professionals" , link: "/staffing" },
@@ -107,7 +112,14 @@ const links = ref([
   },
   {
     name: "How Do I Start",
-    link: "/free-consultation"
+    link: "/contact-form"
+  },
+  {
+    name: "Partners",
+    children: [
+      { name: "Technology Partners", link: "/mdm-partners" },
+      { name: "Collaborative Partners", link: "/contact-form" },
+    ],
   },
 ]);
 
@@ -317,6 +329,9 @@ watch(isMobile, (value) => {
     .header__dropDown__nav a {
         font-size: 14px;
     }
+    .header__link, .header__button {
+        font-size: 16px;
+    }
 }
 @media (max-width: 1279.99px) {
     .header__logo {
@@ -324,6 +339,9 @@ watch(isMobile, (value) => {
     }
     .header__nav  {
         gap: 0;
+    }
+    .header__link, .header__button {
+        font-size: 14px;
     }
 }
 @media (max-width: 859.99px) {

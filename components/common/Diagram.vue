@@ -6,7 +6,7 @@
 
 <style>
 .diagram {
-    background-image: url("/images/d2.png");
+    background-image: url("/images/diagram.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

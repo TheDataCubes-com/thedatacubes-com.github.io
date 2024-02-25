@@ -13,7 +13,7 @@
     <section class="services__wrap">
       <div v-html="pageData.text" class="services__text"/>
       <CommonDynamicButton
-        link="/free-consultation"
+        link="/contact-form"
         :text="pageData.buttonText"
         :isIcon="true"
         class="services__button"
@@ -27,7 +27,7 @@ const pages = ref({
   "executive-services": {
     title: "Executive Services",
     buttonText: "GET IN TOUCH",
-    picture: "/images/x2.jpg",
+    picture: "/images/executive-services.jpg",
     text: [
       "<p>Keeping pace with technological advancements can be challenging for data professionals, let alone for those steering the business. Our suite of personalized Executive Services is designed for high-value data decisioning and AI strategy. It aims to demystify emerging technologies such as AI, MDM, data science, machine learning, and analytics, providing insights into how these can be leveraged to enhance value within your organization.</p>",
       "<ul class='services__list'>",
@@ -57,11 +57,11 @@ const pages = ref({
         "<li><span class='services__highlight'>Change Management</span><br/><span class='services__listPar'>We proactively transfer knowledge and skills leading to client self-sufficiency during every project.</span><br/></li>",
         "<li><span class='services__highlight'>Utilizing AI and Machine Learning for predictive insights</span></li>",
         "</ul>",
-        "<p><span class='services__highlight hl--block'>Data Quality (DQ) and Performance</span>Additionally, our team specializes in developing automated database architectures and systems that ensure great DQ and excellent performance. We have developed frameworks that can be implemented into your systems for automated DQ and reporting.<br/><br/><a href='/free-consultation' target='_blank' class='services__inlineLink'>Reach out to learn about additional services</a> we can offer to help you maximize your data ROI. We're eager to hear from you!</p>",
+        "<p><span class='services__highlight hl--block'>Data Quality (DQ) and Performance</span>Additionally, our team specializes in developing automated database architectures and systems that ensure great DQ and excellent performance. We have developed frameworks that can be implemented into your systems for automated DQ and reporting.<br/><br/><a href='/contact-form' target='_blank' class='services__inlineLink'>Reach out to learn about additional services</a> we can offer to help you maximize your data ROI. We're eager to hear from you!</p>",
       ].join(""),
     buttonText: "Drive Your Data Strategy Forward Now",
     meta: {},
-    picture: "/images/x.jpg",
+    picture: "/images/data-management.jpg",
   },
   services: {
     title: "service title",

@@ -33,7 +33,7 @@
     </section>
     <div class="whyUs__buttonWrap">
       <CommonDynamicButton
-        link="/free-consultation"
+        link="/contact-form"
         text="Discuss How We Can Help Address Your Data Needs"
         :isInline="true"
         class="whyUs__button"
@@ -54,12 +54,12 @@ const whyUs = ref({
     {
       title: "Vendor-Independent Consulting",
       text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management / ER, Cloud, and Enterprise Data Management & Analytics. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations.",
-      image: "/images/x3.jpg"
+      image: "/images/whyus-1.jpg"
     },
     {
       title: "Decades of Experience and Custom Solutions",
       text: "Leveraging decades of experience, our frameworks and accelerators include industry-specific use cases and custom models. Our expertise in Data Management, AI and MDM accelerators is geared towards breaking down traditional data silos, modeling your business in data, and fully integrating your data into your business strategy.",
-      image: "/images/t3.jpg"
+      image: "/images/whyus-2.jpg"
     },
   ]
 });

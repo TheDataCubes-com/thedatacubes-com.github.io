@@ -1,5 +1,5 @@
 <template>
-  <Banner>
+  <Banner :static="true" :staticBreak="768" staticType="relative">
     <template v-slot:slot--title>
       <img
         ref="titleSlide"
@@ -122,6 +122,11 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 @media (max-width: 1439.99px) {
     .banner__text {
         font-size: 16px;
+    }
+}
+@media (max-width: 767.99px) {
+    .banner__img {
+        width: 100%;
     }
 }
 @media (max-width: 574.99px) {

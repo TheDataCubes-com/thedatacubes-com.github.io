@@ -2,7 +2,7 @@
   <Banner :static="true" class="partners__banner">
     <template v-slot:slot--title>
       <div class="partners__title">
-        We help MDM solution providers
+        We help MDM, ER, Identity&nbspResolution solution providers
         <CommonCustomSwiper
           swiperId="banner-titile"
           :vertical="true"
@@ -30,9 +30,9 @@
     </template>
     <template v-slot:slot--secondary>
       <p class="partners__bannerText">
-        We translate complex business problems into successful technical solutions.
+        We translate complex business problems into successful technical solutions for your customers.
         <CommonDynamicButton
-          link="/free-consultation"
+          link="/contact-form"
           text="Work With Us"
           :isIcon="true"
           class="partners__bannerButton"
@@ -111,7 +111,7 @@
           <p v-html="text"/>
         </li>
         <CommonDynamicButton
-          link="/free-consultation"
+          link="/contact-form"
           text="talk to us"
           :isIcon="true"
           class="partners__button"
@@ -125,7 +125,7 @@
 const titleStatements = ref([
   "win in the market",
   "drive revenue faster",
-  "land and expand",
+  '"land and expand"',
 ]);
 const trustedBy = ref([
   "/images/boa-logo.png",
@@ -223,7 +223,7 @@ const setActive = (index, bullets) => {
 }
 .partners__diagram {
     position: absolute;
-    top: calc(100vh * 0.06);
+    top: calc(100vh * 0.1);
     right: 12%;
 }
 .partners__title {
@@ -243,6 +243,7 @@ const setActive = (index, bullets) => {
     font-size: 24px;
     line-height: 1.7;
     font-weight: 300;
+    max-width: 55%;
     color: white;
 }
 .partners__bannerButton {
@@ -411,6 +412,9 @@ const setActive = (index, bullets) => {
     pointer-events: none;
     padding: 0 16px;
     height: fit-content;
+}
+.partners__banner .banner__secondary {
+    top: calc(100vh * 0.45);
 }
 @media (hover:hover) {
     .partners__button:hover {
