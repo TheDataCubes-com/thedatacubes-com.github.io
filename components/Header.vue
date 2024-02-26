@@ -348,6 +348,9 @@ watch(isMobile, (value) => {
     .header__nav {
         gap: 20px;
     }
+    .header__inner {
+        place-items: center;
+    }
 }
 @media (max-width: 574.99px) {
    .header__inner {

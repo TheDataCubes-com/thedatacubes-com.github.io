@@ -3,10 +3,13 @@
     <template v-slot:slot--title>
       <img
         ref="titleSlide"
-        :src="currentSlide"
+        :src="`/svg/${currentSlide}.svg`"
         :alt="`mainSlide_${slideIndex}`"
         class="banner__img"
       />
+      <!-- <svg class="banner__img">
+        <use :xlink:href="'#' + currentSlide" />
+      </svg> -->
     </template>
     <template v-slot:slot--secondary>
       <p
@@ -38,7 +41,7 @@
 </template>
 
 <script setup>
-const slides = (["/svg/keep-it-simple.svg", "/svg/about-time.svg"]);
+const slides = (["keep-it-simple", "about-time"]);
 
 const bannerText = ([
   "We transform data chaos into profitable insights, organizing and refining messy, siloed data into actionable intelligence that your Business team can easily work with. Our goal is to make you successful by helping you monetize every aspect of your data.",

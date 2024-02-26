@@ -135,11 +135,11 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     gap: 40px;
 }
 .services__list {
-    padding-left: 40px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    list-style: disc inside;
+    list-style: disc;
+    padding-left: 54px;
 }
 .services__button {
     font-weight: 400;
@@ -214,6 +214,9 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     }
     .services__wrap {
         padding: 20px 40px;
+    }
+    .services__list {
+        padding-left: 14px;
     }
 }
 @media (max-width: 574.99px) {

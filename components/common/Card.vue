@@ -39,7 +39,8 @@ const props = defineProps({
     font-size: 16px;
 }
 .card__text > ul {
-    list-style: disc inside;
+    list-style: disc;
+    padding-left: 20px;
 }
 .card__text > ul > li {
     text-align: left;
@@ -73,6 +74,12 @@ const props = defineProps({
 @media (max-width: 767.99px) {
     .card__title {
         font-size: 18px;
+    }
+    .card__text {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        place-content: center;
     }
     .card__text * {
         font-size: 14px;

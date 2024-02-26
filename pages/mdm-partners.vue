@@ -7,7 +7,7 @@
         :vertical="true"
         :noCap="true"
         :noWrap="true"
-        :autoplay="true"
+        :autoplay="false"
         :items="titleStatements"
         :break-points="{
           320: {
@@ -25,6 +25,7 @@
         </template>
       </CommonCustomSwiper>
     </h1>
+    <CommonDiagram class="partners__diagram"/>
     <p class="partners__bannerText">
       We translate complex business problems into successful technical solutions for your customers.
       <CommonDynamicButton
@@ -34,7 +35,6 @@
         class="partners__bannerButton"
       />
     </p>
-    <CommonDiagram class="partners__diagram"/>
   </section>
   <CommonCustomSwiper
     swiperId="trusted"
@@ -93,7 +93,6 @@
               <use :xlink:href="itemProps.slide.icon" />
             </svg>
             <h3>{{itemProps.slide.text}}</h3>
-            <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
           </div>
         </template>
       </CommonCustomSwiper>
@@ -137,7 +136,7 @@ const pageText = ref([
     bullets: [
       { title: 'FinServ Advisory Services ("Hot lead to close")', text: "As an independent specialist team specializing in the Financial services sector, we step in when sales team needs help closing promising leads. Our deep expertise in financial services makes us more relatable and effective than a vendor’s sales team. We offer evaluations of customer use cases, any MDM product concerns, and solution gaps, aiding MDM Leads to close deals with confidence." },
       { title: 'Enhancing Client Retention and Cross-Selling ("Stickiness")', text: "We conduct thorough evaluations of existing customers' business needs to offer tailored MDM modeling solutions (e.g., custom solutions for mortgage clients). This approach supports new business use cases, combining deep business domain knowledge with MDM expertise. Our optimization billing aids customers in justifying funding / license renewals." },
-      { title: 'Optimizing MDM Implementation (Streamlining Costs while Ensuring Success)', text: "We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights significantly reduce implementation costs and preparation time, particularly beneficial when SIs are involved. We offer a well-thought-out, designed playbook that enables clients to conduct much of the preparatory work in-house, avoiding the higher fees typically charged by SIs. This approach is built on proven in-house MDM implementation strategies and our deep expertise, allowing us to proactively address potential issues before they arise. For example, our methodology has been instrumental in safeguarding implementations from failure in situations where top-tier SIs have encountered obstacles for various reasons, ultimately preventing completion due to budget constraints." },
+      { title: 'Optimizing MDM Implementation (Streamlining Costs while Ensuring Success)', text: "We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights significantly reduce implementation costs and preparation time, particularly beneficial when SIs are involved. We offer a well-thought-out, designed playbook that enables clients to conduct much of the preparatory work in-house, avoiding the higher fees typically charged by SIs.<br/><br/>Our approach is built on proven in-house MDM implementation strategies and our deep expertise, allowing us to proactively address potential issues before they arise. For example, our methodology has been instrumental in safeguarding implementations from failure in situations where top-tier SIs have encountered obstacles for various reasons, ultimately preventing completion due to budget constraints." },
     ],
     icon: "#grow"
   },
@@ -164,7 +163,7 @@ const pageText = ref([
     text: "Support for MDM Platform Technology",
     bullets: [
       { title: "Features Feasibility Analysis", text: "Leveraging our deep expertise in MDM implementation within the Financial Services sector, we provide critical insights into the feasibility of specific features, including discussions on adoption such as industry standard models, invoking AI as an intelligent advisor, and more."},
-      { title: "Data Products service for MDM Solution Providers", text: "Specializing in the FinServ sector, we offer an expert service focused on the strategic development and utilization of Data Products. Unlike traditional approaches that primarily involve exporting all of data into Data Warehouses or Data Lakes, our service concentrates on aligning data with the specific operational needs and usage scenarios of our clients in the financial industry.<br/>We understand that in the FinServ sector, the effective use of data products goes beyond mere data storage and access; it involves a nuanced understanding of how data can drive decision-making and operational efficiency. Our expertise lies in identifying and defining these Data Products in a way that they directly support the business objectives and processes of our clients."},
+      { title: "Data Products service for MDM Solution Providers", text: "Specializing in the FinServ sector, we offer an expert service focused on the strategic development and utilization of Data Products. Unlike traditional approaches that primarily involve exporting all of data into Data Warehouses or Data Lakes, our service concentrates on aligning data with the specific operational needs and usage scenarios of our clients in the financial industry.<br/><br/>We understand that in the FinServ sector, the effective use of data products goes beyond mere data storage and access; it involves a nuanced understanding of how data can drive decision-making and operational efficiency. Our expertise lies in identifying and defining these Data Products in a way that they directly support the business objectives and processes of our clients."},
     ],
     icon: "#person"
   },
@@ -415,6 +414,7 @@ const setActive = (index, bullets) => {
     pointer-events: none;
     padding: 0 16px;
     height: fit-content;
+   min-height: 160px;
 }
 @media (hover:hover) {
     .partners__button:hover {
@@ -582,7 +582,7 @@ const setActive = (index, bullets) => {
 }
 @media (max-width: 574.99px) {
     .partners__banner {
-       padding: 40px;
+       padding: 40px 20px;
     }
     .partners__button {
         margin-top: 0px;

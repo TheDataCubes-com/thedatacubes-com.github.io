@@ -127,6 +127,9 @@ const handleSubmit = event => {
     }
 }
 @media (max-width: 767.99px) {
+    .form__labelText {
+        padding-left: 14px;
+    }
     .form__input, .form__button {
         padding: 8px 14px;
     }
