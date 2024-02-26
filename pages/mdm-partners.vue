@@ -7,7 +7,7 @@
         :vertical="true"
         :noCap="true"
         :noWrap="true"
-        :autoplay="false"
+        :autoplay="true"
         :items="titleStatements"
         :break-points="{
           320: {
