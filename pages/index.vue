@@ -114,6 +114,11 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
         font-size: 20px;
     }
 }
+@media (max-height: 880px) {
+    .banner__text {
+        font-size: 18px;
+    }
+}
 @media (max-width: 1659.99px) {
     .banner__text {
         font-size: 18px;
