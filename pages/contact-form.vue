@@ -19,14 +19,7 @@
 </template>
 
 <script setup>
-<<<<<<< HEAD
-onBeforeMount(() => {
-  const r = useRouter();
-  r.replace("/mdm-partners")
-});
-=======
 const route = useRoute();
->>>>>>> 95bae11675855e0427ad6b5dd8dd51d06d5f22e3
 
 const error = ref(null);
 const ok = ref(null);
