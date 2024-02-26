@@ -163,6 +163,9 @@ watch([scroll, appWidth], value => {
     .whyUs__point > div {
         max-width: 100%;
     }
+    .whyUs__separator {
+        margin-bottom: 0;
+    }
 }
 @media (max-width: 767.99px) {
     .whyUs__cardsWrap {

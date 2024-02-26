@@ -118,7 +118,7 @@ const links = ref([
     name: "Partners",
     children: [
       { name: "Technology Partners", link: "/mdm-partners" },
-      { name: "Collaborative Partners", link: "/contact-form" },
+      { name: "Collaborative Partners", link: {name: "contact-form", query: {lead: "collaborative"}} },
     ],
   },
 ]);
@@ -347,6 +347,9 @@ watch(isMobile, (value) => {
 @media (max-width: 859.99px) {
     .header__nav {
         gap: 20px;
+    }
+    .header__inner {
+        place-items: center;
     }
 }
 @media (max-width: 574.99px) {

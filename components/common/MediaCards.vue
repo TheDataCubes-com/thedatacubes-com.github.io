@@ -3,6 +3,7 @@
     <div class="mediaCards__inner">
       <div class="mediaCards__videoWrap">
         <video
+          ref="video"
           autoplay
           loop
           playsinline
@@ -31,6 +32,7 @@
 const props = defineProps({
   cards: {type: Array, default: []}
 });
+const video = ref(null);
 const cards = ref([
   {
     title: "Executive Services",
@@ -58,6 +60,10 @@ const cardHeight = computed(() => {
     default: return "440px";
   }
 });
+
+onMounted(() => setTimeout(() => {
+  if (video.value.paused) video.value.paly()
+}, 500));
 </script>
 
 <style>
@@ -180,7 +186,7 @@ const cardHeight = computed(() => {
     }
     .mediaCards__video {
         border-radius: 0;
-        box-shadow: 0px 4px 8px 0px #09feff57;
+        box-shadow: none;
     }
     .mediaCards__cardsWrap {
         place-self: center;

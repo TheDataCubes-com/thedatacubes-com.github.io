@@ -1,45 +1,41 @@
 <template>
-  <Banner :static="true" class="partners__banner">
-    <template v-slot:slot--title>
-      <div class="partners__title">
-        We help MDM, ER, and Identity&nbspResolution solution providers
-        <CommonCustomSwiper
-          swiperId="banner-titile"
-          :vertical="true"
-          :noCap="true"
-          :noWrap="true"
-          :autoplay="true"
-          :items="titleStatements"
-          :break-points="{
-            320: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-              speed: 1500,
-              loop: true
-            }
-          }"
-          :delay="2000"
-          class="partners__bannerSlider"
-        >
-          <template #item="itemProps">
-           <span class="partners__titleSlide">{{itemProps.slide}}</span>
-          </template>
-        </CommonCustomSwiper>
-      </div>
-      <CommonDiagram class="partners__diagram"/>
-    </template>
-    <template v-slot:slot--secondary>
-      <p class="partners__bannerText">
-        We translate complex business problems into successful technical solutions for your customers.
-        <CommonDynamicButton
-          link="/contact-form"
-          text="Work With Us"
-          :isIcon="true"
-          class="partners__bannerButton"
-        />
-      </p>
-    </template>
-  </Banner>
+  <section class="partners__banner">
+    <h1 class="partners__title">
+      We help MDM, ER, and Identity&nbspResolution solution providers
+      <CommonCustomSwiper
+        swiperId="banner-titile"
+        :vertical="true"
+        :noCap="true"
+        :noWrap="true"
+        :autoplay="true"
+        :items="titleStatements"
+        :break-points="{
+          320: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            speed: 1500,
+            loop: true
+          }
+        }"
+        :delay="2000"
+        class="partners__bannerSlider"
+      >
+        <template #item="itemProps">
+          <span class="partners__titleSlide">{{itemProps.slide}}</span>
+        </template>
+      </CommonCustomSwiper>
+    </h1>
+    <CommonDiagram class="partners__diagram"/>
+    <p class="partners__bannerText">
+      We translate complex business problems into successful technical solutions for your customers.
+      <CommonDynamicButton
+        link="/contact-form"
+        text="Work With Us"
+        :isIcon="true"
+        class="partners__bannerButton"
+      />
+    </p>
+  </section>
   <CommonCustomSwiper
     swiperId="trusted"
     :autoplay="true"
@@ -97,7 +93,6 @@
               <use :xlink:href="itemProps.slide.icon" />
             </svg>
             <h3>{{itemProps.slide.text}}</h3>
-            <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
           </div>
         </template>
       </CommonCustomSwiper>
@@ -140,8 +135,8 @@ const pageText = ref([
     text: "For Your Existing MDM Clients and Prospects",
     bullets: [
       { title: 'FinServ Advisory Services ("Hot lead to close")', text: "As an independent specialist team specializing in the Financial services sector, we step in when sales team needs help closing promising leads. Our deep expertise in financial services makes us more relatable and effective than a vendor’s sales team. We offer evaluations of customer use cases, any MDM product concerns, and solution gaps, aiding MDM Leads to close deals with confidence." },
-      { title: 'Enhancing Client Retention and Cross-Selling ("Stickiness")', text: "We conduct thorough evaluations of existing customers' business needs to offer tailored MDM modeling solutions (e.g., custom solutions for mortgage clients). This approach supports new business use cases, combining deep business domain knowledge with MDM expertise. Our optimization billing aids in justifying funding / license renewals." },
-      { title: 'Navigating Implementation and Strategy Challenges ("Budget and Learning curve")', text: "We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights help in reducing costs and preparation time, especially when engaging with System Integrators (SIs). Our expertise is particularly valuable in scenarios where top-tier SI have previously stalled due to budget constraints, offering an effective alternative with proven in-house MDM implementation strategies." },
+      { title: 'Enhancing Client Retention and Cross-Selling ("Stickiness")', text: "We conduct thorough evaluations of existing customers' business needs to offer tailored MDM modeling solutions (e.g., custom solutions for mortgage clients). This approach supports new business use cases, combining deep business domain knowledge with MDM expertise. Our optimization billing aids customers in justifying funding / license renewals." },
+      { title: 'Optimizing MDM Implementation (Streamlining Costs while Ensuring Success)', text: "We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights significantly reduce implementation costs and preparation time, particularly beneficial when SIs are involved. We offer a well-thought-out, designed playbook that enables clients to conduct much of the preparatory work in-house, avoiding the higher fees typically charged by SIs.<br/><br/>Our approach is built on proven in-house MDM implementation strategies and our deep expertise, allowing us to proactively address potential issues before they arise. For example, our methodology has been instrumental in safeguarding implementations from failure in situations where top-tier SIs have encountered obstacles for various reasons, ultimately preventing completion due to budget constraints." },
     ],
     icon: "#grow"
   },
@@ -159,7 +154,7 @@ const pageText = ref([
   {
     text: "Support for MDM Product Management",
     bullets: [
-      { title: "Expanding New Domains", text: "We offer a specialized package (model, business use case, POC to test the interest) tailored to aid the Financial Services sector, with a specific emphasis on the Venture Capital industry, designed to accelerate the implementation process."},
+      { title: "Expanding New Domains", text: "We offer a curated solution kit (including a model, business use case, and POC that was used to validate the interest) specifically created to assist the Financial Services sector, with an emphasis on the Venture Capital industry."},
       { title: "Client Engagement and Feedback Translation", text: "Regular meetings with MDM clients are vital in understanding their unique challenges and needs. Our team, equipped with both technical expertise and financial services domain knowledge, acts as a bridge. We translate client feedback and challenges into actionable insights for the Product Management team, ensuring that the MDM product roadmap aligns closely with client requirements and industry trends."},
     ],
     icon: "#shift-data"
@@ -168,7 +163,7 @@ const pageText = ref([
     text: "Support for MDM Platform Technology",
     bullets: [
       { title: "Features Feasibility Analysis", text: "Leveraging our deep expertise in MDM implementation within the Financial Services sector, we provide critical insights into the feasibility of specific features, including discussions on adoption such as industry standard models, invoking AI as an intelligent advisor, and more."},
-      { title: "Data Products service for MDM Solution Providers", text: "Specializing in the FinServ sector, we offer an expert service focused on the strategic development and utilization of Data Products. Unlike traditional approaches that primarily involve exporting all of data into Data Warehouses or Data Lakes, our service concentrates on aligning data with the specific operational needs and usage scenarios of our clients in the financial industry.<br/>We understand that in the FinServ sector, the effective use of data products goes beyond mere data storage and access; it involves a nuanced understanding of how data can drive decision-making and operational efficiency. Our expertise lies in identifying and defining these Data Products in a way that they directly support the business objectives and processes of our clients."},
+      { title: "Data Products service for MDM Solution Providers", text: "Specializing in the FinServ sector, we offer an expert service focused on the strategic development and utilization of Data Products. Unlike traditional approaches that primarily involve exporting all of data into Data Warehouses or Data Lakes, our service concentrates on aligning data with the specific operational needs and usage scenarios of our clients in the financial industry.<br/><br/>We understand that in the FinServ sector, the effective use of data products goes beyond mere data storage and access; it involves a nuanced understanding of how data can drive decision-making and operational efficiency. Our expertise lies in identifying and defining these Data Products in a way that they directly support the business objectives and processes of our clients."},
     ],
     icon: "#person"
   },
@@ -199,6 +194,14 @@ const setActive = (index, bullets) => {
 </script>
 
 <style>
+.partners__banner {
+    height: calc(100vh - 149px);
+    max-width: var(--maxWidth);
+    width: 100%;
+    padding: 120px 40px;
+    position: relative;
+    margin: 0 auto;
+}
 .partners__bannerSlider {
     height: 73px;
 }
@@ -227,16 +230,15 @@ const setActive = (index, bullets) => {
     right: 12%;
 }
 .partners__title {
-    position: absolute;
-    max-width: 55%;
+    max-width: 60%;
     text-align: left;
     font-weight: 500;
-    top: 5vh;
     left: 0;
     font-size: 60px;
     color: white;
     display: flex;
     flex-direction: column;
+    margin-bottom: 80px;
 }
 .partners__bannerText {
     width: 100%;
@@ -412,9 +414,7 @@ const setActive = (index, bullets) => {
     pointer-events: none;
     padding: 0 16px;
     height: fit-content;
-}
-.partners__banner .banner__secondary {
-    top: calc(100vh * 0.45);
+   min-height: 160px;
 }
 @media (hover:hover) {
     .partners__button:hover {
@@ -427,9 +427,39 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-height: 960px) {
-    .partners__banner .banner__secondary {
-        top: calc(100vh * 0.5);
+    .partners__title {
+        margin-bottom: 60px;
+        font-size: 52px;
     }
+    .partners__titleSlide {
+        font-size: 52px;
+    }
+    .partners__bannerSlider {
+        height: 63px;
+    }
+    .partners__bannerButton {
+        margin-top: 20px;
+    }
+}
+@media (max-height: 740px) {
+    .partners__title {
+        margin-bottom: 40px;
+        font-size: 40px;
+    }
+    .partners__bannerSlider {
+        height: 49px;
+    }
+    .partners__titleSlide {
+        font-size: 40px;
+    }
+    .partners__banner {
+        padding: 80px 40px;
+    }
+}
+@media (max-height: 640px) {
+   .partners__diagram  {
+       display: none;
+   }
 }
 @media (max-width: 1659.99px) {
     .partners__title, .partners__titleSlide {
@@ -438,8 +468,14 @@ const setActive = (index, bullets) => {
     .partners__bannerSlider {
         height: 63px;
     }
+    .partners__banner {
+        height: calc(100vh - 113px);
+    }
 }
 @media (max-width: 1439.99px) {
+    .partners__banner {
+        height: calc(100vh - 103px);
+    }
     .partners__content {
         padding: 60px 60px 0;
     }
@@ -448,6 +484,9 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 1267.99px) {
+    .partners__banner {
+        height: calc(100vh - 89px);
+    }
     .partners__content {
         padding: 40px 40px 0;
     }
@@ -487,6 +526,9 @@ const setActive = (index, bullets) => {
         margin-bottom: 20px;
         font-size: 32px;
     }
+    .partners__bannerText {
+        max-width: 100%;
+    }
     .partners__diagram {
         position: relative;
         top: initial;
@@ -502,6 +544,9 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 767.99px) {
+    .partners__banner {
+        padding: 40px;
+    }
     .partners__bannerSlider {
         height: 34px;
     }

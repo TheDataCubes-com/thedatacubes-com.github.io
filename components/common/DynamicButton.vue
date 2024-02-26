@@ -24,7 +24,7 @@
 
 <script setup>
 const props = defineProps({
-  link: { type: String, default: "" },
+  link: { type: [Object, String], default: "" },
   text: { type: String, default: "" },
   isIcon: { type: Boolean, default: false },
   isInline: { type: Boolean, default: false }

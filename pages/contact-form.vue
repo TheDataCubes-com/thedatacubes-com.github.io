@@ -2,7 +2,7 @@
   <div :class="['consult', {'consult--ok': ok}]">
     <div class="consult__inner">
       <section v-if="!ok" class="consult__formWrap">
-        <h1>Get a free consultation today to learn more about how our team can help you to unlock the power of data.</h1>
+        <h1 v-html="title"/>
         <CommonForm
           v-if="!ok"
           name="consult"
@@ -19,10 +19,14 @@
 </template>
 
 <script setup>
+<<<<<<< HEAD
 onBeforeMount(() => {
   const r = useRouter();
   r.replace("/mdm-partners")
 });
+=======
+const route = useRoute();
+>>>>>>> 95bae11675855e0427ad6b5dd8dd51d06d5f22e3
 
 const error = ref(null);
 const ok = ref(null);
@@ -56,6 +60,12 @@ const formFields = ref([
     required: true,
   },
 ]);
+const leadTitles = ref({
+  fallback: "Get a free consultation today to learn more about how our team can help you to unlock the power of data.",
+  collaborative: "Become a Collaborative Partner<br/><br/>We're on the lookout for partnerships with visionary leaders, innovative companies, and passionate advocates in the realms of data and AI. At TheDataCubes, we believe in partnering with those who are at the forefront of data innovation, sharing insights and spreading the word about transformative data solutions for business challenges.<br/><br/>If you're committed to driving the future of data and AI,  have insights to share, or want to explore collaborative opportunities, we'd love to hear from you. Whether you're a blogger, podcaster, data community leader, or service provider, your insights and contributions can help organizations navigate evolving landscape of AI and data, unlocking new opportunities and solutions.<br/><br/>Please provide your name, email, and a brief message about your vision for our partnership."
+});
+
+const title = computed(() => leadTitles.value[route.query.lead] || leadTitles.value.fallback);
 
 const setError = (message) => {
   var errorMessage = "An unexpected error happened.<br/>Please try again later or consider contact us directly via <a class='form__err__link' href='mailto:info@thedatacubes.com'>info@thedatacubes.com</a> mail box.";
@@ -63,16 +73,10 @@ const setError = (message) => {
   var handler = setTimeout(() => error.value = null, 5000);
   error.value = { message: message || errorMessage, handler }
 }
-
 const setOk = (message) => {
   var successMessage = "Thank you for your interest. We'll be in touch soon.";
   ok.value = message || successMessage;
 }
-
-useHead({
-  script: [{src: "https://smtpjs.com/v3/smtp.js"}]
-})
-
 const encode = (data) => {
     return Object.entries(data)
         .map(([k,v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
@@ -81,10 +85,11 @@ const encode = (data) => {
 const handleLogin = (form) => {
   var { name, mail, company, message } = form
   var data = {
+    lead: route.query.lead || "default",
     name: name.value,
     mail: mail.value,
     company: company.value,
-    message: message.value
+    message: message.value,
   }
   fetch("/", {
      method: "POST",
@@ -121,14 +126,11 @@ const handleLogin = (form) => {
     flex-grow: 1;
     place-content: center;
 }
-.consult>h1 {
-    color: white;
-    font-size: 38px;
+.consult__inner>h1 {
     place-self: center;
-    font-weight: 300;
     transform: translateY(-100%);
 }
-.consult__formWrap > h1 {
+.consult__formWrap > h1, .consult__inner>h1 {
     color: white;
     padding-top: 92px;
     opacity: 0.8;
