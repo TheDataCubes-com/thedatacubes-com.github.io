@@ -199,7 +199,7 @@ const setActive = (index, bullets) => {
     height: calc(100vh - 149px);
     max-width: var(--maxWidth);
     width: 100%;
-    padding: 80px 40px;
+    padding: 120px 40px;
     position: relative;
     margin: 0 auto;
 }
@@ -440,9 +440,6 @@ const setActive = (index, bullets) => {
     .partners__bannerButton {
         margin-top: 20px;
     }
-    .partners__banner {
-        padding: 40px;
-    }
 }
 @media (max-height: 740px) {
     .partners__title {
@@ -456,7 +453,7 @@ const setActive = (index, bullets) => {
         font-size: 40px;
     }
     .partners__banner {
-        padding: 20px;
+        padding: 80px 40px;
     }
 }
 @media (max-height: 640px) {
@@ -548,7 +545,7 @@ const setActive = (index, bullets) => {
 }
 @media (max-width: 767.99px) {
     .partners__banner {
-        padding: 40px 20px;
+        padding: 40px;
     }
     .partners__bannerSlider {
         height: 34px;
@@ -585,7 +582,7 @@ const setActive = (index, bullets) => {
 }
 @media (max-width: 574.99px) {
     .partners__banner {
-       padding: 40px 20px;
+       padding: 40px;
     }
     .partners__button {
         margin-top: 0px;
