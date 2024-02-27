@@ -364,7 +364,7 @@ const setActive = (index, bullets) => {
     margin-bottom: 12px;
 }
 .bullet__item > p {
-    font-size: 16px;
+    font-size: 18px;
 }
 .text--selected {
     box-shadow: none;
@@ -456,9 +456,9 @@ const setActive = (index, bullets) => {
         padding: 80px 40px;
     }
 }
-@media (max-height: 640px) {
+@media (max-height: 570px) {
    .partners__diagram  {
-       display: none;
+     display: none;
    }
 }
 @media (max-width: 1659.99px) {
@@ -471,6 +471,9 @@ const setActive = (index, bullets) => {
     .partners__banner {
         height: calc(100vh - 113px);
     }
+    .partners__bannerText {
+        font-size: 18px;
+    }
 }
 @media (max-width: 1439.99px) {
     .partners__banner {
@@ -480,7 +483,7 @@ const setActive = (index, bullets) => {
         padding: 60px 60px 0;
     }
     .partners__bannerText {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 @media (max-width: 1267.99px) {
@@ -499,12 +502,6 @@ const setActive = (index, bullets) => {
     .partners__title {
         font-size: 40px;
         max-width: 50%;
-    }
-    .bullet__item > h4 {
-       font-size: 18px;
-    }
-    .bullet__item > p {
-        font-size: 16px;
     }
     .partners__icon {
         width: 48px;
@@ -555,10 +552,14 @@ const setActive = (index, bullets) => {
         text-align: center;
     }
     .partners__diagram {
-        margin: 0 auto 40px;
+        margin: 0 auto 20px;
     }
     .partners__bannerButton {
-        font-size: 16px;
+      display: inline-flex;
+      margin-top: 0;
+      font-size: 16px;
+      padding: 0px 8px;
+      font-weight: 300;
     }
    .partners__bullets {
        padding: 0;
@@ -592,15 +593,6 @@ const setActive = (index, bullets) => {
     }
     .partners__pointWrap {
         padding: 0;
-    }
-    .bullet__item > h4 {
-        font-size: 16px;
-    }
-    .bullet__item > p {
-        font-size: 14px;
-    }
-    .partners__bannerText {
-        font-size: 18px;
     }
 }
 @media (max-width: 374.99px) {

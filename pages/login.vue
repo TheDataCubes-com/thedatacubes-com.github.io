@@ -65,12 +65,25 @@ const handleLogin = (form) => {
     width: 100vw;
     place-self: center;
 }
+@media (max-width: 1279.99px) {
+  .login {
+    padding: 60px;
+  }
+}
 @media (max-width: 767.99px) {
+  .login {
+    padding: 40px;
+  }
     .login > h1 {
         font-size: 24px;
     }
     .login__form {
         gap: 0px;
     }
+}
+@media (max-width: 574.99px) {
+  .login {
+    padding: 40px 20px;
+  }
 }
 </style>

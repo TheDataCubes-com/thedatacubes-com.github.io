@@ -124,7 +124,7 @@ watch([scroll, appWidth], value => {
     border-radius: 20px;
     place-items: center;
 }
-.whyUs__point > div {
+.whyUs__point > div:first-of-type {
     display:flex;
     flex-direction: column;
     max-width: 50%;
@@ -150,17 +150,21 @@ watch([scroll, appWidth], value => {
     padding: 8px 12px;
     text-align: center;
 }
-.point--first > div {
+.point--first > div:first-of-type {
    max-width: 100%;
 }
 .point--even {
     flex-direction: row-reverse;
 }
 @media (max-width: 1023.99px) {
-    .whyUs__image {
-        display: none !important;
+    .whyUs__point {
+      flex-direction: column;
     }
-    .whyUs__point > div {
+    .whyUs__image {
+      place-self: center;
+      max-width: fit-content;
+    }
+    .whyUs__point > div:first-of-type {
         max-width: 100%;
     }
     .whyUs__separator {
