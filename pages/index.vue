@@ -35,6 +35,10 @@
 </template>
 
 <script setup>
+onBeforeMount(() => {
+  var r = useRouter();
+  r.replace("/mdm-partners");
+})
 const slides = (["#keep-it-simple", "#about-time"]);
 
 const bannerText = ([

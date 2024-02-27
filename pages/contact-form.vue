@@ -20,6 +20,10 @@
 </template>
 
 <script setup>
+onBeforeMount(() => {
+  var r = useRouter();
+  r.replace("/mdm-partners");
+})
 const route = useRoute();
 
 const error = ref(null);
