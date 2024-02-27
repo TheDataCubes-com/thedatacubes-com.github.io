@@ -97,6 +97,12 @@ watch(appWidth, setPosition);
     }
 }
 @media (max-width: 574.99px) {
+    .banner {
+        padding: 40px 20px;
+    }
+    .banner__title {
+        top: 0;
+    }
     .banner__secondary {
         top: calc(100vh * 0.25);
         max-width: 100%;

@@ -62,7 +62,7 @@ const cardHeight = computed(() => {
 });
 
 onMounted(() => setTimeout(() => {
-  if (video.value.paused) video.value.paly()
+  if (video.value.paused) video.value.play();
 }, 500));
 </script>
 

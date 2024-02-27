@@ -19,7 +19,6 @@
       :style="position.line"
       class="backgound__curveLineRight"
     />
-    <BgDotsLine v-if="formPage" :style="position.dots" class="dotsLine--1" />
     <BgDotsLine v-if="!partnersPage" class="dotsLine--2" />
     <BgAngles class="background__angles" />
   </div>

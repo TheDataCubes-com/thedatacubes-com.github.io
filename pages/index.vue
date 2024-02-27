@@ -1,15 +1,9 @@
 <template>
   <Banner :static="true" :staticBreak="768" staticType="relative">
     <template v-slot:slot--title>
-      <img
-        ref="titleSlide"
-        :src="`/svg/${currentSlide}.svg`"
-        :alt="`mainSlide_${slideIndex}`"
-        class="banner__img"
-      />
-      <!-- <svg class="banner__img">
-        <use :xlink:href="'#' + currentSlide" />
-      </svg> -->
+      <svg ref="titleSlide" class="banner__img">
+        <use :xlink:href="currentSlide" />
+      </svg>
     </template>
     <template v-slot:slot--secondary>
       <p
@@ -41,7 +35,7 @@
 </template>
 
 <script setup>
-const slides = (["keep-it-simple", "about-time"]);
+const slides = (["#keep-it-simple", "#about-time"]);
 
 const bannerText = ([
   "We transform data chaos into profitable insights, organizing and refining messy, siloed data into actionable intelligence that your Business team can easily work with. Our goal is to make you successful by helping you monetize every aspect of your data.",
@@ -89,6 +83,7 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 .banner__img {
     position: absolute;
     width: 55%;
+    height: 250px;
     left: 0;
     transition: left 1s ease, opacity 1s ease;
 }
@@ -137,14 +132,15 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
         font-size: 16px;
     }
 }
+@media (max-width: 1023.99px) {
+  .banner__img {
+    width: 75%;
+    stroke-width: 2;
+  }
+}
 @media (max-width: 767.99px) {
     .banner__img {
         width: 100%;
-    }
-}
-@media (max-width: 574.99px) {
-    .banner__text {
-        font-size: 14px;
     }
 }
 </style>
