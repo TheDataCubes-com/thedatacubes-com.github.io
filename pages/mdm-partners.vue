@@ -561,6 +561,9 @@ const setActive = (index, bullets) => {
       padding: 0px 8px;
       font-weight: 300;
     }
+   .partners__bannerButton > svg {
+       display: none;
+   }
    .partners__bullets {
        padding: 0;
        padding-top: 40px;

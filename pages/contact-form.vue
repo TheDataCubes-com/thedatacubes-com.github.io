@@ -191,5 +191,18 @@ const handleLogin = (form) => {
      .consult {
        padding: 40px 0;
      }
+
+
+     .consult__title {
+         font-size: 18px;
+         padding: 0px;
+     }
+     .form__form {
+         padding: 0;
+     }
+     .consult__formWrap {
+         padding: 0px 4px;
+         gap: 8px;
+     }
 }
 </style>
