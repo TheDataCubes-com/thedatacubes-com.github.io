@@ -106,7 +106,7 @@ const pageData = computed(() => pages.value[route.params.subService]);
 
 const changeHeader = inject("changeHeader");
 
-onMounted(() => setTimeout(() => changeHeader(true), 100));
+// onMounted(() => setTimeout(() => changeHeader(true), 100));
 </script>
 
 <style>
