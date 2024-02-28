@@ -231,6 +231,11 @@ onMounted(() => {
         padding: 0 40px;
     }
 }
+@media (max-width: 574.99px) {
+    .swiperCaption {
+        top: -64px;
+    }
+}
 @media (hover:hover) {
     .swiper--nav:hover {
         background-color: var(--darkPurple);

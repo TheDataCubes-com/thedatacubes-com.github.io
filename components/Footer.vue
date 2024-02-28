@@ -2,7 +2,7 @@
   <footer class="footer">
     <MainOurClients />
     <div class="footer__inner">
-      <span class="footer__info__item">{{copyright}}</span>
+      <span v-html="copyright" class="footer__info__item" />
       <div class="footer__info__links">
         <iconLinked link="https://www.linkedin.com/in/rouzannadanielian/"/>
         <iconMail link="mailto:info@thedatacubes.com"/>
