@@ -1,6 +1,6 @@
 <template>
   <div :class="['swiperWrap', {'wrap--fade': !props.noWrap}]">
-    <div v-if="!props.noCap" class="swiperCaption">
+    <div v-if="!props.noCap" :class="['swiperCaption', {'cap--multiple': !props.solo}]">
       <p class="captionItem">
         <span class="caption--highlight">TRUSTED BY</span>
         <span v-if="!props.solo" class="caption--tale">Fortune 500 companies and leading startups alike.</span>
@@ -233,6 +233,9 @@ onMounted(() => {
 }
 @media (max-width: 574.99px) {
     .swiperCaption {
+        /* top: -34px; */
+    }
+    .cap--multiple {
         top: -64px;
     }
 }

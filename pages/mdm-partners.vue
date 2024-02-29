@@ -242,11 +242,11 @@ const setActive = (index, bullets) => {
 }
 .partners__bannerText {
     width: 100%;
+    max-width: 55%;
+    color: white;
     font-size: 24px;
     line-height: 1.7;
     font-weight: 300;
-    max-width: 55%;
-    color: white;
 }
 .partners__bannerButton {
     line-height: 1;
@@ -453,7 +453,7 @@ const setActive = (index, bullets) => {
         font-size: 40px;
     }
     .partners__banner {
-        padding: 80px 40px;
+        padding: 40px;
     }
 }
 @media (max-height: 570px) {
@@ -470,6 +470,7 @@ const setActive = (index, bullets) => {
     }
     .partners__banner {
         height: calc(100vh - 113px);
+        padding: 80px 40px;
     }
     .partners__bannerText {
         font-size: 18px;
@@ -486,7 +487,7 @@ const setActive = (index, bullets) => {
         font-size: 16px;
     }
 }
-@media (max-width: 1267.99px) {
+@media (max-width: 1279.99px) {
     .partners__banner {
         height: calc(100vh - 89px);
     }
@@ -599,6 +600,9 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 374.99px) {
+    .partners__banner {
+       padding: 20px;
+    }
     .partners__cardSwiper {
         max-width: 260px;
     }

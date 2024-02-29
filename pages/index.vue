@@ -169,6 +169,9 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     }
 }
 @media (max-width: 1279.99px) {
+    .banner__img {
+        height: 200px;
+    }
     .banner {
         height: calc(100vh - 89px);
     }
@@ -192,7 +195,6 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     }
     .banner__img {
         stroke-width: 2;
-        height: 200px;
     }
 }
 @media (max-width: 767.99px) {
@@ -207,6 +209,14 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     }
     .banner__img {
        height: 140px;
+    }
+}
+@media (max-width: 374.99px) {
+    .banner__img {
+       height: 100px;
+    }
+    .banner {
+        padding: 20px;
     }
 }
 </style>
