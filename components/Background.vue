@@ -114,12 +114,6 @@ const position = computed(() => {
     left: 0;
     width: 49%;
 }
-.dotsLine--1 {
-    top: calc(100vh - 5%);
-    position: absolute;
-    width: 7vw;
-    left: 78px;
-}
 .dotsLine--2 {
     position: absolute;
     width: 7vw;
@@ -133,8 +127,13 @@ const position = computed(() => {
     left: 50%;
     opacity: 0.2;
 }
-@media (max-height: 639.99px) {
+@media (max-height: 859.99px) {
     .background__curveLineLeft {
+        display: none;
+    }
+}
+@media (max-height: 760px) {
+    .backgound__curveLineRight {
         display: none;
     }
 }
@@ -156,12 +155,11 @@ const position = computed(() => {
     .dotsLine--2 {
         width: 10vw;
     }
-}
-@media (max-width: 767.99px) {
-    .background__curveLineLeft, .dotsLine--1,
-    .dotsLine--2, .backgound__curveLineRight {
+    .background__curveLineLeft, .dotsLine--2 {
         display: none;
     }
+}
+@media (max-width: 767.99px) {
     .background__circle {
         width: 85%;
     }
@@ -175,7 +173,7 @@ const position = computed(() => {
         width: 100%;
     }
 }
-@media (max-height: 740px) {
+@media (max-width: 574.99px) {
     .backgound__curveLineRight {
         display: none;
     }
