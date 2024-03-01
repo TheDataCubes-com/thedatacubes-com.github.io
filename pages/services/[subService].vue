@@ -218,15 +218,12 @@ const changeHeader = inject("changeHeader");
         font-size: 18px;
     }
     .services__wrap {
-        padding: 20px 40px;
-    }
-    .services__list {
-        padding-left: 14px;
+        padding: 0px 40px;
     }
 }
 @media (max-width: 574.99px) {
     .services__wrap {
-        padding: 20px;
+        padding: 0 20px;
     }
     .services__picture {
         height: 160px;

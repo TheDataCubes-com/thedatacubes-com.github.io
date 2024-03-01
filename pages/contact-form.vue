@@ -1,8 +1,9 @@
 <template>
   <div :class="['consult', {'consult--ok': ok}]">
     <div class="consult__inner">
+      <h1 v-if="ok || title" v-html="ok || title" class="consult__title"/>
       <section v-if="!ok" class="consult__formWrap">
-        <h1 class="consult__title" v-html="title"/>
+        <p class="consult__formText" v-html="text"/>
         <CommonForm
           v-if="!ok"
           name="consult"
@@ -13,8 +14,7 @@
           class="consult__form"
         />
       </section>
-      <h1 v-else class="consult__title">{{ok}}</h1>
-      <!-- <p v-if="!ok" v-html="text"/> -->
+      <p v-if="!ok && subText" class="consult__formText" v-html="subText"/>
     </div>
   </div>
 </template>
@@ -59,20 +59,24 @@ const formFields = ref([
   },
 ]);
 const leadTitles = ref({
-  fallback: "Get a free consultation today to learn more about how our team can help you to unlock the power of data.",
-  collaborative: "Become a Collaborative Partner<br/><br/>We're on the lookout for partnerships with visionary leaders, innovative companies, and passionate advocates in the realms of data and AI."
+  collaborative: "Become a Collaborative Partner<br/><br/>We're on the lookout for partnerships with visionary leaders, innovative companies, and passionate advocates in the realms of data and AI.<br/><br/>Please provide your name, email, and a brief message about your vision for our partnership."
 });
 const leadText = ref({
-  collaborative: "At TheDataCubes, we believe in partnering with those who are at the forefront of data innovation, sharing insights and spreading the word about transformative data solutions for business challenges.<br/><br/>If you're committed to driving the future of data and AI,  have insights to share, or want to explore collaborative opportunities, we'd love to hear from you. Whether you're a blogger, podcaster, data community leader, or service provider, your insights and contributions can help organizations navigate evolving landscape of AI and data, unlocking new opportunities and solutions.<br/><br/>Please provide your name, email, and a brief message about your vision for our partnership."
+  fallback: "Get a free consultation today to learn more about how our team can help you to unlock the power of data.",
+  collaborative: "At TheDataCubes, we believe in partnering with those who are at the forefront of data innovation, sharing insights and spreading the word about transformative data solutions for business challenges.<br/><br/>If you're committed to driving the future of data and AI,  have insights to share, or want to explore collaborative opportunities, we'd love to hear from you. Whether you're a blogger, podcaster, data community leader, or service provider, your insights and contributions can help organizations navigate evolving landscape of AI and data, unlocking new opportunities and solutions.<br/><br/>"
 });
-const titleLong = ref(false);
+const leadSubs = ref({
+  collaborative: "At TheDataCubes, we believe in partnering with those who are at the forefront of data innovation, sharing insights and spreading the word about transformative data solutions for business challenges.<br/><br/>If you're committed to driving the future of data and AI,  have insights to share, or want to explore collaborative opportunities, we'd love to hear from you. Whether you're a blogger, podcaster, data community leader, or service provider, your insights and contributions can help organizations navigate evolving landscape of AI and data, unlocking new opportunities and solutions.<br/><br/>"
+})
+const textLong = ref(false);
 
-const title = computed(() => {
-  var newTitle = leadTitles.value[route.query.lead] || leadTitles.value.fallback;
-  titleLong.value = newTitle.length > 160;
-  return newTitle;
+const title = computed(() =>  leadTitles.value[route.query.lead]);
+const text = computed(() => {
+  var newText = leadText.value[route.query.lead] || leadText.value.fallback
+  textLong.value = newText.length > 160;
+  return newText;
 });
-const text = computed(() =>  leadText.value[route.query.lead]);
+const subText = computed(() => leadSubs.value[route.query.lead])
 
 const setError = (message) => {
   var errorMessage = "An unexpected error happened.<br/>Please try again later or consider contact us directly via <a class='form__err__link' href='mailto:info@thedatacubes.com'>info@thedatacubes.com</a> mail box.";
@@ -133,7 +137,7 @@ const handleLogin = (form) => {
     flex-grow: 1;
     place-content: center;
 }
-.consult__title {
+.consult__title, .consult__formText {
     color: white;
     padding-top: 92px;
     opacity: 0.8;
@@ -164,7 +168,7 @@ const handleLogin = (form) => {
         /* flex-direction: column;
         place-self: center; */
     }
-   .consult__title  {
+   .consult__title, .consult__formText  {
         padding: 0;
         place-self: center;
         padding: 0 20px;
@@ -182,7 +186,7 @@ const handleLogin = (form) => {
     .consult__form > .form__fieldset > label:last-of-type > textarea {
         min-height: 160px;
     }
-    .consult__title  {
+    .consult__title, .consult__formText  {
          font-size: 24px;
      }
      .consult__form {
@@ -193,7 +197,7 @@ const handleLogin = (form) => {
      }
 
 
-     .consult__title {
+     .consult__title, .consult__formText {
          font-size: 18px;
          padding: 0px;
      }

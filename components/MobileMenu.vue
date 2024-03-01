@@ -1,5 +1,5 @@
 <template>
-  <nav :class="['mobileNav', {'mobileNav--white': isWhite}]">
+  <nav class="mobileNav">
     <ul class="mobileNav__list">
       <li v-for="({name, link, children}, index) in props.links" :key="index">
         <NuxtLink :to="link" class="mobileNav__item">{{name}}</NuxtLink>
@@ -25,7 +25,6 @@
 <script setup>
 const props = defineProps({
   links: { type: Array, default: [] },
-  isWhite: { type: Boolean, default: false},
 })
 </script>
 
@@ -81,16 +80,6 @@ const props = defineProps({
 }
 .mobileNav__button {
     display: none;
-}
-.mobileNav--white {
-    background-color: white;
-}
-.mobileNav--white .mobileNav__item {
-    color: #666666;
-}
-.mobileNav--white .mobileNav__button {
-    color: var(--darkPurple);
-    border: 2px solid var(--darkPurple);
 }
 @media (hover:hover) {
     .mobileNav__item:hover:before {
