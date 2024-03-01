@@ -67,6 +67,22 @@ const pages = ref({
     meta: {},
     picture: "/images/data-management.jpg",
   },
+  mdm: {
+    picture: "/images/mdm.jpg",
+    title: "Master Data Management (MDM) & Entity Resolution",
+    text: [
+      "<div class='services__imageBlock'>",
+      "<p><span class='services__highlight hl--block'>We help you get the most out of your MDM decisions</span>Our team of experienced domain experts, with years of hands-on experience in the Financial Services industry, excels in strategic consulting and delivering customized Master Data Management solutions. Driven to empower and enable clients, we effectively solve complex technical and business challenges by introducing cutting-edge innovations, new approaches, and fresh perspectives.<br/><br/>Our standout ability to translate complex business problems into successful technical solutions has significantly contributed to the success of our projects in the Financial Services sector.</p>",
+      "<div class='services__imageWrap'>",
+      "<img src='/images/diagram.png' alt='services--textImage'/>",
+      "</div>",
+      "</div>",
+      `<p><span class='services__highlight hl--block'>We're going to accelerate your success on your journey to Customer&nbsp360</span>We're vendor independent “3rd party independent advisory consultancy with the start to finish implementation expertise in the multiple MDM/ER products. We offer unbiased evaluation of the customer’s use cases, MDM product concerns, solution gaps.</p>`,
+      "<h2 class='services__subTitle'>What We Do</h2>",
+      ].join(""),
+    buttonText: "Learn more about how we can help you MDM better",
+    meta: {}
+  },
   services: {
     title: "service title",
     text: "Our Services:",
@@ -79,12 +95,6 @@ const pages = ref({
   },
   "analysis-modeling": {
     title: "Business Analysis & Data Modeling",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    meta: {}
-  },
-  mdm: {
-    picture: "/images/mdm.jpg",
-    title: "Master Data Management & Entity Resolution",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     meta: {}
   },
@@ -168,6 +178,7 @@ const changeHeader = inject("changeHeader");
 .services__highlight {
     color: var(--darkPurple);
     font-weight: 500;
+    font-size: 20px;
 }
 .hl--block {
     display: block;
@@ -182,6 +193,13 @@ const changeHeader = inject("changeHeader");
     color: var(--darkPurple);
     text-decoration: underline;
     transition: color 0.3s ease;
+}
+.services__imageBlock {
+    display: flex;
+    place-items: center;
+}
+.services__imageWrap > img {
+    max-width: 280px;
 }
 @media (hover:hover) {
     .services__inlineLink:hover {
