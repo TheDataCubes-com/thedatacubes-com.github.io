@@ -216,9 +216,6 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     .services__wrap {
         padding: 0px 40px;
     }
-    .services__text {
-        gap: 20px;
-    }
 }
 @media (max-width: 574.99px) {
     .services__wrap {
