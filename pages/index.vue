@@ -86,8 +86,14 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
     opacity: 1;
     color: white;
     width: 55%;
+    transform: translateX(0);
     position: absolute;
-    transition: left 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+.imgTransition {
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: inital;
 }
 .banner__button {
     position: absolute;
@@ -106,11 +112,6 @@ onBeforeUnmount(() => swiper.value && clearInterval(swiper.value));
 .banner__img {
     width: 100%;
     height: 250px;
-}
-.imgTransition {
-    left: calc(100vh * 2);
-    opacity: 0;
-    transition: inital;
 }
 .index__swiper {
     margin: 0 auto;

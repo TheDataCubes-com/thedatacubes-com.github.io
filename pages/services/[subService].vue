@@ -68,15 +68,15 @@ const pages = ref({
     title: "Master Data Management (MDM) & Entity Resolution",
     text: [
       "<div class='services__imageBlock'>",
-      "<p><span class='services__highlight hl--block'>We help you get the most out of your MDM decisions</span>Our team of experienced domain experts, with years of hands-on experience in the Financial Services industry, excels in strategic consulting and delivering customized Master Data Management solutions. Driven to empower and enable clients, we effectively solve complex technical and business challenges by introducing cutting-edge innovations, new approaches, and fresh perspectives.<br/><br/>Our standout ability to translate complex business problems into successful technical solutions has significantly contributed to the success of our projects in the Financial Services sector.</p>",
+      "<p><span class='services__highlight hl--block'>We're going to accelerate your success on your journey to Customer&nbsp360</span>Our team of experienced domain experts, with years of hands-on experience in the Financial Services industry, excels in strategic consulting and delivering customized Master Data Management solutions. Driven to empower and enable clients, we effectively solve complex technical and business challenges by introducing cutting-edge innovations, new approaches, and fresh perspectives.<br/><br/>Our standout ability to translate complex business problems into successful technical solutions has significantly contributed to the success of our projects in the Financial Services sector.</p>",
       "<div class='services__imageWrap'>",
       "<img src='/images/diagram.png' alt='services--textImage'/>",
       "</div>",
       "</div>",
-      `<p><span class='services__highlight hl--block'>We're going to accelerate your success on your journey to Customer&nbsp360</span>We're vendor independent “3rd party independent advisory consultancy with the start to finish implementation expertise in the multiple MDM/ER products. We offer unbiased evaluation of the customer’s use cases, MDM product concerns, solution gaps.</p>`,
+      `<p><span class='services__highlight hl--block'>We help you get the most out of your MDM decisions</span>We are a vendor-independent, third-party advisory consultancy with start-to-finish implementation expertise in multiple MDM/ER products. We offer unbiased evaluations of customers’ use cases, MDM product concerns, and solution gaps.</p>`,
       "<h2 class='services__subTitle'>What We Do</h2>",
       ].join(""),
-    buttonText: "Learn more about how we can help you MDM better",
+    buttonText: "Learn more about how we can help you do MDM better",
     meta: {}
   },
   services: {
@@ -170,10 +170,11 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
     place-self: flex-start;
     font-size: 24px;
     color: var(--darkPurple);
+    font-weight: 600;
 }
 .services__highlight {
     color: var(--darkPurple);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px;
 }
 .hl--block {
