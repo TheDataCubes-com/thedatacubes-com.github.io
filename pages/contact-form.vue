@@ -142,7 +142,7 @@ const handleLogin = (form) => {
     font-size: 34px;
 }
 .consult__formText {
-    font-size: 24px;
+    font-size: 18px;
     place-self: flex-start;
     padding-top: 42px;
     width: fit-content;
