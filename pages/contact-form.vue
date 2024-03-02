@@ -3,7 +3,7 @@
     <div class="consult__inner">
       <h1 v-if="ok || title" v-html="ok || title" class="consult__title"/>
       <section v-if="!ok" class="consult__formWrap">
-        <p class="consult__formText" v-html="text"/>
+        <p v-html="text" class="consult__formText"/>
         <CommonForm
           v-if="!ok"
           name="consult"
@@ -14,7 +14,7 @@
           class="consult__form"
         />
       </section>
-      <p v-if="!ok && subText" class="consult__formText" v-html="subText"/>
+      <p v-if="!ok && subText" class="consult__formText text--sub" v-html="subText"/>
     </div>
   </div>
 </template>
@@ -59,21 +59,19 @@ const formFields = ref([
   },
 ]);
 const leadTitles = ref({
-  collaborative: "Become a Collaborative Partner<br/><br/>We're on the lookout for partnerships with visionary leaders, innovative companies, and passionate advocates in the realms of data and AI.<br/><br/>Please provide your name, email, and a brief message about your vision for our partnership."
+  collaborative: "Become a Collaborative Partner"
 });
 const leadText = ref({
   fallback: "Get a free consultation today to learn more about how our team can help you to unlock the power of data.",
-  collaborative: "At TheDataCubes, we believe in partnering with those who are at the forefront of data innovation, sharing insights and spreading the word about transformative data solutions for business challenges.<br/><br/>If you're committed to driving the future of data and AI,  have insights to share, or want to explore collaborative opportunities, we'd love to hear from you. Whether you're a blogger, podcaster, data community leader, or service provider, your insights and contributions can help organizations navigate evolving landscape of AI and data, unlocking new opportunities and solutions.<br/><br/>"
+  collaborative: "We're on the lookout for partnerships with visionary leaders, innovative companies, and passionate advocates in the realms of data and AI.<br/><br/>Please provide your name, email, and a brief message about your vision for our partnership."
 });
 const leadSubs = ref({
   collaborative: "At TheDataCubes, we believe in partnering with those who are at the forefront of data innovation, sharing insights and spreading the word about transformative data solutions for business challenges.<br/><br/>If you're committed to driving the future of data and AI,  have insights to share, or want to explore collaborative opportunities, we'd love to hear from you. Whether you're a blogger, podcaster, data community leader, or service provider, your insights and contributions can help organizations navigate evolving landscape of AI and data, unlocking new opportunities and solutions.<br/><br/>"
 })
-const textLong = ref(false);
 
 const title = computed(() =>  leadTitles.value[route.query.lead]);
 const text = computed(() => {
   var newText = leadText.value[route.query.lead] || leadText.value.fallback
-  textLong.value = newText.length > 160;
   return newText;
 });
 const subText = computed(() => leadSubs.value[route.query.lead])
@@ -123,11 +121,11 @@ const handleLogin = (form) => {
     width: 100%;
     display: flex;
     flex-direction: column;
-    max-width: var(--maxWidth);
+    max-width: 900px;
+    gap: 40px;
     place-self: center;
 }
 .consult__formWrap {
-    max-width: 75%;
     width: 100%;
     display: flex;
     gap: 20px;
@@ -139,17 +137,22 @@ const handleLogin = (form) => {
 }
 .consult__title, .consult__formText {
     color: white;
-    padding-top: 92px;
     opacity: 0.8;
-    font-size: 24px;
     font-weight: 300;
-    width: fit-content;
     line-height: 1.6;
-    max-width: 500px;
 }
-.consult__inner>h1 {
+.consult__title {
     place-self: center;
-    transform: translateY(-100%);
+    font-size: 34px;
+}
+.consult__formText {
+    font-size: 18px;
+    place-self: flex-start;
+    padding-top: 42px;
+    width: fit-content;
+}
+.text--sub {
+    padding: 0;
 }
 .consult__formWrap > p {
     max-width: 100%;
@@ -164,22 +167,20 @@ const handleLogin = (form) => {
     resize: none;
 }
 @media (max-width: 1023.99px) {
-    .consult__formWrap {
-        /* flex-direction: column;
-        place-self: center; */
-    }
    .consult__title, .consult__formText  {
         padding: 0;
         place-self: center;
         padding: 0 20px;
-        max-width: 440px;
-    }
+   }
     .consult__formWrap {
         max-width: 100%;
         gap: 40px;
     }
 }
 @media (max-width: 767.99px) {
+    .consult__inner {
+        gap: 20px;
+    }
     .consult__formWrap {
         gap: 12px;
     }
@@ -195,8 +196,6 @@ const handleLogin = (form) => {
      .consult {
        padding: 40px 0;
      }
-
-
      .consult__title, .consult__formText {
          font-size: 18px;
          padding: 0px;
@@ -205,8 +204,11 @@ const handleLogin = (form) => {
          padding: 0;
      }
      .consult__formWrap {
-         padding: 0px 4px;
+         padding: 0px 20px;
          gap: 8px;
+     }
+     .text--sub, .consult__title {
+         padding: 0 20px;
      }
 }
 </style>

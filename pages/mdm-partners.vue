@@ -31,7 +31,7 @@
       <CommonDynamicButton
         link="/contact-form"
         text="Work With Us"
-        :isIcon="true"
+        :isIcon="false"
         class="partners__bannerButton"
       />
     </p>
@@ -254,10 +254,6 @@ const setActive = (index, bullets) => {
     font-size: 18px;
     padding: 6px 16px;
 }
-.partners__bannerButton > svg {
-   width: 20px;
-   height: 20px;
-}
 .partners__slider {
     margin: 0 auto;
     max-width: 1920px;
@@ -358,13 +354,13 @@ const setActive = (index, bullets) => {
     transition: 0.3s ease;
 }
 .bullet__item > h4 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 20px !important;
+    font-weight: 600 !important;
     color: #3D3D3D;
     margin-bottom: 12px;
 }
 .bullet__item > p {
-    font-size: 18px;
+    font-size: 18px !important;
 }
 .text--selected {
     box-shadow: none;
@@ -442,6 +438,10 @@ const setActive = (index, bullets) => {
     }
 }
 @media (max-width: 1439.99px) {
+    .partners__bannerButton {
+        padding: 2px 12px;
+        font-size: 16px;
+    }
     .partners__banner {
         height: calc(100vh - 103px);
     }
@@ -506,6 +506,41 @@ const setActive = (index, bullets) => {
         padding: 28px 20px 0;
     }
 }
+@media (max-height: 960px) {
+    .partners__title {
+        margin-bottom: 60px;
+        font-size: 52px;
+    }
+    .partners__titleSlide {
+        font-size: 52px;
+    }
+    .partners__bannerSlider {
+        height: 63px;
+    }
+    .partners__bannerButton {
+        margin-top: 20px;
+    }
+}
+@media (max-height: 740px) {
+    .partners__title {
+        margin-bottom: 40px;
+        font-size: 40px;
+    }
+    .partners__bannerSlider {
+        height: 49px;
+    }
+    .partners__titleSlide {
+        font-size: 40px;
+    }
+    .partners__banner {
+        padding: 40px;
+    }
+}
+@media (max-height: 570px) {
+   .partners__diagram  {
+     display: none;
+   }
+}
 @media (max-width: 767.99px) {
     .partners__banner {
         padding: 40px;
@@ -521,15 +556,11 @@ const setActive = (index, bullets) => {
         margin: 0 auto 20px;
     }
     .partners__bannerButton {
-      display: inline-flex;
-      margin-top: 0;
-      font-size: 16px;
-      padding: 0px 8px;
-      font-weight: 300;
+        display: inline-block;
+        margin-top: 0;
+        padding: 0px 8px;
+        font-weight: 300;
     }
-   .partners__bannerButton > svg {
-       display: none;
-   }
    .partners__bullets {
        padding: 0;
        padding-top: 40px;
@@ -580,43 +611,5 @@ const setActive = (index, bullets) => {
     .partners__diagram {
         font-size: 14px;
     }
-    .partners__bannerButton {
-        font-size: 16px;
-    }
-}
-@media (max-height: 960px) {
-    .partners__title {
-        margin-bottom: 60px;
-        font-size: 52px;
-    }
-    .partners__titleSlide {
-        font-size: 52px;
-    }
-    .partners__bannerSlider {
-        height: 63px;
-    }
-    .partners__bannerButton {
-        margin-top: 20px;
-    }
-}
-@media (max-height: 740px) {
-    .partners__title {
-        margin-bottom: 40px;
-        font-size: 40px;
-    }
-    .partners__bannerSlider {
-        height: 49px;
-    }
-    .partners__titleSlide {
-        font-size: 40px;
-    }
-    .partners__banner {
-        padding: 40px;
-    }
-}
-@media (max-height: 570px) {
-   .partners__diagram  {
-     display: none;
-   }
 }
 </style>
