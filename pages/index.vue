@@ -7,7 +7,7 @@
     </h1>
     <p v-html="bannerText" class="banner__text" />
     <CommonDynamicButton
-      link="/contact-form"
+      link="/contact/form"
       text="Set up a Free Consultation"
       :isIcon="true"
       class="banner__button"

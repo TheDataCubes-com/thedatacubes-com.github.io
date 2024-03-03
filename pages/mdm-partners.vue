@@ -29,7 +29,7 @@
     <p class="partners__bannerText">
       We translate complex business problems into successful technical solutions for your customers.
       <CommonDynamicButton
-        link="/contact-form"
+        link="/contact/form"
         text="Work With Us"
         :isIcon="false"
         class="partners__bannerButton"
@@ -106,7 +106,7 @@
           <p v-html="text"/>
         </li>
         <CommonDynamicButton
-          link="/contact-form"
+          link="/contact/form"
           text="talk to us"
           :isIcon="true"
           class="partners__button"

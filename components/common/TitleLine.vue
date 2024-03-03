@@ -3,18 +3,17 @@
     :style="`padding-bottom:${props.padBottom}px;`"
     :class="['titleLine', {'title--noBg': noBg}]"
   >
-    <component
-      :is="props.heading"
-      :style="[
-      ]"
-      class="titleLine__title"
-    >{{props.title}}</component>
+    <component :is="props.heading" class="titleLine__title">
+      {{props.title}}
+    </component>
+    <p v-if="props.text" class="titleLine__text">{{props.text}}</p>
   </section>
 </template>
 
 <script setup>
 const props = defineProps({
   title: { type: String, default: "" },
+  text: { type: String, default: "" },
   heading: { type: String, default: "h1" },
   padBottom: { type: Number, default: 260 },
   noBg: { type: Boolean, default: false }
@@ -28,6 +27,7 @@ const props = defineProps({
     padding: 40px 0;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 .title--noBg {
     background-color: unset;
@@ -40,6 +40,14 @@ const props = defineProps({
     text-align: center;
     max-width: 1260px;
     width: 100%;
+    padding: 0 20px;
+}
+.titleLine__text {
+    place-self: center;
+    text-align: center;
+    max-width: 1260px;
+    color: var(--darkPurple);
+    font-size: 18px;
     padding: 0 20px;
 }
 @media (max-width: 1023.99px) {

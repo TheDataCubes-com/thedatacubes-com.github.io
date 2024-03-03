@@ -15,7 +15,7 @@
     <NuxtLink to="/login" class="mobileNav__item">Login</NuxtLink>
     <CommonDynamicButton
       text="Get a Free Consult"
-      link="/contact-form"
+      link="/contact/form"
       :isInline="true"
       class="mobileNav__button"
     />
