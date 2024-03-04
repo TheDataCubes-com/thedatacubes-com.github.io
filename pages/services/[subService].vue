@@ -12,13 +12,21 @@
     />
     <section class="services__wrap">
       <div v-html="pageData.text" class="services__text"/>
-      <CommonDynamicButton
-        link="/contact-form"
-        :text="pageData.buttonText"
-        :isIcon="true"
-        class="services__button"
+      <CommonTitleLine
+        :title="titleText"
+        heading="h2"
+        :text="formSuccess ? '' : 'Fill out the form below to learn how we can help.'"
+        class="services__line"
       />
     </section>
+    <CommonForm
+      v-if="!formSuccess"
+      name="consult"
+      :active="true"
+      :fields="formFields"
+      @submit="handleSubmit"
+      class="services__form"
+    />
   </article>
 </template>
 
@@ -27,10 +35,40 @@ onBeforeMount(() => {
   const r = useRouter();
   r.replace("/mdm-partners")
 });
+const formFields = ref([
+  {
+    name: "name",
+    text: "Name",
+    inputType: "input",
+    type: "text",
+    required: true,
+  },
+  {
+    name: "mail",
+    text: "Email",
+    inputType: "input",
+    type: "email",
+    required: true,
+  },
+  {
+    name: "company",
+    text: "Company",
+    inputType: "input",
+    type: "text",
+    required: false,
+  },
+  {
+    name: "message",
+    text: "Message",
+    inputType: "textarea",
+    type: "text",
+    required: true,
+  },
+]);
 const pages = ref({
   "executive-services": {
     title: "Executive Services",
-    buttonText: "GET IN TOUCH",
+    buttonText: "Get In Touch!",
     picture: "/images/executive-services.jpg",
     text: [
       "<p>Keeping pace with technological advancements can be challenging for data professionals, let alone for those steering the business. Our suite of personalized Executive Services is designed for high-value data decisioning and AI strategy. It aims to demystify emerging technologies such as AI, MDM, data science, machine learning, and analytics, providing insights into how these can be leveraged to enhance value within your organization.</p>",
@@ -61,9 +99,9 @@ const pages = ref({
         "<li><span class='services__highlight'>Change Management</span><br/><span class='services__listPar'>We proactively transfer knowledge and skills leading to client self-sufficiency during every project.</span><br/></li>",
         "<li><span class='services__highlight'>Utilizing AI and Machine Learning for predictive insights</span></li>",
         "</ul>",
-        "<p><span class='services__highlight hl--block'>Data Quality (DQ) and Performance</span>Additionally, our team specializes in developing automated database architectures and systems that ensure great DQ and excellent performance. We have developed frameworks that can be implemented into your systems for automated DQ and reporting.<br/><br/><a href='/contact-form' target='_blank' class='services__inlineLink'>Reach out to learn about additional services</a> we can offer to help you maximize your data ROI. We're eager to hear from you!</p>",
+        "<p><span class='services__highlight hl--block'>Data Quality (DQ) and Performance</span>Additionally, our team specializes in developing automated database architectures and systems that ensure great DQ and excellent performance. We have developed frameworks that can be implemented into your systems for automated DQ and reporting.<br/><br/><a href='/contact/form' target='_blank' class='services__inlineLink'>Reach out to learn about additional services</a> we can offer to help you maximize your data ROI. We're eager to hear from you!</p>",
       ].join(""),
-    buttonText: "Drive Your Data Strategy Forward Now",
+    buttonText: "Drive Your Data Strategy Forward Now!",
     meta: {},
     picture: "/images/data-management.jpg",
   },
@@ -74,13 +112,13 @@ const pages = ref({
       "<div class='services__imageBlock'>",
       "<p><span class='services__highlight hl--block'>We're going to accelerate your success on your journey to Customer&nbsp360</span>Our team of experienced domain experts, with years of hands-on experience in the Financial Services industry, excels in strategic consulting and delivering customized Master Data Management solutions. Driven to empower and enable clients, we effectively solve complex technical and business challenges by introducing cutting-edge innovations, new approaches, and fresh perspectives.<br/><br/>Our standout ability to translate complex business problems into successful technical solutions has significantly contributed to the success of our projects in the Financial Services sector.</p>",
       "<div class='services__imageWrap'>",
-      "<img src='/images/diagram.png' alt='services--textImage'/>",
+      "<img src='/svg/logo-simple.svg' alt='logo' class='img-l'/>",
       "</div>",
       "</div>",
       `<p><span class='services__highlight hl--block'>We help you get the most out of your MDM decisions</span>We are a vendor-independent, third-party advisory consultancy with start-to-finish implementation expertise in multiple MDM/ER products. We offer unbiased evaluations of customers’ use cases, MDM product concerns, and solution gaps.</p>`,
       "<h2 class='services__subTitle'>What We Do</h2>",
       ].join(""),
-    buttonText: "Learn more about how we can help you do MDM better",
+    buttonText: "Learn how we can help you do MDM better!",
     meta: {}
   },
   services: {
@@ -109,14 +147,41 @@ const pages = ref({
     meta: {}
   }
 });
+const formSuccess = ref(false);
 
 const route = useRoute();
 
 const pageData = computed(() => pages.value[route.params.subService]);
+const titleText = computed(() => formSuccess.value
+  ? "Thank you for your interest. We'll be in touch soon."
+  : pageData.value.buttonText
+);
 
 const changeHeader = inject("changeHeader");
 
 // onMounted(() => setTimeout(() => changeHeader(true), 100));
+const handleSubmit = (form) => {
+  const encode = (data) => {
+    return Object.entries(data)
+        .map(([k,v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
+        .join("&");
+  }
+  var { name, mail, company, message } = form
+  var data = {
+    lead: route.params.subServices + " service page",
+    name: name.value,
+    mail: mail.value,
+    company: company.value,
+    message: message.value,
+  }
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({ "form-name": "consult", ...data })
+  })
+    .then(() => formSuccess.value = true)
+    .catch((e) => aslert(e.message));
+}
 </script>
 
 <style>
@@ -141,7 +206,6 @@ const changeHeader = inject("changeHeader");
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-bottom: 60px;
 }
 .services__text {
     width: 100%;
@@ -199,8 +263,50 @@ const changeHeader = inject("changeHeader");
     display: flex;
     place-items: center;
 }
-.services__imageWrap > img {
+.services__imageWrap {
+    background-image: url("/images/diagram.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     max-width: 280px;
+    height: 260px;
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+}
+.img-l {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-64%, -26%);
+    max-width: 20%;
+    width: 100%;
+}
+.services__line {
+    margin-top: 20px;
+    background-color: var(--darkPurple);
+    padding: 60px 0 !important;
+}
+.services__line .titleLine__title,
+.services__line .titleLine__text {
+    color: white;
+}
+.services__form {
+    padding: 0 20px !important;
+    max-width: 440px;
+    place-self:center;
+    margin-bottom: 60px;
+}
+.services__form label > span {
+    color: var(--darkPurple);
+}
+.services__form button {
+    background-color: var(--darkPurple);
+    color: white;
+}
+.services__form input, .services__form textarea {
+    border: 1px solid var(--darkPurple);
 }
 @media (hover:hover) {
     .services__inlineLink:hover {
@@ -209,6 +315,9 @@ const changeHeader = inject("changeHeader");
     .services__button:hover {
         background-color: var(--darkPurple);
         color: white;
+    }
+    .services__form button:hover {
+        background-color: var(--mainYellow);
     }
 }
 @media (max-width: 1659.99px) {
@@ -230,6 +339,9 @@ const changeHeader = inject("changeHeader");
     }
 }
 @media (max-width: 767.99px) {
+    .services__imageBlock {
+        flex-direction: column;
+    }
     .services__picture {
         height: 200px;
     }

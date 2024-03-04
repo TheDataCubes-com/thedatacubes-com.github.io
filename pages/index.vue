@@ -7,7 +7,7 @@
     </h1>
     <p v-html="bannerText" class="banner__text" />
     <CommonDynamicButton
-      link="/contact-form"
+      link="/contact/form"
       text="Set up a Free Consultation"
       :isIcon="true"
       class="banner__button"
@@ -47,6 +47,12 @@ const titleSlide = ref(null);
 const swiper = ref(null);
 
 const trustedBy = ref([
+  "/images/boa-logo.png",
+  "/images/sonos-logo.png",
+  "/images/bm-logo.png",
+  "/images/pm-logo.svg",
+  "/images/mattel-logo.png",
+  "/images/svb-logo.png",
   "/images/boa-logo.png",
   "/images/sonos-logo.png",
   "/images/bm-logo.png",

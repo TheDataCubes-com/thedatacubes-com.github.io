@@ -1,20 +1,20 @@
 <template>
   <div :class="['consult', {'consult--ok': ok}]">
     <div class="consult__inner">
-      <h1 v-if="ok || title" v-html="ok || title" class="consult__title"/>
+      <h1 v-if="ok || pageData.title" v-html="ok || pageData.title" class="consult__title"/>
       <section v-if="!ok" class="consult__formWrap">
-        <p v-html="text" class="consult__formText"/>
+        <p v-html="pageData.text" class="consult__formText"/>
         <CommonForm
           v-if="!ok"
           name="consult"
           :active="true"
           :error="error && error.message"
           :fields="formFields"
-          @submit="handleLogin"
+          @submit="handleSubmit"
           class="consult__form"
         />
       </section>
-      <p v-if="!ok && subText" class="consult__formText text--sub" v-html="subText"/>
+      <p v-if="!ok && pageData.subText" class="consult__formText text--sub" v-html="pageData.subText"/>
     </div>
   </div>
 </template>
@@ -62,19 +62,21 @@ const leadTitles = ref({
   collaborative: "Become a Collaborative Partner"
 });
 const leadText = ref({
-  fallback: "Get a free consultation today to learn more about how our team can help you to unlock the power of data.",
+  form: "Get a free consultation today to learn more about how our team can help you to unlock the power of data.",
   collaborative: "We're on the lookout for partnerships with visionary leaders, innovative companies, and passionate advocates in the realms of data and AI.<br/><br/>Please provide your name, email, and a brief message about your vision for our partnership."
 });
 const leadSubs = ref({
   collaborative: "At TheDataCubes, we believe in partnering with those who are at the forefront of data innovation, sharing insights and spreading the word about transformative data solutions for business challenges.<br/><br/>If you're committed to driving the future of data and AI,  have insights to share, or want to explore collaborative opportunities, we'd love to hear from you. Whether you're a blogger, podcaster, data community leader, or service provider, your insights and contributions can help organizations navigate evolving landscape of AI and data, unlocking new opportunities and solutions.<br/><br/>"
 })
 
-const title = computed(() =>  leadTitles.value[route.query.lead]);
-const text = computed(() => {
-  var newText = leadText.value[route.query.lead] || leadText.value.fallback
-  return newText;
+const formType = computed(() => route.params.formType);
+const pageData = computed(() => {
+  return {
+    title: leadTitles.value[formType.value],
+    text: leadText.value[formType.value],
+    subText: leadSubs.value[formType.value]
+  }
 });
-const subText = computed(() => leadSubs.value[route.query.lead])
 
 const setError = (message) => {
   var errorMessage = "An unexpected error happened.<br/>Please try again later or consider contact us directly via <a class='form__err__link' href='mailto:info@thedatacubes.com'>info@thedatacubes.com</a> mail box.";
@@ -87,14 +89,14 @@ const setOk = (message) => {
   ok.value = message || successMessage;
 }
 const encode = (data) => {
-    return Object.entries(data)
-        .map(([k,v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
-        .join("&");
-  }
-const handleLogin = (form) => {
+  return Object.entries(data)
+      .map(([k,v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
+      .join("&");
+}
+const handleSubmit = (form) => {
   var { name, mail, company, message } = form
   var data = {
-    lead: route.query.lead || "default",
+    lead: formType.value,
     name: name.value,
     mail: mail.value,
     company: company.value,
@@ -143,7 +145,7 @@ const handleLogin = (form) => {
 }
 .consult__title {
     place-self: center;
-    font-size: 34px;
+    font-size: 42px;
 }
 .consult__formText {
     font-size: 18px;
@@ -167,11 +169,14 @@ const handleLogin = (form) => {
     resize: none;
 }
 @media (max-width: 1023.99px) {
-   .consult__title, .consult__formText  {
+    .consult__title {
+        font-size: 36px;
+    }
+    .consult__title, .consult__formText  {
         padding: 0;
         place-self: center;
         padding: 0 20px;
-   }
+    }
     .consult__formWrap {
         max-width: 100%;
         gap: 40px;
@@ -210,5 +215,10 @@ const handleLogin = (form) => {
      .text--sub, .consult__title {
          padding: 0 20px;
      }
+}
+@media (max-width: 574.99px) {
+    .consult__title {
+        font-size: 28px;
+    }
 }
 </style>

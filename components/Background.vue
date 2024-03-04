@@ -28,11 +28,11 @@
 const route = useRoute();
 
 const isActive = computed(() => {
-  var activeRoutes = ["index", "mdm-partners", "login", "contact-form"];
+  var activeRoutes = ["index", "mdm-partners", "login", "contact-formType"];
   return activeRoutes.includes(route.name);
 });
 const formPage = computed(() => {
-  var formPages = ["login", "contact-form"];
+  var formPages = ["login", "contact-formType"];
   return formPages.includes(route.name);
 });
 const partnersPage = computed(() => route.name === "mdm-partners");

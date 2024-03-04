@@ -33,7 +33,7 @@
     </section>
     <div class="whyUs__buttonWrap">
       <CommonDynamicButton
-        link="/contact-form"
+        link="/contact/form"
         text="Discuss How We Can Help Address Your Data Needs"
         :isInline="true"
         class="whyUs__button"

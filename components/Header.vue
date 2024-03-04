@@ -38,7 +38,7 @@
         >Login</NuxtLink>
         <CommonDynamicButton
           text="Get a Free Consult"
-          link="/contact-form"
+          link="/contact/form"
           :isInline="true"
           class="header__button"
         />
@@ -112,13 +112,13 @@ const links = ref([
   },
   {
     name: "How Do I Start",
-    link: "/contact-form"
+    link: "/contact/form"
   },
   {
     name: "Partners",
     children: [
       { name: "Technology Partners", link: "/mdm-partners" },
-      { name: "Collaborative Partners", link: {name: "contact-form", query: {lead: "collaborative"}} },
+      { name: "Collaborative Partners", link: "/contact/collaborative" },
     ],
   },
 ]);
@@ -284,7 +284,7 @@ watch(isMobile, (value) => {
     color: #1e1d1d
 }
 .header--white .header__burger__item {
-    background-color: #1e1d1d;
+    background-color: var(--darkPurple);
 }
 .header--white .header__button {
     border-color: var(--darkPurple);

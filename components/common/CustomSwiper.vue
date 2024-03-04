@@ -70,29 +70,26 @@ const slideDec = () => swiper.value.slidePrev();
 const slideInc = () => swiper.value.slideNext();
 const getBreakPoints = (custom) => {
   var defaults = {
-    320: {
-      spaceBetween: 20,
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-      speed: 20000,
-    },
-    475: {
+    0: {
       spaceBetween: 20,
       slidesPerView: 2,
-      slidesPerGroup: 1,
-      speed: 30000,
+      speed: 10000,
     },
     575: {
       spaceBetween: 20,
       slidesPerView: 3,
-      slidesPerGroup: 1,
-      speed: 40000,
+      speed: 10000,
     },
     768: {
       spaceBetween: 20,
       slidesPerView: 4,
+      speed: 10000,
+    },
+    1024: {
+      spaceBetween: 20,
+      slidesPerView: 5,
       slidesPerGroup: 1,
-      speed: 60000,
+      speed: 10000,
     },
   }
   return custom || defaults;
@@ -150,7 +147,7 @@ onMounted(() => {
     display: flex;
     justify-content: space-evenly;
 }
-.customSwiper .swiper-slide {
+.customSwiper .swiper-wrapper {
     transition-timing-function: linear !important;
 }
 .customSlide {

@@ -10,7 +10,7 @@
         :autoplay="true"
         :items="titleStatements"
         :break-points="{
-          320: {
+          0: {
             slidesPerView: 1,
             slidesPerGroup: 1,
             speed: 1500,
@@ -29,7 +29,7 @@
     <p class="partners__bannerText">
       We translate complex business problems into successful technical solutions for your customers.
       <CommonDynamicButton
-        link="/contact-form"
+        link="/contact/form"
         text="Work With Us"
         :isIcon="false"
         class="partners__bannerButton"
@@ -77,10 +77,9 @@
         :navigation="true"
         :noCap="true"
         :breakPoints="{
-          375: {
+          0: {
             spaceBetween: 20,
             slidesPerView: 1,
-            slidesPerGroup: 1,
             speed: 2000,
           },
         }"
@@ -106,7 +105,7 @@
           <p v-html="text"/>
         </li>
         <CommonDynamicButton
-          link="/contact-form"
+          link="/contact/form"
           text="talk to us"
           :isIcon="true"
           class="partners__button"
@@ -123,6 +122,12 @@ const titleStatements = ref([
   '"land and expand"',
 ]);
 const trustedBy = ref([
+  "/images/boa-logo.png",
+  "/images/sonos-logo.png",
+  "/images/bm-logo.png",
+  "/images/pm-logo.svg",
+  "/images/mattel-logo.png",
+  "/images/svb-logo.png",
   "/images/boa-logo.png",
   "/images/sonos-logo.png",
   "/images/bm-logo.png",
@@ -407,10 +412,9 @@ const setActive = (index, bullets) => {
     max-width: 320px;
 }
 .partners__cardSwiper .customSlide {
-    pointer-events: none;
     padding: 0 16px;
     height: fit-content;
-   min-height: 160px;
+    min-height: 160px;
 }
 @media (hover:hover) {
     .partners__button:hover {
@@ -420,6 +424,10 @@ const setActive = (index, bullets) => {
     .partners__text:hover {
         transform: translateY(-15px);
         box-shadow: 0 10px 14px var(--darkPurple);
+    }
+    .partners__cardSwiper .partners__text:hover {
+        transform: translateY(0);
+        box-shadow: 0 4px 8px var(--darkPurple);
     }
 }
 @media (max-width: 1659.99px) {

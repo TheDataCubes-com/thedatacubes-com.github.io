@@ -69,6 +69,7 @@ const handleSubmit = event => {
     width: 100%;
 }
 .form__input {
+    resize: vertical;
     color: black;
     border: none;
     padding: 12px 20px;
