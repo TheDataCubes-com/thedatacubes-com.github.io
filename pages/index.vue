@@ -49,6 +49,12 @@ const trustedBy = ref([
   "/images/pm-logo.svg",
   "/images/mattel-logo.png",
   "/images/svb-logo.png",
+  "/images/boa-logo.png",
+  "/images/sonos-logo.png",
+  "/images/bm-logo.png",
+  "/images/pm-logo.svg",
+  "/images/mattel-logo.png",
+  "/images/svb-logo.png",
 ]);
 
 const currentSlide = computed(() => slides[slideIndex.value % 2]);

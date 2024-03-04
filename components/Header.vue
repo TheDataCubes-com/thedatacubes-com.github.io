@@ -284,7 +284,7 @@ watch(isMobile, (value) => {
     color: #1e1d1d
 }
 .header--white .header__burger__item {
-    background-color: #1e1d1d;
+    background-color: var(--darkPurple);
 }
 .header--white .header__button {
     border-color: var(--darkPurple);

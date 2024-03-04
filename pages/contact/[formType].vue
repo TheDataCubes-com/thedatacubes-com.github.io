@@ -10,7 +10,7 @@
           :active="true"
           :error="error && error.message"
           :fields="formFields"
-          @submit="handleLogin"
+          @submit="handleSubmit"
           class="consult__form"
         />
       </section>
@@ -89,7 +89,7 @@ const encode = (data) => {
       .map(([k,v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
       .join("&");
 }
-const handleLogin = (form) => {
+const handleSubmit = (form) => {
   var { name, mail, company, message } = form
   var data = {
     lead: formType.value,

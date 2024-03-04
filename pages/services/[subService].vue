@@ -13,17 +13,18 @@
     <section class="services__wrap">
       <div v-html="pageData.text" class="services__text"/>
       <CommonTitleLine
-        :title="pageData.buttonText"
+        :title="titleText"
         heading="h2"
-        text="Fill out the form below to learn how we can help."
+        :text="formSuccess ? '' : 'Fill out the form below to learn how we can help.'"
         class="services__line"
       />
     </section>
     <CommonForm
+      v-if="!formSuccess"
       name="consult"
       :active="true"
       :fields="formFields"
-      @submit="handleLogin"
+      @submit="handleSubmit"
       class="services__form"
     />
   </article>
@@ -142,14 +143,19 @@ const pages = ref({
     meta: {}
   }
 });
+const formSuccess = ref(false);
 
 const route = useRoute();
 
 const pageData = computed(() => pages.value[route.params.subService]);
+const titleText = computed(() => formSuccess.value
+  ? "Thank you for your interest. We'll be in touch soon."
+  : pageData.value.buttonText
+);
 
 const changeHeader = inject("changeHeader");
 
-const handleLogin = (form) => {
+const handleSubmit = (form) => {
   const encode = (data) => {
     return Object.entries(data)
         .map(([k,v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
@@ -157,7 +163,7 @@ const handleLogin = (form) => {
   }
   var { name, mail, company, message } = form
   var data = {
-    lead: formType.value,
+    lead: route.params.subServices + " service page",
     name: name.value,
     mail: mail.value,
     company: company.value,
@@ -167,7 +173,9 @@ const handleLogin = (form) => {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({ "form-name": "consult", ...data })
-  });
+  })
+    .then(() => formSuccess.value = true)
+    .catch((e) => aslert(e.message));
 }
 
 onMounted(() => setTimeout(() => changeHeader(true), 100));
