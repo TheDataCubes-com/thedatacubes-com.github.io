@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     data: "/app_data",
   },
   components: {
-    dirs: ["~/components", "~/components/bg", "~/components/main"],
+    dirs: ["~/components"],
   },
   app: {
     head: {

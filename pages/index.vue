@@ -18,6 +18,7 @@
       swiperId="index-trsuted"
       :items="trustedBy"
       :autoplay="true"
+      :loop="true"
       :solo="true"
       class="index__swiper"
     >
