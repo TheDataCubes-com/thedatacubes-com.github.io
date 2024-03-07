@@ -67,6 +67,10 @@
 </template>
 
 <style>
+.data {
+    max-width: 940px;
+    place-self: center;
+}
 .data .services__listPar {
     padding: 0;
     /* margin: 0; */

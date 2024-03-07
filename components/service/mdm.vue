@@ -2,7 +2,7 @@
   <div class="services__text mdm">
     <h2 class='services__subTitle'>Unlock the Power of Master Data Management (MDM)</h2>
     <p>
-      <span class='services__highlight'>Why embrace MDM?</span>
+      <span class='services__highlight hl--block'>Why embrace MDM?</span>
       The adoption of Master Data Management marks the beginning of a virtuous cycle, enhancing how data serves your business in increasingly diverse and impactful ways. Our expertise, forged through numerous implementation journeys, has consistently unlocked key benefits for organizations:
     </p>
     <ul class='services__list'>
@@ -76,6 +76,7 @@ const infographics = ref([
 <style>
 .mdm .services__subTitle {
    place-self: center;
+   margin-bottom: 20px;
 }
 .mdm .services__subTitle:nth-of-type(2) {
    margin-top: 60px;
@@ -113,10 +114,10 @@ const infographics = ref([
 .mdm__blocks {
     display: flex;
     flex-wrap: wrap;
-    margin: -32px -20px;
+    margin: -32px;
 }
 .mdm__cardWrap {
-    padding: 32px 20px;
+    padding: 32px;
     max-width: 50%;
     width: 100%;
 }
