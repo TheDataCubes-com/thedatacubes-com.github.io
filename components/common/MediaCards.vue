@@ -36,12 +36,12 @@ const video = ref(null);
 const cards = ref([
   {
     title: "Executive Services",
-    text: "<ul style='display: flex; flex-direction: column; gap: 8px;'><li>Fractional Chief Data Officer (CDO)</li><li>Personalized Education & Literacy</li><li>AI & Data Strategy</li><li>Assessment & Screening of Data professionals</li></ul>",
+    text: "<p>TheDataCubes can provide your organization with the following services:</p><br/><ul style='display: flex; flex-direction: column; gap: 8px;'><li>Fractional Chief Data Officer (CDO)</li><li>Personalized Education & Literacy</li><li>AI & Data Strategy</li><li>Assessment & Screening of Data professionals</li></ul>",
     link: { name: "Read more", path: "/services/executive-services" }
   },
   {
     title: "AI and Data Management Strategy Consulting",
-    text: "<p>We assess your data needs from a Business perspective and create a data strategy to enable practical, self-service data-driven solutions to various business challenges.</p>",
+    text: "<p>We assess your need for Insights and Information from a Business perspective and create a data strategy to enable practical, self-service data-driven solutions to various business challenges.</p>",
     link: { name: "Read more", path: "/services/data-management" }
   },
   {
@@ -125,7 +125,7 @@ onMounted(() => setTimeout(() => {
 }
 @keyframes bgTransition {
   0% {
-      background:
+     background:
         linear-gradient(to bottom, #074567, #042f54, #03284f, #042141);
   }
   25% {

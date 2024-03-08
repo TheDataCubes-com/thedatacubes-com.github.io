@@ -83,7 +83,7 @@ const pages = ref({
   },
   mdm: {
     picture: "/images/mdm.jpg",
-    title: "Master Data Management (MDM) & Entity Resolution",
+    title: "Master Data Management (MDM) & Entity Resolution (ER)",
     buttonText: "Learn how we can help you do MDM better!",
     meta: {}
   },

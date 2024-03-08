@@ -29,7 +29,6 @@ const props = defineProps({
 .card__title {
     text-align: center;
     font-size: 20px;
-    min-height: 70px;
     color: var(--darkPurple);
 }
 .card__text {
@@ -66,9 +65,6 @@ const props = defineProps({
 @media (max-width: 1439.99px) {
     .card {
         padding: 20px;
-    }
-    .card__title {
-        min-height: initial;
     }
 }
 @media (max-width: 767.99px) {

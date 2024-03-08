@@ -56,8 +56,8 @@
       <span class='services__listPar'>We proactively transfer knowledge and skills leading to client self-sufficiency during every project.</span>
     </p>
     <p>
-      <span class='services__highlight hl'>Data Quality (DQ) and Performance</span>
-      <span class='services__listPar'>Additionally, our team specializes in developing automated database architectures and systems that ensure great DQ and excellent performance. We have developed frameworks that can be implemented into your systems for automated DQ and reporting.</span>
+      <span class='services__highlight hl'>Data Quality (DQ) Profiling and Remediation</span>
+      <span class='services__listPar'>Additionally, our team specializes in developing automated database architectures and systems that ensure Data Quality and excellent performance. It's essential to highlight (and often overlooked) that good DQ is extremely critical for reliable analysis and informed decision-making.<br/><br/>We have developed a tool designed for DQ monitoring, detecting anomalies in raw data as they appear, and identifying data drifts in the critical KPIs.</span>
       <br/>
       <br/>
       <a href='/contact/form' target='_blank' class='services__inlineLink'>Reach out to learn about additional services</a>

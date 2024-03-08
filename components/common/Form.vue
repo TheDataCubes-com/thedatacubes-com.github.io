@@ -8,7 +8,7 @@
   >
     <fieldset class="form__fieldset">
       <label
-        v-for="{name, text, required, inputType, type } in props.fields"
+        v-for="({name, text, required, inputType, type }) in props.fields"
         :key="name"
         class="form__label"
       >

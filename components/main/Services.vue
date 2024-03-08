@@ -9,7 +9,7 @@
       :size="42"
     />
     <CommonQuote
-      quote="Data that sit unused are no different from data that were never collected in the first place."
+      quote="Data that sits unused is no different from data that was never collected in the first place."
       sign="Doug Fisher"
     />
     <div class="mainServices__inner">
