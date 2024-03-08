@@ -138,7 +138,7 @@ const handleSubmit = (form) => {
   }
   var { name, mail, company, message } = form
   var data = {
-    lead: route.params.subServices + " service page",
+    lead: route.params.subService + " service page",
     name: name.value,
     mail: mail.value,
     company: company.value,
