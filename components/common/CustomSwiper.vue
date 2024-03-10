@@ -74,22 +74,26 @@ const getBreakPoints = (custom) => {
       spaceBetween: 20,
       slidesPerView: 2,
       speed: 10000,
+      loop: true,
     },
     575: {
       spaceBetween: 20,
       slidesPerView: 3,
       speed: 10000,
+      loop: true,
     },
     768: {
       spaceBetween: 20,
       slidesPerView: 4,
       speed: 10000,
+      loop: true,
     },
     1024: {
       spaceBetween: 20,
       slidesPerView: 5,
       slidesPerGroup: 1,
       speed: 10000,
+      loop: true,
     },
   }
   return custom || defaults;
@@ -100,6 +104,7 @@ onMounted(() => {
     swiper.value = new Swiper("#" + props.swiperId, {
     modules: props.autoplay ? [Autoplay] : [],
     direction: props.vertical ? "vertical" : "horizontal",
+    allowTouchMove: !props.autoplay,
     autoplay: props.autoplay
      ? {
        delay: props.delay,
@@ -229,9 +234,6 @@ onMounted(() => {
     }
 }
 @media (max-width: 574.99px) {
-    .swiperCaption {
-        /* top: -34px; */
-    }
     .cap--multiple {
         top: -64px;
     }

@@ -1,6 +1,5 @@
 <template>
   <footer class="footer">
-    <MainOurClients />
     <div class="footer__inner">
       <span v-html="copyright" class="footer__info__item" />
       <div class="footer__info__links">

@@ -32,6 +32,7 @@
   </CLientOnly>
   <MainWhyUs />
   <MainServices />
+  <MainOurClients />
 </template>
 
 <script setup>

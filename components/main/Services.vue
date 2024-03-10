@@ -13,9 +13,16 @@
       sign="Doug Fisher"
     />
     <div class="mainServices__inner">
-      <p class="mainServices__text">It is evident that despite advances in new technologies, data remains a massive untapped resource in many organizations, necessitating a solid Data Management Strategy before investing in new tools.<br/><br/>We have focused exclusively on Data Management Strategy and MDM for over 20 years. Our business-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for success.</p>
+      <p class="mainServices__text">
+        Despite technological advancements, data remains a massive untapped resource in many organizations. A solid Data Management Strategy is critical for companies to execute on first, before investing in new tools.
+        <br/><br/>
+        At The Data Cubes, we have over 20 years of experience in Data Management Strategy and MDM. Our impact-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for building an scaling a strong foundational strategy.
+      </p>
       <CommonMediaCards class="mainServices__cards"/>
-      <p class="mainServices__text">Each of our engagements is tailored to address specific client requirements. We proactively transfer knowledge and skills leading to client self-sufficiency during every project.<br/></p>
+      <p class="mainServices__text">
+        Our engagements are tailored to address your specific business needs and requirements. We don't just build a system, we proactively transfer knowledge and skills so that when we finish, our clients can easily continue to scale and manage the system themselves.
+        <br/>
+      </p>
       <div class="mainServices__bottom">
         <svg class="mainServices__icon"><use xlink:href="#schedule" /></svg>
         <p>
