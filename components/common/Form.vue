@@ -24,7 +24,6 @@
       </label>
       <div data-netlify-recaptcha="true"></div>
     </fieldset>
-    <div class="g-recaptcha" data-sitekey="6Ler-pIpAAAAAA8c1TV1dqcH1bYeal-8no2EbAl5" data-action="LOGIN"></div>
     <CommonDynamicButton
       id="button"
       type="submit"
@@ -36,7 +35,6 @@
 </template>
 
 <script setup>
-useHead({ script: [{ src: "https://www.google.com/recaptcha/enterprise.js", async: true, defer: true }] });
 const emit = defineEmits(["submit"]);
 const props = defineProps({
   fields: { type: Array, default: [] },

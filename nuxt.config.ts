@@ -46,58 +46,49 @@ export default defineNuxtConfig({
           color: "#5bbad5",
         },
       ],
-      title: "Advisory Strategic Data Consulting | TheDataCubes",
+      title: "Strategic Data Advisory | TheDataCubes",
       meta: [
         {
           name: "description",
+          property: "og:description",
           content:
             "TheDataCubes is a niche business and technology consulting firm, helping businesses transform data into profitable insights. We focus on Enterprise Data Management, Master Data Management, and AI. With our expertise, you get insight-ready data at scale.",
         },
         {
           name: "keywords",
+          property: "og:keywords",
           content:
             "digital transformation services, advisory strategic data consulting, customer 360, master data management, MDM, Enterprise data management, data engineering consulting, analytics",
         },
         {
-          name: "og:title",
-          content: "Advisory Strategic Data Consulting | TheDataCubes",
+          name: "title",
+          property: "og:title",
+          content: "Strategic Data Advisory | TheDataCubes",
         },
         {
-          name: "og:description",
-          content:
-            "TheDataCubes is a niche business and technology consulting firm, helping businesses transform data into profitable insights. We focus on Enterprise Data Management, Master Data Management, and AI. With our expertise, you get insight-ready data at scale.",
-        },
-        {
-          name: "og:locale",
+          name: "locale",
+          property: "og:locale",
           content: "en_US",
         },
         {
-          name: "og:type",
+          name: "type",
+          property: "og:type",
           content: "website",
         },
         {
-          name: "og:url",
+          name: "url",
+          property: "og:url",
           content: "https://thedatacubes.com/",
         },
         {
-          name: "og:site_name",
+          name: "site_name",
+          property: "og:site_name",
           content: "TheDataCubes",
         },
         {
-          name: "og:image",
+          name: "image",
+          property: "og:image",
           content: "/images/tdc-logo.png",
-        },
-        {
-          name: "og:image:width",
-          content: "979",
-        },
-        {
-          name: "og:image:height",
-          content: "664",
-        },
-        {
-          name: "og:image:type",
-          content: "image/png",
         },
         {
           name: "viewport",
