@@ -88,7 +88,7 @@ export default defineNuxtConfig({
         {
           name: "image",
           property: "og:image",
-          content: "/images/tdc-logo.png",
+          content: "/images/tdc-logo.jpg",
         },
         {
           name: "viewport",
