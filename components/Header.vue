@@ -118,7 +118,7 @@ const links = ref([
     name: "Partners",
     children: [
       { name: "Technology Partners", link: "/mdm-partners" },
-      { name: "Collaborative Partners", link: "/contact/collaborative" },
+      // { name: "Collaborative Partners", link: "/contact/collaborative" },
     ],
   },
 ]);
