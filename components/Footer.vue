@@ -3,7 +3,7 @@
     <div class="footer__inner">
       <span v-html="copyright" class="footer__info__item" />
       <div class="footer__info__links">
-        <iconLinked link="https://www.linkedin.com/in/rouzannadanielian/"/>
+        <iconLinked link="https://www.linkedin.com/company/thedatacubes/"/>
         <iconMail link="mailto:info@thedatacubes.com"/>
       </div>
     </div>

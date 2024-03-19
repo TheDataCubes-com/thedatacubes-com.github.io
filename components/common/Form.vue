@@ -22,8 +22,13 @@
           class="form__input"
         />
       </label>
-      <div data-netlify-recaptcha="true"></div>
+      <label class="form__label disclaimer">
+        <span class="form__labelText">
+          By clicking submit below, you consent to allow TheDataCubes to store and process the personal information submitted above to provide you the content requested.
+        </span>
+      </label>
     </fieldset>
+    <div id="captcha" :class="['form__captcha', {'captcha--error': captchaError}]" />
     <CommonDynamicButton
       id="button"
       type="submit"
@@ -41,20 +46,43 @@ const props = defineProps({
   error: { type: String, default: "" },
   submitText: { type: String, default: "Submit" },
   name: { type: String, default: "" },
-  active: { type: Boolean, default: false }
+  active: { type: Boolean, default: false },
 });
+
+const captchaError = ref(false);
+const errorHandler = ref(null);
 
 const useButton = (button) => {
   var className = "button--clicked";
   button.classList.add(className);
   setTimeout(() => button.classList.remove(className), 70);
 };
-const handleSubmit = event => {
+const triggerCaptchaError = () => {
+  captchaError.value = true;
+  if (errorHandler.value) clearTimeout(errorHandler.value);
+  errorHandler.value = setTimeout(() => {
+    captchaError.value = false;
+    errorHandler.value = null;
+  }, 5000);
+};
+const checkCaptcha = async () => {
+  var passed = Boolean(await grecaptcha.getResponse().length);
+  if (!passed) triggerCaptchaError();
+  return passed;
+};
+const handleSubmit = async (event) => {
   event.preventDefault();
+  return console.log(await grecaptcha.getResponse())
   var { target } = event;
   useButton(target.button);
+  if (!await checkCaptcha()) return;
   emit("submit", target);
-}
+};
+
+onMounted(() =>  grecaptcha.render('captcha', {
+  sitekey: '6Lded54pAAAAADk_3jrurXQ_iUGDUgBnS1_UKEYl',
+  // sitekey: '6LeJSZYpAAAAABDXpQXjcgvkOZJDot7RmcHyhxRX',
+}));
 </script>
 
 <style>
@@ -117,6 +145,30 @@ const handleSubmit = event => {
     font-size: 16px;
     color: white;
     transition: opacity 0.3s ease;
+}
+.form__captcha {
+    margin: 20px 0;
+    width: fit-content;
+    place-self: center;
+    position: relative;
+}
+.captcha--error:after {
+    content: "Please confirm the fields and submit it again";
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    color: red;
+    font-size: 12px;
+}
+.disclaimer {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    place-items: flex-start;
+}
+.disclaimer .form__labelText {
+    display: inline;
+    padding: 0;
 }
 @media (hover:hover) {
     .form__button:hover {

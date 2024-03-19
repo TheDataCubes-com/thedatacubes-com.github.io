@@ -95,13 +95,13 @@
           </div>
         </template>
       </CommonCustomSwiper>
-      <ul v-if="placeText" :class="['partners__bullets', {'expand': placeText}]">
+      <ul v-if="placeText" class="partners__bullets">
         <li
           v-for="({title, text}, index) in placeText"
           :key="index"
           class="bullet__item"
         >
-          <h4>{{title}}</h4>
+          <h4 class="bullet__title">{{title}}</h4>
           <p v-html="text"/>
         </li>
         <CommonDynamicButton
@@ -149,18 +149,18 @@ const pageText = ref([
     text: "Generating New Leads",
     bullets: [
       { title: "Target new trending Use Cases related to Generative AI", text: "Tap into entirely new use cases for the MDM market, related to the adoption of Generative AI by customers."},
-      { title: "Leveraging Our Deep Understanding of FinServ", text: "Our extensive expertise in the Financial Services industry is a valuable asset in generating new leads. This profound knowledge enables us to identify potential clients who stand to gain significantly from MDM implementation."},
-      { title: "Collaboration with Technology Partners", text: "We also collaborate with non-MDM technology partners to enhance client understanding by complementing, contrasting, and determining the best combination of products such as CDP, Customer Master, Identity Resolution, C360, MDM, and ER, to identify the most effective solution."},
-      { title: 'Leveraging our "AI & Data Management Strategy Consulting" service', text: `Our "AI & Data Management Strategy Consulting" service acts as a key source of new leads for our vendor partners. Gained from our deep understanding of use cases through close collaboration with businesses, we uncover client needs and opportunities that align with our partners' offerings.`},
-      { title: "Targeting Companies with On-Premise MDM Solutions", text: "There is an opportunity in engaging with companies currently using on-premise solutions and seeking to migrate to the cloud. We can help to address their needs by offering more advanced, cloud-based solutions that enhance their data management capabilities."},
+      { title: "Leveraging Our Deep Understanding of FinServ", text: "Our extensive expertise in the Financial Services industry is a valuable asset in generating new leads. This profound knowledge enables us to identify potential clients who stand to gain significantly from MDM implementation." },
+      { title: "Collaboration with Technology Partners", text: "We also collaborate with non-MDM technology partners to enhance client understanding by complementing, contrasting, and determining the best combination of products such as CDP, Customer Master, Identity Resolution, C360, MDM, and ER, to identify the most effective solution." },
+      { title: 'Leveraging our "AI & Data Management Strategy Consulting" service', text: 'Our "AI & Data Management Strategy Consulting" service acts as a key source of new leads for our vendor partners. Gained from our deep understanding of use cases through close collaboration with businesses, we uncover client needs and opportunities that align with our partners` offerings.' },
+      { title: "Targeting Companies with On-Premise MDM Solutions", text: "There is an opportunity in engaging with companies currently using on-premise solutions and seeking to migrate to the cloud. We can help to address their needs by offering more advanced, cloud-based solutions that enhance their data management capabilities." },
     ],
     icon: "#cloud"
   },
   {
     text: "Support for MDM Product Management",
     bullets: [
-      { title: "Expanding New Domains", text: "We offer a curated solution kit (including a model, business use case, and POC that was used to validate the interest) specifically created to assist the Financial Services sector, with an emphasis on the Venture Capital industry."},
-      { title: "Client Engagement and Feedback Translation", text: "Regular meetings with MDM clients are vital in understanding their unique challenges and needs. Our team, equipped with both technical expertise and financial services domain knowledge, acts as a bridge. We translate client feedback and challenges into actionable insights for the Product Management team, ensuring that the MDM product roadmap aligns closely with client requirements and industry trends."},
+      { title: "Expanding New Domains", text: "We offer a curated solution kit (including a model, business use case, and POC that was used to validate the interest) specifically created to assist the Financial Services sector, with an emphasis on the Venture Capital industry." },
+      { title: "Client Engagement and Feedback Translation", text: "Regular meetings with MDM clients are vital in understanding their unique challenges and needs. Our team, equipped with both technical expertise and financial services domain knowledge, acts as a bridge. We translate client feedback and challenges into actionable insights for the Product Management team, ensuring that the MDM product roadmap aligns closely with client requirements and industry trends." },
     ],
     icon: "#shift-data"
   },
@@ -175,7 +175,10 @@ const pageText = ref([
   {
     text: "Our Products",
     bullets: [
-      { title: "Accelerators and MDM Advisory Services", text: 'Our custom-built frameworks, like MCMS, MDM Gateway, assist new customers in kickstarting their MDM implementations. <br/><br/>"Where to start?" "How to succeed with implementation delivery?" We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights also help in reducing costs and preparation time, especially when client plans an in-house MDM implementation.<br/><br/>We focus on practical purpose built reusable application - how Data Products will be used - rather than exporting all data in DW / DL.' }
+      {
+        title: "Accelerators and MDM Advisory Services",
+        text: 'Our custom-built frameworks, like MCMS, MDM Gateway, assist new customers in kickstarting their MDM implementations. <br/><br/>"Where to start?" "How to succeed with implementation delivery?" We guide clients through the strategic planning and approach for MDM implementation, ensuring success from the outset. Our insights also help in reducing costs and preparation time, especially when client plans an in-house MDM implementation.<br/><br/>We focus on practical purpose built reusable application - how Data Products will be used - rather than exporting all data in DW / DL.'
+      }
     ],
     icon: "#grid"
   },
@@ -326,7 +329,6 @@ const setActive = (index, bullets) => {
     gap: 20px;
     width: 100%;
     height: fit-content;
-    max-height: 0;
     overflow: hidden;
     margin-bottom: 40px;
     transition: max-height 0.3s ease;
@@ -358,7 +360,7 @@ const setActive = (index, bullets) => {
     stroke: var(--darkPurple);
     transition: 0.3s ease;
 }
-.bullet__item > h4 {
+.bullet__title {
     font-size: 20px !important;
     font-weight: 600 !important;
     color: #3D3D3D;

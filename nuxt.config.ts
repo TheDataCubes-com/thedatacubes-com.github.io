@@ -18,6 +18,13 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      script: [
+        {
+          src: "https://www.google.com/recaptcha/api.js",
+          async: true,
+          defer: true,
+        },
+      ],
       link: [
         {
           rel: "apple-touch-icon",

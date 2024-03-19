@@ -305,12 +305,12 @@ onMounted(() => setTimeout(() => changeHeader(true), 100));
         font-size: 18px;
     }
     .services__wrap {
-        padding: 0px 40px;
+        padding: 20px 40px;
     }
 }
 @media (max-width: 574.99px) {
     .services__wrap {
-        padding: 0 20px;
+        padding: 20px;
     }
     .services__picture {
         height: 160px;

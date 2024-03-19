@@ -71,12 +71,11 @@ const headerSwitchPosition = ref(1080);
 
 onMounted(() => {
   var anchor = document.getElementById("why-us");
-  var { y } = anchor.getBoundingClientRect();
-  headerSwitchPosition.value = y;
+  headerSwitchPosition.value = anchor.offsetTop;
 });
 
 watch([scroll, appWidth], value => {
-  changeHeader(value[0] + 148 >= headerSwitchPosition.value);
+  changeHeader(value[0] >= headerSwitchPosition.value);
 });
 </script>
 
