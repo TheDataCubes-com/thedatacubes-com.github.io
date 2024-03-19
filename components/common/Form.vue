@@ -72,7 +72,6 @@ const checkCaptcha = async () => {
 };
 const handleSubmit = async (event) => {
   event.preventDefault();
-  return console.log(await grecaptcha.getResponse())
   var { target } = event;
   useButton(target.button);
   if (!await checkCaptcha()) return;
