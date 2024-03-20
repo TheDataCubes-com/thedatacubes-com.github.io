@@ -53,7 +53,7 @@ const whyUs = ref({
     },
     {
       title: "Vendor-Independent Consulting",
-      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management / ER, Cloud, and Enterprise Data Management & Analytics. This approach ensures the best fit for your business needs, free from the limitations of vendor affiliations.",
+      text: "Our vendor-independent consulting services offer unbiased solutions in Master Data Management / ER, Cloud, and Enterprise Data Management & Analytics. This approach ensures the best fit for your business needs.",
       image: "/images/whyus-1.jpg"
     },
     {
