@@ -68,6 +68,8 @@ const triggerCaptchaError = () => {
 const checkCaptcha = async () => {
   try {
     var token = await grecaptcha.getResponse();
+    if (!token.length) return false;
+
     var res = await fetch(
       "https://thedatacubes.com/.netlify/functions/token_validate",
       {
@@ -88,8 +90,9 @@ const handleSubmit = async (event) => {
   event.preventDefault();
   var { target } = event;
   useButton(target.button);
-  if (!await checkCaptcha()) return;
-  emit("submit", target);
+
+  if (!await checkCaptcha()) triggerCaptchaError();
+  else emit("submit", target);
 };
 
 onMounted(() =>  grecaptcha.render('captcha', {
