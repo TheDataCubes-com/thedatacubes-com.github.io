@@ -9,11 +9,14 @@ export default async (req, context) => {
   // fetch
   //   .post()
   //   .then(response => Promise.resolve(response.json()))
+	const x = Netlify.env.get("KEY");
+	console.log(0, x)
   try {
     req.json().then(e => console.log(1, e));
-    console.log(1, req.json())
   }
-  catch(e) {console.log(3, e)}
+  catch(e) {
+	  console.log(3, e)
+  }
 
   return new Response("Hello, world!");
 };
