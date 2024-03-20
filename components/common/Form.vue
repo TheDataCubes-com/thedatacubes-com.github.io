@@ -66,9 +66,23 @@ const triggerCaptchaError = () => {
   }, 5000);
 };
 const checkCaptcha = async () => {
-  var passed = Boolean(await grecaptcha.getResponse().length);
-  if (!passed) triggerCaptchaError();
-  return passed;
+  try {
+    var token = await grecaptcha.getResponse();
+    var res = await fetch(
+      "https://thedatacubes.com/.netlify/functions/token_validate",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token })
+      }
+    );
+    var { success } = await res.json();
+    return success;
+  }
+  catch ({ message }) {
+    console.log(message);
+    return false;
+  }
 };
 const handleSubmit = async (event) => {
   event.preventDefault();
@@ -80,7 +94,6 @@ const handleSubmit = async (event) => {
 
 onMounted(() =>  grecaptcha.render('captcha', {
   sitekey: '6Lded54pAAAAADk_3jrurXQ_iUGDUgBnS1_UKEYl',
-  // sitekey: '6LeJSZYpAAAAABDXpQXjcgvkOZJDot7RmcHyhxRX',
 }));
 </script>
 

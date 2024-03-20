@@ -1,22 +1,39 @@
 export default async (req, context) => {
-  // var { token } = req.json();
-  // if (!token) {
-  //   console.error("no token provided");
-  //   return;
-  // }
+  var secret = Netlify.env.get("SECRET_KEY");
+  var token_api = "https://www.google.com/recaptcha/api/siteverify";
 
-  // console.log("processing:", token);
-  // fetch
-  //   .post()
-  //   .then(response => Promise.resolve(response.json()))
-	const x = Netlify.env.get("KEY");
-	console.log(0, x)
+  if (req.method !== "POST") {
+    var msg = `Method ${req.method} not allowed`;
+    console.error(msg);
+    return new Response(msg, { status: 405 });
+  }
+
   try {
-    req.json().then(e => console.log(1, e));
+    var { token } = await req.json();
+    if (!token) throw { message: "Parsing token error" }
   }
-  catch(e) {
-	  console.log(3, e)
+  catch({message}) {
+    var msg = message;
+    console.error(msg);
+    return new Response(msg, { status: 401 });
   }
 
-  return new Response("Hello, world!");
+  try {
+    var res = await fetch(
+      `${token_api}?secret=${secret}&response=${token}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }
+    )
+    var parsed = await res.json();
+  }
+  catch({message}) { console.log("Request score error:", message); };
+
+  return new Response(
+    JSON.stringify(parsed),
+    { header: { "Content-Type": "application/json" } }
+  );
 };
