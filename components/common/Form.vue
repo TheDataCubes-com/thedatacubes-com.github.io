@@ -54,8 +54,7 @@ const errorHandler = ref(null);
 
 const useButton = (button) => {
   var className = "button--clicked";
-  button.classList.add(className);
-  setTimeout(() => button.classList.remove(className), 70);
+  button.classList.toggle(className);
 };
 const triggerCaptchaError = () => {
   captchaError.value = true;
@@ -89,10 +88,12 @@ const checkCaptcha = async () => {
 const handleSubmit = async (event) => {
   event.preventDefault();
   var { target } = event;
-  useButton(target.button);
+  useButton(event.target.button);
 
   if (!await checkCaptcha()) triggerCaptchaError();
   else emit("submit", target);
+
+  useButton(event.target.button);
 };
 
 onMounted(() =>  grecaptcha.render('captcha', {
@@ -141,6 +142,8 @@ onMounted(() =>  grecaptcha.render('captcha', {
     font-size: 16px;
 }
 .button--clicked {
+    pointer-events: none;
+    opacity: 0.5;
     background-color: var(--mainYellow) !important;
 }
 .input--required:after {
