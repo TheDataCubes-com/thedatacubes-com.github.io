@@ -181,7 +181,6 @@ onMounted(() =>  grecaptcha.render('captcha', {
 .disclaimer {
     display: flex;
     gap: 8px;
-    cursor: pointer;
     place-items: flex-start;
 }
 .disclaimer .form__labelText {
