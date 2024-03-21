@@ -2,15 +2,15 @@
   <div class="services__text data">
     <h2 class='services__subTitle'>The journey from data and AI to business decisions doesn't begin with the technology itself but with recognizing data and analytics as the new sources of value and key drivers of competitive advantage in today’s economy</h2>
     <p>
-      <span class='services__highlight hl--block'>Unfortunately, organizations often struggle to leverage these assets effectively</span>
-      A common and costly problem faced by these companies is that their information is poorly organized and fragmented across multiple repositories, without a strategy or tools for integration. This lack of information management can be very costly for companies failing to address the issue.
+      <span class='services__highlight hl--block'>Organizations struggle to leverage these assets effectively</span>
+      A common and costly problem faced by companies is poorly organized and fragmented data. Couple this with no clear strategy or tools for integration and it can be all too easy for organizations to miss all of the opportunities they have to leverage these assets effectively.
     </p>
     <p>
       <span class='services__highlight hl--block'>We help clients get more out of their data</span>
-      We use a proven methodology that assists both small and large companies in transforming data chaos into profitable insights. By organizing siloed data into actionable intelligence, we enable your Business team to access and easily work with the data.
+      We use a proven methodology that assists both small and large companies in transforming data chaos into profitable insights. By organizing siloed data into actionable intelligence, we enable your Business team(s) to access and easily work with the data.
       <br/>
       <br/>
-      Combining our experience in both technical and leadership roles, we have developed and implemented practical, data-driven solutions across various business challenges. Our business-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey.
+      Combining our experience in both technical and leadership roles, we have developed and implemented practical, data-driven solutions to solve a wide range of business challenges. Our business-centric approach ensures that your data initiatives delivers clear value across the organization. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for success.
     </p>
     <h2 class='services__subTitle'>What We Do</h2>
     <ul class='services__list'>
@@ -27,10 +27,10 @@
       <span class='services__highlight hl'>Knowledge Gathering, Defining Business Requirements and Current State Assessment</span>
       <br/>
       <span class='services__listPar'>
-        Aligning the data environment with the business’s requirements is critical to a successful initiative. The best tools or sophisticated designs won’t salvage a data program that fails to focus on the business. The business’s requirements impact almost every decision made during the course of the implementation.
+        Aligning your data environment with your business requirements is absolutely critical to a successful initiative. The best tools or sophisticated designs won’t salvage a data program that fails to focus on the business. Your business requirements impact almost every decision made during the course of the implementation.
         <br/>
         <br/>
-        We use a proven, business-focused methodology to identify an enterprise's data needs.
+        We use a proven, business-focused methodology to identify and unlock your company's data needs.
       </span>
     </p>
     <p>
@@ -46,9 +46,9 @@
     <p>
       <span class='services__highlight hl'>Technology Selection</span>
       <br/>
-      <span class='services__listPar'>With numerous vendors in the market, selecting the right offering for your business can be daunting. Often, vendors may promise more than they are able to deliver. To address this, and with the current and target states in mind, we conduct a vendor fit analysis.
-      <br/>
-      We collaborate closely with our clients during the vendor selection process, providing objective advice to those preparing to invest in a data management platform. Our goal is to ensure that the chosen platform meets their specific needs and fits within their budget.</span>
+      <span class='services__listPar'>Picking the right vendor for your business can be challenging given the sheer number of options to choose from, and it's not uncommon for vendors to promise more than they can deliver. To address this, and with the current and target states in mind, we conduct thorough vendor fit analysis for our clients.
+      <br/><br/>
+      We collaborate closely with our clients during the vendor selection process, providing objective advice to those preparing to invest in a data management platform. The end result is a robust and reliable platform tailored to their specific needs budget.</span>
     </p>
     <p>
       <span class='services__highlight hl'>Change Management</span>
@@ -57,7 +57,7 @@
     </p>
     <p>
       <span class='services__highlight hl'>Data Quality (DQ) Profiling and Remediation</span>
-      <span class='services__listPar'>Additionally, our team specializes in developing automated database architectures and systems that ensure Data Quality and excellent performance. It's essential to highlight (and often overlooked) that good DQ is extremely critical for reliable analysis and informed decision-making.<br/><br/>We have developed a tool designed for DQ monitoring, detecting anomalies in raw data as they appear, and identifying data drifts in the critical KPIs.</span>
+      <span class='services__listPar'>Our team specializes in developing automated database architectures and systems that ensure Data Quality and performance. It's essential to highlight (and often overlooked) that good DQ is extremely critical for reliable analysis and informed decision-making.<br/><br/>At TheDataCubes, we have developed a tool designed for DQ monitoring, detecting anomalies in raw data as they appear, and identifying data drifts across critical KPIs.</span>
       <br/>
       <br/>
       <a href='/contact/form' target='_blank' class='services__inlineLink'>Reach out to learn about additional services</a>

@@ -53,6 +53,12 @@ const infographics = ref([
     text: "With a wide variety of solutions in the market, determining which technology fits best for the problem you're trying to solve can be challenging.<br/><br/>We are a vendor-independent, third-party advisory consultancy with start-to-finish implementation expertise in multiple MDM/ER products. We offer unbiased evaluations of customers’ use cases, MDM product concerns, and solution gaps.<br/><br/>We collaborate with MDM and non-MDM technology partners to enhance client understanding and identify the most effective solutions. We do this by complementing, contrasting, and determining the best combination of products, such as CDP, Customer Master, Identity Resolution, C360, MDM, and ER."
   },
   {
+    icon: "#sv-db",
+    subTitle: "Poor data quality halts progress by undermining trust in data accuracy. Do you have a tool to ensure data quality and/or require assistance setting up a remediation process?",
+    title: "Data Quality (DQ) Profiling and Remediation",
+    text: "Our team specializes in developing automated database architectures and systems that ensure Data Quality and performance. It's essential to highlight (and often overlooked) that good DQ is extremely critical for reliable analysis and informed decision-making.<br/><br/>At TheDataCubes, we have developed a tool designed for DQ monitoring, detecting anomalies in raw data as they appear, and identifying data drifts across critical KPIs."
+  },
+  {
     icon: "#sv-growth",
     title: "Expanding Your MDM Solution for New Business Use Cases",
     subTitle: "Do you need to enhance your MDM solution for a new business use case while staying within budget?",
@@ -69,12 +75,6 @@ const infographics = ref([
     title: "Transforming MDM for Enhanced Business Value",
     subTitle: "Do you have a legacy MDM and are seeking to migrate to advanced, cloud-based solutions that enhance your data management capabilities, help you understand your customers and their relationships, and mitigate risks?",
     text: "Specializing in the Fintech sector, we offer an expert service focused on the strategic development and utilization of Data Products. Unlike traditional approaches that primarily involve exporting all of data into Data Warehouses or Data Lakes, our service concentrates on aligning data with the specific operational needs and usage scenarios of our clients in the financial industry.<br/><br/>We understand that in the Fintech sector, the effective use of data products goes beyond mere data storage and access; it involves a nuanced understanding of how data can drive decision-making and operational efficiency. Our expertise lies in identifying and defining these Data Products in a way that they directly support the business objectives and processes of our clients."
-  },
-  {
-    icon: "#sv-db",
-    title: "Data Quality Profiling and Remediation",
-    subTitle: "",
-    text: "Additionally, our team specializes in developing automated data architectures and systems that ensure Data Quality. It's essential to highlight (and often overlooked) that good DQ is extremely critical for reliable analysis and informed decision-making.<br/><br/>We have developed a tool designed for DQ monitoring, detecting anomalies in raw data as they appear, and identifying data drifts in the critical KPIs."
   },
 ])
 </script>

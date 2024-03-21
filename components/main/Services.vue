@@ -16,7 +16,7 @@
       <p class="mainServices__text">
         Despite technological advancements, data remains a massive untapped resource in many organizations. A solid Data Management Strategy is critical for companies to execute on first, before investing in new tools.
         <br/><br/>
-        At The Data Cubes, we have over 20 years of experience in Data Management Strategy and MDM. Our impact-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for building an scaling a strong foundational strategy.
+        At The Data Cubes, we have over 20 years of experience in Data Management Strategy and MDM. Our impact-centric approach ensures that your data initiative delivers clear value. Whether you’re just getting started, expanding, or realigning your data journey, you can count on us for building and scaling a strong foundational strategy.
       </p>
       <CommonMediaCards class="mainServices__cards"/>
       <p class="mainServices__text">
