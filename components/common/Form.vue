@@ -97,7 +97,7 @@ const handleSubmit = async (event) => {
 };
 
 onMounted(() =>  grecaptcha.render('captcha', {
-  sitekey: '6Lded54pAAAAADk_3jrurXQ_iUGDUgBnS1_UKEYl',
+  sitekey: '6LfOvKUpAAAAADlFrojZ_Pl3wOSUM_WL8sG-0yxV',
 }));
 </script>
 

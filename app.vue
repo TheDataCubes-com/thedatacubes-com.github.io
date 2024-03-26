@@ -76,7 +76,7 @@ h2, h1 {
     color: #3D3D3D;
     text-align: center;
 }
-h3 {
+h3, h4 {
     font-weight: 600;
     font-size: 20px;
     color: #3D3D3D;
