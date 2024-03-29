@@ -31,7 +31,7 @@
           <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
         </div>
       </div>
-      <!-- <div class="partners__pointWrap">
+      <div class="partners__pointWrap">
         <div
           @click="() => setActive(3)"
           :class="['partners__text', {'text--selected': active === 3}]"
@@ -50,7 +50,7 @@
           <h3>Our Products</h3>
           <svg class="partners__arrow"><use xlink:href="#arrow" /></svg>
         </div>
-      </div> -->
+      </div>
     </div>
     <CommonCustomSwiper
       v-else
